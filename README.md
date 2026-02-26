@@ -1,7 +1,7 @@
 # ClaudeAutoPM
 
-[![NPM Version](https://img.shields.io/npm/v/claude-autopm)](https://www.npmjs.com/package/claude-autopm)
-[![NPM Downloads](https://img.shields.io/npm/dm/claude-autopm)](https://www.npmjs.com/package/claude-autopm)
+[![NPM Version](https://img.shields.io/npm/v/claude-open-autopm)](https://www.npmjs.com/package/claude-open-autopm)
+[![NPM Downloads](https://img.shields.io/npm/dm/claude-open-autopm)](https://www.npmjs.com/package/claude-open-autopm)
 [![MIT License](https://img.shields.io/badge/License-MIT-28a745)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/rafeekpro/ClaudeAutoPM?style=social)](https://github.com/rafeekpro/ClaudeAutoPM)
 
@@ -14,9 +14,9 @@ ClaudeAutoPM transforms your development workflow with intelligent automation, 4
 ## Quick Install
 
 ```bash
-npm install -g claude-autopm
+npm install -g claude-open-autopm
 cd your-project
-autopm install
+open-autopm install
 ```
 
 Choose your scenario during installation:
@@ -261,7 +261,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Links
 
 - **Documentation**: [rafeekpro.github.io/ClaudeAutoPM](https://rafeekpro.github.io/ClaudeAutoPM/)
-- **npm**: [npmjs.com/package/claude-autopm](https://www.npmjs.com/package/claude-autopm)
+- **npm**: [npmjs.com/package/claude-open-autopm](https://www.npmjs.com/package/claude-open-autopm)
 - **Issues**: [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md)
