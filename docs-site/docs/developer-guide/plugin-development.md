@@ -94,7 +94,6 @@ Create the corresponding agent file:
 ---
 name: example-expert
 description: Expert in example domain. Use for demo and tutorial tasks.
-tools: Glob, Grep, LS, Read, Edit, Write, Bash, Task, Agent
 model: inherit
 color: green
 ---

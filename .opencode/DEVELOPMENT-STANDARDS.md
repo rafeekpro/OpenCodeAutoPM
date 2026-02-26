@@ -74,7 +74,6 @@
 ---
 name: agent-name
 description: Use this agent for [purpose]. Expert in [technologies]. Specializes in [specializations].
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 model: inherit
 color: green
 ---

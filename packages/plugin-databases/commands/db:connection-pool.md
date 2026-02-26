@@ -9,7 +9,6 @@ tags:
   - performance
   - optimization
   - pgbouncer
-tools:
   - @postgresql-expert
   - @mongodb-expert
   - @redis-expert

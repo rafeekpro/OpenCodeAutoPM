@@ -9,7 +9,6 @@ tags:
   - testing
   - validation
   - quality-assurance
-tools:
   - agent-manager
   - test-runner
   - Read

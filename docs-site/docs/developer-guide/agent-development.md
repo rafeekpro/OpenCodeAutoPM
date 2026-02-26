@@ -33,7 +33,6 @@ Every agent must follow this structure:
 ---
 name: agent-name
 description: Use this agent for [purpose]. Expert in [technologies].
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 model: inherit
 color: green
 ---
@@ -73,7 +72,6 @@ The YAML frontmatter defines agent metadata:
 ---
 name: postgresql-expert
 description: Use this agent for PostgreSQL database design, optimization, and management including advanced features and performance tuning.
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 model: inherit
 color: blue
 ---
@@ -223,7 +221,6 @@ Select appropriate tools for your agent:
 ### Standard Tool Set
 
 ```yaml
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 ```
 
 ### Tool Descriptions
@@ -249,7 +246,6 @@ tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiE
 For read-only agents:
 
 ```yaml
-tools: Glob, Grep, LS, Read, WebSearch, Task
 ```
 
 ### Extended Tool Set
@@ -257,7 +253,6 @@ tools: Glob, Grep, LS, Read, WebSearch, Task
 For DevOps agents:
 
 ```yaml
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, BashOutput, KillBash, Task, Agent
 ```
 
 ## Agent Design Principles
@@ -328,7 +323,6 @@ Create flexible agents with parameters:
 ---
 name: python-backend-expert
 description: Expert in Python backend development with configurable framework support.
-tools: ...
 ---
 
 # Python Backend Expert
@@ -380,7 +374,6 @@ Here is a complete agent example:
 ---
 name: redis-expert
 description: Use this agent for Redis caching, pub/sub messaging, and data structure operations. Expert in Redis optimization and cluster management.
-tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 model: inherit
 color: red
 ---

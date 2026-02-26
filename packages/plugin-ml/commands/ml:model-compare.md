@@ -9,7 +9,6 @@ tags:
   - evaluation
   - mlflow
   - benchmarking
-tools:
   - python-backend-expert
   - Read
   - Write

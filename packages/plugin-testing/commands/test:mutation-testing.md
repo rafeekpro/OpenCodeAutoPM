@@ -9,7 +9,6 @@ tags:
   - quality-assurance
   - stryker
   - code-quality
-tools:
   - @e2e-test-engineer
   - @test-runner
   - Read

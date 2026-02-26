@@ -9,7 +9,6 @@ tags:
   - great-expectations
   - validation
   - testing
-tools:
   - Read
   - Write
   - Bash

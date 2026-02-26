@@ -11,7 +11,6 @@ tags:
   - kedro
   - airflow
   - data-quality
-tools:
   - @kedro-pipeline-expert
   - @airflow-orchestration-expert
   - Read

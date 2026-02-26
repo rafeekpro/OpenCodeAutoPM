@@ -10,7 +10,6 @@ tags:
   - data-catalog
   - governance
   - compliance
-tools:
   - @python-backend-expert
   - @airflow-orchestration-expert
   - Read

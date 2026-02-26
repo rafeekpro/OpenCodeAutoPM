@@ -10,7 +10,6 @@ tags:
   - ci-cd
   - reliability
   - test-health
-tools:
   - Bash
   - Read
   - Write

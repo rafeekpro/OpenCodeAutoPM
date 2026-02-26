@@ -155,7 +155,6 @@ Agents are specialized AI assistants with defined expertise areas and toolsets. 
 ---
 name: code-analyzer
 description: Analyze code changes for bugs
-tools: Glob, Grep, Read, Task, Agent
 ---
 
 # Code Analyzer

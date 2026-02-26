@@ -9,7 +9,6 @@ tags:
   - feature-selection
   - data-transformation
   - featuretools
-tools:
   - @python-backend-expert
   - Read
   - Write

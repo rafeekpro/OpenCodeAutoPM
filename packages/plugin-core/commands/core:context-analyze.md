@@ -9,7 +9,6 @@ tags:
   - optimization
   - mcp
   - performance
-tools:
   - @mcp-context-manager
   - @file-analyzer
   - Read

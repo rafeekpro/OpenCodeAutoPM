@@ -10,7 +10,6 @@ tags:
   - aws
   - gcp
   - azure
-tools:
   - @aws-cloud-architect
   - @gcp-cloud-architect
   - @azure-cloud-architect

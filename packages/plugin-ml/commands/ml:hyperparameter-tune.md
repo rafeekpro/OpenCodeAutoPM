@@ -9,7 +9,6 @@ tags:
   - optimization
   - optuna
   - ray-tune
-tools:
   - @python-backend-expert
   - Read
   - Write

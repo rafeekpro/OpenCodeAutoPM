@@ -291,7 +291,6 @@ Agents follow a standardized structure with frontmatter and markdown:
 ---
 name: code-analyzer
 description: Code analysis and bug detection
-tools: Glob, Grep, LS, Read, Task, Agent
 model: inherit
 color: blue
 ---
