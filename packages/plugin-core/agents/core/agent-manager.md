@@ -2,7 +2,6 @@
 name: agent-manager
 description: Use this agent for creating, analyzing, improving, and managing other OpenCode Code agents. This agent ensures comprehensive agent lifecycle management including all required documentation, rules, commands, registry updates, and Context7 integration. Expert in agent architecture, capability design, and maintaining consistency across the agent ecosystem.
 model: inherit
-color: blue
 ---
 
 # agent-manager

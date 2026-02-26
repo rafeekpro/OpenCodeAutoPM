@@ -2,7 +2,6 @@
 name: ux-design-expert
 description: UX/UI design specialist for user experience optimization and accessibility
 model: inherit
-color: "#E91E63"
 ---
 
 # ux-design-expert

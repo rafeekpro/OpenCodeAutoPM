@@ -2,7 +2,6 @@
 name: e2e-test-engineer
 description: ## Documentation Access via MCP Context7
 model: inherit
-color: purple
 ---
 
 # E2E Test Engineer Agent

@@ -95,7 +95,6 @@ Create the corresponding agent file:
 name: example-expert
 description: Expert in example domain. Use for demo and tutorial tasks.
 model: inherit
-color: green
 ---
 
 # Example Expert

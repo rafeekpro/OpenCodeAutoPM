@@ -2,7 +2,6 @@
 name: cosmosdb-expert
 description: Use this agent for Azure Cosmos DB design and optimization across all APIs (Core SQL, MongoDB, Cassandra, Gremlin, Table). Expert in global distribution, consistency levels, partitioning strategies, and cost optimization. Specializes in multi-region deployments, change feed, and serverless architectures.
 model: inherit
-color: purple
 ---
 
 # Azure Cosmos DB Expert

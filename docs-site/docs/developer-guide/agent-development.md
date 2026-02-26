@@ -34,7 +34,6 @@ Every agent must follow this structure:
 name: agent-name
 description: Use this agent for [purpose]. Expert in [technologies].
 model: inherit
-color: green
 ---
 
 # Agent Name
@@ -73,7 +72,6 @@ The YAML frontmatter defines agent metadata:
 name: postgresql-expert
 description: Use this agent for PostgreSQL database design, optimization, and management including advanced features and performance tuning.
 model: inherit
-color: blue
 ---
 ```
 
@@ -375,7 +373,6 @@ Here is a complete agent example:
 name: redis-expert
 description: Use this agent for Redis caching, pub/sub messaging, and data structure operations. Expert in Redis optimization and cluster management.
 model: inherit
-color: red
 ---
 
 # Redis Expert

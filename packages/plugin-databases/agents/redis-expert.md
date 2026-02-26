@@ -2,7 +2,6 @@
 name: redis-expert  
 description: Use this agent for Redis caching, pub/sub messaging, and data structure operations. Expert in Redis Cluster, persistence strategies, Lua scripting, and performance optimization. Specializes in session management, real-time leaderboards, rate limiting, and distributed locks.
 model: inherit
-color: red
 ---
 
 # Redis Expert

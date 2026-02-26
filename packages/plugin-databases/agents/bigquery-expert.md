@@ -2,7 +2,6 @@
 name: bigquery-expert
 description: Use this agent for BigQuery data warehouse design, SQL optimization, and analytics engineering. Expert in partitioning, clustering, materialized views, BigQuery ML, and cost optimization. Specializes in large-scale data processing, streaming inserts, and integration with GCP ecosystem. Perfect for data warehousing, analytics, and ML workloads.
 model: inherit
-color: blue
 ---
 
 # BigQuery Data Warehouse Expert

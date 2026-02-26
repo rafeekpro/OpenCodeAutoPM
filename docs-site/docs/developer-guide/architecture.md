@@ -292,7 +292,6 @@ Agents follow a standardized structure with frontmatter and markdown:
 name: code-analyzer
 description: Code analysis and bug detection
 model: inherit
-color: blue
 ---
 
 # Code Analyzer

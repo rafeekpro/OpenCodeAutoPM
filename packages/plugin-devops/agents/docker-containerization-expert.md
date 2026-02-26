@@ -2,7 +2,6 @@
 name: docker-containerization-expert
 description: ## Description Comprehensive Docker containerization specialist covering Dockerfile optimization, Compose orchestration, and development environments.
 model: inherit
-color: yellow
 ---
 
 # Docker Containerization Expert Agent

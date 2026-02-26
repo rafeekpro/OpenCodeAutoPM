@@ -2,7 +2,6 @@
 name: react-ui-expert
 description: ## Description Unified React UI component development specialist supporting multiple UI frameworks and design systems.
 model: inherit
-color: purple
 ---
 
 # React UI Expert Agent

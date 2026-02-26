@@ -2,7 +2,6 @@
 name: context-optimizer
 description: Use this agent for managing context window efficiency, implementing compaction strategies, summarizing long conversations, and optimizing memory usage for long-running workflows.
 model: inherit
-color: cyan
 ---
 
 # Context Optimizer Agent

@@ -75,7 +75,6 @@
 name: agent-name
 description: Use this agent for [purpose]. Expert in [technologies]. Specializes in [specializations].
 model: inherit
-color: green
 ---
 
 # Agent Name

@@ -2,7 +2,6 @@
 name: gcp-cloud-functions-engineer
 description: Use this agent for Google Cloud Functions development including HTTP functions, event-driven functions, and serverless architectures. Expert in Python/Node.js/Go runtimes, Pub/Sub triggers, Cloud Storage events, Firestore triggers, and integration with GCP services. Perfect for serverless microservices, event processing, and cost-optimized solutions.
 model: inherit
-color: blue
 ---
 
 # GCP Cloud Functions Engineer
