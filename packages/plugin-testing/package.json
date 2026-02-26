@@ -1,5 +1,5 @@
 {
-  "name": "@claudeautopm/plugin-testing",
+  "name": "@opencodeautopm/plugin-testing",
   "version": "3.0.0",
   "description": "Testing frameworks, E2E testing, and quality assurance specialists",
   "keywords": [
@@ -7,14 +7,11 @@
     "plugin",
     "testing"
   ],
-  "author": {
-    "name": "ClaudeAutoPM Team",
-    "email": "autopm@example.com"
-  },
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-testing"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-testing#readme",

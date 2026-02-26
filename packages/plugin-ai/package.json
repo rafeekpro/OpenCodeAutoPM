@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-ai",
+  "name": "@opencodeautopm/plugin-ai",
   "version": "2.1.0",
-  "description": "Complete AI/ML plugin with OpenAI, Gemini, LangChain agents, RAG systems, model deployment, prompt engineering, and MLOps patterns for ClaudeAutoPM",
+  "description": "Complete AI/ML plugin with OpenAI, Gemini, LangChain agents, RAG systems, model deployment, prompt engineering, and MLOps patterns for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
   "keywords": [
@@ -29,14 +29,11 @@
     "lint:python": "find scripts/examples -name '*.py' -exec python3 -m py_compile {} \\;",
     "lint:all": "npm run lint:python"
   },
-  "author": {
-    "name": "ClaudeAutoPM Team",
-    "email": "autopm@example.com"
-  },
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-ai"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-ai#readme",
@@ -61,6 +58,6 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@claudeautopm/plugin-core": "^2.0.0"
+    "@opencodeautopm/plugin-core": "*"
   }
 }

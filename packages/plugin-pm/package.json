@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-pm",
+  "name": "@opencodeautopm/plugin-pm",
   "version": "2.1.1",
-  "description": "Complete project management plugin with PM workflows, epic management, issue tracking, and release automation for ClaudeAutoPM",
+  "description": "Complete project management plugin with PM workflows, epic management, issue tracking, and release automation for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
   "files": [
@@ -33,11 +33,11 @@
     "scrum",
     "kanban"
   ],
-  "author": "ClaudeAutoPM Team",
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-pm"
   },
   "bugs": {
@@ -48,7 +48,7 @@
     "node": ">=16.0.0"
   },
   "peerDependencies": {
-    "@claudeautopm/plugin-core": "^2.0.0"
+    "@opencodeautopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

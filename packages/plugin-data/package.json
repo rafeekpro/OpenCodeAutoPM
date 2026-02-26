@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-data",
+  "name": "@opencodeautopm/plugin-data",
   "version": "3.0.0",
-  "description": "Complete data engineering plugin with Airflow, Kedro, LangGraph, Kafka, dbt, pandas experts, data quality rules, and example scripts for ClaudeAutoPM",
+  "description": "Complete data engineering plugin with Airflow, Kedro, LangGraph, Kafka, dbt, pandas experts, data quality rules, and example scripts for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
   "keywords": [
@@ -29,14 +29,11 @@
     "lint:sql": "echo 'SQL linting not configured'",
     "lint:all": "npm run lint:python && npm run lint:sql"
   },
-  "author": {
-    "name": "ClaudeAutoPM Team",
-    "email": "autopm@example.com"
-  },
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-data"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-data#readme",
@@ -61,6 +58,6 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@claudeautopm/plugin-core": "^2.0.0"
+    "@opencodeautopm/plugin-core": "*"
   }
 }

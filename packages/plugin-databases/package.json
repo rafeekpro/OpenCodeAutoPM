@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-databases",
+  "name": "@opencodeautopm/plugin-databases",
   "version": "3.0.0",
-  "description": "Complete database plugin with PostgreSQL, MongoDB, Redis, BigQuery, and Cosmos DB experts, database rules, and optimization scripts for ClaudeAutoPM",
+  "description": "Complete database plugin with PostgreSQL, MongoDB, Redis, BigQuery, and Cosmos DB experts, database rules, and optimization scripts for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
   "files": [
@@ -34,14 +34,11 @@
     "optimization",
     "performance"
   ],
-  "author": {
-    "name": "ClaudeAutoPM Team",
-    "email": "autopm@example.com"
-  },
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-databases"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-databases#readme",
@@ -53,7 +50,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@claudeautopm/plugin-core": "^2.0.0"
+    "@opencodeautopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-core",
+  "name": "@opencodeautopm/plugin-core",
   "version": "3.0.0",
-  "description": "Core framework functionality for ClaudeAutoPM - universal agents, rules, hooks, and utilities",
+  "description": "Core framework functionality for OpenCodeAutoPM - universal agents, rules, hooks, and utilities",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -20,11 +20,11 @@
     "context7",
     "automation"
   ],
-  "author": "ClaudeAutoPM Team",
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-core"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM#readme",

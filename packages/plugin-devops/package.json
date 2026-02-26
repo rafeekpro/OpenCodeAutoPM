@@ -1,7 +1,7 @@
 {
-  "name": "@claudeautopm/plugin-devops",
+  "name": "@opencodeautopm/plugin-devops",
   "version": "3.0.0",
-  "description": "Complete DevOps plugin with agents, commands, rules, and scripts for CI/CD, Docker, GitHub, observability, and infrastructure automation for ClaudeAutoPM",
+  "description": "Complete DevOps plugin with agents, commands, rules, and scripts for CI/CD, Docker, GitHub, observability, and infrastructure automation for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
   "files": [
@@ -50,14 +50,11 @@
     "containers",
     "automation"
   ],
-  "author": {
-    "name": "ClaudeAutoPM Team",
-    "email": "autopm@example.com"
-  },
+  "author": "OpenCodeAutoPM Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git",
     "directory": "packages/plugin-devops"
   },
   "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-devops#readme",
@@ -69,7 +66,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@claudeautopm/plugin-core": "^2.0.0"
+    "@opencodeautopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

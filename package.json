@@ -1,7 +1,7 @@
 {
-  "name": "claude-autopm",
+  "name": "opencode-autopm",
   "version": "3.6.0",
-  "description": "Autonomous Project Management Framework for Claude Code - Advanced AI-powered development automation",
+  "description": "Autonomous Project Management Framework for OpenCode - Advanced AI-powered development automation",
   "main": "bin/autopm.js",
   "workspaces": [
     "packages/*"
@@ -11,7 +11,7 @@
     "autopm-poc": "./bin/autopm-poc.js"
   },
   "scripts": {
-    "postinstall": "echo '🎉 ClaudeAutoPM installed! Run: autopm --help'",
+    "postinstall": "echo '🎉 OpenCodeAutoPM installed! Run: autopm --help'",
     "test:old": "node scripts/test.js",
     "test": "jest --config jest.config.quick.js --forceExit",
     "test:full": "jest --config jest.config.clean.js --forceExit",
@@ -63,9 +63,9 @@
     "test:e2e:legacy": "node --test test/e2e/*.test.js",
     "test:poc": "jest --config jest.config.poc.js",
     "setup:hooks": "bash scripts/setup-hooks.sh",
-    "lint": "markdownlint *.md .claude/**/*.md install/*.md",
-    "lint:fix": "markdownlint --fix *.md .claude/**/*.md install/*.md",
-    "format": "prettier --write *.md .claude/**/*.md install/*.md",
+    "lint": "markdownlint *.md .opencode/**/*.md install/*.md",
+    "lint:fix": "markdownlint --fix *.md .opencode/**/*.md install/*.md",
+    "format": "prettier --write *.md .opencode/**/*.md install/*.md",
     "validate": "npm run lint && npm run test",
     "prepublishOnly": "echo 'Skipping validation for first publish'",
     "pm:maintain": "node scripts/self-maintenance.js all",
@@ -80,8 +80,8 @@
   "keywords": [
     "ai",
     "automation",
-    "claude",
-    "claude-code",
+    "opencode",
+    "opencode",
     "project-management",
     "development-tools",
     "devops",
@@ -96,17 +96,17 @@
     "productivity"
   ],
   "author": {
-    "name": "ClaudeAutoPM Team",
+    "name": "OpenCodeAutoPM Team",
     "email": "autopm@example.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git"
+    "url": "git+https://github.com/rafeekpro/OpenCodeAutoPM.git"
   },
-  "homepage": "https://github.com/rafeekpro/ClaudeAutoPM#readme",
+  "homepage": "https://github.com/rafeekpro/OpenCodeAutoPM#readme",
   "bugs": {
-    "url": "https://github.com/rafeekpro/ClaudeAutoPM/issues"
+    "url": "https://github.com/rafeekpro/OpenCodeAutoPM/issues"
   },
   "engines": {
     "node": ">=16.0.0",
@@ -178,9 +178,9 @@
   },
   "config": {
     "autopm": {
-      "defaultTemplate": "https://github.com/rafeekpro/ClaudeAutoPM.git",
-      "configDir": ".claude",
-      "envFile": ".claude/.env"
+      "defaultTemplate": "https://github.com/rafeekpro/OpenCodeAutoPM.git",
+      "configDir": ".opencode",
+      "envFile": ".opencode/.env"
     }
   }
 }
