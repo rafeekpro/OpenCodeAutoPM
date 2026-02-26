@@ -16,7 +16,7 @@ List Tasks from User Story or across the project.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>

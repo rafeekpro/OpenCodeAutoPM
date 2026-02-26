@@ -10,7 +10,7 @@
 function displayHelp() {
   const helpContent = `
 
-📚 Claude Code PM - Project Management System
+📚 OpenCode Code PM - Project Management System
 =============================================
 
 🎯 Quick Start Workflow

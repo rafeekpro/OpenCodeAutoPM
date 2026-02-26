@@ -56,7 +56,7 @@ Closed Bugs (60+ days old):
 Total: 40 items (freeing ~2GB cache)
 
 Actions:
-[1] Archive to .claude/azure/archive/2025-01.json
+[1] Archive to .opencode/azure/archive/2025-01.json
 [2] Delete from local cache only
 [3] Delete from Azure DevOps (requires confirmation)
 [4] Skip cleanup

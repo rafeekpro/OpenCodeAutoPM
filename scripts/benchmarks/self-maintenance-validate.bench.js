@@ -97,7 +97,7 @@ async function benchmarkFileScan(iterations = 10) {
   };
 
   const projectRoot = path.join(__dirname, '../..');
-  const agentsDir = path.join(projectRoot, 'autopm/.claude/agents');
+  const agentsDir = path.join(projectRoot, 'autopm/.opencode/agents');
 
   // Sequential file scanning
   for (let i = 0; i < iterations; i++) {

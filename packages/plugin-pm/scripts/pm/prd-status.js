@@ -10,7 +10,7 @@ const path = require('path');
 
 class PRDStatus {
   constructor() {
-    this.prdsDir = path.join(process.cwd(), '.claude', 'prds');
+    this.prdsDir = path.join(process.cwd(), '.opencode', 'prds');
   }
 
   getPRDFiles() {

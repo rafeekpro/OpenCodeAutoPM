@@ -3,10 +3,10 @@
 /**
  * Pre-Action Agent Reminder Hook
  *
- * Reminds Claude to use specialized agents BEFORE performing tasks.
+ * Reminds OpenCode to use specialized agents BEFORE performing tasks.
  * This hook analyzes the user's request and suggests appropriate agents.
  *
- * IMPORTANT: This is a REMINDER, not a blocker. Claude can proceed,
+ * IMPORTANT: This is a REMINDER, not a blocker. OpenCode can proceed,
  * but should consider using agents for non-trivial tasks.
  */
 

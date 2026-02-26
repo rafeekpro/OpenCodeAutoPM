@@ -1,13 +1,13 @@
 # @claudeautopm/plugin-pm
 
-> **Complete Project Management Plugin for ClaudeAutoPM Framework**
+> **Complete Project Management Plugin for OpenCodeAutoPM Framework**
 
 [![npm version](https://img.shields.io/npm/v/@claudeautopm/plugin-pm.svg)](https://www.npmjs.com/package/@claudeautopm/plugin-pm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📋 Overview
 
-`@claudeautopm/plugin-pm` provides comprehensive project management capabilities for the ClaudeAutoPM framework. This plugin includes complete workflows for epic management, issue tracking, GitHub synchronization, PRD (Product Requirements Document) management, release automation, and project analytics.
+`@claudeautopm/plugin-pm` provides comprehensive project management capabilities for the OpenCodeAutoPM framework. This plugin includes complete workflows for epic management, issue tracking, GitHub synchronization, PRD (Product Requirements Document) management, release automation, and project analytics.
 
 ### Package Information
 
@@ -310,7 +310,7 @@ This plugin requires `plugin-core` for:
 
 ## 🔧 Configuration
 
-The plugin integrates seamlessly with ClaudeAutoPM's plugin system. All PM scripts are automatically registered and available after installation.
+The plugin integrates seamlessly with OpenCodeAutoPM's plugin system. All PM scripts are automatically registered and available after installation.
 
 ### Plugin Metadata
 
@@ -338,31 +338,31 @@ The plugin integrates seamlessly with ClaudeAutoPM's plugin system. All PM scrip
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read the [Contributing Guide](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/CONTRIBUTING.md).
+Contributions are welcome! Please read the [Contributing Guide](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/CONTRIBUTING.md).
 
 ---
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ---
 
 ## 🔗 Links
 
-- **Homepage:** https://github.com/rafeekpro/ClaudeAutoPM
-- **Issues:** https://github.com/rafeekpro/ClaudeAutoPM/issues
+- **Homepage:** https://github.com/rafeekpro/OpenCodeAutoPM
+- **Issues:** https://github.com/rafeekpro/OpenCodeAutoPM/issues
 - **NPM:** https://www.npmjs.com/package/@claudeautopm/plugin-pm
-- **Documentation:** https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-pm
+- **Documentation:** https://github.com/rafeekpro/OpenCodeAutoPM/tree/main/packages/plugin-pm
 
 ---
 
 ## 🎯 Compatibility
 
 - **Node.js:** >= 16.0.0
-- **ClaudeAutoPM:** >= 3.0.0
+- **OpenCodeAutoPM:** >= 3.0.0
 - **Plugin Core:** ^2.0.0
 
 ---
 
-**Made with ❤️ by the ClaudeAutoPM Team**
+**Made with ❤️ by the OpenCodeAutoPM Team**

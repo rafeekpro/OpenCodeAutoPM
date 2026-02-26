@@ -20,13 +20,13 @@ Begin work on a GitHub issue with parallel agents based on work stream analysis.
    If it fails: "❌ Cannot access issue #$ARGUMENTS. Check number or run: gh auth login"
 
 2. **Find local task file:**
-   - First check if `.claude/epics/*/$ARGUMENTS.md` exists (new naming)
+   - First check if `.opencode/epics/*/$ARGUMENTS.md` exists (new naming)
    - If not found, search for file containing `github:.*issues/$ARGUMENTS` in frontmatter (old naming)
    - If not found: "❌ No local task for issue #$ARGUMENTS. This issue may have been created outside the PM system."
 
 3. **Check for analysis (when NOT using --analyze flag):**
    - If user didn't use `--analyze` flag, check if analysis file exists
-   - Analysis file location: `.claude/epics/{epic_name}/$ARGUMENTS-analysis.md`
+   - Analysis file location: `.opencode/epics/{epic_name}/$ARGUMENTS-analysis.md`
    - If no analysis AND no `--analyze` flag: Stop and suggest using `--analyze` flag
 
 ## Required Documentation Access
@@ -61,7 +61,7 @@ Before ANY coding work begins, you MUST follow the RED-GREEN-REFACTOR cycle:
 - All agents must start with test creation
 - No implementation without tests first
 
-See `.claude/rules/tdd.enforcement.md` for complete TDD requirements.
+See `.opencode/rules/tdd.enforcement.md` for complete TDD requirements.
 
 ---
 
@@ -105,7 +105,7 @@ git pull origin epic/$epic_name
 
 ### 2. Read Analysis
 
-Read `.claude/epics/{epic_name}/$ARGUMENTS-analysis.md`:
+Read `.opencode/epics/{epic_name}/$ARGUMENTS-analysis.md`:
 - Parse parallel streams
 - Identify which can start immediately
 - Note dependencies between streams
@@ -116,7 +116,7 @@ Get current datetime: `date -u +"%Y-%m-%dT%H:%M:%SZ"`
 
 Create workspace structure:
 ` ``bash
-mkdir -p .claude/epics/{epic_name}/updates/$ARGUMENTS
+mkdir -p .opencode/epics/{epic_name}/updates/$ARGUMENTS
 ` ``
 
 Update task file frontmatter `updated` field with current datetime.
@@ -125,7 +125,7 @@ Update task file frontmatter `updated` field with current datetime.
 
 For each stream that can start immediately:
 
-Create `.claude/epics/{epic_name}/updates/$ARGUMENTS/stream-{X}.md`:
+Create `.opencode/epics/{epic_name}/updates/$ARGUMENTS/stream-{X}.md`:
 ` ``markdown
 ---
 issue: $ARGUMENTS
@@ -165,7 +165,7 @@ Task:
     - Every bug fix starts with a test that reproduces it
     - Every feature starts with failing acceptance tests
 
-    See `.claude/rules/tdd.enforcement.md` for complete requirements.
+    See `.opencode/rules/tdd.enforcement.md` for complete requirements.
 
     ---
 
@@ -173,7 +173,7 @@ Task:
     - All commands (dependency installation, tests, running the application) MUST be executed inside a Docker container using `docker compose run --rm <service_name> <command>`.
     - DO NOT run `npm`, `pip`, `pytest`, etc., directly on the host.
     - The source code is mounted as a VOLUME, so file changes will be immediately visible in the container (hot-reloading).
-    - Full rules can be found in `.claude/rules/docker-first-development.md`.
+    - Full rules can be found in `.opencode/rules/docker-first-development.md`.
 
     ---
 
@@ -187,12 +187,12 @@ Task:
     - Work to complete: {stream_description}
     
     Requirements:
-    1. Read full task from: .claude/epics/{epic_name}/{task_file}
+    1. Read full task from: .opencode/epics/{epic_name}/{task_file}
     2. **START WITH TESTS**: Write failing tests BEFORE any implementation
     3. Work ONLY in your assigned files
     4. Follow TDD cycle: RED (test fails) → GREEN (minimal code) → REFACTOR (cleanup)
     5. Commit frequently with format: "Issue #$ARGUMENTS: {specific change}"
-    6. Update progress in: .claude/epics/{epic_name}/updates/$ARGUMENTS/stream-{X}.md
+    6. Update progress in: .opencode/epics/{epic_name}/updates/$ARGUMENTS/stream-{X}.md
     7. Follow coordination rules in /rules/agent-coordination.md
     
     If you need to modify files outside your scope:
@@ -224,7 +224,7 @@ Launching {count} parallel agents:
   Stream C: {name} - Waiting (depends on A)
 
 Progress tracking:
-  .claude/epics/{epic_name}/updates/$ARGUMENTS/
+  .opencode/epics/{epic_name}/updates/$ARGUMENTS/
 
 ⚠️  TDD CHECKLIST - All agents MUST follow:
   1. ❌ RED: Write failing test

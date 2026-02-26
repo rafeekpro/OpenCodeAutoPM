@@ -239,7 +239,7 @@ When invoked by Azure DevOps commands, follow this pattern:
 1. **Environment Setup**: Check for required environment variables (AZURE_DEVOPS_PAT, AZURE_DEVOPS_ORG, AZURE_DEVOPS_PROJECT)
 2. **Authentication**: Establish API connection using PAT token
 3. **Operation Execution**: Perform the requested Azure DevOps operations
-4. **Local Documentation**: Update local tracking files in `.claude/azure/`
+4. **Local Documentation**: Update local tracking files in `.opencode/azure/`
 5. **Status Reporting**: Provide structured output with URLs and next steps
 
 **Standard Output Format:**

@@ -2,7 +2,7 @@
 # Disable an MCP server in the current project
 
 if [ -z "$1" ]; then
-    echo "Usage: autopm mcp disable <server-name>"
+    echo "Usage: open-autopm mcp disable <server-name>"
     exit 1
 fi
 

@@ -36,22 +36,22 @@ async function validate() {
   addMessage('📁 Directory Structure:');
 
   try {
-    if (fs.existsSync('.claude') && fs.statSync('.claude').isDirectory()) {
-      addMessage('  ✅ .claude directory exists');
+    if (fs.existsSync('.opencode') && fs.statSync('.opencode').isDirectory()) {
+      addMessage('  ✅ .opencode directory exists');
     } else {
-      addMessage('  ❌ .claude directory missing');
+      addMessage('  ❌ .opencode directory missing');
       result.errors++;
     }
   } catch (err) {
-    addMessage('  ❌ .claude directory missing');
+    addMessage('  ❌ .opencode directory missing');
     result.errors++;
   }
 
   // Check optional directories
   const optionalDirs = [
-    { path: '.claude/prds', name: 'PRDs directory' },
-    { path: '.claude/epics', name: 'Epics directory' },
-    { path: '.claude/rules', name: 'Rules directory' }
+    { path: '.opencode/prds', name: 'PRDs directory' },
+    { path: '.opencode/epics', name: 'Epics directory' },
+    { path: '.opencode/rules', name: 'Rules directory' }
   ];
 
   for (const dir of optionalDirs) {
@@ -75,13 +75,13 @@ async function validate() {
 
   // Check epics have epic.md files
   try {
-    if (fs.existsSync('.claude/epics')) {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    if (fs.existsSync('.opencode/epics')) {
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
 
       for (const epicDir of epicDirs) {
-        const epicPath = path.join('.claude/epics', epicDir);
+        const epicPath = path.join('.opencode/epics', epicDir);
         const epicFilePath = path.join(epicPath, 'epic.md');
 
         if (!fs.existsSync(epicFilePath)) {
@@ -108,20 +108,20 @@ async function validate() {
 
         if (item.isDirectory()) {
           // Skip epic directories
-          if (fullPath.includes('.claude/epics/')) {
+          if (fullPath.includes('.opencode/epics/')) {
             continue;
           }
           findOrphanedFiles(fullPath);
         } else if (item.isFile() && /^[0-9].*\.md$/.test(item.name)) {
           // Check if this is a numbered task file outside of epics
-          if (!fullPath.includes('.claude/epics/')) {
+          if (!fullPath.includes('.opencode/epics/')) {
             orphanedFiles.push(fullPath);
           }
         }
       }
     }
 
-    findOrphanedFiles('.claude');
+    findOrphanedFiles('.opencode');
 
     if (orphanedFiles.length > 0) {
       addMessage(`  ⚠️ Found ${orphanedFiles.length} orphaned task files`);
@@ -138,13 +138,13 @@ async function validate() {
   let hasValidReferences = true;
 
   try {
-    if (fs.existsSync('.claude/epics')) {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    if (fs.existsSync('.opencode/epics')) {
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
 
       for (const epicDir of epicDirs) {
-        const epicPath = path.join('.claude/epics', epicDir);
+        const epicPath = path.join('.opencode/epics', epicDir);
 
         if (!fs.existsSync(epicPath)) continue;
 
@@ -212,7 +212,7 @@ async function validate() {
           checkFrontmatter(fullPath, relPath);
         } else if (item.isFile() && item.name.endsWith('.md')) {
           // Only check files in epics and prds directories
-          if (fullPath.includes('.claude/epics/') || fullPath.includes('.claude/prds/')) {
+          if (fullPath.includes('.opencode/epics/') || fullPath.includes('.opencode/prds/')) {
             try {
               const content = fs.readFileSync(fullPath, 'utf8');
 
@@ -228,7 +228,7 @@ async function validate() {
       }
     }
 
-    checkFrontmatter('.claude');
+    checkFrontmatter('.opencode');
 
     if (invalidFrontmatter === 0) {
       addMessage('  ✅ All files have frontmatter');

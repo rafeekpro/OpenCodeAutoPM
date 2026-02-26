@@ -147,10 +147,10 @@ git commit -m "fix: issue #123"
 **Without /clear:**
 ```
 Issue #123: Add user authentication
-Claude remembers: "We're working on auth..."
+OpenCode remembers: "We're working on auth..."
 
 Issue #124: Fix database query bug
-Claude thinks: "This must be related to auth system from #123"
+OpenCode thinks: "This must be related to auth system from #123"
 # WRONG ASSUMPTION - wastes time debugging wrong area
 ```
 
@@ -160,7 +160,7 @@ Issue #123: Add user authentication
 /clear
 
 Issue #124: Fix database query bug
-Claude thinks: "Fresh start, what's the actual issue?"
+OpenCode thinks: "Fresh start, what's the actual issue?"
 # CORRECT - focuses on actual problem
 ```
 
@@ -212,7 +212,7 @@ Check context size with:
 ```bash
 # If conversation has 20+ messages
 # Or if responses become slow
-# Or if Claude seems confused
+# Or if OpenCode seems confused
 
 # CLEAR IT
 /clear
@@ -235,7 +235,7 @@ Check context size with:
 # After commit that closes issue
 # Creates: .opencode/.clear-reminder
 
-# Next Claude interaction checks:
+# Next OpenCode interaction checks:
 if [ -f .opencode/.clear-reminder ]; then
   echo "⚠️  REMINDER: Run /clear before continuing"
 fi

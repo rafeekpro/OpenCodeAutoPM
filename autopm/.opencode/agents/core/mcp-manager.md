@@ -240,7 +240,7 @@ Track:
 Ensure compatibility between:
 - MCP protocol versions
 - Server package versions
-- ClaudeAutoPM framework version
+- OpenCodeAutoPM framework version
 - Agent dependencies
 
 ## Related Agents

@@ -8,7 +8,7 @@ category: config
 
 ## /config:toggle-features
 
-This command allows you to toggle development features on/off in your ClaudeAutoPM project.
+This command allows you to toggle development features on/off in your OpenCodeAutoPM project.
 
 ### Usage
 
@@ -98,7 +98,7 @@ This command integrates with:
 - GitHub Actions workflows (conditional job execution)
 - Docker development environment setup
 - Kubernetes manifest validation
-- ClaudeAutoPM agent behavior
+- OpenCodeAutoPM agent behavior
 
 ### Related Commands
 

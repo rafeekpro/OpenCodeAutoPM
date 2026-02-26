@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * AutoPM POC - CLI for testing Claude API integration
+ * AutoPM POC - CLI for testing OpenCode API integration
  *
  * Usage:
- *   autopm-poc parse <prd-file>       - Parse PRD with streaming output
- *   autopm-poc parse <prd-file> --json - Parse PRD and output JSON
- *   autopm-poc summarize <prd-file>   - Get one-paragraph summary
- *   autopm-poc test                   - Test API connection
+ *   open-autopm-poc parse <prd-file>       - Parse PRD with streaming output
+ *   open-autopm-poc parse <prd-file> --json - Parse PRD and output JSON
+ *   open-autopm-poc summarize <prd-file>   - Get one-paragraph summary
+ *   open-autopm-poc test                   - Test API connection
  *
  * Environment:
  *   ANTHROPIC_API_KEY - Required for all operations
@@ -25,17 +25,17 @@ const ServiceFactory = require('../lib/utils/ServiceFactory');
  */
 function printUsage() {
   console.log(`
-AutoPM POC - Claude API Integration Demo (Streaming Support)
+AutoPM POC - OpenCode API Integration Demo (Streaming Support)
 =============================================================
 
 Usage:
-  autopm-poc parse <prd-file>          Parse PRD with streaming AI analysis
-  autopm-poc extract-epics <prd-file>  Extract epics from PRD (streaming)
-  autopm-poc summarize <prd-file>      Get PRD summary (streaming)
-  autopm-poc decompose <epic-file>     Decompose epic into tasks (streaming)
-  autopm-poc analyze <prd-file>        Epic-level PRD analysis (streaming)
-  autopm-poc test                      Test API connection
-  autopm-poc help                      Show this help message
+  open-autopm-poc parse <prd-file>          Parse PRD with streaming AI analysis
+  open-autopm-poc extract-epics <prd-file>  Extract epics from PRD (streaming)
+  open-autopm-poc summarize <prd-file>      Get PRD summary (streaming)
+  open-autopm-poc decompose <epic-file>     Decompose epic into tasks (streaming)
+  open-autopm-poc analyze <prd-file>        Epic-level PRD analysis (streaming)
+  open-autopm-poc test                      Test API connection
+  open-autopm-poc help                      Show this help message
 
 Environment Variables:
   ANTHROPIC_API_KEY                    Required - Your Anthropic API key
@@ -43,11 +43,11 @@ Environment Variables:
 
 Examples:
   export ANTHROPIC_API_KEY="sk-ant-..."
-  autopm-poc parse examples/sample-prd.md
-  autopm-poc extract-epics examples/sample-prd.md
-  autopm-poc summarize examples/sample-prd.md
-  autopm-poc decompose .claude/epics/user-auth.md
-  autopm-poc analyze examples/sample-prd.md
+  open-autopm-poc parse examples/sample-prd.md
+  open-autopm-poc extract-epics examples/sample-prd.md
+  open-autopm-poc summarize examples/sample-prd.md
+  open-autopm-poc decompose .opencode/epics/user-auth.md
+  open-autopm-poc analyze examples/sample-prd.md
 `);
 }
 
@@ -76,7 +76,7 @@ async function testConnection(provider) {
  * Parse PRD with streaming output
  */
 async function parsePRDStream(service, content) {
-  console.log('🔍 Analyzing PRD with Claude AI...\n');
+  console.log('🔍 Analyzing PRD with OpenCode AI...\n');
   console.log('📝 Streaming response:\n');
   console.log('─'.repeat(60));
 
@@ -100,7 +100,7 @@ async function parsePRDStream(service, content) {
  * Extract epics from PRD with streaming output
  */
 async function extractEpicsStream(service, content) {
-  console.log('🔍 Extracting epics from PRD with Claude AI...\n');
+  console.log('🔍 Extracting epics from PRD with OpenCode AI...\n');
   console.log('📝 Streaming response:\n');
   console.log('─'.repeat(60));
 
@@ -124,7 +124,7 @@ async function extractEpicsStream(service, content) {
  * Summarize PRD with streaming output
  */
 async function summarizePRDStream(service, content) {
-  console.log('🔍 Summarizing PRD with Claude AI...\n');
+  console.log('🔍 Summarizing PRD with OpenCode AI...\n');
   console.log('📝 Streaming response:\n');
   console.log('─'.repeat(60));
 
@@ -148,7 +148,7 @@ async function summarizePRDStream(service, content) {
  * Decompose epic into tasks with streaming output
  */
 async function decomposeEpicStream(epicService, content) {
-  console.log('🔍 Decomposing epic into tasks with Claude AI...\n');
+  console.log('🔍 Decomposing epic into tasks with OpenCode AI...\n');
   console.log('📝 Streaming response:\n');
   console.log('─'.repeat(60));
 
@@ -172,7 +172,7 @@ async function decomposeEpicStream(epicService, content) {
  * Analyze PRD for epic breakdown with streaming output
  */
 async function analyzePRDStream(epicService, content) {
-  console.log('🔍 Analyzing PRD for epic breakdown with Claude AI...\n');
+  console.log('🔍 Analyzing PRD for epic breakdown with OpenCode AI...\n');
   console.log('📝 Streaming response:\n');
   console.log('─'.repeat(60));
 
@@ -243,7 +243,7 @@ async function main() {
     if (!apiKey) {
       console.error('❌ Error: No API key found\n');
       console.error('Either:');
-      console.error('  1. Run: autopm config:init (recommended)');
+      console.error('  1. Run: open-autopm config:init (recommended)');
       console.error('     Then: export AUTOPM_MASTER_PASSWORD="your-password"');
       console.error('  2. Set: export ANTHROPIC_API_KEY="sk-ant-..."\n');
       process.exit(1);
@@ -267,7 +267,7 @@ async function main() {
 
     if (!file) {
       console.error(`❌ Error: PRD file required for '${command}' command\n`);
-      console.error(`Usage: autopm-poc ${command} <prd-file>\n`);
+      console.error(`Usage: open-autopm-poc ${command} <prd-file>\n`);
       process.exit(1);
     }
 
@@ -308,7 +308,7 @@ async function main() {
 
     if (!file) {
       console.error(`❌ Error: Epic file required for 'decompose' command\n`);
-      console.error(`Usage: autopm-poc decompose <epic-file>\n`);
+      console.error(`Usage: open-autopm-poc decompose <epic-file>\n`);
       process.exit(1);
     }
 

@@ -105,46 +105,46 @@ Below is a mapping showing equivalent commands between systems. Use the system t
 
 ```bash
 # User Story Management
-.claude/commands/azure/us-edit.md
-.claude/commands/azure/us-show.md
-.claude/commands/azure/us-sync.md
-.claude/commands/azure/us-close.md
+.opencode/commands/azure/us-edit.md
+.opencode/commands/azure/us-show.md
+.opencode/commands/azure/us-sync.md
+.opencode/commands/azure/us-close.md
 
 # Task Management
-.claude/commands/azure/task-edit.md
-.claude/commands/azure/task-show.md
-.claude/commands/azure/task-status.md
-.claude/commands/azure/task-sync.md
-.claude/commands/azure/task-reopen.md
-.claude/commands/azure/task-analyze.md
-.claude/commands/azure/task-new.md
+.opencode/commands/azure/task-edit.md
+.opencode/commands/azure/task-show.md
+.opencode/commands/azure/task-status.md
+.opencode/commands/azure/task-sync.md
+.opencode/commands/azure/task-reopen.md
+.opencode/commands/azure/task-analyze.md
+.opencode/commands/azure/task-new.md
 
 # Feature Management
-.claude/commands/azure/feature-new.md
-.claude/commands/azure/feature-list.md
-.claude/commands/azure/feature-show.md
-.claude/commands/azure/feature-edit.md
-.claude/commands/azure/feature-status.md
-.claude/commands/azure/feature-start.md
-.claude/commands/azure/feature-close.md
-.claude/commands/azure/feature-sync.md
-.claude/commands/azure/feature-merge.md
+.opencode/commands/azure/feature-new.md
+.opencode/commands/azure/feature-list.md
+.opencode/commands/azure/feature-show.md
+.opencode/commands/azure/feature-edit.md
+.opencode/commands/azure/feature-status.md
+.opencode/commands/azure/feature-start.md
+.opencode/commands/azure/feature-close.md
+.opencode/commands/azure/feature-sync.md
+.opencode/commands/azure/feature-merge.md
 
 # Sprint/Workflow
-.claude/commands/azure/sprint-status.md
-.claude/commands/azure/sprint-plan.md
-.claude/commands/azure/standup.md
-.claude/commands/azure/next-task.md
-.claude/commands/azure/active-work.md
-.claude/commands/azure/blocked-items.md
+.opencode/commands/azure/sprint-status.md
+.opencode/commands/azure/sprint-plan.md
+.opencode/commands/azure/standup.md
+.opencode/commands/azure/next-task.md
+.opencode/commands/azure/active-work.md
+.opencode/commands/azure/blocked-items.md
 
 # System
-.claude/commands/azure/init.md
-.claude/commands/azure/sync-all.md
-.claude/commands/azure/search.md
-.claude/commands/azure/validate.md
-.claude/commands/azure/clean.md
-.claude/commands/azure/help.md
+.opencode/commands/azure/init.md
+.opencode/commands/azure/sync-all.md
+.opencode/commands/azure/search.md
+.opencode/commands/azure/validate.md
+.opencode/commands/azure/clean.md
+.opencode/commands/azure/help.md
 ```
 
 ## Azure DevOps Work Item Hierarchy

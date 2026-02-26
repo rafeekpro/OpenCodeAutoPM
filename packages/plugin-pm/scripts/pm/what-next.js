@@ -77,8 +77,8 @@ async function analyzeProjectState() {
   };
 
   // Check for PRDs
-  if (fs.existsSync('.claude/prds')) {
-    const prdFiles = fs.readdirSync('.claude/prds')
+  if (fs.existsSync('.opencode/prds')) {
+    const prdFiles = fs.readdirSync('.opencode/prds')
       .filter(f => f.endsWith('.md') && !f.startsWith('.'));
     state.hasPRDs = prdFiles.length > 0;
     state.prdCount = prdFiles.length;
@@ -86,8 +86,8 @@ async function analyzeProjectState() {
   }
 
   // Check for epics
-  if (fs.existsSync('.claude/epics')) {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+  if (fs.existsSync('.opencode/epics')) {
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(d => d.isDirectory())
       .map(d => d.name);
 
@@ -98,7 +98,7 @@ async function analyzeProjectState() {
     // This prevents blocking when projects have many epics/tasks
     // Example: 10 epics × 50 tasks = 500 files processed in parallel
     const epicAnalysisPromises = epicDirs.map(epicName => {
-      const epicPath = path.join('.claude/epics', epicName);
+      const epicPath = path.join('.opencode/epics', epicName);
       return analyzeEpicAsync(epicPath, epicName)
         .catch(err => {
           logWarning(`Failed to analyze epic "${epicName}": ${err.message}`);
@@ -141,9 +141,9 @@ async function analyzeProjectState() {
   }
 
   // Check configuration
-  if (fs.existsSync('.claude/config.json')) {
+  if (fs.existsSync('.opencode/config.json')) {
     try {
-      const config = JSON.parse(fs.readFileSync('.claude/config.json', 'utf8'));
+      const config = JSON.parse(fs.readFileSync('.opencode/config.json', 'utf8'));
       state.hasConfig = true;
       state.provider = config.provider || null;
     } catch (err) {
@@ -427,7 +427,7 @@ function generateSuggestions(state) {
   if (epicsNeedingDecomposition.length > 0) {
     for (const epic of epicsNeedingDecomposition) {
       // Check if this is a complex epic that should be split
-      const epicContent = tryReadFile(path.join('.claude/epics', epic.name, 'epic.md'));
+      const epicContent = tryReadFile(path.join('.opencode/epics', epic.name, 'epic.md'));
       const complexityResult = detectEpicComplexity(epicContent, epic);
       const isComplex = complexityResult.isComplex;
 

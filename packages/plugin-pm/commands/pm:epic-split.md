@@ -60,7 +60,7 @@ This command analyzes a PRD and automatically splits it into multiple epics base
 ## Output Structure
 
 ```
-.claude/epics/<feature_name>/
+.opencode/epics/<feature_name>/
 ├── meta.yaml                    # Multi-epic metadata
 ├── 01-infrastructure/           # Epic 1
 │   └── epic.md
@@ -123,7 +123,7 @@ If the automatic split isn't perfect, you can:
 
 ## Instructions
 
-Run `node .claude/scripts/pm/epic-split.js $ARGUMENTS` using the Bash tool and show me the complete output.
+Run `node .opencode/scripts/pm/epic-split.js $ARGUMENTS` using the Bash tool and show me the complete output.
 
 - You MUST display the complete output.
 - DO NOT truncate.

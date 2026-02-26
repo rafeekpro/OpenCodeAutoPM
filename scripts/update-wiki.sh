@@ -7,11 +7,11 @@ set -e
 
 # Save original directory for reliable path handling
 PROJECT_ROOT=$(pwd)
-WIKI_REPO="https://github.com/rafeekpro/ClaudeAutoPM.wiki.git"
-WIKI_DIR="/tmp/ClaudeAutoPM-wiki"
+WIKI_REPO="https://github.com/rafeekpro/OpenCodeAutoPM.wiki.git"
+WIKI_DIR="/tmp/OpenCodeAutoPM-wiki"
 DOCS_DIR="docs/wiki"
 
-echo "📚 Updating ClaudeAutoPM Wiki..."
+echo "📚 Updating OpenCodeAutoPM Wiki..."
 
 # Clone or update wiki repository
 if [ -d "$WIKI_DIR" ]; then
@@ -34,7 +34,7 @@ if git status --porcelain | grep -q .; then
 
     # Configure git if needed
     git config user.email "autopm@example.com" 2>/dev/null || true
-    git config user.name "ClaudeAutoPM Bot" 2>/dev/null || true
+    git config user.name "OpenCodeAutoPM Bot" 2>/dev/null || true
 
     # Commit and push
     git add -A
@@ -49,5 +49,5 @@ fi
 cd "$PROJECT_ROOT"
 echo "🎉 Wiki update complete!"
 echo ""
-echo "View the wiki at: https://github.com/rafeekpro/ClaudeAutoPM/wiki"
-echo "Configuration Templates page: https://github.com/rafeekpro/ClaudeAutoPM/wiki/Configuration-Templates"
+echo "View the wiki at: https://github.com/rafeekpro/OpenCodeAutoPM/wiki"
+echo "Configuration Templates page: https://github.com/rafeekpro/OpenCodeAutoPM/wiki/Configuration-Templates"

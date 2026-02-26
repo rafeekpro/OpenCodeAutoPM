@@ -142,11 +142,11 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
 
     const prompt = `# 🤖 AI-Assisted CLAUDE.md Merge Instructions
 
-You are an expert in Claude Code configuration and project automation. Your task is to intelligently merge two CLAUDE.md configuration files while preserving user customizations and integrating framework updates.
+You are an expert in OpenCode Code configuration and project automation. Your task is to intelligently merge two CLAUDE.md configuration files while preserving user customizations and integrating framework updates.
 
 ## 📋 Merge Context
 
-**Scenario**: User has an existing CLAUDE.md with custom configurations and needs to integrate updates from the ClaudeAutoPM framework.
+**Scenario**: User has an existing CLAUDE.md with custom configurations and needs to integrate updates from the OpenCodeAutoPM framework.
 
 **Goal**: Create a unified CLAUDE.md that:
 - ✅ Preserves ALL user customizations and preferences

@@ -3,9 +3,9 @@
  * Template New - Create custom template
  *
  * Usage:
- *   autopm template:new prd my-custom-template
- *   autopm template:new epic my-sprint-template
- *   autopm template:new task my-task-template
+ *   open-autopm template:new prd my-custom-template
+ *   open-autopm template:new epic my-sprint-template
+ *   open-autopm template:new task my-task-template
  */
 
 const fs = require('fs');
@@ -19,7 +19,7 @@ try {
   TemplateEngine = require(path.join(process.cwd(), 'lib', 'template-engine'));
 } catch (err) {
   try {
-    // Try relative path from .claude/scripts/pm/ (during development)
+    // Try relative path from .opencode/scripts/pm/ (during development)
     TemplateEngine = require(path.join(__dirname, '..', '..', '..', '..', 'lib', 'template-engine'));
   } catch (err2) {
     // Fallback: try from AutoPM global installation
@@ -39,7 +39,7 @@ try {
       if (!npmRoot || !fs.existsSync(npmRoot)) {
         throw new Error('The npm global root directory could not be determined or does not exist: "' + npmRoot + '"');
       }
-      TemplateEngine = require(path.join(npmRoot, 'claude-autopm', 'lib', 'template-engine'));
+      TemplateEngine = require(path.join(npmRoot, 'open-autopm', 'lib', 'template-engine'));
     } catch (err3) {
       throw new Error('Cannot find template-engine module. Please ensure lib/ directory is installed. Details: ' + err3.message);
     }
@@ -264,7 +264,7 @@ estimated_hours: {{estimated_hours}}
     const typeDir = type === 'prd' ? 'prds' : type === 'epic' ? 'epics' : 'tasks';
     this.templateEngine.ensureTemplateDir(typeDir);
 
-    const templatePath = path.join('.claude', 'templates', typeDir, `${name}.md`);
+    const templatePath = path.join('.opencode', 'templates', typeDir, `${name}.md`);
 
     // Check if template already exists
     if (fs.existsSync(templatePath)) {
@@ -289,7 +289,7 @@ estimated_hours: {{estimated_hours}}
     console.log(`\n🛠️  Next Steps:`);
     console.log(`   1. Edit template: nano ${templatePath}`);
     console.log(`   2. Add custom variables and sections`);
-    console.log(`   3. Test template: autopm ${type}:new --template ${name} "Test"`);
+    console.log(`   3. Test template: open-autopm ${type}:new --template ${name} "Test"`);
 
     // Try to open in editor
     this.openInEditor(templatePath);
@@ -340,11 +340,11 @@ estimated_hours: {{estimated_hours}}
 
   run(args) {
     if (args.length < 2) {
-      console.error('❌ Usage: autopm template:new <type> <name>');
+      console.error('❌ Usage: open-autopm template:new <type> <name>');
       console.log('\nExamples:');
-      console.log('  autopm template:new prd my-custom-prd');
-      console.log('  autopm template:new epic my-sprint');
-      console.log('  autopm template:new task my-development-task');
+      console.log('  open-autopm template:new prd my-custom-prd');
+      console.log('  open-autopm template:new epic my-sprint');
+      console.log('  open-autopm template:new task my-development-task');
       console.log('\nTypes: prd, epic, task');
       process.exit(1);
     }

@@ -1,6 +1,6 @@
 ---
 name: agent-manager
-description: Use this agent for creating, analyzing, improving, and managing other Claude Code agents. This agent ensures comprehensive agent lifecycle management including all required documentation, rules, commands, registry updates, and Context7 integration. Expert in agent architecture, capability design, and maintaining consistency across the agent ecosystem.
+description: Use this agent for creating, analyzing, improving, and managing other OpenCode Code agents. This agent ensures comprehensive agent lifecycle management including all required documentation, rules, commands, registry updates, and Context7 integration. Expert in agent architecture, capability design, and maintaining consistency across the agent ecosystem.
 tools: Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Edit, Write, MultiEdit, Bash, Task, Agent
 model: inherit
 color: blue
@@ -18,7 +18,7 @@ color: blue
 5. **Tests as documentation** - Tests should clearly document expected behavior
 
 
-Use this agent for creating, analyzing, improving, and managing other Claude Code agents. This agent ensures comprehensive agent lifecycle management including all required documentation, rules, commands, registry updates, and Context7 integration. Expert in agent architecture, capability design, and maintaining consistency across the agent ecosystem.
+Use this agent for creating, analyzing, improving, and managing other OpenCode Code agents. This agent ensures comprehensive agent lifecycle management including all required documentation, rules, commands, registry updates, and Context7 integration. Expert in agent architecture, capability design, and maintaining consistency across the agent ecosystem.
 
 ## Documentation Access via MCP Context7
 
@@ -45,11 +45,11 @@ Access agent development and management documentation:
    - Plan command patterns and tool usage
 
 2. **Implementation Checklist**
-   - [ ] Create agent documentation in `.claude/agents/[category]/[agent-name].md`
-   - [ ] Add agent rules in `.claude/rules/[agent-name]-rules.md` (if needed)
-   - [ ] Create command patterns in `.claude/commands/[agent-name]-commands.md`
+   - [ ] Create agent documentation in `.opencode/agents/[category]/[agent-name].md`
+   - [ ] Add agent rules in `.opencode/rules/[agent-name]-rules.md` (if needed)
+   - [ ] Create command patterns in `.opencode/commands/[agent-name]-commands.md`
    - [ ] Create test scaffold in `tests/agents/[agent-name]_test.sh`
-   - [ ] Update `.claude/CLAUDE.md` with agent reference
+   - [ ] Update `.opencode/CLAUDE.md` with agent reference
    - [ ] Add to agent registry in appropriate category
    - [ ] Create Context7 integration documentation
    - [ ] Add agent to main system prompt registry
@@ -80,7 +80,7 @@ Access agent development and management documentation:
 
 ### Directory Structure
 ` ``
-.claude/agents/
+.opencode/agents/
 ├── core/           # Essential system agents
 ├── languages/      # Programming language experts
 ├── frameworks/     # Framework specialists

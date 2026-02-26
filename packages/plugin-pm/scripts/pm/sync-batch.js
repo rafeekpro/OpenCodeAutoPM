@@ -6,12 +6,12 @@
  * with parallel processing, rate limiting, and progress tracking.
  *
  * Usage:
- *   autopm sync:batch                    # Sync all items
- *   autopm sync:batch --type prd         # Sync only PRDs
- *   autopm sync:batch --type epic        # Sync only Epics
- *   autopm sync:batch --type task        # Sync only Tasks
- *   autopm sync:batch --dry-run          # Preview without syncing
- *   autopm sync:batch --concurrent 5     # Limit concurrency
+ *   open-autopm sync:batch                    # Sync all items
+ *   open-autopm sync:batch --type prd         # Sync only PRDs
+ *   open-autopm sync:batch --type epic        # Sync only Epics
+ *   open-autopm sync:batch --type task        # Sync only Tasks
+ *   open-autopm sync:batch --dry-run          # Preview without syncing
+ *   open-autopm sync:batch --concurrent 5     # Limit concurrency
  *
  * Features:
  *   - Parallel processing (default: 10 concurrent)
@@ -33,7 +33,7 @@ const { batchSyncAll, batchSyncPRDs, batchSyncEpics, batchSyncTasks } = require(
 
 class SyncBatchCommand {
   constructor() {
-    this.basePath = '.claude';
+    this.basePath = '.opencode';
   }
 
   /**
@@ -71,7 +71,7 @@ class SyncBatchCommand {
 Synchronize multiple PRDs/Epics/Tasks to GitHub in parallel.
 
 Usage:
-  autopm sync:batch [options]
+  open-autopm sync:batch [options]
 
 Options:
   --type <type>       Type to sync: prd|epic|task|all (default: all)
@@ -80,10 +80,10 @@ Options:
   --help              Show this help
 
 Examples:
-  autopm sync:batch                    # Sync all items
-  autopm sync:batch --type prd         # Sync only PRDs
-  autopm sync:batch --dry-run          # Preview changes
-  autopm sync:batch --concurrent 5     # Limit to 5 parallel
+  open-autopm sync:batch                    # Sync all items
+  open-autopm sync:batch --type prd         # Sync only PRDs
+  open-autopm sync:batch --dry-run          # Preview changes
+  open-autopm sync:batch --concurrent 5     # Limit to 5 parallel
 
 Performance:
   - 1000 items: ~30 seconds

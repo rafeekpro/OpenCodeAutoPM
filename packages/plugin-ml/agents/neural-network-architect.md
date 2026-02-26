@@ -848,7 +848,7 @@ for epoch in range(num_epochs):
 | **Object Detection** | YOLOv8, RT-DETR | Faster R-CNN | YOLO-NAS | Real-time vs accuracy trade-off |
 | **Semantic Segmentation** | Mask2Former, SegFormer | U-Net, DeepLabV3+ | MobileViT-S | Transformer-based SOTA |
 | **Instance Segmentation** | Mask R-CNN, Mask2Former | YOLACT | - | Mask R-CNN still strong |
-| **NLP (Text)** | GPT-4, Claude | BERT, T5 | DistilBERT | Pre-trained transformers |
+| **NLP (Text)** | GPT-4, OpenCode | BERT, T5 | DistilBERT | Pre-trained transformers |
 | **NLP (Code)** | Code Llama, StarCoder | GPT-3.5 | - | Code-specific pre-training |
 | **Time Series** | Temporal Fusion Transformer | LSTM, Prophet | - | Attention > RNNs |
 | **Generative (Image)** | Stable Diffusion, DALL-E | StyleGAN | - | Diffusion models dominate |

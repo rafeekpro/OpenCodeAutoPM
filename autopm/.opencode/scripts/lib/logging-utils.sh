@@ -137,7 +137,7 @@ print_banner() {
     local script_name="$1"
     local version="${2:-}"
 
-    print_section "🚀 ClaudeAutoPM - ${script_name}" "$CYAN"
+    print_section "🚀 OpenCodeAutoPM - ${script_name}" "$CYAN"
 
     if [[ -n "$version" ]]; then
         echo -e "${BLUE}Version: ${version}${NC}"

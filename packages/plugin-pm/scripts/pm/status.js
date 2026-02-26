@@ -34,8 +34,8 @@ async function status() {
   // Check PRDs
   addMessage('📄 PRDs:');
   try {
-    if (fs.existsSync('.claude/prds') && fs.statSync('.claude/prds').isDirectory()) {
-      const prdFiles = fs.readdirSync('.claude/prds')
+    if (fs.existsSync('.opencode/prds') && fs.statSync('.opencode/prds').isDirectory()) {
+      const prdFiles = fs.readdirSync('.opencode/prds')
         .filter(file => file.endsWith('.md'));
 
       result.prds.total = prdFiles.length;
@@ -53,8 +53,8 @@ async function status() {
   // Check Epics
   addMessage('📚 Epics:');
   try {
-    if (fs.existsSync('.claude/epics') && fs.statSync('.claude/epics').isDirectory()) {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    if (fs.existsSync('.opencode/epics') && fs.statSync('.opencode/epics').isDirectory()) {
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .length;
 
@@ -73,8 +73,8 @@ async function status() {
   // Check Tasks
   addMessage('📝 Tasks:');
   try {
-    if (fs.existsSync('.claude/epics') && fs.statSync('.claude/epics').isDirectory()) {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    if (fs.existsSync('.opencode/epics') && fs.statSync('.opencode/epics').isDirectory()) {
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
 
@@ -83,7 +83,7 @@ async function status() {
       let closedTasks = 0;
 
       for (const epicDir of epicDirs) {
-        const epicPath = path.join('.claude/epics', epicDir);
+        const epicPath = path.join('.opencode/epics', epicDir);
 
         try {
           const taskFiles = fs.readdirSync(epicPath)

@@ -20,12 +20,12 @@ Display the full content of a Product Requirements Document (PRD).
 
 1. **Locate the PRD file:**
    ```bash
-   ls .claude/prds/{feature_name}.md 2>/dev/null || ls .pm/prds/{feature_name}.md 2>/dev/null
+   ls .opencode/prds/{feature_name}.md 2>/dev/null || ls .pm/prds/{feature_name}.md 2>/dev/null
    ```
 
 2. **If not found by exact name, search:**
    ```bash
-   find .claude/prds .pm/prds -name "*{feature_name}*.md" 2>/dev/null | head -1
+   find .opencode/prds .pm/prds -name "*{feature_name}*.md" 2>/dev/null | head -1
    ```
 
 3. **Read and display the PRD:**
@@ -56,7 +56,7 @@ If PRD not found:
 ❌ PRD not found: {feature_name}
 
 Available PRDs:
-{list of .md files in .claude/prds/ or .pm/prds/}
+{list of .md files in .opencode/prds/ or .pm/prds/}
 
 Create new: /pm:prd-new {feature_name}
 ```

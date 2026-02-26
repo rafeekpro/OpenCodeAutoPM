@@ -14,7 +14,7 @@ if [[ -z "$EPIC_NAME" ]] || [[ -z "$EPIC_NUMBER" ]]; then
     exit 1
 fi
 
-EPIC_DIR=".claude/epics/$EPIC_NAME"
+EPIC_DIR=".opencode/epics/$EPIC_NAME"
 EPIC_FILE="$EPIC_DIR/epic.md"
 MAPPING_FILE="$EPIC_DIR/.task-mapping.txt"
 

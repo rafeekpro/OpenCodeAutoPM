@@ -99,7 +99,7 @@ function displayTddReminder(addMessage) {
   addMessage('   2. GREEN: Write minimal code to pass');
   addMessage('   3. REFACTOR: Clean up while keeping tests green');
   addMessage('');
-  addMessage('   See .claude/rules/tdd.enforcement.md for details');
+  addMessage('   See .opencode/rules/tdd.enforcement.md for details');
   addMessage('');
 }
 

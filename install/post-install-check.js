@@ -24,7 +24,7 @@ class PostInstallChecker {
    */
   async runAllChecks() {
     console.log('\n╔════════════════════════════════════════════════════════════════╗');
-    console.log('║         🔍 ClaudeAutoPM Configuration Status                  ║');
+    console.log('║         🔍 OpenCodeAutoPM Configuration Status                  ║');
     console.log('╚════════════════════════════════════════════════════════════════╝\n');
 
     // Essential checks
@@ -44,18 +44,18 @@ class PostInstallChecker {
   }
 
   /**
-   * Check if .claude directory exists
+   * Check if .opencode directory exists
    */
   checkClaudeDirectory() {
-    const claudeDir = path.join(this.projectRoot, '.claude');
+    const claudeDir = path.join(this.projectRoot, '.opencode');
     const exists = fs.existsSync(claudeDir);
 
     this.results.essential.push({
-      name: '.claude directory',
+      name: '.opencode directory',
       status: exists,
       message: exists
         ? 'Framework installed'
-        : 'Not found - run: autopm install'
+        : 'Not found - run: open-autopm install'
     });
 
     if (exists) {
@@ -77,7 +77,7 @@ class PostInstallChecker {
    * Check configuration file
    */
   checkConfigFile() {
-    const configPath = path.join(this.projectRoot, '.claude', 'config.json');
+    const configPath = path.join(this.projectRoot, '.opencode', 'config.json');
     let config = null;
 
     if (fs.existsSync(configPath)) {
@@ -115,7 +115,7 @@ class PostInstallChecker {
         status: false,
         message: 'No configuration file'
       });
-      this.results.nextSteps.push('Run: autopm config set provider github|azure');
+      this.results.nextSteps.push('Run: open-autopm config set provider github|azure');
       return;
     }
 
@@ -127,7 +127,7 @@ class PostInstallChecker {
         status: false,
         message: 'Provider not configured'
       });
-      this.results.nextSteps.push('Run: autopm config set provider github|azure');
+      this.results.nextSteps.push('Run: open-autopm config set provider github|azure');
       return;
     }
 
@@ -147,8 +147,8 @@ class PostInstallChecker {
         this.results.nextSteps.push('Set GITHUB_TOKEN environment variable');
       }
       if (!hasOwner || !hasRepo) {
-        this.results.nextSteps.push('Run: autopm config set github.owner <username>');
-        this.results.nextSteps.push('Run: autopm config set github.repo <repository>');
+        this.results.nextSteps.push('Run: open-autopm config set github.owner <username>');
+        this.results.nextSteps.push('Run: open-autopm config set github.repo <repository>');
       }
     }
 
@@ -168,8 +168,8 @@ class PostInstallChecker {
         this.results.nextSteps.push('Set AZURE_DEVOPS_PAT environment variable');
       }
       if (!hasOrg || !hasProject) {
-        this.results.nextSteps.push('Run: autopm config set azure.organization <org>');
-        this.results.nextSteps.push('Run: autopm config set azure.project <project>');
+        this.results.nextSteps.push('Run: open-autopm config set azure.organization <org>');
+        this.results.nextSteps.push('Run: open-autopm config set azure.project <project>');
       }
     }
   }
@@ -206,8 +206,8 @@ class PostInstallChecker {
    * Check MCP server configuration
    */
   checkMCPConfiguration() {
-    const mcpServersPath = path.join(this.projectRoot, '.claude', 'mcp-servers.json');
-    const envPath = path.join(this.projectRoot, '.claude', '.env');
+    const mcpServersPath = path.join(this.projectRoot, '.opencode', 'mcp-servers.json');
+    const envPath = path.join(this.projectRoot, '.opencode', '.env');
 
     let mcpConfigured = false;
     let message = 'Not configured';
@@ -242,7 +242,7 @@ class PostInstallChecker {
     });
 
     if (!mcpConfigured) {
-      this.results.nextSteps.push('Run: autopm mcp check (to see MCP requirements)');
+      this.results.nextSteps.push('Run: open-autopm mcp check (to see MCP requirements)');
     }
   }
 
@@ -365,10 +365,10 @@ class PostInstallChecker {
     });
 
     console.log('\n💡 Quick Setup:\n');
-    console.log('   autopm config show        # View current configuration');
-    console.log('   autopm config validate    # Validate settings');
-    console.log('   autopm mcp check          # Check MCP requirements');
-    console.log('   autopm --help             # See all commands\n');
+    console.log('   open-autopm config show        # View current configuration');
+    console.log('   open-autopm config validate    # Validate settings');
+    console.log('   open-autopm mcp check          # Check MCP requirements');
+    console.log('   open-autopm --help             # See all commands\n');
   }
 }
 

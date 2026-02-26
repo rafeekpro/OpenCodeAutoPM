@@ -727,7 +727,7 @@ Based on Context7 documentation from `/huggingface/transformers`:
 
 - `/ai:model-deployment` - General model deployment
 - `/openai:optimize` - OpenAI API optimization
-- `/anthropic:optimize` - Anthropic Claude optimization
+- `/anthropic:optimize` - Anthropic OpenCode optimization
 
 ## Troubleshooting
 

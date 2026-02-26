@@ -39,4 +39,4 @@ Use the github-operations-specialist agent to create comprehensive GitHub Action
 
 **CRITICAL INSTRUCTION FOR AGENT:**
 The generated workflow MUST adhere to the Kubernetes-native CI/CD strategy for `containerd` runners.
-Refer to the rules in `.claude/rules/ci-cd-kubernetes-strategy.md` for specific implementation details (use `kubectl` and `nerdctl`, not Docker services).
+Refer to the rules in `.opencode/rules/ci-cd-kubernetes-strategy.md` for specific implementation details (use `kubectl` and `nerdctl`, not Docker services).

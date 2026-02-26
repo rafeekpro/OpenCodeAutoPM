@@ -247,7 +247,7 @@ function processAgent(filePath) {
  * Find all agent files
  */
 function findAllAgents() {
-  const agentsDir = path.join(__dirname, '..', 'autopm', '.claude', 'agents');
+  const agentsDir = path.join(__dirname, '..', 'autopm', '.opencode', 'agents');
   const agents = [];
 
   function scanDir(dir) {
@@ -319,7 +319,7 @@ function main() {
 
   if (stats.updated > 0) {
     console.log(`\n💡 Next steps:`);
-    console.log(`   1. Review changes: git diff autopm/.claude/agents/`);
+    console.log(`   1. Review changes: git diff autopm/.opencode/agents/`);
     console.log(`   2. Run code analyzer: @code-analyzer review agent changes`);
     console.log(`   3. Commit: git add . && git commit -m "feat: standardize framework agents"`);
   }

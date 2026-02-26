@@ -1,6 +1,6 @@
 # Agent Coordination Rules
 
-Comprehensive coordination system for multi-agent collaboration in ClaudeAutoPM.
+Comprehensive coordination system for multi-agent collaboration in OpenCodeAutoPM.
 
 ## Core Principles
 

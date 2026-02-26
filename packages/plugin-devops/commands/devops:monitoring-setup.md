@@ -737,7 +737,7 @@ args:
   3. Add custom dashboards: /grafana/dashboards
   4. Configure alert receivers: /alertmanager/config
   5. View metrics: /prometheus/targets
-  6. Documentation for adding custom metrics: .claude/docs/monitoring-setup.md
+  6. Documentation for adding custom metrics: .opencode/docs/monitoring-setup.md
 ```
 
 ## Best Practices Applied

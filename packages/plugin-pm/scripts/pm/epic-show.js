@@ -71,12 +71,12 @@ function parseMetadata(content) {
 }
 
 function getAvailableEpics() {
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return [];
   }
 
   try {
-    return fs.readdirSync('.claude/epics', { withFileTypes: true })
+    return fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
   } catch (error) {
@@ -94,7 +94,7 @@ function showEpic(epicName) {
     throw new Error('❌ Please provide an epic name\nUsage: /pm:epic-show <epic-name>');
   }
 
-  const epicDir = `.claude/epics/${epicName}`;
+  const epicDir = `.opencode/epics/${epicName}`;
   const epicFilePath = `${epicDir}/epic.md`;
 
   // Check if epic exists

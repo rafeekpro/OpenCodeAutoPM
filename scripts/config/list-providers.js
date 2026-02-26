@@ -3,7 +3,7 @@
  * @fileoverview Config command: list-providers
  * List all configured providers with API key status
  *
- * Usage: autopm config:list-providers
+ * Usage: open-autopm config:list-providers
  */
 
 const path = require('path');
@@ -24,7 +24,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('\nError: Configuration not found');
-      console.error('Run: autopm config:init\n');
+      console.error('Run: open-autopm config:init\n');
       process.exit(1);
     }
 
@@ -37,7 +37,7 @@ async function main() {
 
     if (providers.length === 0) {
       console.log('\nNo providers configured');
-      console.log('Run: autopm config:set-provider <name>\n');
+      console.log('Run: open-autopm config:set-provider <name>\n');
       return;
     }
 

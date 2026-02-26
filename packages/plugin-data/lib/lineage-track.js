@@ -573,7 +573,7 @@ function generateOpenLineageEvent(run, datasets = [], eventType) {
     },
     inputs: [],
     outputs: [],
-    producer: 'claudeautopm-lineage-tracker/1.0.0'
+    producer: 'claudeopen-autopm-lineage-tracker/1.0.0'
   };
 
   // Process datasets

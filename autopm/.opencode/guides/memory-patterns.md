@@ -235,10 +235,10 @@ cat .opencode/active-work.json
 cat .opencode/checkpoints/latest.md
 
 # 3. Update work state
-# Claude updates active-work.json with new task
+# OpenCode updates active-work.json with new task
 
 # 4. Reference context files as needed
-# Claude reads architecture.md, conventions.md
+# OpenCode reads architecture.md, conventions.md
 ```
 
 ### Workflow 2: Mid-Session Checkpoint
@@ -250,7 +250,7 @@ cat .opencode/checkpoints/latest.md
 - Before risky operation
 - Every 30-45 minutes of active work
 
-# Claude creates:
+# OpenCode creates:
 .opencode/checkpoints/YYYY-MM-DD-task-name.md
 ```
 

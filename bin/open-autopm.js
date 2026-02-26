@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM CLI - Refactored with yargs
+ * OpenCodeAutoPM CLI - Refactored with yargs
  * This is the main CLI entry point using yargs for command management
  */
 
@@ -20,7 +20,7 @@ function main() {
 
   cli
     // Main commands
-    .command('install [preset]', 'Install ClaudeAutoPM framework in current project directory',
+    .command('install [preset]', 'Install OpenCodeAutoPM framework in current project directory',
       (yargs) => {
         return yargs
           .positional('preset', {
@@ -43,7 +43,7 @@ function main() {
         }
       }
     )
-    .command('update', 'Update ClaudeAutoPM framework to latest version in current project',
+    .command('update', 'Update OpenCodeAutoPM framework to latest version in current project',
       (yargs) => {
         return yargs
           .option('force', {
@@ -61,9 +61,9 @@ function main() {
             type: 'boolean',
             default: true
           })
-          .example('autopm update', 'Update to latest version')
-          .example('autopm update --force', 'Force update ignoring conflicts')
-          .example('autopm update --no-backup', 'Update without creating backup');
+          .example('open-autopm update', 'Update to latest version')
+          .example('open-autopm update --force', 'Force update ignoring conflicts')
+          .example('open-autopm update --no-backup', 'Update without creating backup');
       },
       (argv) => {
         // Delegate to the update script
@@ -105,9 +105,9 @@ function main() {
             describe: 'Tutorial topic',
             type: 'string'
           })
-          .example('autopm --help', 'Show comprehensive usage guide (recommended)')
-          .example('autopm guide', 'Show enhanced help (same as --help)')
-          .example('autopm guide config', 'Generate configuration documentation');
+          .example('open-autopm --help', 'Show comprehensive usage guide (recommended)')
+          .example('open-autopm guide', 'Show enhanced help (same as --help)')
+          .example('open-autopm guide config', 'Generate configuration documentation');
       },
       async (argv) => {
         try {
@@ -116,7 +116,7 @@ function main() {
             const GuideManager = require('../lib/guide/manager');
             const manager = new GuideManager();
 
-            console.log('\n🎯 ClaudeAutoPM Documentation Generator');
+            console.log('\n🎯 OpenCodeAutoPM Documentation Generator');
             console.log('=====================================\n');
 
             switch (argv.action) {
@@ -153,16 +153,16 @@ function main() {
                 break;
 
               default:
-                console.log('❌ Unknown guide action. Use: autopm guide --help');
+                console.log('❌ Unknown guide action. Use: open-autopm guide --help');
             }
           } else {
             // Backward compatibility: redirect to enhanced help
             console.log('💡 The interactive guide has been replaced with enhanced help.\n');
-            console.log('📖 For comprehensive usage information, use: autopm --help\n');
+            console.log('📖 For comprehensive usage information, use: open-autopm --help\n');
             console.log('🔧 For specific documentation generation, use:');
-            console.log('   autopm guide config    # Generate configuration docs');
-            console.log('   autopm guide tutorial  # Create tutorials');
-            console.log('   autopm guide examples  # Generate examples\n');
+            console.log('   open-autopm guide config    # Generate configuration docs');
+            console.log('   open-autopm guide tutorial  # Create tutorials');
+            console.log('   open-autopm guide examples  # Generate examples\n');
 
             // Show the enhanced help
             process.argv = ['node', 'autopm', '--help'];
@@ -197,11 +197,11 @@ function main() {
     // Context management command (STANDALONE)
     .command(require('../lib/cli/commands/context'))
     // Validation command
-    .command('validate', 'Validate ClaudeAutoPM configuration and setup',
+    .command('validate', 'Validate OpenCodeAutoPM configuration and setup',
       (yargs) => {
         return yargs
-          .example('autopm validate', 'Check all configuration requirements')
-          .example('autopm validate --verbose', 'Show detailed validation info');
+          .example('open-autopm validate', 'Check all configuration requirements')
+          .example('open-autopm validate --verbose', 'Show detailed validation info');
       },
       async (argv) => {
         const PostInstallChecker = require('../install/post-install-check.js');
@@ -241,93 +241,93 @@ function main() {
     // Enhanced help epilogue
     .epilogue(`
 ╔════════════════════════════════════════════════════════════════════════════╗
-║                    ClaudeAutoPM v${VERSION} - Quick Reference                    ║
-║         AI-Powered Project Management for Claude Code                      ║
+║                    OpenCodeAutoPM v${VERSION} - Quick Reference                    ║
+║         AI-Powered Project Management for OpenCode Code                      ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 🚀 Quick Start (3 Steps):
-   1. autopm install                    # Install framework in project
-   2. autopm config set provider github # Configure your provider
-   3. claude --dangerously-skip-permissions .  # Open Claude Code
+   1. open-autopm install                    # Install framework in project
+   2. open-autopm config set provider github # Configure your provider
+   3. claude --dangerously-skip-permissions .  # Open OpenCode Code
 
 🆕 NEW in v2.1.0 - STANDALONE Commands:
-   autopm prd parse <name>              # Parse PRD without AI overhead
-   autopm prd extract-epics <name>      # Extract epics from PRD
-   autopm prd summarize <name>          # Generate PRD summary
-   autopm prd validate <name>           # Validate PRD structure
+   open-autopm prd parse <name>              # Parse PRD without AI overhead
+   open-autopm prd extract-epics <name>      # Extract epics from PRD
+   open-autopm prd summarize <name>          # Generate PRD summary
+   open-autopm prd validate <name>           # Validate PRD structure
 
-   autopm task list <epic>              # List tasks from epic
-   autopm task prioritize <epic>        # AI-powered prioritization
+   open-autopm task list <epic>              # List tasks from epic
+   open-autopm task prioritize <epic>        # AI-powered prioritization
 
-   autopm agent list                    # List available agents
-   autopm agent search <keyword>        # Search agents
-   autopm agent invoke <name> <task>    # Invoke agent directly
+   open-autopm agent list                    # List available agents
+   open-autopm agent search <keyword>        # Search agents
+   open-autopm agent invoke <name> <task>    # Invoke agent directly
 
 📋 Common Commands:
-   autopm validate                      # Check configuration status
-   autopm update                        # Update to latest version
-   autopm team load fullstack           # Load development agents
-   autopm mcp enable context7           # Enable documentation access
-   autopm config show                   # View current configuration
+   open-autopm validate                      # Check configuration status
+   open-autopm update                        # Update to latest version
+   open-autopm team load fullstack           # Load development agents
+   open-autopm mcp enable context7           # Enable documentation access
+   open-autopm config show                   # View current configuration
 
 🔧 Configuration Setup:
    # View current configuration
-   autopm config show
+   open-autopm config show
 
    # Configure GitHub provider
-   autopm config set provider github
-   autopm config set github.owner <username>
-   autopm config set github.repo <repository>
+   open-autopm config set provider github
+   open-autopm config set github.owner <username>
+   open-autopm config set github.repo <repository>
 
-   # Add token to .claude/.env (recommended)
-   echo "GITHUB_TOKEN=ghp_your_token_here" >> .claude/.env
+   # Add token to .opencode/.env (recommended)
+   echo "GITHUB_TOKEN=ghp_your_token_here" >> .opencode/.env
 
    # Or export as environment variable
    export GITHUB_TOKEN=ghp_your_token_here
 
    # Configure Azure DevOps provider
-   autopm config set provider azure
-   autopm config set azure.organization <org>
-   autopm config set azure.project <project>
+   open-autopm config set provider azure
+   open-autopm config set azure.organization <org>
+   open-autopm config set azure.project <project>
 
-   # Add token to .claude/.env (recommended)
-   echo "AZURE_DEVOPS_PAT=your_azure_pat" >> .claude/.env
+   # Add token to .opencode/.env (recommended)
+   echo "AZURE_DEVOPS_PAT=your_azure_pat" >> .opencode/.env
 
    # Or export as environment variable
    export AZURE_DEVOPS_PAT=your_azure_pat
 
    # Quick switch between providers
-   autopm config switch github
-   autopm config switch azure
+   open-autopm config switch github
+   open-autopm config switch azure
 
    # Validate configuration
-   autopm config validate
+   open-autopm config validate
 
 🔌 MCP (Model Context Protocol) Management:
    # List and manage MCP servers
-   autopm mcp list                  # List all available MCP servers
-   autopm mcp enable context7  # Enable documentation server
-   autopm mcp sync                  # Sync configuration to .claude/mcp-servers.json
+   open-autopm mcp list                  # List all available MCP servers
+   open-autopm mcp enable context7  # Enable documentation server
+   open-autopm mcp sync                  # Sync configuration to .opencode/mcp-servers.json
 
    # Agent Analysis
-   autopm mcp agents                # List agents using MCP
-   autopm mcp agent react-frontend-engineer  # Show MCP config for agent
-   autopm mcp usage                 # Show MCP usage statistics
-   autopm mcp tree                  # Show agent-MCP dependency tree
+   open-autopm mcp agents                # List agents using MCP
+   open-autopm mcp agent react-frontend-engineer  # Show MCP config for agent
+   open-autopm mcp usage                 # Show MCP usage statistics
+   open-autopm mcp tree                  # Show agent-MCP dependency tree
 
    # Configuration & Diagnostics
-   autopm mcp setup                 # Interactive API key setup
-   autopm mcp diagnose              # Run comprehensive diagnostics
-   autopm mcp test context7    # Test MCP server connection
-   autopm mcp status                # Show all MCP servers status
+   open-autopm mcp setup                 # Interactive API key setup
+   open-autopm mcp diagnose              # Run comprehensive diagnostics
+   open-autopm mcp test context7    # Test MCP server connection
+   open-autopm mcp status                # Show all MCP servers status
 
 🔑 Token Setup:
-   # RECOMMENDED: Store tokens in .claude/.env file
-   echo "GITHUB_TOKEN=ghp_your_token" >> .claude/.env
-   echo "AZURE_DEVOPS_PAT=your_pat" >> .claude/.env
+   # RECOMMENDED: Store tokens in .opencode/.env file
+   echo "GITHUB_TOKEN=ghp_your_token" >> .opencode/.env
+   echo "AZURE_DEVOPS_PAT=your_pat" >> .opencode/.env
 
    # The .env file is automatically loaded during validation
-   autopm config validate
+   open-autopm config validate
 
    # GitHub PAT (Settings → Developer settings → Personal access tokens)
    Scopes: repo, workflow, admin:repo_hook
@@ -336,18 +336,18 @@ function main() {
    Scopes: Work Items (read/write), Code (read/write)
 
 🤖 Team Management:
-   autopm team list                 # See all available agent teams
-   autopm team load <name>          # Load specific team (frontend/backend/fullstack/devops)
-   autopm team current              # Check currently active team
+   open-autopm team list                 # See all available agent teams
+   open-autopm team load <name>          # Load specific team (frontend/backend/fullstack/devops)
+   open-autopm team current              # Check currently active team
 
 📊 Epic Status (Read-Only Utilities):
-   autopm epic list                 # List all available epics
-   autopm epic status <name>        # Show epic progress and metrics
-   autopm epic breakdown <name>     # Show detailed task breakdown
+   open-autopm epic list                 # List all available epics
+   open-autopm epic status <name>        # Show epic progress and metrics
+   open-autopm epic breakdown <name>     # Show detailed task breakdown
 
-   💡 Note: To CREATE or MODIFY epics, use Claude Code /pm:* commands
+   💡 Note: To CREATE or MODIFY epics, use OpenCode Code /pm:* commands
 
-💡 Claude Code PM Commands (AI-Powered):
+💡 OpenCode Code PM Commands (AI-Powered):
    /pm:what-next                    # ⭐ Smart suggestions for what to do next
    /pm:status                       # Project overview and health
    /pm:prd-new <name>               # Create new PRD
@@ -375,44 +375,44 @@ function main() {
 🔍 Using STANDALONE Commands:
 
    # Parse PRD without AI (fast, deterministic)
-   autopm prd parse my-feature
+   open-autopm prd parse my-feature
 
    # AI-powered parsing with streaming output
-   autopm prd parse my-feature --ai --stream
+   open-autopm prd parse my-feature --ai --stream
 
    # Extract and validate
-   autopm prd extract-epics my-feature
-   autopm prd validate my-feature --fix
+   open-autopm prd extract-epics my-feature
+   open-autopm prd validate my-feature --fix
 
    # Task management
-   autopm task list epic-001
-   autopm task prioritize epic-001
+   open-autopm task list epic-001
+   open-autopm task prioritize epic-001
 
    # Agent invocation
-   autopm agent search kubernetes
-   autopm agent invoke aws-architect "Design VPC" --stream
+   open-autopm agent search kubernetes
+   open-autopm agent invoke aws-architect "Design VPC" --stream
 
 🛠️  Troubleshooting:
-   autopm validate                  # Check installation & config
-   autopm validate --fix            # Auto-fix common issues
-   autopm mcp diagnose              # Check MCP server health
-   autopm install --force           # Reinstall framework
+   open-autopm validate                  # Check installation & config
+   open-autopm validate --fix            # Auto-fix common issues
+   open-autopm mcp diagnose              # Check MCP server health
+   open-autopm install --force           # Reinstall framework
 
 📚 Resources & Help:
-   📖 Documentation:  https://github.com/rafeekpro/ClaudeAutoPM
-   🐛 Report Issues:  https://github.com/rafeekpro/ClaudeAutoPM/issues
-   💬 Discussions:    https://github.com/rafeekpro/ClaudeAutoPM/discussions
-   📦 npm Package:    https://www.npmjs.com/package/claude-autopm
+   📖 Documentation:  https://github.com/rafeekpro/OpenCodeAutoPM
+   🐛 Report Issues:  https://github.com/rafeekpro/OpenCodeAutoPM/issues
+   💬 Discussions:    https://github.com/rafeekpro/OpenCodeAutoPM/discussions
+   📦 npm Package:    https://www.npmjs.com/package/open-autopm
 
 💡 Pro Tips:
-   • Use \`autopm --help\` to see this guide anytime
-   • Run \`autopm validate\` after configuration changes
+   • Use \`open-autopm --help\` to see this guide anytime
+   • Run \`open-autopm validate\` after configuration changes
    • Use \`--stream\` flag for real-time AI responses
-   • Check \`autopm mcp status\` to verify documentation access
+   • Check \`open-autopm mcp status\` to verify documentation access
    • Load appropriate team before starting work (frontend/backend/fullstack)
 
 ╔════════════════════════════════════════════════════════════════════════════╗
-║  Need more help? Run: autopm <command> --help for detailed command docs   ║
+║  Need more help? Run: open-autopm <command> --help for detailed command docs   ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 `)
     .fail((msg, err, yargs) => {
@@ -424,7 +424,7 @@ function main() {
       } else {
         console.error(msg);
       }
-      console.error('\nRun "autopm --help" for usage information');
+      console.error('\nRun "open-autopm --help" for usage information');
       process.exit(1);
     })
     .argv;

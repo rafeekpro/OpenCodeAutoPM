@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ClaudeAutoPM Feature Toggle Script - Bridge to Node.js
+# OpenCodeAutoPM Feature Toggle Script - Bridge to Node.js
 # This script now delegates to the Node.js version for better cross-platform support
 # Original bash implementation backed up to toggle-features.sh.backup
 

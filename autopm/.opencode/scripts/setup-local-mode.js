@@ -33,7 +33,7 @@ async function setupLocalDirectories() {
 }
 
 /**
- * Update .gitignore with ClaudeAutoPM local mode entries
+ * Update .gitignore with OpenCodeAutoPM local mode entries
  * Creates .gitignore if it doesn't exist
  * Appends entries if .gitignore exists (idempotent)
  *
@@ -43,7 +43,7 @@ async function updateGitignore() {
   const gitignorePath = path.join(process.cwd(), '.gitignore');
 
   const entries = [
-    '# ClaudeAutoPM Local Mode',
+    '# OpenCodeAutoPM Local Mode',
     '.opencode/logs/*.log',
     '.opencode/context/.context-version',
     '.opencode/prds/drafts/',
@@ -60,7 +60,7 @@ async function updateGitignore() {
       await fs.appendFile(gitignorePath, '\n' + entries);
       console.log('✅ Updated .gitignore');
     } else {
-      console.log('ℹ️  .gitignore already contains ClaudeAutoPM entries');
+      console.log('ℹ️  .gitignore already contains OpenCodeAutoPM entries');
     }
   } catch (err) {
     if (err.code === 'ENOENT') {
@@ -75,12 +75,12 @@ async function updateGitignore() {
 
 /**
  * Main setup function
- * Called during `autopm install` or standalone
+ * Called during `open-autopm install` or standalone
  *
  * @returns {Promise<void>}
  */
 async function setup() {
-  console.log('🚀 Setting up ClaudeAutoPM local mode...\n');
+  console.log('🚀 Setting up OpenCodeAutoPM local mode...\n');
 
   try {
     await setupLocalDirectories();

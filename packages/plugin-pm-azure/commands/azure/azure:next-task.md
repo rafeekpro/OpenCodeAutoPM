@@ -15,7 +15,7 @@ Get AI-powered recommendation for the next task to work on based on priorities, 
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -124,7 +124,7 @@ If `--auto-start` flag is used:
 - Timer started
 
 Opening work environment...
-- Work file: .claude/azure/tasks/104/work.md
+- Work file: .opencode/azure/tasks/104/work.md
 - Parent story: Loaded
 - Test files: Located at tests/integration/
 
@@ -228,7 +228,7 @@ Take on this growth task? (y/n): _
 
 ## Configuration
 
-`.claude/azure/next-task-config.yml`:
+`.opencode/azure/next-task-config.yml`:
 ```yaml
 recommendation:
   algorithm: "smart" # smart, priority, random

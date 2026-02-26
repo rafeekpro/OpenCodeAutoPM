@@ -297,7 +297,7 @@ function addContext7Section(filePath) {
 }
 
 function main() {
-  const commandsDir = path.join(__dirname, '../autopm/.claude/commands');
+  const commandsDir = path.join(__dirname, '../autopm/.opencode/commands');
 
   // Find all .md files recursively
   const findCommand = `find "${commandsDir}" -name "*.md" -type f`;

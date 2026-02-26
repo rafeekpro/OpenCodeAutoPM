@@ -16,7 +16,7 @@ Edit User Story fields and properties in Azure DevOps.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>

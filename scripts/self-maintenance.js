@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Self-Maintenance Script
+ * OpenCodeAutoPM Self-Maintenance Script
  * Complete Node.js implementation replacing all bash scripts
  */
 
@@ -14,8 +14,8 @@ const readline = require('readline');
 class SelfMaintenance {
   constructor() {
     this.projectRoot = path.join(__dirname, '..');
-    this.agentRegistry = path.join(this.projectRoot, 'autopm/.claude/agents/AGENT-REGISTRY.md');
-    this.agentsDir = path.join(this.projectRoot, 'autopm/.claude/agents');
+    this.agentRegistry = path.join(this.projectRoot, 'autopm/.opencode/agents/AGENT-REGISTRY.md');
+    this.agentsDir = path.join(this.projectRoot, 'autopm/.opencode/agents');
     this.metrics = {
       totalAgents: 0,
       deprecatedAgents: 0,
@@ -41,7 +41,7 @@ class SelfMaintenance {
    * PM-HEALTH: Generate system health report
    */
   async runHealthCheck() {
-    console.log('🏥 Generating ClaudeAutoPM Health Report...');
+    console.log('🏥 Generating OpenCodeAutoPM Health Report...');
     console.log('');
     console.log('📊 System Metrics:');
     console.log('  ├── Agent Ecosystem');
@@ -110,7 +110,7 @@ class SelfMaintenance {
    * PM-VALIDATE: Validate project integrity
    */
   async runValidation() {
-    console.log('🔍 Validating ClaudeAutoPM Project...');
+    console.log('🔍 Validating OpenCodeAutoPM Project...');
     console.log('');
     console.log('📋 Validation Checklist:');
 
@@ -118,7 +118,7 @@ class SelfMaintenance {
 
     // 1. Check agent registry
     process.stdout.write('  ├── Agent registry... ');
-    const registryPath = path.join(this.projectRoot, 'autopm/.claude/agents/AGENT-REGISTRY.md');
+    const registryPath = path.join(this.projectRoot, 'autopm/.opencode/agents/AGENT-REGISTRY.md');
     if (fs.existsSync(registryPath)) {
       const registryValid = this.validateRegistry();
       console.log(registryValid ? '✅' : '❌');
@@ -130,7 +130,7 @@ class SelfMaintenance {
 
     // 2. Check configuration
     process.stdout.write('  ├── Configuration... ');
-    const configExists = fs.existsSync(path.join(this.projectRoot, '.claude/config.json')) &&
+    const configExists = fs.existsSync(path.join(this.projectRoot, '.opencode/config.json')) &&
                         fs.existsSync(path.join(this.projectRoot, 'CLAUDE.md'));
     console.log(configExists ? '✅' : '❌');
     allValid = allValid && configExists;
@@ -245,7 +245,7 @@ class SelfMaintenance {
    * PM-RELEASE: Prepare new release
    */
   async runRelease() {
-    console.log('🚀 Preparing ClaudeAutoPM Release...');
+    console.log('🚀 Preparing OpenCodeAutoPM Release...');
     console.log('');
     console.log('📋 Pre-release Checklist:');
 
@@ -273,7 +273,7 @@ class SelfMaintenance {
 
     // 4. Installation test
     process.stdout.write('  └── Installation test... ');
-    const testDir = path.join(os.tmpdir(), `autopm-release-test-${Date.now()}`);
+    const testDir = path.join(os.tmpdir(), `open-autopm-release-test-${Date.now()}`);
     try {
       fs.mkdirSync(testDir, { recursive: true });
       // Use safe installation method
@@ -363,7 +363,7 @@ class SelfMaintenance {
    * PM-TEST-INSTALL: Test installation scenarios
    */
   async runTestInstall() {
-    console.log('🧪 Testing ClaudeAutoPM installation scenarios...');
+    console.log('🧪 Testing OpenCodeAutoPM installation scenarios...');
     console.log('');
     console.log('Running installation tests with test-runner agent...');
 
@@ -374,7 +374,7 @@ class SelfMaintenance {
       console.log('');
       console.log(`Testing ${scenario} installation...`);
 
-      const testDir = path.join(os.tmpdir(), `autopm-test-${scenario}-${Date.now()}`);
+      const testDir = path.join(os.tmpdir(), `open-autopm-test-${scenario}-${Date.now()}`);
 
       try {
         // Create test directory
@@ -391,7 +391,7 @@ class SelfMaintenance {
 
         // Validate installation
         const success = fs.existsSync(path.join(testDir, 'CLAUDE.md')) &&
-                       fs.existsSync(path.join(testDir, '.claude'));
+                       fs.existsSync(path.join(testDir, '.opencode'));
 
         if (success) {
           console.log(`  ✅ ${scenario} installation successful`);

@@ -289,10 +289,10 @@ File: `.opencode/hooks/pre-agent-context7.js`
 
 File: `.opencode/rules/context7-enforcement.md` (this file)
 
-**Purpose**: Remind Claude to ALWAYS query Context7
+**Purpose**: Remind OpenCode to ALWAYS query Context7
 
 **Enforcement**:
-- Read by Claude on every session start
+- Read by OpenCode on every session start
 - Highest priority in rule hierarchy
 - Zero tolerance for violations
 

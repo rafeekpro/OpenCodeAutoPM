@@ -30,7 +30,7 @@ Convert PRD to technical implementation epic.
 
 ## Instructions
 
-Run `node .claude/scripts/pm/prd-parse.js $ARGUMENTS` using the Bash tool and show me the complete output.
+Run `node .opencode/scripts/pm/prd-parse.js $ARGUMENTS` using the Bash tool and show me the complete output.
 
 This will convert the Product Requirements Document into a detailed technical implementation epic including:
 1. Technical analysis and architecture decisions
@@ -39,4 +39,4 @@ This will convert the Product Requirements Document into a detailed technical im
 4. Dependencies and success criteria
 5. Effort estimates and timeline
 
-The script handles all validation, reads the PRD file, and creates the epic structure at `.claude/epics/$ARGUMENTS/epic.md`.
+The script handles all validation, reads the PRD file, and creates the epic structure at `.opencode/epics/$ARGUMENTS/epic.md`.

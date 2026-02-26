@@ -16,7 +16,7 @@ Identify and manage blocked work items with resolution tracking.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>

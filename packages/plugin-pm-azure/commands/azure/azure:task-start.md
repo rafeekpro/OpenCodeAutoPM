@@ -14,7 +14,7 @@ Start working on a Task - update status, create branch, and set up work environm
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -129,10 +129,10 @@ git push -u origin $BRANCH_NAME
 
 ```bash
 # Create task work directory
-mkdir -p .claude/azure/tasks/{task_id}
+mkdir -p .opencode/azure/tasks/{task_id}
 
 # Create task tracking file
-cat > .claude/azure/tasks/{task_id}/work.md << EOF
+cat > .opencode/azure/tasks/{task_id}/work.md << EOF
 # Task #{task_id}: {title}
 
 ## Status
@@ -222,7 +222,7 @@ Hours: 4h in progress, 28h remaining
 - Assigned to: You
 
 📁 Work tracking:
-.claude/azure/tasks/{task_id}/work.md
+.opencode/azure/tasks/{task_id}/work.md
 
 🔗 Azure DevOps:
 https://dev.azure.com/{org}/{project}/_workitems/edit/{task_id}
@@ -244,7 +244,7 @@ https://dev.azure.com/{org}/{project}/_workitems/edit/{task_id}
 If VS Code integration available:
 ```bash
 # Open relevant files in VS Code
-code .claude/azure/tasks/{task_id}/work.md
+code .opencode/azure/tasks/{task_id}/work.md
 code {related_files}
 ```
 
@@ -261,7 +261,7 @@ echo "# Tests for Task #{task_id}" > tests/test_task_{task_id}.py
 Start a time tracking session:
 ```bash
 # Create time tracking entry
-echo "{timestamp_start}|IN_PROGRESS|{task_id}" >> .claude/azure/time-tracking.log
+echo "{timestamp_start}|IN_PROGRESS|{task_id}" >> .opencode/azure/time-tracking.log
 ```
 
 ### 8. Smart Features
@@ -291,7 +291,7 @@ Support for custom hooks:
 - `pre-task-start`: Run before starting task
 - `post-task-start`: Run after task started
 
-Example: `.claude/hooks/pre-task-start.sh`
+Example: `.opencode/hooks/pre-task-start.sh`
 ```bash
 #!/bin/bash
 # Ensure latest code

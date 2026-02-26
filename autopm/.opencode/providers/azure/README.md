@@ -1,10 +1,10 @@
 # Azure DevOps Provider
 
-Provider logic for Azure DevOps work item integration in ClaudeAutoPM.
+Provider logic for Azure DevOps work item integration in OpenCodeAutoPM.
 
 ## Overview
 
-This provider enables ClaudeAutoPM to work with Azure DevOps, managing:
+This provider enables OpenCodeAutoPM to work with Azure DevOps, managing:
 - Work items (User Stories, Tasks, Bugs)
 - Pull requests
 - Azure Pipelines

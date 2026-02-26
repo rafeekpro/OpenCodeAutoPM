@@ -42,7 +42,7 @@ function findEpicDirs(basePath, depth = 0) {
 
       if (isEpicDir(fullPath)) {
         // This is an epic directory
-        const relativePath = path.relative('.claude/epics', fullPath);
+        const relativePath = path.relative('.opencode/epics', fullPath);
         epicDirs.push({ name: relativePath, path: fullPath });
       } else {
         // Check subdirectories (multi-epic structure)
@@ -64,7 +64,7 @@ function findEpicDirs(basePath, depth = 0) {
  * @returns {Array<{name: string, path: string}>} - Array of epic directories
  */
 function findAllEpicDirs() {
-  const epicsPath = '.claude/epics';
+  const epicsPath = '.opencode/epics';
 
   if (!fs.existsSync(epicsPath)) {
     return [];

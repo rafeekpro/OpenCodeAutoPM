@@ -3,8 +3,8 @@
  * @fileoverview Config command: set-provider
  * Configure a provider with interactive prompts
  *
- * Usage: autopm config:set-provider [provider-name]
- * Example: autopm config:set-provider claude
+ * Usage: open-autopm config:set-provider [provider-name]
+ * Example: open-autopm config:set-provider claude
  */
 
 const path = require('path');
@@ -26,7 +26,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('\nError: Configuration not found');
-      console.error('Run: autopm config:init\n');
+      console.error('Run: open-autopm config:init\n');
       process.exit(1);
     }
 
@@ -179,7 +179,7 @@ async function main() {
     }
 
     console.log('\nNext step:');
-    console.log(`  - Set API key: autopm config:set-api-key\n`);
+    console.log(`  - Set API key: open-autopm config:set-api-key\n`);
 
   } catch (error) {
     if (error.message.includes('cancelled') || error.message.includes('User force closed')) {

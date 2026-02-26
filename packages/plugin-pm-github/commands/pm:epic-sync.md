@@ -17,7 +17,7 @@ The simplest way to sync an epic to GitHub:
 
 ```bash
 # Full automated sync (recommended)
-bash .claude/scripts/pm/epic-sync.sh "$ARGUMENTS"
+bash .opencode/scripts/pm/epic-sync.sh "$ARGUMENTS"
 ```
 
 This orchestration script automatically runs all 4 steps:
@@ -47,14 +47,14 @@ This orchestration script automatically runs all 4 steps:
 
 ```bash
 # Check for single epic or multi-epic structure
-if [ -f ".claude/epics/$ARGUMENTS/epic.md" ]; then
+if [ -f ".opencode/epics/$ARGUMENTS/epic.md" ]; then
     echo "Single epic mode detected"
     # Count task files
-    ls .claude/epics/$ARGUMENTS/*.md 2>/dev/null | grep -v epic.md | wc -l
-elif [ -d ".claude/epics/$ARGUMENTS" ] && ls .claude/epics/$ARGUMENTS/*/epic.md 2>/dev/null | head -1; then
+    ls .opencode/epics/$ARGUMENTS/*.md 2>/dev/null | grep -v epic.md | wc -l
+elif [ -d ".opencode/epics/$ARGUMENTS" ] && ls .opencode/epics/$ARGUMENTS/*/epic.md 2>/dev/null | head -1; then
     echo "Multi-epic mode detected (from epic-split)"
     # Count task files in all subdirectories
-    find .claude/epics/$ARGUMENTS -name "*.md" ! -name "epic.md" ! -name "meta.yaml" | wc -l
+    find .opencode/epics/$ARGUMENTS -name "*.md" ! -name "epic.md" ! -name "meta.yaml" | wc -l
 else
     echo "❌ Epic not found. Run: /pm:prd-parse $ARGUMENTS or /pm:epic-split $ARGUMENTS"
 fi
@@ -66,17 +66,17 @@ If no tasks found: "❌ No tasks to sync. Run: /pm:epic-decompose $ARGUMENTS"
 
 **⚡ Quick Command:**
 ```bash
-bash .claude/scripts/pm/epic-sync.sh "$ARGUMENTS"
+bash .opencode/scripts/pm/epic-sync.sh "$ARGUMENTS"
 ```
 
 The epic sync process is modularized into 4 specialized scripts that handle different aspects of the synchronization. Each script is designed for reliability, testability, and maintainability.
 
-The orchestration script (`.claude/scripts/pm/epic-sync.sh`) automatically runs all 4 steps in sequence. The individual scripts are documented below for reference and debugging.
+The orchestration script (`.opencode/scripts/pm/epic-sync.sh`) automatically runs all 4 steps in sequence. The individual scripts are documented below for reference and debugging.
 
 ### Processing Mode Detection
 
 **Single Epic Mode:**
-- Process `.claude/epics/$ARGUMENTS/epic.md` and its tasks
+- Process `.opencode/epics/$ARGUMENTS/epic.md` and its tasks
 - Create one epic issue with all tasks linked
 
 **Multi-Epic Mode (from epic-split):**
@@ -91,7 +91,7 @@ This is handled automatically by our modular scripts, but you can run the check 
 
 ```bash
 # Check repository protection (built into all scripts)
-bash .claude/scripts/lib/github-utils.sh
+bash .opencode/scripts/lib/github-utils.sh
 ```
 
 The scripts will automatically:
@@ -105,7 +105,7 @@ Create the main GitHub issue for the epic:
 
 ```bash
 # Create epic issue with proper stats and labels
-epic_number=$(bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "$ARGUMENTS")
+epic_number=$(bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "$ARGUMENTS")
 
 echo "✅ Epic issue created: #$epic_number"
 ```
@@ -123,7 +123,7 @@ Create GitHub issues for all tasks with automatic parallel processing:
 
 ```bash
 # Create task issues (automatically chooses sequential/parallel)
-task_mapping_file=$(bash .claude/scripts/pm/epic-sync/create-task-issues.sh "$ARGUMENTS" "$epic_number")
+task_mapping_file=$(bash .opencode/scripts/pm/epic-sync/create-task-issues.sh "$ARGUMENTS" "$epic_number")
 
 echo "✅ Task issues created. Mapping: $task_mapping_file"
 ```
@@ -148,7 +148,7 @@ Update all task dependencies and rename files to use GitHub issue numbers:
 
 ```bash
 # Update references and rename files
-bash .claude/scripts/pm/epic-sync/update-references.sh "$ARGUMENTS" "$task_mapping_file"
+bash .opencode/scripts/pm/epic-sync/update-references.sh "$ARGUMENTS" "$task_mapping_file"
 
 echo "✅ Task references updated and files renamed"
 ```
@@ -167,7 +167,7 @@ Update the epic.md file with GitHub information and real task IDs:
 
 ```bash
 # Update epic file with GitHub info and real task IDs
-bash .claude/scripts/pm/epic-sync/update-epic-file.sh "$ARGUMENTS" "$epic_number"
+bash .opencode/scripts/pm/epic-sync/update-epic-file.sh "$ARGUMENTS" "$epic_number"
 
 echo "✅ Epic file updated with GitHub information"
 ```
@@ -203,7 +203,7 @@ The **easiest way** is to use the orchestration script that handles everything:
 
 ```bash
 # One command does it all!
-bash .claude/scripts/pm/epic-sync.sh "$ARGUMENTS"
+bash .opencode/scripts/pm/epic-sync.sh "$ARGUMENTS"
 ```
 
 This automatically runs all 4 steps and provides a complete summary.
@@ -222,7 +222,7 @@ echo "🚀 Starting modular epic sync for: $EPIC_NAME"
 
 # Step 1: Create epic issue
 echo "📝 Creating epic issue..."
-epic_number=$(bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME")
+epic_number=$(bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME")
 
 if [[ -z "$epic_number" ]]; then
     echo "❌ Failed to create epic issue"
@@ -233,7 +233,7 @@ echo "✅ Epic issue created: #$epic_number"
 
 # Step 2: Create task issues
 echo "📋 Creating task issues..."
-task_mapping_file=$(bash .claude/scripts/pm/epic-sync/create-task-issues.sh "$EPIC_NAME" "$epic_number")
+task_mapping_file=$(bash .opencode/scripts/pm/epic-sync/create-task-issues.sh "$EPIC_NAME" "$epic_number")
 
 if [[ ! -f "$task_mapping_file" ]]; then
     echo "❌ Failed to create task issues"
@@ -245,13 +245,13 @@ echo "✅ Created $task_count task issues"
 
 # Step 3: Update references
 echo "🔗 Updating task references..."
-bash .claude/scripts/pm/epic-sync/update-references.sh "$EPIC_NAME" "$task_mapping_file"
+bash .opencode/scripts/pm/epic-sync/update-references.sh "$EPIC_NAME" "$task_mapping_file"
 
 echo "✅ Task references updated"
 
 # Step 4: Update epic file
 echo "📄 Updating epic file..."
-bash .claude/scripts/pm/epic-sync/update-epic-file.sh "$EPIC_NAME" "$epic_number"
+bash .opencode/scripts/pm/epic-sync/update-epic-file.sh "$EPIC_NAME" "$epic_number"
 
 echo "✅ Epic file updated"
 
@@ -295,7 +295,7 @@ Here's the workflow for syncing multiple epics created by epic-split:
 # Sync multiple epics from split structure
 
 FEATURE_NAME="$ARGUMENTS"
-EPICS_DIR=".claude/epics/$FEATURE_NAME"
+EPICS_DIR=".opencode/epics/$FEATURE_NAME"
 
 echo "🚀 Starting multi-epic sync for: $FEATURE_NAME"
 
@@ -319,7 +319,7 @@ for epic_dir in $epic_dirs; do
 
     # Step 1: Create epic issue
     echo "📝 Creating epic issue..."
-    epic_number=$(bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "$FEATURE_NAME/$epic_name")
+    epic_number=$(bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "$FEATURE_NAME/$epic_name")
 
     if [[ -z "$epic_number" ]]; then
         echo "⚠️  Failed to create epic issue for $epic_name"
@@ -331,7 +331,7 @@ for epic_dir in $epic_dirs; do
 
     # Step 2: Create task issues for this epic
     echo "📋 Creating task issues..."
-    task_mapping_file=$(bash .claude/scripts/pm/epic-sync/create-task-issues.sh "$FEATURE_NAME/$epic_name" "$epic_number")
+    task_mapping_file=$(bash .opencode/scripts/pm/epic-sync/create-task-issues.sh "$FEATURE_NAME/$epic_name" "$epic_number")
 
     if [[ -f "$task_mapping_file" ]]; then
         task_count=$(wc -l < "$task_mapping_file")
@@ -340,10 +340,10 @@ for epic_dir in $epic_dirs; do
 
         # Step 3: Update references
         echo "🔗 Updating task references..."
-        bash .claude/scripts/pm/epic-sync/update-references.sh "$FEATURE_NAME/$epic_name" "$task_mapping_file"
+        bash .opencode/scripts/pm/epic-sync/update-references.sh "$FEATURE_NAME/$epic_name" "$task_mapping_file"
 
         # Step 4: Update epic file
-        bash .claude/scripts/pm/epic-sync/update-epic-file.sh "$FEATURE_NAME/$epic_name" "$epic_number"
+        bash .opencode/scripts/pm/epic-sync/update-epic-file.sh "$FEATURE_NAME/$epic_name" "$epic_number"
     fi
 done
 
@@ -468,7 +468,7 @@ Enable debug logging for detailed troubleshooting:
 
 ```bash
 export AUTOPM_LOG_LEVEL=0  # Enable debug logging
-bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
+bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
 ```
 
 ## Migration from Legacy Epic Sync

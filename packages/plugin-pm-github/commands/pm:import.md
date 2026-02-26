@@ -66,7 +66,7 @@ For each issue to import:
 
 **If Epic:**
 ```bash
-mkdir -p .claude/epics/{epic_name}
+mkdir -p .opencode/epics/{epic_name}
 # Create epic.md with GitHub content and frontmatter
 ```
 

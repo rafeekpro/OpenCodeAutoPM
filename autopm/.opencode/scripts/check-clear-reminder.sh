@@ -7,7 +7,7 @@
 #
 # Should be run at session start or before new commands.
 
-REMINDER_FILE=".claude/.clear-reminder"
+REMINDER_FILE=".opencode/.clear-reminder"
 
 if [ -f "$REMINDER_FILE" ]; then
     echo ""

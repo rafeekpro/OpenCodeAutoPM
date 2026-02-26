@@ -454,7 +454,7 @@ class CostTrackingCallback(AsyncCallbackHandler):
             token_usage = response.llm_output.get("token_usage", {})
             self.total_tokens += token_usage.get("total_tokens", 0)
 
-            # Calculate cost (Claude 3.5 Sonnet pricing)
+            # Calculate cost (OpenCode 3.5 Sonnet pricing)
             input_tokens = token_usage.get("prompt_tokens", 0)
             output_tokens = token_usage.get("completion_tokens", 0)
 
@@ -1000,7 +1000,7 @@ async def monitored_chain_call(chain, input_data):
 
 ## Model Selection Guide
 
-### Claude 3.5 Sonnet (Recommended for Most Use Cases)
+### OpenCode 3.5 Sonnet (Recommended for Most Use Cases)
 **Use with ChatAnthropic:**
 ```python
 llm = ChatAnthropic(model="claude-3-5-sonnet-20241022", temperature=0)
@@ -1010,7 +1010,7 @@ llm = ChatAnthropic(model="claude-3-5-sonnet-20241022", temperature=0)
 - Strong reasoning and code generation
 - 200K context window
 
-### Claude 3 Haiku (Cost-Optimized)
+### OpenCode 3 Haiku (Cost-Optimized)
 **Use for high-volume operations:**
 ```python
 llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
@@ -1184,7 +1184,7 @@ async def load_test(chain, num_requests=100):
     print(f"Avg latency: {duration / num_requests * 1000:.2f}ms")
 ```
 
-## ClaudeAutoPM Integration Patterns
+## OpenCodeAutoPM Integration Patterns
 
 ### 1. Documentation RAG for AutoPM
 
@@ -1198,7 +1198,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 # Load AutoPM documentation
 loader = DirectoryLoader(
-    ".claude/",
+    ".opencode/",
     glob="**/*.md",
     show_progress=True
 )
@@ -1215,7 +1215,7 @@ splits = text_splitter.split_documents(docs)
 vectorstore = Chroma.from_documents(
     documents=splits,
     embedding=OpenAIEmbeddings(),
-    persist_directory="./.claude/vectordb"
+    persist_directory="./.opencode/vectordb"
 )
 
 # RAG chain for AutoPM queries
@@ -1223,7 +1223,7 @@ def create_autopm_rag_chain():
     retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
     prompt = ChatPromptTemplate.from_template("""
-    You are an expert on the ClaudeAutoPM framework. Answer the question based on the context.
+    You are an expert on the OpenCodeAutoPM framework. Answer the question based on the context.
 
     Context:
     {context}

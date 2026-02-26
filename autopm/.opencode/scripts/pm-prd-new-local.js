@@ -20,7 +20,7 @@ const { stringifyFrontmatter } = require('../lib/frontmatter');
  * @param {string} name - PRD title/name
  * @param {Object} options - Optional configuration
  * @param {string} options.id - Custom PRD ID (auto-generated if not provided)
- * @param {string} options.author - Author name (default: 'ClaudeAutoPM')
+ * @param {string} options.author - Author name (default: 'OpenCodeAutoPM')
  * @param {string} options.priority - Priority level (default: 'medium')
  * @returns {Promise<Object>} Created PRD metadata
  * @throws {Error} If name is invalid or PRD already exists
@@ -43,7 +43,7 @@ async function createLocalPRD(name, options = {}) {
     title: sanitizedName,
     created: now.toISOString().split('T')[0],
     createdAt: now.toISOString(), // Include full timestamp for sorting
-    author: options.author || 'ClaudeAutoPM',
+    author: options.author || 'OpenCodeAutoPM',
     status: 'draft',
     priority: options.priority || 'medium',
     version: '1.0'

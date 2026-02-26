@@ -5,10 +5,10 @@
  * Display analytics and insights for PRDs/Epics/Tasks
  *
  * Usage:
- *   autopm analytics:epic <epic-id>      # Epic analytics with burndown
- *   autopm analytics:team                # Team metrics
- *   autopm analytics:velocity            # Velocity trends
- *   autopm analytics:export <epic-id>    # Export to JSON/CSV
+ *   open-autopm analytics:epic <epic-id>      # Epic analytics with burndown
+ *   open-autopm analytics:team                # Team metrics
+ *   open-autopm analytics:velocity            # Velocity trends
+ *   open-autopm analytics:export <epic-id>    # Export to JSON/CSV
  *
  * Features:
  *   - Epic analytics (velocity, progress, blockers)
@@ -24,7 +24,7 @@ const DependencyAnalyzer = require('../../../../lib/dependency-analyzer');
 
 class AnalyticsCommand {
   constructor() {
-    this.basePath = '.claude';
+    this.basePath = '.opencode';
     this.engine = new AnalyticsEngine({ basePath: this.basePath });
     this.chartGenerator = new BurndownChart();
     this.dependencyAnalyzer = new DependencyAnalyzer();
@@ -280,16 +280,16 @@ class AnalyticsCommand {
 Display analytics and insights for PRDs/Epics/Tasks
 
 Usage:
-  autopm analytics:epic <epic-id>         Epic analytics with burndown
-  autopm analytics:team [--period 30]    Team metrics (default: 30 days)
-  autopm analytics:velocity [--period 30] Velocity trends
-  autopm analytics:dependencies <epic-id> Dependency analysis
-  autopm analytics:export <epic-id> [--format json|csv] [--output file.json]
+  open-autopm analytics:epic <epic-id>         Epic analytics with burndown
+  open-autopm analytics:team [--period 30]    Team metrics (default: 30 days)
+  open-autopm analytics:velocity [--period 30] Velocity trends
+  open-autopm analytics:dependencies <epic-id> Dependency analysis
+  open-autopm analytics:export <epic-id> [--format json|csv] [--output file.json]
 
 Examples:
-  autopm analytics:epic epic-001
-  autopm analytics:team --period 60
-  autopm analytics:export epic-001 --format csv --output report.csv
+  open-autopm analytics:epic epic-001
+  open-autopm analytics:team --period 60
+  open-autopm analytics:export epic-001 --format csv --output report.csv
 
 Options:
   --period <days>    Time period for metrics (default: 30)
@@ -368,7 +368,7 @@ Options:
         case 'epic':
           if (!options.epicId) {
             console.error('❌ Error: Epic ID required');
-            console.error('Usage: autopm analytics:epic <epic-id>');
+            console.error('Usage: open-autopm analytics:epic <epic-id>');
             process.exit(1);
           }
           await this.showEpicAnalytics(options.epicId);
@@ -385,7 +385,7 @@ Options:
         case 'dependencies':
           if (!options.epicId) {
             console.error('❌ Error: Epic ID required');
-            console.error('Usage: autopm analytics:dependencies <epic-id>');
+            console.error('Usage: open-autopm analytics:dependencies <epic-id>');
             process.exit(1);
           }
           await this.showDependencies(options.epicId);
@@ -394,7 +394,7 @@ Options:
         case 'export':
           if (!options.epicId) {
             console.error('❌ Error: Epic ID required');
-            console.error('Usage: autopm analytics:export <epic-id> [--format json|csv]');
+            console.error('Usage: open-autopm analytics:export <epic-id> [--format json|csv]');
             process.exit(1);
           }
           await this.exportAnalytics(options.epicId, options.format, options.output);

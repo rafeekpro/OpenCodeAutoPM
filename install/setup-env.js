@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Environment Setup Script - Node.js Implementation
+ * OpenCodeAutoPM Environment Setup Script - Node.js Implementation
  *
- * Creates and configures .env file for ClaudeAutoPM
+ * Creates and configures .env file for OpenCodeAutoPM
  */
 
 const fs = require('fs');
@@ -73,7 +73,7 @@ class EnvSetup {
   printBanner() {
     console.log(`${this.colors.CYAN}${this.colors.BOLD}`);
     console.log('╔══════════════════════════════════════════════╗');
-    console.log('║        🔧 ClaudeAutoPM .env Setup            ║');
+    console.log('║        🔧 OpenCodeAutoPM .env Setup            ║');
     console.log('║         Interactive Configuration            ║');
     console.log('╚══════════════════════════════════════════════╝');
     console.log(this.colors.NC);
@@ -128,18 +128,18 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
   }
 
   validateDirectory() {
-    const claudeDir = path.join(this.targetDir, '.claude');
+    const claudeDir = path.join(this.targetDir, '.opencode');
 
     if (!fs.existsSync(claudeDir)) {
-      this.printError(`ClaudeAutoPM not found in ${this.targetDir}`);
-      this.printMsg('YELLOW', "Please run 'autopm install' first or specify correct directory");
+      this.printError(`OpenCodeAutoPM not found in ${this.targetDir}`);
+      this.printMsg('YELLOW', "Please run 'open-autopm install' first or specify correct directory");
       return false;
     }
 
     const examplePath = path.join(claudeDir, '.env.example');
     if (!fs.existsSync(examplePath)) {
       this.printError(`.env.example not found at ${examplePath}`);
-      this.printMsg('YELLOW', 'Please ensure ClaudeAutoPM is properly installed');
+      this.printMsg('YELLOW', 'Please ensure OpenCodeAutoPM is properly installed');
       return false;
     }
 
@@ -397,7 +397,7 @@ MCP_LOG_LEVEL=info
       process.exit(1);
     }
 
-    const envPath = path.join(this.targetDir, '.claude', '.env');
+    const envPath = path.join(this.targetDir, '.opencode', '.env');
 
     // Check existing .env
     if (fs.existsSync(envPath) && !this.options.force) {

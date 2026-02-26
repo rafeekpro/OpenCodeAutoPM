@@ -18,7 +18,7 @@ if [[ -f "$SCRIPT_DIR/../../lib/github-utils.sh" ]]; then
     source "$SCRIPT_DIR/../../lib/github-utils.sh"
 fi
 
-EPIC_FILE=".claude/epics/$EPIC_NAME/epic.md"
+EPIC_FILE=".opencode/epics/$EPIC_NAME/epic.md"
 
 if [[ ! -f "$EPIC_FILE" ]]; then
     echo "❌ Error: Epic file not found: $EPIC_FILE"
@@ -41,7 +41,7 @@ fi
 epic_content=$(awk 'BEGIN{p=0} /^---$/{p++; next} p==2{print}' "$EPIC_FILE")
 
 # Count tasks
-task_count=$(find ".claude/epics/$EPIC_NAME" -name "[0-9]*.md" -type f 2>/dev/null | wc -l)
+task_count=$(find ".opencode/epics/$EPIC_NAME" -name "[0-9]*.md" -type f 2>/dev/null | wc -l)
 
 # Detect epic type (bug vs feature)
 if echo "$epic_content" | grep -qi "bug\|fix\|error\|issue"; then
@@ -88,8 +88,8 @@ cat > /tmp/epic-doc-comment.md <<EOF
 📁 **Local Documentation**
 
 This epic is tracked locally at:
-- **Epic file**: \`.claude/epics/$EPIC_NAME/epic.md\`
-- **PRD**: \`.claude/prds/$prd_name.md\`
+- **Epic file**: \`.opencode/epics/$EPIC_NAME/epic.md\`
+- **PRD**: \`.opencode/prds/$prd_name.md\`
 
 **For developers**: Clone the repository and review these files for:
 - Complete technical specifications
@@ -99,7 +99,7 @@ This epic is tracked locally at:
 
 **File Structure**:
 \`\`\`
-.claude/epics/$EPIC_NAME/
+.opencode/epics/$EPIC_NAME/
 ├── epic.md           # This epic (#$epic_number)
 ├── 001.md           # Task 1 (will be issue #XX)
 ├── 002.md           # Task 2 (will be issue #XX)

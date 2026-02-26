@@ -19,7 +19,7 @@ if [[ ! -f "$MAPPING_FILE" ]]; then
     exit 1
 fi
 
-EPIC_DIR=".claude/epics/$EPIC_NAME"
+EPIC_DIR=".opencode/epics/$EPIC_NAME"
 
 if [[ ! -d "$EPIC_DIR" ]]; then
     echo "❌ Error: Epic directory not found: $EPIC_DIR"

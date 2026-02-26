@@ -13,7 +13,7 @@ import path from 'path';
 /**
  * Approximate token counting using character-based estimation
  *
- * Note: For production use with real Claude API, use tiktoken library
+ * Note: For production use with real OpenCode API, use tiktoken library
  * with cl100k_base encoding. This is a fallback implementation.
  *
  * @param {string} text - Text to count tokens for

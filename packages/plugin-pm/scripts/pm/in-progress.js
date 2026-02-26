@@ -17,18 +17,18 @@ function getInProgressWork() {
     totalActive: 0
   };
 
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return result;
   }
 
   try {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
     // Check for active work in updates directories
     for (const epicName of epicDirs) {
-      const epicPath = path.join('.claude/epics', epicName);
+      const epicPath = path.join('.opencode/epics', epicName);
       const updatesPath = path.join(epicPath, 'updates');
 
       if (fs.existsSync(updatesPath)) {
@@ -92,7 +92,7 @@ function getInProgressWork() {
 
     // Check for active epics
     for (const epicName of epicDirs) {
-      const epicFile = path.join('.claude/epics', epicName, 'epic.md');
+      const epicFile = path.join('.opencode/epics', epicName, 'epic.md');
 
       if (fs.existsSync(epicFile)) {
         try {

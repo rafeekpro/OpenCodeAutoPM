@@ -183,7 +183,7 @@ class WorktreeMigrator {
    * Main execution
    */
   async run() {
-    console.log(colors.bold('🔄 ClaudeAutoPM Git Strategy Migration'));
+    console.log(colors.bold('🔄 OpenCodeAutoPM Git Strategy Migration'));
     console.log('='.repeat(38));
     console.log('');
     console.log('This script will help you migrate from worktrees to the unified branch strategy.');

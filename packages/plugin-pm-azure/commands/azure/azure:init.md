@@ -72,28 +72,28 @@ Step 4: Integration Options
 Step 5: Local Setup
 ─────────────────────────────────────────────────────────────
 Creating directories...
-✓ .claude/azure/
-✓ .claude/azure/user-stories/
-✓ .claude/azure/tasks/
-✓ .claude/azure/features/
-✓ .claude/azure/cache/
-✓ .claude/azure/imports/
+✓ .opencode/azure/
+✓ .opencode/azure/user-stories/
+✓ .opencode/azure/tasks/
+✓ .opencode/azure/features/
+✓ .opencode/azure/cache/
+✓ .opencode/azure/imports/
 
 Saving configuration...
-✓ .claude/.env updated
-✓ .claude/azure/config.yml created
+✓ .opencode/.env updated
+✓ .opencode/azure/config.yml created
 ```
 
 ### 2. Create Configuration Files
 
-`.claude/.env`:
+`.opencode/.env`:
 ```bash
 AZURE_DEVOPS_PAT=xxx
 AZURE_DEVOPS_ORG=rafal0387
 AZURE_DEVOPS_PROJECT=Speacher
 ```
 
-`.claude/azure/config.yml`:
+`.opencode/azure/config.yml`:
 ```yaml
 azure_devops:
   organization: rafal0387
@@ -152,7 +152,7 @@ Importing active items...
 ✓ Imported 4 User Stories
 ✓ Imported 12 Tasks
 
-Cache populated: .claude/azure/cache/
+Cache populated: .opencode/azure/cache/
 ```
 
 ### 4. Git Hooks Setup
@@ -192,7 +192,7 @@ fi
 2. See your tasks: /azure:task-list --my-tasks
 3. Start work: /azure:next-task
 
-📚 Documentation: .claude/commands/azure/README.md
+📚 Documentation: .opencode/commands/azure/README.md
 
 Happy coding! 🎉
 ```

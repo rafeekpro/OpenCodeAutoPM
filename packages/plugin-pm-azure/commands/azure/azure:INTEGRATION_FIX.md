@@ -70,7 +70,7 @@ Task(subagent_type="azure-devops-specialist",
 
 1. **Environment setup** (PAT tokens, authentication)
 2. **Azure DevOps API calls** (work items, status updates)
-3. **Local file management** (`.claude/azure/` tracking)
+3. **Local file management** (`.opencode/azure/` tracking)
 4. **Structured reporting** (URLs, next steps)
 
 ## Testing the Fix

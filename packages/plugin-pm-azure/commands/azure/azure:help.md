@@ -107,8 +107,8 @@ UTILITIES
 • Commands support shortcuts (e.g., 'us' for 'user-story')
 • Most lists support filters (--status, --assigned-to, etc.)
 
-📚 Documentation: .claude/commands/azure/README.md
-🔧 Configuration: .claude/azure/config.yml
+📚 Documentation: .opencode/commands/azure/README.md
+🔧 Configuration: .opencode/azure/config.yml
 ```
 
 ### Command-Specific Help

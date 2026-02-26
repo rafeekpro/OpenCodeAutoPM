@@ -15,7 +15,7 @@ Complete a task, update status, and prepare for next work.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -166,10 +166,10 @@ Record time spent:
 
 ```bash
 # Update time log
-echo "${TIMESTAMP}|COMPLETED|${TASK_ID}|${HOURS_SPENT}h" >> .claude/azure/time-tracking.log
+echo "${TIMESTAMP}|COMPLETED|${TASK_ID}|${HOURS_SPENT}h" >> .opencode/azure/time-tracking.log
 
 # Update work log
-cat >> .claude/azure/tasks/${TASK_ID}/work.md << EOF
+cat >> .opencode/azure/tasks/${TASK_ID}/work.md << EOF
 
 ## Completion Summary
 - Completed: ${TIMESTAMP}
@@ -321,7 +321,7 @@ Team ranking: #2
 Example hook:
 ```bash
 #!/bin/bash
-# .claude/hooks/pre-task-close.sh
+# .opencode/hooks/pre-task-close.sh
 # Ensure all tests pass
 npm test || exit 1
 # Check code coverage

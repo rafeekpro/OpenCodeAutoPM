@@ -85,7 +85,7 @@ Default: YES use agent|Over-use better than under-use
 </enforcement>
 
 <ref>
-Full version: .claude/rules/agent-mandatory.md
-Quick ref: .claude/quick-ref/agent-quick-ref.md
-Registry: .claude/agents/AGENT-REGISTRY.md
+Full version: .opencode/rules/agent-mandatory.md
+Quick ref: .opencode/quick-ref/agent-quick-ref.md
+Registry: .opencode/agents/AGENT-REGISTRY.md
 </ref>

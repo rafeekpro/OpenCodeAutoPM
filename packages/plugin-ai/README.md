@@ -7,7 +7,7 @@
 
 ## Overview
 
-This plugin provides comprehensive AI and Machine Learning capabilities for ClaudeAutoPM, including expert agents for OpenAI, Gemini, and LangChain, production-ready commands for RAG systems and model deployment, and Context7-verified best practices for AI development.
+This plugin provides comprehensive AI and Machine Learning capabilities for OpenCodeAutoPM, including expert agents for OpenAI, Gemini, and LangChain, production-ready commands for RAG systems and model deployment, and Context7-verified best practices for AI development.
 
 ## Features
 
@@ -200,7 +200,7 @@ All patterns are verified against official documentation to ensure correctness a
 
 2. **Use an agent:**
    ```bash
-   # In Claude Code
+   # In OpenCode Code
    @openai-python-expert help me implement chat completions with streaming
    ```
 
@@ -294,12 +294,12 @@ Contributions are welcome! Please ensure:
 
 ## License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## Support
 
-- **Issues**: https://github.com/rafeekpro/ClaudeAutoPM/issues
-- **Documentation**: https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-ai
+- **Issues**: https://github.com/rafeekpro/OpenCodeAutoPM/issues
+- **Documentation**: https://github.com/rafeekpro/OpenCodeAutoPM/tree/main/packages/plugin-ai
 
 ## Resources
 

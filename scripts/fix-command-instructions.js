@@ -30,7 +30,7 @@ function generateInstructionsSection(scriptName, commandName) {
 
 ## Instructions
 
-Run \`node .claude/scripts/pm/${scriptName}.js $ARGUMENTS\` using the Bash tool and show me the complete output.
+Run \`node .opencode/scripts/pm/${scriptName}.js $ARGUMENTS\` using the Bash tool and show me the complete output.
 
 - You MUST display the complete output.
 - DO NOT truncate.
@@ -45,8 +45,8 @@ async function hasProperInstructions(filePath) {
   // Check for ## Instructions header
   const hasHeader = /^## Instructions$/m.test(content);
 
-  // Check for node .claude/scripts/pm/ call
-  const hasNodeCall = /node \.claude\/scripts\/pm\//.test(content);
+  // Check for node .opencode/scripts/pm/ call
+  const hasNodeCall = /node \.opencode\/scripts\/pm\//.test(content);
 
   return { hasHeader, hasNodeCall, content };
 }
@@ -75,7 +75,7 @@ async function fixCommandFile(commandPath, scriptName, dryRun = false) {
   } else if (hasNodeCall && !hasHeader) {
     // Has instructions but no proper header - fix structure
     // Find where the node call is and add header before it
-    const nodeCallMatch = content.match(/(Run `node \.claude\/scripts\/pm\/.*?`)/);
+    const nodeCallMatch = content.match(/(Run `node \.opencode\/scripts\/pm\/.*?`)/);
     if (nodeCallMatch) {
       const nodeCallLine = nodeCallMatch[0];
       newContent = content.replace(
@@ -108,10 +108,10 @@ async function main() {
   } else {
     // Try to auto-detect: check if we're in AUTOPM dev project or installed project
     const cwd = process.cwd();
-    if (await fs.access(path.join(cwd, 'autopm', '.claude')).then(() => true).catch(() => false)) {
+    if (await fs.access(path.join(cwd, 'autopm', '.opencode')).then(() => true).catch(() => false)) {
       projectRoot = cwd; // AUTOPM dev project
     } else {
-      projectRoot = cwd; // Installed project (commands are in .claude/)
+      projectRoot = cwd; // Installed project (commands are in .opencode/)
     }
   }
 
@@ -123,15 +123,15 @@ async function main() {
     commandsDir = path.join(projectRoot, 'commands');
     scriptsDir = path.join(projectRoot, 'scripts', 'pm');
   }
-  // Try dev project (autopm/.claude/)
-  else if (await fs.access(path.join(projectRoot, 'autopm', '.claude', 'commands')).then(() => true).catch(() => false)) {
-    commandsDir = path.join(projectRoot, 'autopm', '.claude', 'commands');
-    scriptsDir = path.join(projectRoot, 'autopm', '.claude', 'scripts', 'pm');
+  // Try dev project (autopm/.opencode/)
+  else if (await fs.access(path.join(projectRoot, 'autopm', '.opencode', 'commands')).then(() => true).catch(() => false)) {
+    commandsDir = path.join(projectRoot, 'autopm', '.opencode', 'commands');
+    scriptsDir = path.join(projectRoot, 'autopm', '.opencode', 'scripts', 'pm');
   }
-  // Try installed project (.claude/)
+  // Try installed project (.opencode/)
   else {
-    commandsDir = path.join(projectRoot, '.claude', 'commands');
-    scriptsDir = path.join(projectRoot, '.claude', 'scripts', 'pm');
+    commandsDir = path.join(projectRoot, '.opencode', 'commands');
+    scriptsDir = path.join(projectRoot, '.opencode', 'scripts', 'pm');
   }
 
   console.log(`${colors.gray}Commands dir: ${commandsDir}${colors.reset}`);

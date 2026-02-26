@@ -9,8 +9,8 @@ const path = require('path');
 
 class ContextPrimer {
   constructor() {
-    this.contextsDir = path.join('.claude', 'contexts');
-    this.sessionFile = path.join('.claude', 'contexts', '.current-session.json');
+    this.contextsDir = path.join('.opencode', 'contexts');
+    this.sessionFile = path.join('.opencode', 'contexts', '.current-session.json');
   }
 
   showUsage() {

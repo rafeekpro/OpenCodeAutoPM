@@ -4,11 +4,11 @@ allowed-tools: Bash, Read, Write, LS
 
 # anthropic:optimize
 
-Optimize Anthropic Claude API usage with Context7-verified prompt caching, model selection, streaming, and cost reduction strategies.
+Optimize Anthropic OpenCode API usage with Context7-verified prompt caching, model selection, streaming, and cost reduction strategies.
 
 ## Description
 
-Comprehensive Claude API optimization following official Anthropic best practices:
+Comprehensive OpenCode API optimization following official Anthropic best practices:
 - Prompt caching for 70-90% cost reduction
 - Optimal model selection (Opus, Sonnet, Haiku)
 - Streaming responses for better UX
@@ -597,7 +597,7 @@ except Exception as e:
 ## Optimization Output
 
 ```
-🤖 Anthropic Claude API Optimization Analysis
+🤖 Anthropic OpenCode API Optimization Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Project: AI Application

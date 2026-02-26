@@ -14,8 +14,8 @@ const readline = require('readline');
 
 class ContextOptimizer {
   constructor() {
-    this.rulesDir = path.join('.claude', 'rules');
-    this.archiveDir = path.join('.claude', 'rules-archive');
+    this.rulesDir = path.join('.opencode', 'rules');
+    this.archiveDir = path.join('.opencode', 'rules-archive');
 
     // Rule categories with descriptions
     this.ruleCategories = {
@@ -178,7 +178,7 @@ class ContextOptimizer {
 
     // Check if rules directory exists
     if (!fs.existsSync(this.rulesDir)) {
-      console.error('❌ Error: .claude/rules directory not found');
+      console.error('❌ Error: .opencode/rules directory not found');
       console.log('💡 This wizard must be run from a project with AutoPM installed');
       process.exit(1);
     }
@@ -235,7 +235,7 @@ class ContextOptimizer {
 
     console.log('💡 Next steps:');
     console.log('   • Test your workflow to ensure everything works');
-    console.log('   • Restore files if needed: mv .claude/rules-archive/<file> .claude/rules/');
+    console.log('   • Restore files if needed: mv .opencode/rules-archive/<file> .opencode/rules/');
     console.log('   • Run wizard again anytime to further optimize\n');
   }
 
@@ -352,7 +352,7 @@ Usage:
   node autopm/scripts/optimize-context.js --help   Show this help
 
 Description:
-  Helps reduce Claude Code context memory usage by 50-70% by archiving
+  Helps reduce OpenCode Code context memory usage by 50-70% by archiving
   unused rules files based on your project's technology stack.
 
 Examples:

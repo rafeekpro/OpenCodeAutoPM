@@ -3,7 +3,7 @@
  * @fileoverview Config command: show
  * Show full configuration with masked sensitive data
  *
- * Usage: autopm config:show [--json]
+ * Usage: open-autopm config:show [--json]
  */
 
 const path = require('path');
@@ -121,9 +121,9 @@ function displayHumanReadable(config, manager) {
 
   // Help
   console.log('To modify configuration:');
-  console.log('  autopm config:set <key> <value>     - Set config value');
-  console.log('  autopm config:set-provider <name>   - Configure provider');
-  console.log('  autopm config:set-api-key           - Set API key\n');
+  console.log('  open-autopm config:set <key> <value>     - Set config value');
+  console.log('  open-autopm config:set-provider <name>   - Configure provider');
+  console.log('  open-autopm config:set-api-key           - Set API key\n');
 }
 
 /**
@@ -146,7 +146,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('\nError: Configuration not found');
-      console.error('Run: autopm config:init\n');
+      console.error('Run: open-autopm config:init\n');
       process.exit(1);
     }
 

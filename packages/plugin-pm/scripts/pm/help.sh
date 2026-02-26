@@ -21,7 +21,7 @@ else
   echo ""
   echo ""
 
-  echo "📚 Claude Code PM - Project Management System"
+  echo "📚 OpenCode Code PM - Project Management System"
   echo "============================================="
   echo ""
   echo "🎯 Quick Start Workflow"

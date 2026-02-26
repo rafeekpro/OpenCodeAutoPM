@@ -381,7 +381,7 @@ validate_comment_size() {
 ⚠️ **Comment truncated due to size limit**
 
 The full update is available in your local files at:
-\`.claude/epics/*/updates/$ISSUE_NUMBER/\`
+\`.opencode/epics/*/updates/$ISSUE_NUMBER/\`
 EOF
 
         # Replace with truncated version
@@ -455,7 +455,7 @@ if [[ $# -lt 3 ]]; then
     echo "  - Comments will be truncated if necessary"
     echo ""
     echo "Examples:"
-    echo "  $0 123 /tmp/updates.md .claude/epics/auth/updates/123/progress.md"
+    echo "  $0 123 /tmp/updates.md .opencode/epics/auth/updates/123/progress.md"
     echo "  $0 456 /tmp/updates.md ./progress.md true"
     echo ""
     echo "Output:"

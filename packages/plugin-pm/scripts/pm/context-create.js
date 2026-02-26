@@ -9,7 +9,7 @@ const path = require('path');
 
 class ContextCreator {
   constructor() {
-    this.contextsDir = path.join('.claude', 'contexts');
+    this.contextsDir = path.join('.opencode', 'contexts');
     this.templatesDir = path.join(__dirname, '..', '..', 'templates', 'context-templates');
   }
 

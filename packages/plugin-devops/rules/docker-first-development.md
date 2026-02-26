@@ -1,6 +1,6 @@
 # Docker-First Development Rule
 
-> **STATUS**: Can be enabled/disabled via `.claude/config.json` → `features.docker_first_development`
+> **STATUS**: Can be enabled/disabled via `.opencode/config.json` → `features.docker_first_development`
 
 ## WHEN ENABLED
 
@@ -316,10 +316,10 @@ When `docker_first_development` is enabled, ALL PRs MUST:
 
 ```bash
 # Manual validation before creating PR
-./.claude/scripts/pr-validation.sh
+./.opencode/scripts/pr-validation.sh
 
 # Install Git hooks for automatic validation
-./.claude/scripts/install-hooks.sh
+./.opencode/scripts/install-hooks.sh
 ```
 
 ### 2. GITHUB ACTIONS VALIDATION
@@ -360,13 +360,13 @@ PR will automatically run:
 
 ```bash
 # Full validation (recommended)
-./.claude/scripts/pr-validation.sh
+./.opencode/scripts/pr-validation.sh
 
 # Quick validation (skip some tests)
-./.claude/scripts/pr-validation.sh --force
+./.opencode/scripts/pr-validation.sh --force
 
 # Skip tests entirely (not recommended)  
-./.claude/scripts/pr-validation.sh --skip-tests
+./.opencode/scripts/pr-validation.sh --skip-tests
 ```
 
 ### 6. CI/CD REQUIREMENTS
@@ -386,7 +386,7 @@ GitHub Actions workflow (`.github/workflows/docker-tests.yml`) runs:
 git push --no-verify
 
 # Disable Docker-first for urgent fixes
-./.claude/scripts/docker-toggle.sh disable
+./.opencode/scripts/docker-toggle.sh disable
 # Don't forget to re-enable after fix!
 ```
 
@@ -394,11 +394,11 @@ git push --no-verify
 
 ```bash
 # Check Docker-first status with detailed info
-./.claude/scripts/docker-toggle.sh status
+./.opencode/scripts/docker-toggle.sh status
 
 # Quick check
-cat .claude/config.json | jq '.features.docker_first_development'
+cat .opencode/config.json | jq '.features.docker_first_development'
 
 # Manual toggle
-./.claude/scripts/docker-toggle.sh enable   # or disable
+./.opencode/scripts/docker-toggle.sh enable   # or disable
 ```

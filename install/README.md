@@ -1,12 +1,12 @@
-# 🚀 ClaudeAutoPM Installation Scripts
+# 🚀 OpenCodeAutoPM Installation Scripts
 
-This directory contains installation and configuration scripts for the **ClaudeAutoPM (Autonomous Project Management)** framework.
+This directory contains installation and configuration scripts for the **OpenCodeAutoPM (Autonomous Project Management)** framework.
 
 ## 📁 Contents
 
 | File | Description |
 |------|-------------|
-| `install.sh` | Main installation script for ClaudeAutoPM framework |
+| `install.sh` | Main installation script for OpenCodeAutoPM framework |
 | `update.sh` | Update existing installation to latest framework version |
 | `merge-claude.sh` | Helper script for merging CLAUDE.md configurations |
 | `README.md` | This documentation file |
@@ -16,8 +16,8 @@ This directory contains installation and configuration scripts for the **ClaudeA
 ### Fresh Installation
 
 ```bash
-# Clone or download ClaudeAutoPM, then run:
-cd ClaudeAutoPM
+# Clone or download OpenCodeAutoPM, then run:
+cd OpenCodeAutoPM
 ./install/install.sh
 
 # Or install to specific directory:
@@ -50,8 +50,8 @@ autopm update --force --no-backup
 
 ✅ **Installs/Updates Core Components:**
 
-- `.claude/` - Claude Code configuration and rules
-- `.claude-code/` - Claude Code specific settings  
+- `.opencode/` - OpenCode Code configuration and rules
+- `.opencode-code/` - OpenCode Code specific settings  
 - `.github/` - GitHub workflows and templates
 - `scripts/` - Project automation scripts
 - `PLAYBOOK.md` - Usage guidelines
@@ -60,7 +60,7 @@ autopm update --force --no-backup
 
 ✅ **Handles CLAUDE.md Migration:**
 
-- Copies `.claude/CLAUDE_BASIC.md` → `CLAUDE.md` (new installations)
+- Copies `.opencode/CLAUDE_BASIC.md` → `CLAUDE.md` (new installations)
 - Detects conflicts with existing `CLAUDE.md`
 - Offers intelligent merge prompts for combining configurations
 
@@ -176,10 +176,10 @@ Generates comprehensive AI prompts for intelligently merging:
 ./install/merge-claude.sh
 
 # Explicit file paths
-./install/merge-claude.sh CLAUDE.md .claude/CLAUDE_BASIC.md
+./install/merge-claude.sh CLAUDE.md .opencode/CLAUDE_BASIC.md
 
 # Save prompt to file
-./install/merge-claude.sh CLAUDE.md .claude/CLAUDE_BASIC.md merge_prompt.md
+./install/merge-claude.sh CLAUDE.md .opencode/CLAUDE_BASIC.md merge_prompt.md
 ```
 
 ### Output Options
@@ -257,7 +257,7 @@ The installer uses intelligent file comparison to:
 ```bash
 # Backups created at:
 .autopm_backup_YYYYMMDD_HHMMSS/
-├── .claude/
+├── .opencode/
 ├── .github/
 ├── scripts/
 ├── CLAUDE.md
@@ -284,7 +284,7 @@ The installer uses intelligent file comparison to:
 
 ```bash
 # Custom repository URL
-REPO_URL="https://github.com/your-fork/ClaudeAutoPM.git"
+REPO_URL="https://github.com/your-fork/OpenCodeAutoPM.git"
 
 # Custom temporary directory
 TEMP_DIR="/tmp/my_autopm_install"
@@ -337,21 +337,21 @@ ls -la .autopm_backup_*
 
 ## 📖 Related Documentation
 
-- [`PLAYBOOK.md`](../PLAYBOOK.md) - ClaudeAutoPM usage guide
+- [`PLAYBOOK.md`](../PLAYBOOK.md) - OpenCodeAutoPM usage guide
 - [`COMMIT_CHECKLIST.md`](../COMMIT_CHECKLIST.md) - Quality standards
-- [`.claude/CLAUDE.md`](../.claude/CLAUDE.md) - Complete configuration
-- [`.claude/rules/`](../.claude/rules/) - Development rules
+- [`.opencode/CLAUDE.md`](../.opencode/CLAUDE.md) - Complete configuration
+- [`.opencode/rules/`](../.opencode/rules/) - Development rules
 
 ## 🎉 Post-Installation
 
 After successful installation:
 
 1. **Review `CLAUDE.md`** - Customize for your project
-2. **Setup `.env`** - Copy `.claude/.env.example` → `.claude/.env`
+2. **Setup `.env`** - Copy `.opencode/.env.example` → `.opencode/.env`
 3. **Add API keys** - Fill in your service credentials
-4. **Read `PLAYBOOK.md`** - Learn ClaudeAutoPM workflows
-5. **Explore `.claude/rules/`** - Understand development standards
+4. **Read `PLAYBOOK.md`** - Learn OpenCodeAutoPM workflows
+5. **Explore `.opencode/rules/`** - Understand development standards
 
 ---
 
-**Ready to install?** Run `./install.sh` and let ClaudeAutoPM transform your development workflow! 🚀
+**Ready to install?** Run `./install.sh` and let OpenCodeAutoPM transform your development workflow! 🚀

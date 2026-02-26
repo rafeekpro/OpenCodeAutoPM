@@ -15,7 +15,7 @@ Create new product requirement document - interactively or from existing content
 
 `--local`, `-l`
 : Use local mode (offline workflow)
-: Creates PRD files in `.claude/prds/` directory
+: Creates PRD files in `.opencode/prds/` directory
 : No GitHub/Azure synchronization required
 : Ideal for working offline or without remote provider configured
 
@@ -28,7 +28,7 @@ Create new product requirement document - interactively or from existing content
 
 `--interactive`, `-i`
 : Use interactive terminal prompts (requires interactive terminal)
-: NOT compatible with Claude Code (use default LLM generation instead)
+: NOT compatible with OpenCode Code (use default LLM generation instead)
 : Launches traditional brainstorming wizard with readline prompts
 
 `--force`, `-f`
@@ -42,7 +42,7 @@ Create new product requirement document - interactively or from existing content
 
 ## Examples
 
-### LLM-assisted generation (default - works in Claude Code)
+### LLM-assisted generation (default - works in OpenCode Code)
 ```
 /pm:prd-new user-authentication
 ```
@@ -111,7 +111,7 @@ Parse the arguments to detect the mode:
 - If `--content "<text>"` is present → **Content from Inline Text Mode**
 - Otherwise → **LLM-Assisted Generation Mode** (default)
 
-### LLM-Assisted Generation Mode (DEFAULT - works in Claude Code)
+### LLM-Assisted Generation Mode (DEFAULT - works in OpenCode Code)
 
 #### Phase 0: Codebase Analysis (MANDATORY)
 
@@ -246,7 +246,7 @@ Parse the arguments to detect the mode:
 
 1. **Pre-check**: Verify PRD doesn't already exist
    ```bash
-   if [ -f .claude/prds/<feature_name>.md ]; then
+   if [ -f .opencode/prds/<feature_name>.md ]; then
      echo "❌ PRD already exists: <feature_name>"
      echo "💡 Use --force to overwrite or edit: /pm:prd-edit <feature_name>"
      exit 1
@@ -390,17 +390,17 @@ Parse the arguments to detect the mode:
 
 4. **Write PRD File**:
    ```bash
-   mkdir -p .claude/prds
-   # Use Write tool to create .claude/prds/<feature_name>.md
+   mkdir -p .opencode/prds
+   # Use Write tool to create .opencode/prds/<feature_name>.md
    ```
 
 5. **Confirm Success**: Show next steps
 
 ### Interactive Terminal Mode (`--interactive`)
 
-**⚠️ WARNING**: This mode requires an interactive terminal and **will NOT work in Claude Code**.
+**⚠️ WARNING**: This mode requires an interactive terminal and **will NOT work in OpenCode Code**.
 
-Run `node .claude/scripts/pm/prd-new.js $ARGUMENTS` using the Bash tool and show me the complete output.
+Run `node .opencode/scripts/pm/prd-new.js $ARGUMENTS` using the Bash tool and show me the complete output.
 
 This will launch an interactive brainstorming session that will:
 1. Prompt for product vision
@@ -410,13 +410,13 @@ This will launch an interactive brainstorming session that will:
 5. Capture technical considerations
 6. Generate a comprehensive PRD with proper frontmatter
 
-The script handles all validation, creates the necessary directories, and saves the PRD to `.claude/prds/<feature_name>.md`.
+The script handles all validation, creates the necessary directories, and saves the PRD to `.opencode/prds/<feature_name>.md`.
 
 ### Content from File Mode (`--content @filepath`)
 
 1. Extract the file path from `--content @<filepath>` argument
 2. Use the Read tool to read the source file content
-3. Check if target PRD already exists at `.claude/prds/<feature_name>.md`
+3. Check if target PRD already exists at `.opencode/prds/<feature_name>.md`
    - If exists and `--force` not provided → Error and stop
    - If exists and `--force` provided → Continue (will overwrite)
 4. Prepare the PRD content:
@@ -432,8 +432,8 @@ The script handles all validation, creates the necessary directories, and saves 
      timeline: <from --timeline or "TBD">
      ---
      ```
-5. Create directory `.claude/prds/` if it doesn't exist (use Bash: `mkdir -p .claude/prds`)
-6. Write the PRD file using the Write tool to `.claude/prds/<feature_name>.md`
+5. Create directory `.opencode/prds/` if it doesn't exist (use Bash: `mkdir -p .opencode/prds`)
+6. Write the PRD file using the Write tool to `.opencode/prds/<feature_name>.md`
 7. Confirm success and show next steps
 
 ### Content from Inline Text Mode (`--content "text"`)
@@ -444,7 +444,7 @@ Same as file mode, but use the inline text directly instead of reading from file
 
 After successful PRD creation, show:
 ```
-✅ PRD created: .claude/prds/<feature_name>.md
+✅ PRD created: .opencode/prds/<feature_name>.md
 
 📋 Next steps:
   1. Review: /pm:prd-show <feature_name>

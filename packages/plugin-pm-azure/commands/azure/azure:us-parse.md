@@ -12,7 +12,7 @@ Parse a User Story into Tasks with automatic creation in Azure DevOps.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -230,7 +230,7 @@ https://dev.azure.com/{org}/{project}/_workitems/edit/{story_id}
 
 ## Local Tracking
 
-Save parsing results to `.claude/azure/parsed/{story_id}.md`:
+Save parsing results to `.opencode/azure/parsed/{story_id}.md`:
 
 ```markdown
 # Parsed: User Story #[ID]

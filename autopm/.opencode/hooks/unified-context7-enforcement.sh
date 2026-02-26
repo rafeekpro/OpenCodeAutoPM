@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Unified Context7 Enforcement Hook
-# Triggered by Claude Code on tool-use events
+# Triggered by OpenCode Code on tool-use events
 # Shows Context7 queries that MUST be performed before command/agent execution
 
 set -e
@@ -20,7 +20,7 @@ if [[ "$PROMPT" =~ ^/([a-z-]+):([a-z-]+) ]]; then
     echo ""
 
     # Run the command hook
-    node .claude/hooks/pre-command-context7.js "$PROMPT"
+    node .opencode/hooks/pre-command-context7.js "$PROMPT"
 
 elif [[ "$PROMPT" =~ ^@([a-z-]+) ]]; then
     AGENT="${BASH_REMATCH[1]}"
@@ -31,7 +31,7 @@ elif [[ "$PROMPT" =~ ^@([a-z-]+) ]]; then
     echo ""
 
     # Run the agent hook
-    node .claude/hooks/pre-agent-context7.js "$PROMPT"
+    node .opencode/hooks/pre-agent-context7.js "$PROMPT"
 fi
 
 # Always allow execution to continue

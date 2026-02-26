@@ -27,7 +27,7 @@ Intelligently update project context files based on detected changes.
 ### 1. Verify context exists
 
 ```bash
-if [ ! -d ".claude/context" ]; then
+if [ ! -d ".opencode/context" ]; then
   echo "❌ Context not found. Run /pm:context-create first."
   exit 1
 fi
@@ -124,7 +124,7 @@ If new directories detected:
 project/
 ├── src/           # Source code
 ├── test/          # Tests
-├── .claude/       # AutoPM configuration
+├── .opencode/       # AutoPM configuration
 ├── [new-dir]/     # [Purpose of new directory]
 └── docs/          # Documentation
 ```

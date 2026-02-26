@@ -120,7 +120,7 @@ check_local_updates() {
 
     # Find the epic that contains this issue
     local found_epic=""
-    for epic_dir in .claude/epics/*/; do
+    for epic_dir in .opencode/epics/*/; do
         [[ -d "$epic_dir" ]] || continue
 
         local epic_updates_dir="$epic_dir/updates/$ISSUE_NUMBER"

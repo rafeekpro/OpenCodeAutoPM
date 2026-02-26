@@ -80,7 +80,7 @@ describe('/core:context-analyze Command', () => {
       expect(content).toMatch(/## Required Documentation Access/i);
     });
 
-    test('should include Claude API Context7 documentation queries', () => {
+    test('should include OpenCode API Context7 documentation queries', () => {
       const content = fs.readFileSync(commandPath, 'utf-8');
 
       // Check for mandatory Context7 queries

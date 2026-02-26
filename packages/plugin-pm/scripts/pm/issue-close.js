@@ -10,9 +10,9 @@ const { execSync } = require('child_process');
 class IssueCloser {
   constructor() {
     this.providersDir = path.join(__dirname, '..', '..', 'providers');
-    this.issueDir = path.join('.claude', 'issues');
-    this.activeWorkFile = path.join('.claude', 'active-work.json');
-    this.completedFile = path.join('.claude', 'completed-work.json');
+    this.issueDir = path.join('.opencode', 'issues');
+    this.activeWorkFile = path.join('.opencode', 'active-work.json');
+    this.completedFile = path.join('.opencode', 'completed-work.json');
   }
 
   detectProvider() {

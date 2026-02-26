@@ -227,7 +227,7 @@ This command uses specialized agents:
    - Create incident report with timeline
    - Document rollback reason and impact
    - Record metrics before/after rollback
-   - Save to `.claude/incidents/rollback-YYYYMMDD-HHMM.md`
+   - Save to `.opencode/incidents/rollback-YYYYMMDD-HHMM.md`
 
 ### Platform-Specific Implementation
 
@@ -486,7 +486,7 @@ Target:  v2.3.0 (last stable)
 ✓ No traffic routing issues
 
 📝 Incident Documentation
-Report saved to: .claude/incidents/rollback-20250121-1430.md
+Report saved to: .opencode/incidents/rollback-20250121-1430.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 Rollback Reason: Critical bug in payment processing causing transaction failures

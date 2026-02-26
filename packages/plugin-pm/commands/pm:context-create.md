@@ -22,12 +22,12 @@ Initialize project context documentation for AI agent memory.
 
 ## Instructions
 
-Create comprehensive project context in `.claude/context/` directory.
+Create comprehensive project context in `.opencode/context/` directory.
 
 ### 1. Check if context already exists
 
 ```bash
-if [ -d ".claude/context" ]; then
+if [ -d ".opencode/context" ]; then
   echo "⚠️  Context already exists. Use /pm:context-update to modify."
   exit 1
 fi
@@ -36,16 +36,16 @@ fi
 ### 2. Create context directory structure
 
 ```bash
-mkdir -p .claude/context
+mkdir -p .opencode/context
 ```
 
 ### 3. Copy and customize templates
 
 **Read templates from AutoPM installation:**
-- `.claude/templates/context-templates/project-brief.md.template`
-- `.claude/templates/context-templates/tech-context.md.template`
-- `.claude/templates/context-templates/progress.md.template`
-- `.claude/templates/context-templates/project-structure.md.template`
+- `.opencode/templates/context-templates/project-brief.md.template`
+- `.opencode/templates/context-templates/tech-context.md.template`
+- `.opencode/templates/context-templates/progress.md.template`
+- `.opencode/templates/context-templates/project-structure.md.template`
 
 ### 4. Auto-populate with project information
 
@@ -74,7 +74,7 @@ mkdir -p .claude/context
 
 ### 5. Create context README
 
-Write `.claude/context/README.md`:
+Write `.opencode/context/README.md`:
 
 ```markdown
 # Project Context
@@ -102,7 +102,7 @@ Keep these files updated as the project evolves. Run `/pm:context-update` after:
 
 ### 6. Write populated templates
 
-Create the following files in `.claude/context/`:
+Create the following files in `.opencode/context/`:
 - `project-brief.md` (populated from README and package.json)
 - `tech-context.md` (populated from package.json and file detection)
 - `progress.md` (initialized with setup phase)
@@ -113,7 +113,7 @@ Create the following files in `.claude/context/`:
 Display success message:
 
 ```
-✅ Context created in .claude/context/
+✅ Context created in .opencode/context/
 
 📝 Files created:
    - project-brief.md (auto-populated from README)

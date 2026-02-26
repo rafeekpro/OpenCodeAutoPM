@@ -8,10 +8,10 @@ const path = require('path');
 
 class EpicCloser {
   constructor() {
-    this.epicsDir = path.join('.claude', 'epics');
-    this.prdsDir = path.join('.claude', 'prds');
-    this.activeWorkFile = path.join('.claude', 'active-work.json');
-    this.completedFile = path.join('.claude', 'completed-work.json');
+    this.epicsDir = path.join('.opencode', 'epics');
+    this.prdsDir = path.join('.opencode', 'prds');
+    this.activeWorkFile = path.join('.opencode', 'active-work.json');
+    this.completedFile = path.join('.opencode', 'completed-work.json');
   }
 
   findEpicFile(epicName) {

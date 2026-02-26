@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-frameworks",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Complete frontend frameworks plugin with React, Vue, Tailwind CSS agents, UI commands, performance rules, and optimization scripts for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

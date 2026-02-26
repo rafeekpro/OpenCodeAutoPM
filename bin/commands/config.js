@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Config Command
- * Manage and display ClaudeAutoPM configuration
+ * OpenCodeAutoPM Config Command
+ * Manage and display OpenCodeAutoPM configuration
  */
 
 const fs = require('fs-extra');
@@ -11,15 +11,15 @@ const dotenv = require('dotenv');
 
 class ConfigCommand {
   constructor() {
-    this.configPath = path.join(process.cwd(), '.claude', 'config.json');
-    this.envPath = path.join(process.cwd(), '.claude', '.env');
+    this.configPath = path.join(process.cwd(), '.opencode', 'config.json');
+    this.envPath = path.join(process.cwd(), '.opencode', '.env');
 
     // Load .env file if it exists
     this.loadEnv();
   }
 
   /**
-   * Load environment variables from .claude/.env
+   * Load environment variables from .opencode/.env
    */
   loadEnv() {
     try {
@@ -66,13 +66,13 @@ class ConfigCommand {
     const config = await this.loadConfig();
 
     if (!config) {
-      console.error('❌ No configuration found. Run: autopm install');
+      console.error('❌ No configuration found. Run: open-autopm install');
       return;
     }
 
     // Build configuration display
     console.log('\n┌─────────────────────────────────────────┐');
-    console.log('│       ClaudeAutoPM Configuration        │');
+    console.log('│       OpenCodeAutoPM Configuration        │');
     console.log('├─────────────────────────────────────────┤');
 
     // Provider info
@@ -125,8 +125,8 @@ class ConfigCommand {
     const mcpActiveServers = config.mcp?.activeServers || [];
     let mcpAvailableServers = 0;
 
-    // Count actual server definition files (.md) in .claude/mcp/
-    const mcpDir = path.join(process.cwd(), '.claude', 'mcp');
+    // Count actual server definition files (.md) in .opencode/mcp/
+    const mcpDir = path.join(process.cwd(), '.opencode', 'mcp');
     if (await fs.pathExists(mcpDir)) {
       try {
         const files = await fs.readdir(mcpDir);
@@ -171,7 +171,7 @@ class ConfigCommand {
       issues.push({
         icon: '⚠️',
         problem: 'Provider not configured',
-        solution: 'Run: autopm config set provider github  (or azure)'
+        solution: 'Run: open-autopm config set provider github  (or azure)'
       });
     }
 
@@ -181,21 +181,21 @@ class ConfigCommand {
         issues.push({
           icon: '⚠️',
           problem: 'GitHub owner not set',
-          solution: 'Run: autopm config set github.owner YOUR_USERNAME'
+          solution: 'Run: open-autopm config set github.owner YOUR_USERNAME'
         });
       }
       if (!github?.repo || github.repo === 'not set') {
         issues.push({
           icon: '⚠️',
           problem: 'GitHub repository not set',
-          solution: 'Run: autopm config set github.repo YOUR_REPO'
+          solution: 'Run: open-autopm config set github.repo YOUR_REPO'
         });
       }
       if (!process.env.GITHUB_TOKEN) {
         issues.push({
           icon: '⚠️',
           problem: 'GitHub token not set',
-          solution: 'Add to .claude/.env: GITHUB_TOKEN=ghp_your_token_here'
+          solution: 'Add to .opencode/.env: GITHUB_TOKEN=ghp_your_token_here'
         });
       }
     }
@@ -206,21 +206,21 @@ class ConfigCommand {
         issues.push({
           icon: '⚠️',
           problem: 'Azure organization not set',
-          solution: 'Run: autopm config set azure.organization YOUR_ORG'
+          solution: 'Run: open-autopm config set azure.organization YOUR_ORG'
         });
       }
       if (!azure?.project) {
         issues.push({
           icon: '⚠️',
           problem: 'Azure project not set',
-          solution: 'Run: autopm config set azure.project YOUR_PROJECT'
+          solution: 'Run: open-autopm config set azure.project YOUR_PROJECT'
         });
       }
       if (!process.env.AZURE_DEVOPS_PAT) {
         issues.push({
           icon: '⚠️',
           problem: 'Azure DevOps token not set',
-          solution: 'Add to .claude/.env: AZURE_DEVOPS_PAT=your_token_here'
+          solution: 'Add to .opencode/.env: AZURE_DEVOPS_PAT=your_token_here'
         });
       }
     }
@@ -230,13 +230,13 @@ class ConfigCommand {
         issues.push({
           icon: 'ℹ️',
           problem: `${mcpAvailableServers} MCP server(s) available but not active`,
-          solution: 'Run: autopm mcp list  (then: autopm mcp enable <server>)'
+          solution: 'Run: open-autopm mcp list  (then: open-autopm mcp enable <server>)'
         });
       } else {
         issues.push({
           icon: 'ℹ️',
           problem: 'No MCP servers installed',
-          solution: 'Add servers from examples: cp .claude/examples/mcp/*.md .claude/mcp/'
+          solution: 'Add servers from examples: cp .opencode/examples/mcp/*.md .opencode/mcp/'
         });
       }
     }
@@ -252,9 +252,9 @@ class ConfigCommand {
 
     // Show available commands hint
     console.log('💡 Quick Commands:');
-    console.log('  autopm config validate           - Check configuration');
-    console.log('  autopm mcp check                 - Check MCP requirements');
-    console.log('  autopm config --help             - Show all options\n');
+    console.log('  open-autopm config validate           - Check configuration');
+    console.log('  open-autopm mcp check                 - Check MCP requirements');
+    console.log('  open-autopm config --help             - Show all options\n');
   }
 
   /**
@@ -332,9 +332,9 @@ class ConfigCommand {
         console.log('│  • Personal Access Token (PAT)');
         console.log('│');
         console.log('│  Setup Commands:');
-        console.log('│  1. Set owner:     autopm config set github.owner YOUR_USERNAME');
-        console.log('│  2. Set repo:      autopm config set github.repo YOUR_REPO');
-        console.log('│  3. Add PAT:       Edit .claude/.env and add:');
+        console.log('│  1. Set owner:     open-autopm config set github.owner YOUR_USERNAME');
+        console.log('│  2. Set repo:      open-autopm config set github.repo YOUR_REPO');
+        console.log('│  3. Add PAT:       Edit .opencode/.env and add:');
         console.log('│                    GITHUB_TOKEN=ghp_your_token_here');
         console.log('│');
         console.log('│  Create a GitHub Personal Access Token:');
@@ -345,7 +345,7 @@ class ConfigCommand {
         console.log('│     - workflow (if using GitHub Actions)');
         console.log('│  4. Generate and copy the token');
         console.log('│');
-        console.log('│  Verify setup:     autopm config validate');
+        console.log('│  Verify setup:     open-autopm config validate');
       } else if (value === 'azure') {
         console.log('│  Required Settings:');
         console.log('│  • Organization name');
@@ -353,9 +353,9 @@ class ConfigCommand {
         console.log('│  • Personal Access Token (PAT)');
         console.log('│');
         console.log('│  Setup Commands:');
-        console.log('│  1. Set org:       autopm config set azure.organization YOUR_ORG');
-        console.log('│  2. Set project:   autopm config set azure.project YOUR_PROJECT');
-        console.log('│  3. Add PAT:       Edit .claude/.env and add:');
+        console.log('│  1. Set org:       open-autopm config set azure.organization YOUR_ORG');
+        console.log('│  2. Set project:   open-autopm config set azure.project YOUR_PROJECT');
+        console.log('│  3. Add PAT:       Edit .opencode/.env and add:');
         console.log('│                    AZURE_DEVOPS_PAT=your_token_here');
         console.log('│');
         console.log('│  Create an Azure DevOps Personal Access Token:');
@@ -366,7 +366,7 @@ class ConfigCommand {
         console.log('│     - Code: Read & write');
         console.log('│  4. Create and copy the token');
         console.log('│');
-        console.log('│  Verify setup:     autopm config validate');
+        console.log('│  Verify setup:     open-autopm config validate');
       }
 
       console.log('└─────────────────────────────────────────────────────────────┘');
@@ -456,7 +456,7 @@ class ConfigCommand {
     }
 
     // Check directories
-    const requiredDirs = ['.claude', '.claude/agents', '.claude/commands'];
+    const requiredDirs = ['.opencode', '.opencode/agents', '.opencode/commands'];
     for (const dir of requiredDirs) {
       if (!await fs.pathExists(dir)) {
         console.error(`❌ Missing directory: ${dir}`);
@@ -475,7 +475,7 @@ class ConfigCommand {
   async init() {
     // This would use inquirer for interactive prompts
     console.log('Interactive configuration coming soon...');
-    console.log('For now, use: autopm config set <key> <value>');
+    console.log('For now, use: open-autopm config set <key> <value>');
   }
 
   /**
@@ -490,7 +490,7 @@ class ConfigCommand {
 // Export for yargs command structure
 module.exports = {
   command: 'config <action> [key] [value]',
-  desc: 'Manage ClaudeAutoPM configuration and provider settings',
+  desc: 'Manage OpenCodeAutoPM configuration and provider settings',
   builder: (yargs) => {
     return yargs
       .positional('action', {
@@ -525,7 +525,7 @@ module.exports = {
         case 'set':
           if (!argv.key || argv.value === undefined) {
             console.error('❌ Both key and value are required for set command');
-            console.error('Usage: autopm config set <key> <value>');
+            console.error('Usage: open-autopm config set <key> <value>');
             process.exit(1);
           }
           await cmd.set(argv.key, argv.value);
@@ -534,7 +534,7 @@ module.exports = {
         case 'get':
           if (!argv.key) {
             console.error('❌ Key is required for get command');
-            console.error('Usage: autopm config get <key>');
+            console.error('Usage: open-autopm config get <key>');
             process.exit(1);
           }
           const config = await cmd.loadConfig();
@@ -550,7 +550,7 @@ module.exports = {
         case 'switch':
           if (!argv.key) {
             console.error('❌ Provider name is required for switch command');
-            console.error('Usage: autopm config switch <provider>');
+            console.error('Usage: open-autopm config switch <provider>');
             process.exit(1);
           }
           await cmd.switch(argv.key);
@@ -559,7 +559,7 @@ module.exports = {
         case 'toggle':
           if (!argv.key) {
             console.error('❌ Feature name is required for toggle command');
-            console.error('Usage: autopm config toggle <feature>');
+            console.error('Usage: open-autopm config toggle <feature>');
             process.exit(1);
           }
           await cmd.toggle(argv.key);

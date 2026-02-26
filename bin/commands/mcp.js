@@ -1,5 +1,5 @@
 /**
- * MCP Command for autopm CLI
+ * MCP Command for open-autopm CLI
  * Manages Model Context Protocol servers, agents, and configuration
  */
 
@@ -64,22 +64,22 @@ module.exports = {
         describe: 'Filter by category',
         type: 'string'
       })
-      .example('autopm mcp list', 'List all available MCP servers')
-      .example('autopm mcp search filesystem', 'Search npm for MCP servers')
-      .example('autopm mcp browse --official', 'Browse official MCP servers')
-      .example('autopm mcp install @modelcontextprotocol/server-filesystem', 'Install MCP server from npm')
-      .example('autopm mcp install @upstash/context7-mcp --enable', 'Install and enable immediately')
-      .example('autopm mcp uninstall filesystem', 'Uninstall MCP server')
-      .example('autopm mcp enable context7', 'Enable context7 documentation server')
-      .example('autopm mcp agents', 'List all agents using MCP')
-      .example('autopm mcp agent react-frontend-engineer', 'Show MCP config for specific agent')
-      .example('autopm mcp usage', 'Show MCP usage statistics')
-      .example('autopm mcp setup', 'Interactive API key setup')
-      .example('autopm mcp check', 'Quick MCP configuration check')
-      .example('autopm mcp diagnose', 'Run MCP diagnostics')
-      .example('autopm mcp test context7', 'Test MCP server connection')
-      .example('autopm mcp tree', 'Show agent-MCP dependency tree')
-      .example('autopm mcp status', 'Show MCP servers status');
+      .example('open-autopm mcp list', 'List all available MCP servers')
+      .example('open-autopm mcp search filesystem', 'Search npm for MCP servers')
+      .example('open-autopm mcp browse --official', 'Browse official MCP servers')
+      .example('open-autopm mcp install @modelcontextprotocol/server-filesystem', 'Install MCP server from npm')
+      .example('open-autopm mcp install @upstash/context7-mcp --enable', 'Install and enable immediately')
+      .example('open-autopm mcp uninstall filesystem', 'Uninstall MCP server')
+      .example('open-autopm mcp enable context7', 'Enable context7 documentation server')
+      .example('open-autopm mcp agents', 'List all agents using MCP')
+      .example('open-autopm mcp agent react-frontend-engineer', 'Show MCP config for specific agent')
+      .example('open-autopm mcp usage', 'Show MCP usage statistics')
+      .example('open-autopm mcp setup', 'Interactive API key setup')
+      .example('open-autopm mcp check', 'Quick MCP configuration check')
+      .example('open-autopm mcp diagnose', 'Run MCP diagnostics')
+      .example('open-autopm mcp test context7', 'Test MCP server connection')
+      .example('open-autopm mcp tree', 'Show agent-MCP dependency tree')
+      .example('open-autopm mcp status', 'Show MCP servers status');
   },
 
   handler: async (argv) => {
@@ -99,7 +99,7 @@ module.exports = {
 
         case 'remove':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp remove <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp remove <server-name>');
             process.exit(1);
           }
           handler.remove(argv.name || argv.server);
@@ -107,7 +107,7 @@ module.exports = {
 
         case 'enable':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp enable <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp enable <server-name>');
             process.exit(1);
           }
           handler.enable(argv.name || argv.server);
@@ -115,7 +115,7 @@ module.exports = {
 
         case 'disable':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp disable <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp disable <server-name>');
             process.exit(1);
           }
           handler.disable(argv.name || argv.server);
@@ -131,7 +131,7 @@ module.exports = {
 
         case 'info':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp info <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp info <server-name>');
             process.exit(1);
           }
           handler.info(argv.name || argv.server);
@@ -140,7 +140,7 @@ module.exports = {
         // Discovery and installation commands
         case 'search':
           if (!argv.name) {
-            console.error('❌ Please specify a search query: autopm mcp search <query>');
+            console.error('❌ Please specify a search query: open-autopm mcp search <query>');
             process.exit(1);
           }
           await handler.search(argv.name, argv);
@@ -152,7 +152,7 @@ module.exports = {
 
         case 'install':
           if (!argv.name) {
-            console.error('❌ Please specify a package name: autopm mcp install <package>');
+            console.error('❌ Please specify a package name: open-autopm mcp install <package>');
             process.exit(1);
           }
           await handler.installFromNpm(argv.name, argv);
@@ -160,7 +160,7 @@ module.exports = {
 
         case 'uninstall':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp uninstall <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp uninstall <server-name>');
             process.exit(1);
           }
           await handler.uninstallServer(argv.name || argv.server, argv);
@@ -173,7 +173,7 @@ module.exports = {
 
         case 'agent':
           if (!argv.name && !argv.agent) {
-            console.error('❌ Please specify an agent name: autopm mcp agent <agent-name>');
+            console.error('❌ Please specify an agent name: open-autopm mcp agent <agent-name>');
             process.exit(1);
           }
           handler.mcpAgent(argv.name || argv.agent);
@@ -198,7 +198,7 @@ module.exports = {
 
         case 'test':
           if (!argv.name && !argv.server) {
-            console.error('❌ Please specify a server name: autopm mcp test <server-name>');
+            console.error('❌ Please specify a server name: open-autopm mcp test <server-name>');
             process.exit(1);
           }
           const result = await handler.testServer(argv.name || argv.server);
@@ -224,7 +224,7 @@ module.exports = {
           console.log('\nAvailable actions:');
           console.log('  list, add, remove, enable, disable, sync, validate, info');
           console.log('  agents, agent, usage, setup, check, diagnose, test, tree, status');
-          console.log('\nUse "autopm mcp --help" for more information');
+          console.log('\nUse "open-autopm mcp --help" for more information');
           process.exit(1);
       }
     } catch (error) {

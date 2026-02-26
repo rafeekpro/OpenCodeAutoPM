@@ -26,11 +26,11 @@ async function initializeSystem(options = {}) {
     options,
     directories: {
       required: [
-        '.claude/prds',
-        '.claude/epics',
-        '.claude/rules',
-        '.claude/agents',
-        '.claude/scripts/pm'
+        '.opencode/prds',
+        '.opencode/epics',
+        '.opencode/rules',
+        '.opencode/agents',
+        '.opencode/scripts/pm'
       ],
       created: []
     },
@@ -134,9 +134,9 @@ async function initializeSystem(options = {}) {
   }
 
   // Handle CLAUDE.md
-  result.claude.exists = fs.existsSync('CLAUDE.md');
+  result.opencode.exists = fs.existsSync('CLAUDE.md');
 
-  if (!result.claude.exists && !dryRun) {
+  if (!result.opencode.exists && !dryRun) {
     const claudeContent = `# CLAUDE.md
 
 > Think carefully and implement the most concise solution that changes as little code as possible.
@@ -156,9 +156,9 @@ Follow existing patterns in the codebase.
 `;
 
     fs.writeFileSync('CLAUDE.md', claudeContent);
-    result.claude.created = true;
-  } else if (!result.claude.exists && dryRun) {
-    result.claude.created = true; // Would be created
+    result.opencode.created = true;
+  } else if (!result.opencode.exists && dryRun) {
+    result.opencode.created = true; // Would be created
   }
 
   // Generate summary
@@ -166,7 +166,7 @@ Follow existing patterns in the codebase.
     directoriesCreated: result.directories.created.length,
     gitConfigured: result.git.isRepo && result.git.hasRemote,
     dependenciesReady: result.dependencies.gh && result.dependencies.ghAuth,
-    claudeReady: result.claude.exists || result.claude.created,
+    claudeReady: result.opencode.exists || result.opencode.created,
     hasWarnings: result.git.warnings.length > 0
   };
 
@@ -183,7 +183,7 @@ function displayBanner() {
 ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝     ╚═╝     ╚═╝
 
 ┌─────────────────────────────────┐
-│ Claude Code Project Management  │
+│ OpenCode Code Project Management  │
 │ by https://x.com/aroussi        │
 └─────────────────────────────────┘
 https://github.com/rlagowski/autopm
@@ -195,7 +195,7 @@ function formatInitOutput(data) {
   output += displayBanner();
   output += '\n\n';
 
-  output += '🚀 Initializing Claude Code AutoPM System\n';
+  output += '🚀 Initializing OpenCode Code AutoPM System\n';
   output += '======================================\n\n';
 
   // Dependencies check
@@ -260,10 +260,10 @@ function formatInitOutput(data) {
   }
 
   // CLAUDE.md
-  if (data.claude.created) {
+  if (data.opencode.created) {
     output += '\n📄 Creating CLAUDE.md...\n';
     output += '  ✅ CLAUDE.md created\n';
-  } else if (data.claude.exists) {
+  } else if (data.opencode.exists) {
     output += '\n📄 CLAUDE.md exists\n';
   }
 

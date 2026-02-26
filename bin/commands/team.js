@@ -6,10 +6,10 @@ const MCPHandler = require('../../scripts/mcp-handler.js');
 
 // Paths
 const projectRoot = process.cwd();
-const teamsConfigPath = path.join(projectRoot, '.claude', 'teams.json');
-const activeTeamPath = path.join(projectRoot, '.claude', 'active_team.txt');
+const teamsConfigPath = path.join(projectRoot, '.opencode', 'teams.json');
+const activeTeamPath = path.join(projectRoot, '.opencode', 'active_team.txt');
 const claudeMdPath = path.join(projectRoot, 'CLAUDE.md');
-const claudeTemplatePath = path.join(projectRoot, '.claude', 'templates', 'claude-templates', 'base.md');
+const claudeTemplatePath = path.join(projectRoot, '.opencode', 'templates', 'claude-templates', 'base.md');
 
 // Helper function to resolve all agents for a team (including inherited)
 function resolveAgents(teamName, teamsConfig, resolved = new Set()) {
@@ -45,12 +45,12 @@ function resolveAgents(teamName, teamsConfig, resolved = new Set()) {
 // Helper function to validate that agent files exist
 function validateAgentFiles(agents, projectRoot) {
   const missingAgents = [];
-  const agentsDir = path.join(projectRoot, '.claude', 'agents');
+  const agentsDir = path.join(projectRoot, '.opencode', 'agents');
 
   // Check if agents directory exists
   if (!fs.existsSync(agentsDir)) {
-    // If in framework development, check autopm directory
-    const autopmAgentsDir = path.join(projectRoot, 'autopm', '.claude', 'agents');
+    // If in framework development, check open-autopm directory
+    const autopmAgentsDir = path.join(projectRoot, 'autopm', '.opencode', 'agents');
     if (!fs.existsSync(autopmAgentsDir)) {
       console.warn('⚠️  Warning: Agents directory not found');
       return missingAgents; // Return empty array to continue
@@ -59,7 +59,7 @@ function validateAgentFiles(agents, projectRoot) {
 
   agents.forEach(agent => {
     const agentPath = path.join(agentsDir, agent);
-    const autopmAgentPath = path.join(projectRoot, 'autopm', '.claude', 'agents', agent);
+    const autopmAgentPath = path.join(projectRoot, 'autopm', '.opencode', 'agents', agent);
 
     if (!fs.existsSync(agentPath) && !fs.existsSync(autopmAgentPath)) {
       missingAgents.push(agent);
@@ -136,7 +136,7 @@ function validateAgentMCPDependencies(agents, projectRoot) {
 function generateAgentIncludes(agents) {
   return agents
     .sort()
-    .map(agent => `- @include .claude/agents/${agent}`)
+    .map(agent => `- @include .opencode/agents/${agent}`)
     .join('\n');
 }
 
@@ -151,9 +151,9 @@ function updateClaudeMd(agents) {
     template = fs.readFileSync(claudeTemplatePath, 'utf8');
   } else {
     // Create a basic template if neither exists
-    template = `# ClaudeAutoPM Configuration
+    template = `# OpenCodeAutoPM Configuration
 
-This project is configured with ClaudeAutoPM for autonomous project management.
+This project is configured with OpenCodeAutoPM for autonomous project management.
 
 ## Active Team Agents
 
@@ -170,7 +170,7 @@ This project is configured with ClaudeAutoPM for autonomous project management.
 - \`pm release\` - Prepare and execute releases
 
 ## Documentation
-See: https://github.com/rafeekpro/ClaudeAutoPM
+See: https://github.com/rafeekpro/OpenCodeAutoPM
 `;
   }
 
@@ -298,7 +298,7 @@ const commands = {
       }
 
       // Show usage tip at the end
-      console.log('💡 Tip: Use "autopm team load <name>" to activate a team');
+      console.log('💡 Tip: Use "open-autopm team load <name>" to activate a team');
       console.log('💡 Tip: Add --verbose to see missing agent details');
       console.log();
 
@@ -414,10 +414,10 @@ const commands = {
           } else {
             console.log('\n💡 To install these plugins, run:');
             for (const [pluginName] of byPlugin.entries()) {
-              console.log(`   autopm plugin install ${pluginName}`);
+              console.log(`   open-autopm plugin install ${pluginName}`);
             }
             console.log('\n💡 Or run with --auto-install flag:');
-            console.log(`   autopm team load ${teamName} --auto-install\n`);
+            console.log(`   open-autopm team load ${teamName} --auto-install\n`);
           }
         }
 
@@ -426,7 +426,7 @@ const commands = {
           trulyMissing.forEach(agent => {
             console.warn(`   - ${agent}`);
           });
-          console.warn('\n💡 These agents may be custom or from core. Check .claude/agents/ directory.\n');
+          console.warn('\n💡 These agents may be custom or from core. Check .opencode/agents/ directory.\n');
         }
       }
 
@@ -439,17 +439,17 @@ const commands = {
           if (warning.type === 'not_installed') {
             console.warn(`❌ MCP server '${warning.server}' is NOT INSTALLED`);
             console.warn(`   Required by: ${warning.agents.join(', ')}`);
-            console.warn(`   Fix: autopm mcp install ${warning.server}`);
+            console.warn(`   Fix: open-autopm mcp install ${warning.server}`);
           } else if (warning.type === 'not_active') {
             console.warn(`⚪ MCP server '${warning.server}' is NOT ACTIVE`);
             console.warn(`   Required by: ${warning.agents.join(', ')}`);
-            console.warn(`   Fix: autopm mcp enable ${warning.server}`);
+            console.warn(`   Fix: open-autopm mcp enable ${warning.server}`);
           }
           console.warn('');
         });
 
-        console.warn('💡 Tip: Run "autopm mcp list" to see all MCP servers');
-        console.warn('💡 Tip: Run "autopm mcp setup" for interactive configuration\n');
+        console.warn('💡 Tip: Run "open-autopm mcp list" to see all MCP servers');
+        console.warn('💡 Tip: Run "open-autopm mcp setup" for interactive configuration\n');
       }
 
       // Update CLAUDE.md with the new agent list
@@ -509,11 +509,11 @@ module.exports = {
         type: 'boolean',
         default: false
       })
-      .example('autopm team list', 'List all available teams')
-      .example('autopm team list --verbose', 'List teams with missing agent details')
-      .example('autopm team load frontend', 'Load frontend team')
-      .example('autopm team load frontend --auto-install', 'Load and auto-install missing plugins')
-      .example('autopm team load fullstack -y', 'Load fullstack with auto-install (shorthand)')
+      .example('open-autopm team list', 'List all available teams')
+      .example('open-autopm team list --verbose', 'List teams with missing agent details')
+      .example('open-autopm team load frontend', 'Load frontend team')
+      .example('open-autopm team load frontend --auto-install', 'Load and auto-install missing plugins')
+      .example('open-autopm team load fullstack -y', 'Load fullstack with auto-install (shorthand)')
       .check((argv) => {
         if (argv.action === 'load' && !argv.name) {
           throw new Error('Team name is required for load action');

@@ -29,7 +29,7 @@ function generatePluginManifest(pluginData, pluginId) {
   agents: ${agentNames || 'None'}
   commands: ${commandNames || 'None'}
   rules: ${ruleCount} files (on-demand)
-  📖 .claude/plugins/${pluginId}/
+  📖 .opencode/plugins/${pluginId}/
 </plugin>`;
 
   return {
@@ -95,7 +95,7 @@ ${manifests.join('\n\n')}
 Commands: Type /[plugin-id]:[command] to invoke
 Agents: Type @[agent-name] to invoke
 Rules: Automatically loaded when needed
-Files: All available in .claude/plugins/[plugin-id]/
+Files: All available in .opencode/plugins/[plugin-id]/
 </usage>
 </plugins>`;
 

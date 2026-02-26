@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ClaudeAutoPM Update Script
+# OpenCodeAutoPM Update Script
 # Updates existing installation to latest framework version
 
 set -e
@@ -18,26 +18,26 @@ CREATE_BACKUP=${AUTOPM_BACKUP:-1}
 PRESERVE_CONFIG=${AUTOPM_PRESERVE_CONFIG:-1}
 
 # Paths
-CLAUDE_DIR=".claude"
-BACKUP_DIR=".claude-backup-$(date +%Y%m%d-%H%M%S)"
+CLAUDE_DIR=".opencode"
+BACKUP_DIR=".opencode-backup-$(date +%Y%m%d-%H%M%S)"
 AUTOPM_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-FRAMEWORK_SOURCE="$AUTOPM_ROOT/autopm/.claude"
+FRAMEWORK_SOURCE="$AUTOPM_ROOT/autopm/.opencode"
 
-echo -e "${BLUE}🔄 ClaudeAutoPM Framework Update${NC}"
+echo -e "${BLUE}🔄 OpenCodeAutoPM Framework Update${NC}"
 echo -e "${BLUE}=================================${NC}"
 
-# Check if this is a ClaudeAutoPM project
+# Check if this is a OpenCodeAutoPM project
 if [ ! -d "$CLAUDE_DIR" ]; then
-    echo -e "${RED}❌ Error: No .claude directory found${NC}"
-    echo -e "${YELLOW}💡 This doesn't appear to be a ClaudeAutoPM project${NC}"
-    echo -e "${YELLOW}   Run 'autopm install' to install the framework${NC}"
+    echo -e "${RED}❌ Error: No .opencode directory found${NC}"
+    echo -e "${YELLOW}💡 This doesn't appear to be a OpenCodeAutoPM project${NC}"
+    echo -e "${YELLOW}   Run 'open-autopm install' to install the framework${NC}"
     exit 1
 fi
 
 # Check if config.json exists to verify it's our installation
 if [ ! -f "$CLAUDE_DIR/config.json" ]; then
-    echo -e "${RED}❌ Error: No config.json found in .claude directory${NC}"
-    echo -e "${YELLOW}💡 This might not be a ClaudeAutoPM installation${NC}"
+    echo -e "${RED}❌ Error: No config.json found in .opencode directory${NC}"
+    echo -e "${YELLOW}💡 This might not be a OpenCodeAutoPM installation${NC}"
     if [ "$FORCE_UPDATE" = "0" ]; then
         echo -e "${YELLOW}   Use --force to proceed anyway${NC}"
         exit 1
@@ -250,9 +250,9 @@ if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
 fi
 
 echo -e "${BLUE}🚀 Next Steps:${NC}"
-echo -e "   • Verify configuration: autopm config show"
+echo -e "   • Verify configuration: open-autopm config show"
 echo -e "   • Test PM commands: /pm:validate"
-echo -e "   • Check documentation: autopm --help"
+echo -e "   • Check documentation: open-autopm --help"
 echo ""
 
 if [ "$CREATE_BACKUP" = "1" ]; then

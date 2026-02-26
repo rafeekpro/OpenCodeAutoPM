@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Setup Git hooks for ClaudeAutoPM
+# Setup Git hooks for OpenCodeAutoPM
 # This script configures Git to use the custom hooks in .githooks directory
 
 echo ""
-echo "🔧 ClaudeAutoPM Git Hooks Setup"
+echo "🔧 OpenCodeAutoPM Git Hooks Setup"
 echo "================================"
 echo ""
 

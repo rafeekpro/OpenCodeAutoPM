@@ -376,7 +376,7 @@ if [[ $# -lt 2 ]]; then
     echo "  - Old backup cleanup (keeps last 5)"
     echo ""
     echo "Examples:"
-    echo "  $0 123 .claude/epics/auth/updates/123/progress.md"
+    echo "  $0 123 .opencode/epics/auth/updates/123/progress.md"
     echo "  $0 456 ./progress.md https://github.com/owner/repo/issues/456#issuecomment-123"
     echo "  $0 789 ./progress.md \"\" true"
     echo ""

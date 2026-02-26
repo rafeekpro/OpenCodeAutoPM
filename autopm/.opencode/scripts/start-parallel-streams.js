@@ -18,7 +18,7 @@ function startParallelStreams(issueNumber) {
 
   if (!fs.existsSync(analysisPath)) {
     console.error(`❌ Issue #${issueNumber} not decomposed yet`);
-    console.log('Run: autopm decompose ' + issueNumber);
+    console.log('Run: open-autopm decompose ' + issueNumber);
     return;
   }
 
@@ -132,7 +132,7 @@ function startParallelStreams(issueNumber) {
   // Show next steps
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
   console.log('📊 Next Steps:\n');
-  console.log(`1. Monitor progress: autopm status ${issueNumber}`);
+  console.log(`1. Monitor progress: open-autopm status ${issueNumber}`);
   console.log(`2. Check stream details: cat ${updatesPath}/stream-*.md`);
   console.log(`3. View coordination: cat ${issuePath}/coordination.md`);
   console.log('');

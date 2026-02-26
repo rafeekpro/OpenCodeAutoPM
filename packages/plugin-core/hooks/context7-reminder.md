@@ -25,5 +25,5 @@
 
 ---
 
-*This reminder is shown by `.claude/hooks/` enforcement system*
-*Defined in: `.claude/rules/context7-enforcement.md`*
+*This reminder is shown by `.opencode/hooks/` enforcement system*
+*Defined in: `.opencode/rules/context7-enforcement.md`*

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Feature Toggle Script - Node.js Implementation
+ * OpenCodeAutoPM Feature Toggle Script - Node.js Implementation
  * Allows toggling Docker-first and Kubernetes features
  */
 
@@ -53,7 +53,7 @@ class FeatureToggle {
 
   printHeader() {
     console.log(`${this.colors.CYAN}╔══════════════════════════════════════════════════════════════════╗${this.colors.NC}`);
-    console.log(`${this.colors.CYAN}║                    ClaudeAutoPM Feature Toggle                   ║${this.colors.NC}`);
+    console.log(`${this.colors.CYAN}║                    OpenCodeAutoPM Feature Toggle                   ║${this.colors.NC}`);
     console.log(`${this.colors.CYAN}╚══════════════════════════════════════════════════════════════════╝${this.colors.NC}`);
     console.log('');
   }

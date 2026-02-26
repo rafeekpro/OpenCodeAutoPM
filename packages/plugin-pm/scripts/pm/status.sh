@@ -26,8 +26,8 @@ else
   echo ""
 
   echo "📄 PRDs:"
-  if [ -d ".claude/prds" ]; then
-    total=$(ls .claude/prds/*.md 2>/dev/null | wc -l)
+  if [ -d ".opencode/prds" ]; then
+    total=$(ls .opencode/prds/*.md 2>/dev/null | wc -l)
     echo "  Total:        $total"
   else
     echo "  No PRDs found"
@@ -35,8 +35,8 @@ else
 
   echo ""
   echo "📚 Epics:"
-  if [ -d ".claude/epics" ]; then
-    total=$(ls -d .claude/epics/*/ 2>/dev/null | wc -l)
+  if [ -d ".opencode/epics" ]; then
+    total=$(ls -d .opencode/epics/*/ 2>/dev/null | wc -l)
     echo "  Total:        $total"
   else
     echo "  No epics found"
@@ -44,10 +44,10 @@ else
 
   echo ""
   echo "📝 Tasks:"
-  if [ -d ".claude/epics" ]; then
-    total=$(find .claude/epics -name "[0-9]*.md" 2>/dev/null | wc -l)
-    open=$(find .claude/epics -name "[0-9]*.md" -exec grep -l "^status: *open" {} \; 2>/dev/null | wc -l)
-    closed=$(find .claude/epics -name "[0-9]*.md" -exec grep -l "^status: *closed" {} \; 2>/dev/null | wc -l)
+  if [ -d ".opencode/epics" ]; then
+    total=$(find .opencode/epics -name "[0-9]*.md" 2>/dev/null | wc -l)
+    open=$(find .opencode/epics -name "[0-9]*.md" -exec grep -l "^status: *open" {} \; 2>/dev/null | wc -l)
+    closed=$(find .opencode/epics -name "[0-9]*.md" -exec grep -l "^status: *closed" {} \; 2>/dev/null | wc -l)
     echo "  Open:        $open"
     echo "  Closed:        $closed"
     echo "  Total:        $total"

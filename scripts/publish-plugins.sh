@@ -1,5 +1,5 @@
 #!/bin/bash
-# Publish all ClaudeAutoPM plugins to npm
+# Publish all OpenCodeAutoPM plugins to npm
 # Usage: ./scripts/publish-plugins.sh [--dry-run]
 
 set -e  # Exit on error

@@ -119,13 +119,13 @@ function listEpics() {
   };
 
   // Check if epics directory exists
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return result;
   }
 
   let epicDirs;
   try {
-    epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
   } catch (error) {
@@ -135,7 +135,7 @@ function listEpics() {
   let totalTasks = 0;
 
   for (const epicDir of epicDirs) {
-    const epicPath = path.join('.claude/epics', epicDir);
+    const epicPath = path.join('.opencode/epics', epicDir);
     const epicFilePath = path.join(epicPath, 'epic.md');
 
     // Skip directories without epic.md file
@@ -200,7 +200,7 @@ function formatEpicList(data) {
 
   // Check if no epics directory or empty
   if (data.summary.totalEpics === 0) {
-    if (!fs.existsSync('.claude/epics')) {
+    if (!fs.existsSync('.opencode/epics')) {
       output += '📁 No epics directory found. Create your first epic with: /pm:prd-parse <feature-name>\n';
       return output;
     } else {

@@ -55,7 +55,7 @@ autopm plugin install languages
 
 ## 💡 Usage
 
-### In Claude Code
+### In OpenCode Code
 
 After installation, agents are available in your project:
 
@@ -64,8 +64,8 @@ After installation, agents are available in your project:
 ## Active Team Agents
 
 <!-- Load language agents -->
-- @include .claude/agents/languages/nodejs-backend-engineer.md
-- @include .claude/agents/languages/python-backend-engineer.md
+- @include .opencode/agents/languages/nodejs-backend-engineer.md
+- @include .opencode/agents/languages/python-backend-engineer.md
 ```
 
 Or use `autopm team load` to automatically include agents:
@@ -287,7 +287,7 @@ export LOG_LEVEL=info
 
 ### Agent Customization
 
-You can customize agent behavior in `.claude/config.yaml`:
+You can customize agent behavior in `.opencode/config.yaml`:
 
 ```yaml
 plugins:
@@ -323,11 +323,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-languages)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

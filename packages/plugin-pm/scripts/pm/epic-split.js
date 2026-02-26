@@ -373,8 +373,8 @@ async function main() {
   }
 
   const featureName = args[0];
-  const prdPath = path.join('.claude', 'prds', `${featureName}.md`);
-  const epicDir = path.join('.claude', 'epics', featureName);
+  const prdPath = path.join('.opencode', 'prds', `${featureName}.md`);
+  const epicDir = path.join('.opencode', 'epics', featureName);
 
   console.log(`${colors.cyan}🔄 Analyzing PRD: ${featureName}${colors.reset}`);
   console.log('══════════════════════════════════════════════════\n');

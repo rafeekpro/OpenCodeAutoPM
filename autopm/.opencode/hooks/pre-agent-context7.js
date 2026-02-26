@@ -119,7 +119,7 @@ async function queryContext7(mcpUrl) {
   const topicPath = urlMatch[1]; // e.g., "aws/compute"
 
   // In real implementation, this would call the MCP server
-  // For now, return a placeholder that instructs Claude to query
+  // For now, return a placeholder that instructs OpenCode to query
   return {
     url: mcpUrl,
     topic: topicPath,
@@ -196,7 +196,7 @@ async function main(agentInvocation) {
   console.log(`\n🚀 Proceeding with agent invocation...\n`);
 
   // In production, this would inject Context7 results into agent's context
-  // For now, we output instruction for Claude to see
+  // For now, we output instruction for OpenCode to see
   if (results.length > 0 && results[0].placeholder) {
     console.log(`⚡ ACTION REQUIRED FOR @${agentName}:`);
     console.log(`   Before implementing "${task || 'task'}", you MUST:`);

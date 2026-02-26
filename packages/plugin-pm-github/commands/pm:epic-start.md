@@ -32,7 +32,7 @@ Launch parallel agents to work on epic tasks using the unified branch strategy.
 
 1. **Verify epic exists:**
    ```bash
-   test -f .claude/epics/$ARGUMENTS/epic.md || echo "❌ Epic not found. Run: /pm:prd-parse $ARGUMENTS"
+   test -f .opencode/epics/$ARGUMENTS/epic.md || echo "❌ Epic not found. Run: /pm:prd-parse $ARGUMENTS"
    ```
 
 2. **Check GitHub sync:**
@@ -65,7 +65,7 @@ Before ANY coding work begins on this epic, you MUST follow the RED-GREEN-REFACT
 - Every agent must start with test creation
 - No implementation without tests first
 
-See `.claude/rules/tdd.enforcement.md` for complete TDD requirements.
+See `.opencode/rules/tdd.enforcement.md` for complete TDD requirements.
 
 ---
 
@@ -99,7 +99,7 @@ fi
 
 ### 2. Identify Ready Issues
 
-Read all task files in `.claude/epics/$ARGUMENTS/`:
+Read all task files in `.opencode/epics/$ARGUMENTS/`:
 - Look for tasks with `status: ready` or `status: in_progress`
 - Group by dependencies
 
@@ -123,7 +123,7 @@ git log --oneline -10
 gh pr checks
 
 # View agent progress
-tail -f .claude/epics/$ARGUMENTS/progress.md
+tail -f .opencode/epics/$ARGUMENTS/progress.md
 ```
 
 ## Parallel Execution Rules

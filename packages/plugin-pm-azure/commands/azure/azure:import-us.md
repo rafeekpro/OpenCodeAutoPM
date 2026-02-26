@@ -12,7 +12,7 @@ Import User Stories from PRDs or Epics into Azure DevOps with automatic task bre
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -25,8 +25,8 @@ AZURE_DEVOPS_PROJECT=<your-project>
 ### Input Validation
 
 1. **Check source document exists:**
-   - First check `.claude/prds/$ARGUMENTS.md`
-   - Then check `.claude/epics/$ARGUMENTS.md`
+   - First check `.opencode/prds/$ARGUMENTS.md`
+   - Then check `.opencode/epics/$ARGUMENTS.md`
    - If neither exists, tell user: "❌ No PRD or Epic found: $ARGUMENTS"
 
 2. **Verify Azure DevOps connectivity:**
@@ -35,7 +35,7 @@ AZURE_DEVOPS_PROJECT=<your-project>
    - If fails, provide specific error
 
 3. **Check for existing imports:**
-   - Look for `.claude/azure/imports/$ARGUMENTS.log`
+   - Look for `.opencode/azure/imports/$ARGUMENTS.log`
    - If exists, ask: "⚠️ Already imported on [date]. Re-import? (yes/no)"
 
 ## Required Documentation Access
@@ -144,7 +144,7 @@ For each User Story, create:
 
 ### 5. Import Tracking
 
-Create import log at `.claude/azure/imports/$ARGUMENTS.log`:
+Create import log at `.opencode/azure/imports/$ARGUMENTS.log`:
 
 ```markdown
 # Import Log: $ARGUMENTS
@@ -218,7 +218,7 @@ After successful import:
 [URL to parent Epic/Feature]
 
 📁 Import log saved:
-.claude/azure/imports/$ARGUMENTS.log
+.opencode/azure/imports/$ARGUMENTS.log
 
 🚀 Next steps:
 - Review imported items in Azure DevOps
@@ -234,7 +234,7 @@ After successful import:
 Support custom field mappings via configuration:
 
 ```yaml
-# .claude/azure/config.yml
+# .opencode/azure/config.yml
 field_mappings:
   custom_field_1: "Custom.ProjectCode"
   risk_level: "Custom.RiskAssessment"

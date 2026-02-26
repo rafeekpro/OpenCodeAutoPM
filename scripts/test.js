@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Test Runner
+ * OpenCodeAutoPM Test Runner
  * Node.js implementation of test.sh
  * Runs all test suites sequentially and provides unified reporting
  */
@@ -104,7 +104,7 @@ class TestRunner {
    * @returns {Promise<number>} Exit code (0 for success, 1 for failure)
    */
   async run() {
-    console.log(colors.bold('🧪 Running ClaudeAutoPM Test Suite'));
+    console.log(colors.bold('🧪 Running OpenCodeAutoPM Test Suite'));
     console.log('='.repeat(34));
 
     // Run unit tests (including subdirectories)

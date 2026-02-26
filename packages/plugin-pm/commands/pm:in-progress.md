@@ -6,7 +6,7 @@ allowed-tools: Bash
 
 ## Instructions
 
-Run `node .claude/scripts/pm/in-progress.js` using the Bash tool and show me the complete output.
+Run `node .opencode/scripts/pm/in-progress.js` using the Bash tool and show me the complete output.
 
 - DO NOT truncate.
 - DO NOT collapse.

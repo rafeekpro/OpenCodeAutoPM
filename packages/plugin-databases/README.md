@@ -55,7 +55,7 @@ autopm plugin install databases
 
 ## 💡 Usage
 
-### In Claude Code
+### In OpenCode Code
 
 After installation, agents are available in your project:
 
@@ -64,8 +64,8 @@ After installation, agents are available in your project:
 ## Active Team Agents
 
 <!-- Load database agents -->
-- @include .claude/agents/databases/postgresql-expert.md
-- @include .claude/agents/databases/redis-expert.md
+- @include .opencode/agents/databases/postgresql-expert.md
+- @include .opencode/agents/databases/redis-expert.md
 ```
 
 Or use `autopm team load` to automatically include agents:
@@ -287,7 +287,7 @@ export BIGQUERY_DATASET=analytics
 
 ### Agent Customization
 
-You can customize agent behavior in `.claude/config.yaml`:
+You can customize agent behavior in `.opencode/config.yaml`:
 
 ```yaml
 plugins:
@@ -320,11 +320,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-databases)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

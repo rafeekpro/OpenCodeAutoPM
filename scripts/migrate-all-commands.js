@@ -11,7 +11,7 @@ const yaml = require('js-yaml');
 
 class SafeCommandMigrator {
   constructor() {
-    this.sourceDir = path.join(__dirname, '../autopm/.claude/commands');
+    this.sourceDir = path.join(__dirname, '../autopm/.opencode/commands');
     this.targetDir = path.join(__dirname, '../bin/commands');
     this.stats = {
       total: 0,
@@ -398,7 +398,7 @@ if (require.main === module) {
   migrator.migrateAll()
     .then(() => {
       console.log('\n✨ Migration complete!');
-      console.log('Run "autopm --help" to see all available commands.');
+      console.log('Run "open-autopm --help" to see all available commands.');
     })
     .catch(error => {
       console.error('Fatal error:', error);

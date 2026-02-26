@@ -2,7 +2,7 @@
 # Enable an MCP server in the current project
 
 if [ -z "$1" ]; then
-    echo "Usage: autopm mcp enable <server-name>"
+    echo "Usage: open-autopm mcp enable <server-name>"
     exit 1
 fi
 

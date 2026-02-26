@@ -420,11 +420,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-ml)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

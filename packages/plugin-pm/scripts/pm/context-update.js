@@ -10,7 +10,7 @@ const readline = require('readline');
 
 class ContextUpdater {
   constructor() {
-    this.contextsDir = path.join('.claude', 'contexts');
+    this.contextsDir = path.join('.opencode', 'contexts');
   }
 
   showUsage() {

@@ -11,7 +11,7 @@ const yaml = require('js-yaml');
 
 class CommandMigrator {
   constructor() {
-    this.sourceDir = path.join(__dirname, '../autopm/.claude/commands');
+    this.sourceDir = path.join(__dirname, '../autopm/.opencode/commands');
     this.targetDir = path.join(__dirname, '../bin/commands');
     this.libDir = path.join(__dirname, '../lib');
   }

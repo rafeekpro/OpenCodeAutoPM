@@ -9,9 +9,9 @@ const { execSync, spawn } = require('child_process');
 
 class ProjectSync {
   constructor() {
-    this.claudeDir = '.claude';
+    this.opencodeDir = '.opencode';
     this.providersDir = path.join(__dirname, '..', '..', 'providers');
-    this.syncLog = path.join(this.claudeDir, 'sync.log');
+    this.syncLog = path.join(this.opencodeDir, 'sync.log');
   }
 
   detectProvider() {
@@ -136,8 +136,8 @@ class ProjectSync {
     }
 
     // Fallback: Count local epics
-    const epicsDir = path.join(this.claudeDir, 'epics');
-    const prdsDir = path.join(this.claudeDir, 'prds');
+    const epicsDir = path.join(this.opencodeDir, 'epics');
+    const prdsDir = path.join(this.opencodeDir, 'prds');
     let epicCount = 0;
 
     if (fs.existsSync(epicsDir)) {
@@ -267,11 +267,11 @@ class ProjectSync {
     }
 
     // Show last sync time
-    const lastSyncFile = path.join(this.claudeDir, '.last-sync');
+    const lastSyncFile = path.join(this.opencodeDir, '.last-sync');
     fs.writeFileSync(lastSyncFile, new Date().toISOString());
 
     console.log('\n💡 Next sync: pm sync');
-    console.log('📝 View log: cat .claude/sync.log');
+    console.log('📝 View log: cat .opencode/sync.log');
 
     return successCount === totalCount;
   }

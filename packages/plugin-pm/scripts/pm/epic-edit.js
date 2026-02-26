@@ -9,9 +9,9 @@ const readline = require('readline');
 
 class EpicEditor {
   constructor() {
-    this.epicsDir = path.join('.claude', 'epics');
-    this.prdsDir = path.join('.claude', 'prds');
-    this.activeWorkFile = path.join('.claude', 'active-work.json');
+    this.epicsDir = path.join('.opencode', 'epics');
+    this.prdsDir = path.join('.opencode', 'prds');
+    this.activeWorkFile = path.join('.opencode', 'active-work.json');
   }
 
   findEpicFile(epicName) {

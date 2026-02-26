@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================
-# ClaudeAutoPM Installation Script - Bridge to Node.js
+# OpenCodeAutoPM Installation Script - Bridge to Node.js
 # ============================================
 # This script now delegates to the Node.js version for better cross-platform support
 # Original bash implementation backed up to install.sh.backup

@@ -450,7 +450,7 @@ done
   --forbidden "ORM dependencies, global state" \
   --execute
 
-# Claude will invoke @python-backend-engineer with XML constraints
+# OpenCode will invoke @python-backend-engineer with XML constraints
 ```
 
 ### Template Customization

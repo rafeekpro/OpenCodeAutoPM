@@ -14,7 +14,7 @@ if [[ -z "$EPIC_NAME" ]] || [[ -z "$EPIC_NUMBER" ]]; then
     exit 1
 fi
 
-EPIC_DIR=".claude/epics/$EPIC_NAME"
+EPIC_DIR=".opencode/epics/$EPIC_NAME"
 
 if [[ ! -d "$EPIC_DIR" ]]; then
     echo "❌ Error: Epic directory not found: $EPIC_DIR"
@@ -78,8 +78,8 @@ for task_file in $task_files; do
 📁 **Local Documentation**
 
 This task is tracked locally at:
-- **Task file**: \`.claude/epics/$EPIC_NAME/$task_basename.md\`
-- **Epic file**: \`.claude/epics/$EPIC_NAME/epic.md\`
+- **Task file**: \`.opencode/epics/$EPIC_NAME/$task_basename.md\`
+- **Epic file**: \`.opencode/epics/$EPIC_NAME/epic.md\`
 
 **For developers**: Clone the repository and review the local task file for:
 - Detailed implementation requirements

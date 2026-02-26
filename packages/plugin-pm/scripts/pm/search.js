@@ -23,12 +23,12 @@ function searchContent(query) {
   };
 
   // Search in PRDs
-  if (fs.existsSync('.claude/prds')) {
+  if (fs.existsSync('.opencode/prds')) {
     try {
-      const prdFiles = fs.readdirSync('.claude/prds').filter(file => file.endsWith('.md'));
+      const prdFiles = fs.readdirSync('.opencode/prds').filter(file => file.endsWith('.md'));
 
       for (const file of prdFiles) {
-        const filePath = path.join('.claude/prds', file);
+        const filePath = path.join('.opencode/prds', file);
         try {
           const content = fs.readFileSync(filePath, 'utf8');
           const matches = (content.toLowerCase().match(new RegExp(query.toLowerCase(), 'g')) || []).length;
@@ -50,14 +50,14 @@ function searchContent(query) {
   }
 
   // Search in Epics
-  if (fs.existsSync('.claude/epics')) {
+  if (fs.existsSync('.opencode/epics')) {
     try {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
 
       for (const epicDir of epicDirs) {
-        const epicFilePath = path.join('.claude/epics', epicDir, 'epic.md');
+        const epicFilePath = path.join('.opencode/epics', epicDir, 'epic.md');
 
         if (fs.existsSync(epicFilePath)) {
           try {
@@ -82,14 +82,14 @@ function searchContent(query) {
   }
 
   // Search in Tasks (limit to 10 results)
-  if (fs.existsSync('.claude/epics')) {
+  if (fs.existsSync('.opencode/epics')) {
     try {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
 
       for (const epicDir of epicDirs) {
-        const epicPath = path.join('.claude/epics', epicDir);
+        const epicPath = path.join('.opencode/epics', epicDir);
 
         try {
           const files = fs.readdirSync(epicPath)

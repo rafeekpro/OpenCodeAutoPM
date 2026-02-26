@@ -128,7 +128,7 @@ NO skip for "small changes"
 User: /pm:epic-decompose feature-name
 
 BEFORE:
-1. Read .claude/commands/pm/epic-decompose.md
+1. Read .opencode/commands/pm/epic-decompose.md
 2. Extract Documentation Queries
 3. Query Context7 for EACH link
 4. Summarize: "Context7 confirms INVEST criteria..."
@@ -145,7 +145,7 @@ Validate against Context7|Flag deviations
 User: @aws-cloud-architect design VPC
 
 BEFORE:
-1. Read .claude/agents/cloud/aws-cloud-architect.md
+1. Read .opencode/agents/cloud/aws-cloud-architect.md
 2. Extract Documentation Queries
 3. Query Context7 for EACH link
 4. Summarize: "Context7 shows VPC /16 for staging..."
@@ -186,12 +186,12 @@ NO "small changes"|NO "I'm confident"|NO "Context7 slow"|NO assumptions
 
 <automation>
 <hooks>
-.claude/hooks/pre-command-context7.js - Extract + query before commands
-.claude/hooks/pre-agent-context7.js - Extract + query before agents
+.opencode/hooks/pre-command-context7.js - Extract + query before commands
+.opencode/hooks/pre-agent-context7.js - Extract + query before agents
 </hooks>
 
 <validation>
-.claude/rules/context7-enforcement.md - Highest priority rule
+.opencode/rules/context7-enforcement.md - Highest priority rule
 Read on every session|Zero tolerance
 </validation>
 </automation>
@@ -216,6 +216,6 @@ Context7 keeps us current. Query it. Every. Single. Time.
 </final_reminder>
 
 <ref>
-Full version: .claude/rules/context7-enforcement.md
-Quick ref: .claude/quick-ref/context7-queries.md
+Full version: .opencode/rules/context7-enforcement.md
+Quick ref: .opencode/quick-ref/context7-queries.md
 </ref>

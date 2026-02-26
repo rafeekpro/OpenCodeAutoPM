@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Local Test Runner for ClaudeAutoPM
+ * Local Test Runner for OpenCodeAutoPM
  * Node.js implementation of local-test-runner.sh
  * Run this before pushing to ensure all tests pass
  */
@@ -65,7 +65,7 @@ class LocalTestRunner {
    */
   displayHeader() {
     console.log(colors.blue('━'.repeat(45)));
-    console.log(colors.blue('🧪 ClaudeAutoPM Local Test Runner'));
+    console.log(colors.blue('🧪 OpenCodeAutoPM Local Test Runner'));
     console.log(colors.blue('━'.repeat(45)));
     console.log('');
   }

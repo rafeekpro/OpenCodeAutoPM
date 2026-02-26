@@ -40,25 +40,25 @@ exports.handler = async (argv) => {
   const spinner = createSpinner('Running {{COMMAND}}...');
 
   try {
-    // Check if we're in Claude Code for enhanced functionality
+    // Check if we're in OpenCode Code for enhanced functionality
     const isClaudeCode = process.env.CLAUDE_CODE === 'true' ||
                         process.env.ANTHROPIC_WORKSPACE === 'true';
 
     if (isClaudeCode) {
       spinner.info();
       console.log();
-      console.log('🤖 AI-enhanced version available in Claude Code');
+      console.log('🤖 AI-enhanced version available in OpenCode Code');
       console.log('Run: /{{COMMAND}} for intelligent {{OPERATION}}');
       return;
     }
 
     // Run the deterministic script
-    const scriptPath = path.join(process.cwd(), '.claude', 'scripts', '{{SCRIPT_PATH}}');
+    const scriptPath = path.join(process.cwd(), '.opencode', 'scripts', '{{SCRIPT_PATH}}');
 
     if (!await fs.pathExists(scriptPath)) {
       spinner.fail();
       printError('Script not found. Is the project initialized?');
-      printInfo('Run: autopm pm:init to initialize');
+      printInfo('Run: open-autopm pm:init to initialize');
       process.exit(1);
     }
 
@@ -112,17 +112,17 @@ exports.builder = (yargs) => {
 };
 
 exports.handler = async (argv) => {
-  // This is an AI-powered command that requires Claude Code
+  // This is an AI-powered command that requires OpenCode Code
   console.log();
   console.log('╔════════════════════════════════════════════════╗');
-  console.log('║    🤖 AI-Powered Command (Claude Code Only)    ║');
+  console.log('║    🤖 AI-Powered Command (OpenCode Code Only)    ║');
   console.log('╚════════════════════════════════════════════════╝');
   console.log();
-  printWarning('This command requires Claude Code for execution');
+  printWarning('This command requires OpenCode Code for execution');
   console.log();
 
   printInfo('📍 To use this command:');
-  console.log(\`   In Claude Code, run: /{{COMMAND}}{{ARGS_EXAMPLE}}\`);
+  console.log(\`   In OpenCode Code, run: /{{COMMAND}}{{ARGS_EXAMPLE}}\`);
   console.log();
 
   printInfo('💡 This AI command provides:');
@@ -130,7 +130,7 @@ exports.handler = async (argv) => {
   console.log();
 
   printInfo('📄 Command definition:');
-  console.log('   .claude/commands/{{MD_PATH}}');
+  console.log('   .opencode/commands/{{MD_PATH}}');
 };
 `;
 
@@ -261,7 +261,7 @@ async function main() {
 
   console.log('\n✨ Simplification complete!');
   console.log('📁 Backups saved in: bin/commands/pm/.backup/');
-  console.log('\nTo test: autopm pm:help');
+  console.log('\nTo test: open-autopm pm:help');
   console.log('To revert: cp bin/commands/pm/.backup/*.bak bin/commands/pm/');
 }
 

@@ -35,7 +35,7 @@ check_repo_protection() {
     local remote_url
     remote_url=$(git remote get-url origin 2>/dev/null || echo "")
 
-    if [[ "$remote_url" == *"rlagowski/autopm"* ]] || [[ "$remote_url" == *"rafeekpro/ClaudeAutoPM"* ]]; then
+    if [[ "$remote_url" == *"rlagowski/autopm"* ]] || [[ "$remote_url" == *"rafeekpro/OpenCodeAutoPM"* ]]; then
         log_error "Attempting to sync with template repository: $remote_url"
         echo "❌ ERROR: Cannot sync to AutoPM template repository!"
         echo ""

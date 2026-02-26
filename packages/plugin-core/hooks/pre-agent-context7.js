@@ -7,7 +7,7 @@
  *
  * Workflow:
  * 1. Intercept agent invocation (e.g., @aws-cloud-architect)
- * 2. Extract agent file path from .claude/agents/{category}/{agent}.md
+ * 2. Extract agent file path from .opencode/agents/{category}/{agent}.md
  * 3. Parse "Documentation Queries" section
  * 4. Query Context7 MCP for each link
  * 5. Inject results into agent context
@@ -39,12 +39,12 @@ function parseAgentInvocation(agentInvocation) {
 }
 
 /**
- * Find agent file in .claude/agents/
+ * Find agent file in .opencode/agents/
  * @param {string} agentName - Agent name (aws-cloud-architect, test-runner, etc.)
  * @returns {string|null} - Path to agent file or null
  */
 function findAgentFile(agentName) {
-  const baseDir = path.join(process.cwd(), '.claude', 'agents');
+  const baseDir = path.join(process.cwd(), '.opencode', 'agents');
 
   // Search recursively in all subdirectories
   function searchDir(dir) {
@@ -119,7 +119,7 @@ async function queryContext7(mcpUrl) {
   const topicPath = urlMatch[1]; // e.g., "aws/compute"
 
   // In real implementation, this would call the MCP server
-  // For now, return a placeholder that instructs Claude to query
+  // For now, return a placeholder that instructs OpenCode to query
   return {
     url: mcpUrl,
     topic: topicPath,
@@ -147,7 +147,7 @@ async function main(agentInvocation) {
   const agentFile = findAgentFile(agentName);
   if (!agentFile) {
     console.log(`\n⚠️  Warning: Agent file not found for @${agentName}`);
-    console.log(`   Searched: .claude/agents/**/${agentName}.md`);
+    console.log(`   Searched: .opencode/agents/**/${agentName}.md`);
     console.log(`   Proceeding without Context7 enforcement (agent may not exist)\n`);
     return;
   }
@@ -196,7 +196,7 @@ async function main(agentInvocation) {
   console.log(`\n🚀 Proceeding with agent invocation...\n`);
 
   // In production, this would inject Context7 results into agent's context
-  // For now, we output instruction for Claude to see
+  // For now, we output instruction for OpenCode to see
   if (results.length > 0 && results[0].placeholder) {
     console.log(`⚡ ACTION REQUIRED FOR @${agentName}:`);
     console.log(`   Before implementing "${task || 'task'}", you MUST:`);

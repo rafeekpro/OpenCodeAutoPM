@@ -3,8 +3,8 @@
  * @fileoverview Config command: get
  * Get configuration value with dot notation support
  *
- * Usage: autopm config:get <key>
- * Example: autopm config:get providers.claude.model
+ * Usage: open-autopm config:get <key>
+ * Example: open-autopm config:get providers.opencode.model
  */
 
 const path = require('path');
@@ -68,8 +68,8 @@ async function main() {
 
     if (!key) {
       console.error('Error: Key is required');
-      console.error('Usage: autopm config:get <key>');
-      console.error('Example: autopm config:get providers.claude.model');
+      console.error('Usage: open-autopm config:get <key>');
+      console.error('Example: open-autopm config:get providers.opencode.model');
       process.exit(1);
     }
 
@@ -77,7 +77,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('Error: Configuration not found');
-      console.error('Run: autopm config:init');
+      console.error('Run: open-autopm config:init');
       process.exit(1);
     }
 

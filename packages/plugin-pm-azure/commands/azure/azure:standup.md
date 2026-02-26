@@ -16,7 +16,7 @@ Generate daily standup report with yesterday's progress, today's plan, and block
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -248,7 +248,7 @@ Schedule daily standup:
 
 ## Configuration
 
-`.claude/azure/standup-config.yml`:
+`.opencode/azure/standup-config.yml`:
 ```yaml
 standup:
   default_time: "09:00"

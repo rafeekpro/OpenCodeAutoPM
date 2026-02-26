@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * ClaudeAutoPM Installation Script - Node.js Implementation
+ * OpenCodeAutoPM Installation Script - Node.js Implementation
  *
- * This script installs or updates the ClaudeAutoPM framework
- * including .claude, .claude-code, scripts folders
+ * This script installs or updates the OpenCodeAutoPM framework
+ * including .opencode, .opencode-code, scripts folders
  * and handles CLAUDE.md migration/merging
  */
 
@@ -35,18 +35,18 @@ class Installer {
 
     // Files and directories to install
     this.installItems = [
-      '.claude/agents',
-      '.claude/commands',
-      '.claude/rules',
-      '.claude/hooks',
-      '.claude/scripts',
-      '.claude/checklists',
-      '.claude/strategies',
-      '.claude/mcp',
-      '.claude/mcp-servers.json',
-      '.claude/.env.example',
-      '.claude/teams.json',
-      '.claude-code',
+      '.opencode/agents',
+      '.opencode/commands',
+      '.opencode/rules',
+      '.opencode/hooks',
+      '.opencode/scripts',
+      '.opencode/checklists',
+      '.opencode/strategies',
+      '.opencode/mcp',
+      '.opencode/mcp-servers.json',
+      '.opencode/.env.example',
+      '.opencode/teams.json',
+      '.opencode-code',
       'lib'  // Template engine and other utilities
     ];
 
@@ -98,7 +98,7 @@ class Installer {
   printBanner() {
     console.log(`${this.colors.CYAN}${this.colors.BOLD}`);
     console.log('╔══════════════════════════════════════════════╗');
-    console.log('║       ClaudeAutoPM Installation Script       ║');
+    console.log('║       OpenCodeAutoPM Installation Script       ║');
     console.log('║      Autonomous Project Management           ║');
     console.log('╚══════════════════════════════════════════════╝');
     console.log(this.colors.NC);
@@ -147,7 +147,7 @@ class Installer {
 
   showHelp() {
     console.log(`
-${this.colors.BOLD}ClaudeAutoPM Installation Script${this.colors.NC}
+${this.colors.BOLD}OpenCodeAutoPM Installation Script${this.colors.NC}
 
 ${this.colors.BOLD}Usage:${this.colors.NC}
   install.sh [TARGET_DIR] [OPTIONS]
@@ -178,9 +178,9 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
   showVersion() {
     try {
       const packageJson = JSON.parse(fs.readFileSync(path.join(this.baseDir, 'package.json'), 'utf-8'));
-      console.log(`ClaudeAutoPM v${packageJson.version}`);
+      console.log(`OpenCodeAutoPM v${packageJson.version}`);
     } catch {
-      console.log('ClaudeAutoPM v1.0.0');
+      console.log('OpenCodeAutoPM v1.0.0');
     }
   }
 
@@ -279,7 +279,7 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
   }
 
   installFramework() {
-    this.printStep('Installing ClaudeAutoPM framework files...');
+    this.printStep('Installing OpenCodeAutoPM framework files...');
 
     for (const item of this.installItems) {
       const sourcePath = path.join(this.autopmDir, item);
@@ -678,7 +678,7 @@ ${this.colors.BOLD}Select installation scenario:${this.colors.NC}
   installConfig(scenario) {
     this.printStep(`Installing configuration for scenario: ${scenario}`);
 
-    const configDir = path.join(this.targetDir, '.claude');
+    const configDir = path.join(this.targetDir, '.opencode');
     if (!fs.existsSync(configDir)) {
       fs.mkdirSync(configDir, { recursive: true });
     }
@@ -748,9 +748,9 @@ ${this.colors.BOLD}Select installation scenario:${this.colors.NC}
       this.printError(`Failed to generate CLAUDE.md: ${error.message}`);
 
       // Fallback to basic template
-      const basicTemplate = `# ClaudeAutoPM Configuration
+      const basicTemplate = `# OpenCodeAutoPM Configuration
 
-This project is configured with ClaudeAutoPM for autonomous project management.
+This project is configured with OpenCodeAutoPM for autonomous project management.
 
 ## Configuration
 - Execution Strategy: ${this.currentScenario || 'adaptive'}
@@ -762,7 +762,7 @@ This project is configured with ClaudeAutoPM for autonomous project management.
 - \`/pm:help\` - Show available PM commands
 
 ## Documentation
-See: https://github.com/rafeekpro/ClaudeAutoPM
+See: https://github.com/rafeekpro/OpenCodeAutoPM
 `;
 
       if (!fs.existsSync(targetPath)) {
@@ -773,7 +773,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
   }
 
   generateClaudeFromTemplates() {
-    const templatesDir = path.join(this.autopmDir, '.claude', 'templates', 'claude-templates');
+    const templatesDir = path.join(this.autopmDir, '.opencode', 'templates', 'claude-templates');
     const basePath = path.join(templatesDir, 'base.md');
     const addonsDir = path.join(templatesDir, 'addons');
 
@@ -922,11 +922,11 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
               agentsByCategory[category] = [];
             }
 
-            // Build installed path: .claude/agents/{category}/{filename}
+            // Build installed path: .opencode/agents/{category}/{filename}
             // agent.file contains the full path like "agents/core/agent-manager.md"
             // We extract just the filename and use category for the directory
             const filename = path.basename(agent.file);
-            const installedPath = `.claude/agents/${category}/${filename}`;
+            const installedPath = `.opencode/agents/${category}/${filename}`;
 
             agentsByCategory[category].push({
               name: agent.name,
@@ -988,7 +988,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
 
     // Clean rules directory before installing plugins
     // This removes old/archived rules that are no longer in plugin.json
-    const rulesDir = path.join(this.targetDir, '.claude', 'rules');
+    const rulesDir = path.join(this.targetDir, '.opencode', 'rules');
     if (fs.existsSync(rulesDir)) {
       const oldRules = fs.readdirSync(rulesDir);
       if (oldRules.length > 0) {
@@ -1032,7 +1032,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
               continue;
             }
 
-            const targetDir = path.join(this.targetDir, '.claude', 'agents', agent.category);
+            const targetDir = path.join(this.targetDir, '.opencode', 'agents', agent.category);
             if (!fs.existsSync(targetDir)) {
               fs.mkdirSync(targetDir, { recursive: true });
             }
@@ -1049,7 +1049,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
 
         // Install commands
         if (metadata.commands && metadata.commands.length > 0) {
-          const targetDir = path.join(this.targetDir, '.claude', 'commands');
+          const targetDir = path.join(this.targetDir, '.opencode', 'commands');
           if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
           }
@@ -1089,7 +1089,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
 
         // Install hooks
         if (metadata.hooks && metadata.hooks.length > 0) {
-          const targetDir = path.join(this.targetDir, '.claude', 'hooks');
+          const targetDir = path.join(this.targetDir, '.opencode', 'hooks');
           if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
           }
@@ -1113,7 +1113,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
 
         // Install scripts
         if (metadata.scripts && metadata.scripts.length > 0) {
-          const targetDir = path.join(this.targetDir, '.claude');
+          const targetDir = path.join(this.targetDir, '.opencode');
           if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
           }
@@ -1121,7 +1121,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
           for (const script of metadata.scripts) {
             if (script.subdirectory && script.files) {
               // Handle subdirectory with multiple files
-              // scripts/pm/epic-sync/ -> .claude/scripts/pm/epic-sync/
+              // scripts/pm/epic-sync/ -> .opencode/scripts/pm/epic-sync/
               const cleanSubdir = script.subdirectory;
               const subdirTarget = path.join(targetDir, cleanSubdir);
               if (!fs.existsSync(subdirTarget)) {
@@ -1164,7 +1164,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
 
         // Install rules
         if (metadata.rules && metadata.rules.length > 0) {
-          const targetDir = path.join(this.targetDir, '.claude', 'rules');
+          const targetDir = path.join(this.targetDir, '.opencode', 'rules');
           if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
           }
@@ -1207,7 +1207,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
     this.currentConfig.failedPlugins = failedPlugins;
 
     // Update config file with installation results
-    const configPath = path.join(this.targetDir, '.claude', 'config.json');
+    const configPath = path.join(this.targetDir, '.opencode', 'config.json');
     if (fs.existsSync(configPath)) {
       fs.writeFileSync(configPath, JSON.stringify(this.currentConfig, null, 2));
     }
@@ -1218,14 +1218,14 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
     }
     if (failedPlugins.length > 0) {
       this.printMsg('YELLOW', `⚠ Failed to install ${failedPlugins.length} plugin(s)`);
-      this.printMsg('CYAN', '💡 Tip: Install missing plugins with: autopm plugin install <name>');
+      this.printMsg('CYAN', '💡 Tip: Install missing plugins with: open-autopm plugin install <name>');
     }
     console.log('');
   }
 
   setupMCPIntegration() {
-    const mcpServersPath = path.join(this.targetDir, '.claude', 'mcp-servers.json');
-    const configPath = path.join(this.targetDir, '.claude', 'config.json');
+    const mcpServersPath = path.join(this.targetDir, '.opencode', 'mcp-servers.json');
+    const configPath = path.join(this.targetDir, '.opencode', 'config.json');
 
     // Check if MCP servers configuration exists
     if (!fs.existsSync(mcpServersPath)) {
@@ -1245,19 +1245,19 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
       const hasServers = Object.keys(mcpConfig.mcpServers || {}).length > 0;
 
       if (hasServers) {
-        this.printStep('Setting up Claude Code MCP integration...');
+        this.printStep('Setting up OpenCode Code MCP integration...');
 
-        // Create .mcp.json for Claude Code
+        // Create .mcp.json for OpenCode Code
         const mcpJsonPath = path.join(this.targetDir, '.mcp.json');
         const claudeCodeConfig = {
           mcpServers: mcpConfig.mcpServers
         };
 
         fs.writeFileSync(mcpJsonPath, JSON.stringify(claudeCodeConfig, null, 2));
-        this.printSuccess('.mcp.json created for Claude Code');
+        this.printSuccess('.mcp.json created for OpenCode Code');
 
         if (!hasActiveServers) {
-          this.printMsg('CYAN', '💡 Tip: Run "autopm mcp enable <server>" to activate servers');
+          this.printMsg('CYAN', '💡 Tip: Run "open-autopm mcp enable <server>" to activate servers');
         }
       }
     } catch (error) {
@@ -1296,7 +1296,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
       await checker.runAllChecks();
     } catch (error) {
       this.printWarning(`Configuration check failed: ${error.message}`);
-      console.log('You can run the check later with: autopm config validate\n');
+      console.log('You can run the check later with: open-autopm config validate\n');
     }
   }
 
@@ -1346,7 +1346,7 @@ See: https://github.com/rafeekpro/ClaudeAutoPM
     // Install CLAUDE.md
     this.installClaudeMd();
 
-    // Setup MCP integration for Claude Code
+    // Setup MCP integration for OpenCode Code
     this.setupMCPIntegration();
 
     // Setup git hooks if requested

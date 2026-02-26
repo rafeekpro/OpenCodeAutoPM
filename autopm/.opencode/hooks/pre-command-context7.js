@@ -120,7 +120,7 @@ async function queryContext7(mcpUrl) {
   const topicPath = urlMatch[1]; // e.g., "agile/epic-decomposition"
 
   // In real implementation, this would call the MCP server
-  // For now, return a placeholder that instructs Claude to query
+  // For now, return a placeholder that instructs OpenCode to query
   return {
     url: mcpUrl,
     topic: topicPath,
@@ -201,7 +201,7 @@ async function main(commandInvocation) {
   console.log(`\n🚀 Proceeding with command execution...\n`);
 
   // In production, this would inject Context7 results into Claude's context
-  // For now, we output instruction for Claude to see
+  // For now, we output instruction for OpenCode to see
   if (results.length > 0 && results[0].placeholder) {
     console.log(`⚡ ACTION REQUIRED:`);
     console.log(`   Before implementing /${fullCommand}, you MUST:`);

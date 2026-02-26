@@ -17,7 +17,7 @@ The **recommended way** to use these scripts is via the orchestration script:
 
 ```bash
 # From project root
-bash .claude/scripts/pm/epic-sync.sh <epic_name>
+bash .opencode/scripts/pm/epic-sync.sh <epic_name>
 ```
 
 This automatically runs all 4 steps in the correct order.
@@ -43,7 +43,7 @@ This automatically runs all 4 steps in the correct order.
 
 **Usage:**
 ```bash
-epic_number=$(bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "my-feature")
+epic_number=$(bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "my-feature")
 echo "Epic created: #$epic_number"
 ```
 
@@ -68,11 +68,11 @@ echo "Epic created: #$epic_number"
 
 **Usage:**
 ```bash
-mapping=$(bash .claude/scripts/pm/epic-sync/create-task-issues.sh "my-feature" "42")
+mapping=$(bash .opencode/scripts/pm/epic-sync/create-task-issues.sh "my-feature" "42")
 echo "Mapping saved: $mapping"
 ```
 
-**Important:** The mapping file is saved as `.claude/epics/<epic>/.task-mapping.txt` for use in subsequent steps.
+**Important:** The mapping file is saved as `.opencode/epics/<epic>/.task-mapping.txt` for use in subsequent steps.
 
 ### 3. update-references.sh
 
@@ -95,19 +95,19 @@ echo "Mapping saved: $mapping"
 
 **Usage:**
 ```bash
-bash .claude/scripts/pm/epic-sync/update-references.sh "my-feature" ".claude/epics/my-feature/.task-mapping.txt"
+bash .opencode/scripts/pm/epic-sync/update-references.sh "my-feature" ".opencode/epics/my-feature/.task-mapping.txt"
 ```
 
 **Before:**
 ```
-.claude/epics/my-feature/
+.opencode/epics/my-feature/
 ├── 001.md (github: [Will be updated...])
 ├── 002.md (github: [Will be updated...])
 ```
 
 **After:**
 ```
-.claude/epics/my-feature/
+.opencode/epics/my-feature/
 ├── 2.md (github: https://github.com/user/repo/issues/2)
 ├── 3.md (github: https://github.com/user/repo/issues/3)
 ```
@@ -132,7 +132,7 @@ bash .claude/scripts/pm/epic-sync/update-references.sh "my-feature" ".claude/epi
 
 **Usage:**
 ```bash
-bash .claude/scripts/pm/epic-sync/update-epic-file.sh "my-feature" "42"
+bash .opencode/scripts/pm/epic-sync/update-epic-file.sh "my-feature" "42"
 ```
 
 ## File Persistence Fix
@@ -140,7 +140,7 @@ bash .claude/scripts/pm/epic-sync/update-epic-file.sh "my-feature" "42"
 **IMPORTANT:** The task mapping file is saved to a **persistent location**:
 
 ```
-.claude/epics/<epic_name>/.task-mapping.txt
+.opencode/epics/<epic_name>/.task-mapping.txt
 ```
 
 This fixes the bug where the mapping file was being saved to `/tmp` and deleted before subsequent scripts could use it.
@@ -158,16 +158,16 @@ Test individual scripts:
 
 ```bash
 # Create a test epic first
-mkdir -p .claude/epics/test-epic
-echo "---\ntitle: Test\n---\n# Test Epic" > .claude/epics/test-epic/epic.md
-echo "---\ntitle: Task 1\n---\n# Task 1" > .claude/epics/test-epic/001.md
-echo "---\ntitle: Task 2\n---\n# Task 2" > .claude/epics/test-epic/002.md
+mkdir -p .opencode/epics/test-epic
+echo "---\ntitle: Test\n---\n# Test Epic" > .opencode/epics/test-epic/epic.md
+echo "---\ntitle: Task 1\n---\n# Task 1" > .opencode/epics/test-epic/001.md
+echo "---\ntitle: Task 2\n---\n# Task 2" > .opencode/epics/test-epic/002.md
 
 # Run orchestration script
-bash .claude/scripts/pm/epic-sync.sh test-epic
+bash .opencode/scripts/pm/epic-sync.sh test-epic
 
 # Verify files were renamed
-ls .claude/epics/test-epic/
+ls .opencode/epics/test-epic/
 # Should show: epic.md, <issue_number>.md files
 ```
 
@@ -194,7 +194,7 @@ gh auth login
 
 ### "Mapping file not found"
 - Ensure step 2 completed successfully
-- Check `.claude/epics/<epic>/.task-mapping.txt` exists
+- Check `.opencode/epics/<epic>/.task-mapping.txt` exists
 
 ### "Task files still numbered 001, 002..."
 - Step 3 (update-references.sh) may not have run
@@ -203,6 +203,6 @@ gh auth login
 
 ## Related Files
 
-- **/.claude/commands/pm/epic-sync.md** - Command documentation
-- **/.claude/commands/pm/issue-start.md** - Works with renamed files
-- **/.claude/commands/pm/issue-analyze.md** - Expects GitHub issue numbers
+- **/.opencode/commands/pm/epic-sync.md** - Command documentation
+- **/.opencode/commands/pm/issue-start.md** - Works with renamed files
+- **/.opencode/commands/pm/issue-analyze.md** - Expects GitHub issue numbers

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Epic Status Checker
-# Part of ClaudeAutoPM Framework
+# Part of OpenCodeAutoPM Framework
 # Usage: ./scripts/epic-status.sh [epic-name]
 
 EPIC_NAME=${1:-}
@@ -10,21 +10,21 @@ if [ -z "$EPIC_NAME" ]; then
     echo "Usage: $0 <epic-name>"
     echo ""
     echo "Available epics:"
-    if [ -d ".claude/epics" ]; then
-        ls -1 .claude/epics/ 2>/dev/null || echo "No epics found"
+    if [ -d ".opencode/epics" ]; then
+        ls -1 .opencode/epics/ 2>/dev/null || echo "No epics found"
     else
-        echo "No .claude/epics directory found"
+        echo "No .opencode/epics directory found"
     fi
     exit 1
 fi
 
-EPIC_DIR=".claude/epics/$EPIC_NAME"
+EPIC_DIR=".opencode/epics/$EPIC_NAME"
 
 if [ ! -d "$EPIC_DIR" ]; then
     echo "Error: Epic '$EPIC_NAME' not found"
     echo ""
     echo "Available epics:"
-    ls -1 .claude/epics/ 2>/dev/null
+    ls -1 .opencode/epics/ 2>/dev/null
     exit 1
 fi
 

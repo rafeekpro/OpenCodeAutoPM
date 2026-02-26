@@ -299,7 +299,7 @@ If security violation detected:
 
 This rule is enforced using:
 
-- **Pre-deployment hooks** - `.claude/hooks/pre-cloud-deploy.js`
+- **Pre-deployment hooks** - `.opencode/hooks/pre-cloud-deploy.js`
 - **Terraform validators** - `tfsec`, `checkov`, `terraform-compliance`
 - **Cloud-native tools** - AWS Config, Azure Policy, GCP Security Command Center
 - **Custom scanners** - Project-specific security validators

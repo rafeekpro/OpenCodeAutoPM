@@ -25,7 +25,7 @@ Load comprehensive project context into the current AI session.
 ### 1. Verify context exists
 
 ```bash
-if [ ! -d ".claude/context" ]; then
+if [ ! -d ".opencode/context" ]; then
   echo "❌ Context not found. Run /pm:context-create first."
   exit 1
 fi
@@ -34,10 +34,10 @@ fi
 ### 2. Read all context files
 
 Read in order:
-1. `.claude/context/project-brief.md` - Project overview and objectives
-2. `.claude/context/tech-context.md` - Technical stack and dependencies
-3. `.claude/context/project-structure.md` - Directory layout and organization
-4. `.claude/context/progress.md` - Current status and next steps
+1. `.opencode/context/project-brief.md` - Project overview and objectives
+2. `.opencode/context/tech-context.md` - Technical stack and dependencies
+3. `.opencode/context/project-structure.md` - Directory layout and organization
+4. `.opencode/context/progress.md` - Current status and next steps
 
 ### 3. Process and internalize context
 

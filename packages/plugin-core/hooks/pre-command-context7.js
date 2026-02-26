@@ -7,7 +7,7 @@
  *
  * Workflow:
  * 1. Intercept command execution (e.g., /pm:epic-decompose)
- * 2. Extract command file path from .claude/commands/{category}/{command}.md
+ * 2. Extract command file path from .opencode/commands/{category}/{command}.md
  * 3. Parse "Documentation Queries" section
  * 4. Query Context7 MCP for each link
  * 5. Inject results into execution context
@@ -39,13 +39,13 @@ function parseCommandInvocation(commandInvocation) {
 }
 
 /**
- * Find command file in .claude/commands/
+ * Find command file in .opencode/commands/
  * @param {string} category - Command category (pm, azure, cloud, etc.)
  * @param {string} command - Command name (epic-decompose, issue-start, etc.)
  * @returns {string|null} - Path to command file or null
  */
 function findCommandFile(category, command) {
-  const baseDir = path.join(process.cwd(), '.claude', 'commands');
+  const baseDir = path.join(process.cwd(), '.opencode', 'commands');
 
   // Try exact match first
   let commandPath = path.join(baseDir, category, `${command}.md`);
@@ -120,7 +120,7 @@ async function queryContext7(mcpUrl) {
   const topicPath = urlMatch[1]; // e.g., "agile/epic-decomposition"
 
   // In real implementation, this would call the MCP server
-  // For now, return a placeholder that instructs Claude to query
+  // For now, return a placeholder that instructs OpenCode to query
   return {
     url: mcpUrl,
     topic: topicPath,
@@ -150,7 +150,7 @@ async function main(commandInvocation) {
   const commandFile = findCommandFile(category, command);
   if (!commandFile) {
     console.log(`\n⚠️  Warning: Command file not found for /${fullCommand}`);
-    console.log(`   Searched: .claude/commands/${category}/${command}.md`);
+    console.log(`   Searched: .opencode/commands/${category}/${command}.md`);
     console.log(`   Proceeding without Context7 enforcement (file may not exist yet)\n`);
     return;
   }
@@ -201,7 +201,7 @@ async function main(commandInvocation) {
   console.log(`\n🚀 Proceeding with command execution...\n`);
 
   // In production, this would inject Context7 results into Claude's context
-  // For now, we output instruction for Claude to see
+  // For now, we output instruction for OpenCode to see
   if (results.length > 0 && results[0].placeholder) {
     console.log(`⚡ ACTION REQUIRED:`);
     console.log(`   Before implementing /${fullCommand}, you MUST:`);

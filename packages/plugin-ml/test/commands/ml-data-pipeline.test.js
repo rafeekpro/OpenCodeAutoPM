@@ -1,7 +1,7 @@
 /**
  * @file ml-data-pipeline.test.js
  * @description Comprehensive tests for /ml:data-pipeline command
- * @author ClaudeAutoPM Team
+ * @author OpenCodeAutoPM Team
  *
  * TDD Test Suite - These tests are written FIRST (RED phase)
  * They define the expected behavior before implementation

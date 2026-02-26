@@ -44,8 +44,8 @@ async function context() {
   let azureProject = '-';
 
   try {
-    if (fs.existsSync('.claude/config.json')) {
-      const config = JSON.parse(fs.readFileSync('.claude/config.json', 'utf8'));
+    if (fs.existsSync('.opencode/config.json')) {
+      const config = JSON.parse(fs.readFileSync('.opencode/config.json', 'utf8'));
       if (config.provider) {
         provider = config.provider.charAt(0).toUpperCase() + config.provider.slice(1);
       }
@@ -76,8 +76,8 @@ async function context() {
   console.log('👥 Active Team:');
   let activeTeam = 'Default';
   try {
-    if (fs.existsSync('.claude/active_team.txt')) {
-      activeTeam = fs.readFileSync('.claude/active_team.txt', 'utf8').trim();
+    if (fs.existsSync('.opencode/active_team.txt')) {
+      activeTeam = fs.readFileSync('.opencode/active_team.txt', 'utf8').trim();
     }
   } catch (err) {
     // No active team
@@ -90,8 +90,8 @@ async function context() {
   let prdCount = 0;
   let prdNames = [];
   try {
-    if (fs.existsSync('.claude/prds')) {
-      const files = fs.readdirSync('.claude/prds')
+    if (fs.existsSync('.opencode/prds')) {
+      const files = fs.readdirSync('.opencode/prds')
         .filter(f => f.endsWith('.md') && !f.startsWith('.'));
       prdCount = files.length;
       prdNames = files.map(f => f.replace('.md', ''));
@@ -121,8 +121,8 @@ async function context() {
   let epicDetails = [];
 
   try {
-    if (fs.existsSync('.claude/epics')) {
-      const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    if (fs.existsSync('.opencode/epics')) {
+      const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
         .filter(d => d.isDirectory())
         .map(d => d.name);
 
@@ -170,7 +170,7 @@ async function context() {
       }
 
       for (const epicDir of epicDirs) {
-        const epicPath = path.join('.claude/epics', epicDir);
+        const epicPath = path.join('.opencode/epics', epicDir);
         // Count tasks in this epic (including subdirectories)
         let counters = {
           epicTasks: 0,
@@ -233,7 +233,7 @@ async function context() {
     let recentTask = null;
     let recentTime = 0;
 
-    if (fs.existsSync('.claude/epics')) {
+    if (fs.existsSync('.opencode/epics')) {
       function findRecentTask(dir) {
         let bestTask = null;
         let bestTime = 0;
@@ -268,7 +268,7 @@ async function context() {
         return bestTask;
       }
 
-      const foundTask = findRecentTask('.claude/epics');
+      const foundTask = findRecentTask('.opencode/epics');
       if (foundTask) {
         recentTask = foundTask;
         recentTime = foundTask.timeMs;

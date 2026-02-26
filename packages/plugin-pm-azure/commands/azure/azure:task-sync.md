@@ -62,6 +62,6 @@ Syncing...
 ✓ Pulled 3 changes from Azure
 ✓ Resolved 1 conflict
 
-Cache updated: .claude/azure/cache/
+Cache updated: .opencode/azure/cache/
 Last sync: 2025-01-10T16:00:00Z
 ```

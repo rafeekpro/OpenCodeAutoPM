@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Pre-push Git hook to ensure Docker tests pass before pushing
-# Install with: ln -sf ../../.claude/hooks/pre-push-docker-tests.sh .git/hooks/pre-push
+# Install with: ln -sf ../../.opencode/hooks/pre-push-docker-tests.sh .git/hooks/pre-push
 
 # Colors for output
 RED='\033[0;31m'
@@ -12,7 +12,7 @@ NC='\033[0m'
 
 # Function to check if Docker-first is enabled
 is_docker_first_enabled() {
-    local config_file=".claude/config.json"
+    local config_file=".opencode/config.json"
     
     if [[ ! -f "$config_file" ]]; then
         return 1
@@ -111,7 +111,7 @@ check_docker_files() {
         echo "PUSH BLOCKED: Docker files required when docker_first_development is enabled"
         echo ""
         echo "Create Docker files with:"
-        echo "  ./.claude/scripts/docker-dev-setup.sh"
+        echo "  ./.opencode/scripts/docker-dev-setup.sh"
         echo ""
         return 1
     fi

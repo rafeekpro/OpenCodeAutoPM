@@ -42,7 +42,7 @@ async function standup() {
 
   // Find files modified today
   try {
-    const recentFiles = await findRecentFiles('.claude');
+    const recentFiles = await findRecentFiles('.opencode');
 
     // Count by type
     for (const filePath of recentFiles) {
@@ -167,17 +167,17 @@ async function findRecentFiles(directory) {
 async function findInProgressTasks() {
   const inProgress = [];
 
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return inProgress;
   }
 
   try {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
     for (const epicName of epicDirs) {
-      const updatesDir = path.join('.claude/epics', epicName, 'updates');
+      const updatesDir = path.join('.opencode/epics', epicName, 'updates');
 
       if (fs.existsSync(updatesDir)) {
         try {
@@ -220,17 +220,17 @@ async function findInProgressTasks() {
 async function findAvailableTasks(limit = 3) {
   const availableTasks = [];
 
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return availableTasks;
   }
 
   try {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
     for (const epicName of epicDirs) {
-      const epicPath = path.join('.claude/epics', epicName);
+      const epicPath = path.join('.opencode/epics', epicName);
 
       if (availableTasks.length >= limit) {
         break;
@@ -294,17 +294,17 @@ async function findAvailableTasks(limit = 3) {
 async function calculateTaskStats() {
   const stats = { totalTasks: 0, openTasks: 0, closedTasks: 0 };
 
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return stats;
   }
 
   try {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
     for (const epicName of epicDirs) {
-      const epicPath = path.join('.claude/epics', epicName);
+      const epicPath = path.join('.opencode/epics', epicName);
 
       try {
         const taskFiles = fs.readdirSync(epicPath)

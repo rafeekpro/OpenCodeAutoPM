@@ -6,19 +6,19 @@
 
 ## The Problem
 
-During installation, files from `autopm/.claude/` are copied to user projects as `.claude/`. Any references to `autopm/.claude/` or `autopm/scripts/` will be broken after installation.
+During installation, files from `autopm/.opencode/` are copied to user projects as `.opencode/`. Any references to `autopm/.opencode/` or `autopm/scripts/` will be broken after installation.
 
 ```
 ❌ WRONG (Development structure):
 autopm/
-├── .claude/
+├── .opencode/
 │   ├── commands/
 │   ├── scripts/
 │   └── agents/
 
 ✅ CORRECT (After installation):
 user-project/
-├── .claude/
+├── .opencode/
 │   ├── commands/
 │   ├── scripts/
 │   └── agents/
@@ -28,20 +28,20 @@ user-project/
 
 ### 1. Use Relative Paths from Project Root
 
-All paths in framework files must be relative to the **user's project root** (where `.claude/` will exist after installation).
+All paths in framework files must be relative to the **user's project root** (where `.opencode/` will exist after installation).
 
 **✅ CORRECT:**
 ```bash
-bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
-node .claude/lib/commands/pm/prdStatus.js
-source .claude/scripts/lib/github-utils.sh
+bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
+node .opencode/lib/commands/pm/prdStatus.js
+source .opencode/scripts/lib/github-utils.sh
 ```
 
 **❌ WRONG:**
 ```bash
-bash autopm/.claude/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
-node autopm/.claude/lib/commands/pm/prdStatus.js
-source autopm/.claude/scripts/lib/github-utils.sh
+bash autopm/.opencode/scripts/pm/epic-sync/create-epic-issue.sh "$EPIC_NAME"
+node autopm/.opencode/lib/commands/pm/prdStatus.js
+source autopm/.opencode/scripts/lib/github-utils.sh
 ```
 
 ### 2. Exception: Comments and Documentation References
@@ -54,24 +54,24 @@ It's acceptable to reference `autopm/` in:
 **✅ ACCEPTABLE:**
 ```javascript
 /**
- * Migrated from autopm/.claude/scripts/azure/validate.sh to Node.js
+ * Migrated from autopm/.opencode/scripts/azure/validate.sh to Node.js
  */
 ```
 
 **✅ ACCEPTABLE:**
 ```markdown
 ## Development Structure
-During development, framework files are in `autopm/.claude/`, but after
-installation they are copied to the user project's `.claude/` directory.
+During development, framework files are in `autopm/.opencode/`, but after
+installation they are copied to the user project's `.opencode/` directory.
 ```
 
 ### 3. Files That Must Follow These Rules
 
-- **Commands** (`autopm/.claude/commands/**/*.md`)
-- **Scripts** (`autopm/.claude/scripts/**/*.sh`, `**/*.js`)
-- **Agents** (`autopm/.claude/agents/**/*.md`)
-- **Rules** (`autopm/.claude/rules/**/*.md`)
-- **Templates** (`autopm/.claude/templates/**/*`)
+- **Commands** (`autopm/.opencode/commands/**/*.md`)
+- **Scripts** (`autopm/.opencode/scripts/**/*.sh`, `**/*.js`)
+- **Agents** (`autopm/.opencode/agents/**/*.md`)
+- **Rules** (`autopm/.opencode/rules/**/*.md`)
+- **Templates** (`autopm/.opencode/templates/**/*`)
 
 ### 4. Environment Variables
 
@@ -79,13 +79,13 @@ If you need to reference the framework location dynamically, use environment var
 
 **✅ CORRECT:**
 ```bash
-CLAUDE_DIR="${CLAUDE_DIR:-.claude}"
+CLAUDE_DIR="${CLAUDE_DIR:-.opencode}"
 bash "${CLAUDE_DIR}/scripts/pm/epic-sync/create-epic-issue.sh"
 ```
 
 This allows:
-- Development: `CLAUDE_DIR=autopm/.claude`
-- Production: `CLAUDE_DIR=.claude` (default)
+- Development: `CLAUDE_DIR=autopm/.opencode`
+- Production: `CLAUDE_DIR=.opencode` (default)
 
 ## Validation
 
@@ -95,9 +95,9 @@ A pre-commit hook validates all framework files before commit:
 
 ```bash
 # Checks for hardcoded autopm/ paths (excluding comments)
-grep -r "bash autopm" autopm/.claude --include="*.md" --include="*.sh"
-grep -r "node autopm" autopm/.claude --include="*.md" --include="*.sh"
-grep -r "source autopm" autopm/.claude --include="*.md" --include="*.sh"
+grep -r "bash autopm" autopm/.opencode --include="*.md" --include="*.sh"
+grep -r "node autopm" autopm/.opencode --include="*.md" --include="*.sh"
+grep -r "source autopm" autopm/.opencode --include="*.md" --include="*.sh"
 ```
 
 ### Manual Check
@@ -118,10 +118,10 @@ npm run validate:paths
 
 ```bash
 # ❌ Copying terminal command that worked in development
-bash autopm/.claude/scripts/pm/epic-sync/create-epic-issue.sh "feature-name"
+bash autopm/.opencode/scripts/pm/epic-sync/create-epic-issue.sh "feature-name"
 
 # ✅ Use project-relative path
-bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "feature-name"
+bash .opencode/scripts/pm/epic-sync/create-epic-issue.sh "feature-name"
 ```
 
 ### Mistake 2: Documentation Examples
@@ -129,25 +129,25 @@ bash .claude/scripts/pm/epic-sync/create-epic-issue.sh "feature-name"
 ```markdown
 ❌ WRONG:
 To run the script:
-`bash autopm/.claude/scripts/pm/issue-sync/preflight-validation.sh`
+`bash autopm/.opencode/scripts/pm/issue-sync/preflight-validation.sh`
 
 ✅ CORRECT:
 To run the script:
-`bash .claude/scripts/pm/issue-sync/preflight-validation.sh`
+`bash .opencode/scripts/pm/issue-sync/preflight-validation.sh`
 ```
 
 ### Mistake 3: Relative Imports in Scripts
 
 ```bash
 # ❌ WRONG - hardcoded framework path
-source autopm/.claude/scripts/lib/github-utils.sh
+source autopm/.opencode/scripts/lib/github-utils.sh
 
 # ✅ CORRECT - relative to project root
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/../lib/github-utils.sh"
 
 # ✅ ALSO CORRECT - explicit project root
-source .claude/scripts/lib/github-utils.sh
+source .opencode/scripts/lib/github-utils.sh
 ```
 
 ## Enforcement
@@ -163,10 +163,10 @@ This rule is enforced by:
 
 | Context | Use | Don't Use |
 |---------|-----|-----------|
-| Shell scripts | `.claude/scripts/` | `autopm/.claude/scripts/` |
-| Node.js scripts | `.claude/lib/` | `autopm/.claude/lib/` |
-| Command files | `.claude/commands/` | `autopm/.claude/commands/` |
-| Documentation | `.claude/agents/` | `autopm/.claude/agents/` |
+| Shell scripts | `.opencode/scripts/` | `autopm/.opencode/scripts/` |
+| Node.js scripts | `.opencode/lib/` | `autopm/.opencode/lib/` |
+| Command files | `.opencode/commands/` | `autopm/.opencode/commands/` |
+| Documentation | `.opencode/agents/` | `autopm/.opencode/agents/` |
 | Comments | `autopm/` ✅ OK | N/A |
 
 ## Related Rules
@@ -177,4 +177,4 @@ This rule is enforced by:
 
 ---
 
-**Remember:** If a user installs this framework, the `autopm/` directory will not exist in their project. All paths must work from their project root where `.claude/` is located.
+**Remember:** If a user installs this framework, the `autopm/` directory will not exist in their project. All paths must work from their project root where `.opencode/` is located.

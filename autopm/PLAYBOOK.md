@@ -1,4 +1,4 @@
-# ClaudeAutoPM Development Playbook
+# OpenCodeAutoPM Development Playbook
 
 ## Quick Reference
 
@@ -29,7 +29,7 @@
 
 ### Common Tasks
 
-#### Installing ClaudeAutoPM
+#### Installing OpenCodeAutoPM
 ```bash
 autopm install
 # Select preset: minimal, docker-only, full, performance
@@ -62,8 +62,8 @@ git checkout feature/team-branch # Auto-switch via git hook
 
 #### Installation Issues
 - Missing files? Run: `autopm install --repair`
-- Config problems? Check: `.claude/config.json`
-- Team issues? Check: `.claude/teams.json`
+- Config problems? Check: `.opencode/config.json`
+- Team issues? Check: `.opencode/teams.json`
 
 #### Test Failures
 - Jest timeout? Use: `npm run test:clean`
@@ -80,7 +80,7 @@ rm -rf node_modules package-lock.json
 npm install
 
 # Reset configuration
-rm -rf .claude
+rm -rf .opencode
 autopm install
 ```
 
@@ -117,8 +117,8 @@ git push --force-with-lease  # Update remote
 #### Fix Broken Installation
 ```bash
 # Complete reinstall
-npm uninstall -g claude-autopm
-npm install -g claude-autopm@latest
+npm uninstall -g open-autopm
+npm install -g open-autopm@latest
 autopm install
 ```
 
@@ -129,12 +129,12 @@ AUTOPM_DEBUG=1 /pm:validate  # Debug PM commands
 ```
 
 ### Contact & Support
-- GitHub Issues: https://github.com/rafeekpro/ClaudeAutoPM/issues
+- GitHub Issues: https://github.com/rafeekpro/OpenCodeAutoPM/issues
 - Documentation: README.md
-- Wiki: https://github.com/rafeekpro/ClaudeAutoPM/wiki
+- Wiki: https://github.com/rafeekpro/OpenCodeAutoPM/wiki
 
 ## Quick Links
 - [README](../README.md)
 - [CHANGELOG](../CHANGELOG.md)
 - [CONTRIBUTING](../CONTRIBUTING.md)
-- [Agent Registry](../.claude/AGENT-REGISTRY.md)
+- [Agent Registry](../.opencode/AGENT-REGISTRY.md)

@@ -35,7 +35,7 @@ Test agent configurations and behaviors with comprehensive validation, integrati
 
 ## Description
 
-The `/core:agent-test` command provides comprehensive testing capabilities for ClaudeAutoPM agents, ensuring they meet quality standards and function correctly. It validates agent file structure, documentation completeness, Context7 query integration, tool availability, and performs integration and performance testing.
+The `/core:agent-test` command provides comprehensive testing capabilities for OpenCodeAutoPM agents, ensuring they meet quality standards and function correctly. It validates agent file structure, documentation completeness, Context7 query integration, tool availability, and performs integration and performance testing.
 
 **Use this command to:**
 - Validate agent file structure and frontmatter
@@ -271,10 +271,10 @@ Use `@agent-manager` to identify target agents:
 
 ```bash
 # Single agent
-agent_path=$(find .claude/agents -name "${AGENT_NAME}.md")
+agent_path=$(find .opencode/agents -name "${AGENT_NAME}.md")
 
 # All agents
-agent_paths=$(find .claude/agents -type f -name "*.md")
+agent_paths=$(find .opencode/agents -type f -name "*.md")
 ```
 
 ### 2. File Validation and Frontmatter Validation

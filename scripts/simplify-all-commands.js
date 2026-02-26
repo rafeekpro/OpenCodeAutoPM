@@ -29,18 +29,18 @@ exports.builder = (yargs) => {
 exports.handler = async (argv) => {
   console.log();
   console.log('╔════════════════════════════════════════════════╗');
-  console.log('║    🤖 AI-Powered Command (Claude Code Only)    ║');
+  console.log('║    🤖 AI-Powered Command (OpenCode Code Only)    ║');
   console.log('╚════════════════════════════════════════════════╝');
   console.log();
-  printWarning('This command requires Claude Code');
+  printWarning('This command requires OpenCode Code');
   console.log();
 
-  printInfo('📍 To use in Claude Code:');
+  printInfo('📍 To use in OpenCode Code:');
   console.log('   /{{COMMAND_SLASH}}{{ARGS_HINT}}');
   console.log();
 
   printInfo('📄 Command definition:');
-  console.log('   .claude/commands/{{MD_PATH}}');
+  console.log('   .opencode/commands/{{MD_PATH}}');
 };
 `;
 
@@ -228,7 +228,7 @@ async function main() {
   }
 
   console.log('\n✨ Simplification complete!');
-  console.log('\nTo test: autopm --help');
+  console.log('\nTo test: open-autopm --help');
   console.log('To revert: find bin/commands -name ".backup" -exec cp {}/*.bak .. \\;');
 }
 

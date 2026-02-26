@@ -3,10 +3,10 @@
  * Template List - Show available templates
  *
  * Usage:
- *   autopm template:list
- *   autopm template:list prd
- *   autopm template:list epic
- *   autopm template:list task
+ *   open-autopm template:list
+ *   open-autopm template:list prd
+ *   open-autopm template:list epic
+ *   open-autopm template:list task
  */
 
 const path = require('path');
@@ -18,7 +18,7 @@ try {
   TemplateEngine = require(path.join(process.cwd(), 'lib', 'template-engine'));
 } catch (err) {
   try {
-    // Try relative path from .claude/scripts/pm/ (during development)
+    // Try relative path from .opencode/scripts/pm/ (during development)
     TemplateEngine = require(path.join(__dirname, '..', '..', '..', '..', 'lib', 'template-engine'));
   } catch (err2) {
     // Fallback: try from AutoPM global installation
@@ -34,9 +34,9 @@ try {
       if (!npmRoot || !fs.existsSync(npmRoot)) {
         throw new Error(`The npm global root directory "${npmRoot}" does not exist or could not be determined.`);
       }
-      const enginePath = path.join(npmRoot, 'claude-autopm', 'lib', 'template-engine');
+      const enginePath = path.join(npmRoot, 'open-autopm', 'lib', 'template-engine');
       if (!fs.existsSync(enginePath + '.js') && !fs.existsSync(enginePath)) {
-        throw new Error(`Cannot find template-engine module at "${enginePath}". Please ensure claude-autopm is installed globally.`);
+        throw new Error(`Cannot find template-engine module at "${enginePath}". Please ensure claude-open-autopm is installed globally.`);
       }
       TemplateEngine = require(enginePath);
     } catch (err3) {
@@ -103,10 +103,10 @@ class TemplateLister {
 
     console.log('\n' + '═'.repeat(60));
     console.log('\nUsage:');
-    console.log('  autopm prd:new --template <name> "<title>"');
-    console.log('  autopm prd:new -t api-feature "User Authentication API"');
+    console.log('  open-autopm prd:new --template <name> "<title>"');
+    console.log('  open-autopm prd:new -t api-feature "User Authentication API"');
     console.log('\nCreate custom template:');
-    console.log('  autopm template:new prd my-custom-template\n');
+    console.log('  open-autopm template:new prd my-custom-template\n');
   }
 
   run(args) {

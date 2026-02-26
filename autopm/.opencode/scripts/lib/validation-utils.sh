@@ -186,7 +186,7 @@ validate_clean_working_directory() {
 # Validate epic directory structure
 validate_epic_structure() {
     local epic_name="$1"
-    local base_dir="${2:-.claude/epics}"
+    local base_dir="${2:-.opencode/epics}"
 
     log_function_entry "validate_epic_structure" "$epic_name" "$base_dir"
 

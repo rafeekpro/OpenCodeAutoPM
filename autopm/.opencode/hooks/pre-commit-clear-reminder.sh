@@ -48,7 +48,7 @@ if [ "$issue_closed" = true ]; then
     echo ""
     echo "Why this matters:"
     echo "  • Prevents mixing context from different issues"
-    echo "  • Ensures Claude starts fresh for each task"
+    echo "  • Ensures OpenCode starts fresh for each task"
     echo "  • Reduces token usage"
     echo "  • Improves response quality"
     echo ""
@@ -61,7 +61,7 @@ if [ "$issue_closed" = true ]; then
     echo ""
 
     # Optional: Create a reminder file
-    echo "REMINDER: Run /clear before next issue" > .claude/.clear-reminder
+    echo "REMINDER: Run /clear before next issue" > .opencode/.clear-reminder
 fi
 
 # Always allow commit to proceed

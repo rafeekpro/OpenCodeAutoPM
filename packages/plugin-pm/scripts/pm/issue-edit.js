@@ -9,8 +9,8 @@ const readline = require('readline');
 
 class IssueEditor {
   constructor() {
-    this.issueDir = path.join('.claude', 'issues');
-    this.activeWorkFile = path.join('.claude', 'active-work.json');
+    this.issueDir = path.join('.opencode', 'issues');
+    this.activeWorkFile = path.join('.opencode', 'active-work.json');
   }
 
   loadActiveWork() {

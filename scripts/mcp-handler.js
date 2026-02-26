@@ -47,10 +47,10 @@ class MCPHandler {
   constructor() {
     this.projectRoot = process.cwd();
     this.frameworkRoot = path.join(__dirname, '..');
-    this.mcpDir = path.join(this.projectRoot, '.claude', 'mcp');
-    this.configPath = path.join(this.projectRoot, '.claude', 'config.json');
-    this.mcpServersPath = path.join(this.projectRoot, '.claude', 'mcp-servers.json');
-    this.envPath = path.join(this.projectRoot, '.claude', '.env');
+    this.mcpDir = path.join(this.projectRoot, '.opencode', 'mcp');
+    this.configPath = path.join(this.projectRoot, '.opencode', 'config.json');
+    this.mcpServersPath = path.join(this.projectRoot, '.opencode', 'mcp-servers.json');
+    this.envPath = path.join(this.projectRoot, '.opencode', '.env');
 
     // Cache for environment status to reduce file I/O
     this._envStatusCache = null;
@@ -117,7 +117,7 @@ class MCPHandler {
         command,
         args: args.split(',').map(a => a.trim()),
         env: envVars,
-        envFile: '.claude/.env',
+        envFile: '.opencode/.env',
         description,
         category,
         status: 'active',
@@ -221,7 +221,7 @@ class MCPHandler {
     this.saveConfig(config);
 
     console.log(`✅ Server '${serverName}' disabled`);
-    console.log(`💡 Run 'autopm mcp sync' to update configuration`);
+    console.log(`💡 Run 'open-autopm mcp sync' to update configuration`);
   }
 
   /**
@@ -233,7 +233,7 @@ class MCPHandler {
     const config = this.loadConfig();
     const activeServers = config.mcp?.activeServers || [];
 
-    // Ensure .claude directory exists
+    // Ensure .opencode directory exists
     this.ensureClaudeDir();
 
     // Read existing mcp-servers.json to preserve all servers
@@ -269,7 +269,7 @@ class MCPHandler {
         return;
       }
 
-      // Convert env metadata to simple strings for Claude Code compatibility
+      // Convert env metadata to simple strings for OpenCode Code compatibility
       const envVars = this._convertEnvMetadataToStrings(server.metadata.env);
 
       mcpConfig.mcpServers[serverName] = {
@@ -282,13 +282,13 @@ class MCPHandler {
       console.log(`  ✅ Synced: ${serverName}`);
     });
 
-    // Write configuration to .claude/mcp-servers.json (AutoPM format)
+    // Write configuration to .opencode/mcp-servers.json (AutoPM format)
     fs.writeFileSync(
       this.mcpServersPath,
       JSON.stringify(mcpConfig, null, 2)
     );
 
-    // Write configuration to .mcp.json (Claude Code format)
+    // Write configuration to .mcp.json (OpenCode Code format)
     const claudeCodeMcpPath = path.join(this.projectRoot, '.mcp.json');
     const claudeCodeConfig = {
       mcpServers: mcpConfig.mcpServers
@@ -299,7 +299,7 @@ class MCPHandler {
     );
 
     console.log(`\n✅ Configuration synced to ${this.mcpServersPath}`);
-    console.log(`✅ Claude Code config synced to ${claudeCodeMcpPath}`);
+    console.log(`✅ OpenCode Code config synced to ${claudeCodeMcpPath}`);
     console.log(`📊 Active servers: ${activeServers.length}`);
     console.log(`📦 Total servers in file: ${Object.keys(mcpConfig.mcpServers).length}`);
 
@@ -480,13 +480,13 @@ ${Object.entries(serverDef.env || {}).map(([key, value]) =>
 
 \`\`\`bash
 # Enable the server
-autopm mcp enable ${serverDef.name}
+open-autopm mcp enable ${serverDef.name}
 
 # Configure environment (if needed)
-# echo "ENV_VAR=value" >> .claude/.env
+# echo "ENV_VAR=value" >> .opencode/.env
 
 # Sync configuration
-autopm mcp sync
+open-autopm mcp sync
 \`\`\`
 
 ## Integration
@@ -530,10 +530,10 @@ This server can be integrated with various agents and context pools.
   }
 
   /**
-   * Ensure .claude directory exists
+   * Ensure .opencode directory exists
    */
   ensureClaudeDir() {
-    const claudeDir = path.join(this.projectRoot, '.claude');
+    const claudeDir = path.join(this.projectRoot, '.opencode');
     if (!fs.existsSync(claudeDir)) {
       fs.mkdirSync(claudeDir, { recursive: true });
     }
@@ -614,7 +614,7 @@ This server can be integrated with various agents and context pools.
       });
 
       console.log('💡 To install a server:');
-      console.log(`   autopm mcp install <package-name>`);
+      console.log(`   open-autopm mcp install <package-name>`);
       console.log('\n📚 More info: https://registry.modelcontextprotocol.io');
 
     } catch (error) {
@@ -677,9 +677,9 @@ This server can be integrated with various agents and context pools.
     });
 
     console.log('💡 To install a server:');
-    console.log('   autopm mcp install <package-name> --enable');
+    console.log('   open-autopm mcp install <package-name> --enable');
     console.log('\n💡 To search for more:');
-    console.log('   autopm mcp search <query>');
+    console.log('   open-autopm mcp search <query>');
     console.log('\n📚 Full registry: https://registry.modelcontextprotocol.io');
   }
 
@@ -723,7 +723,7 @@ This server can be integrated with various agents and context pools.
       // Create .md file
       const serverContent = this._generateServerDefinition(pkg, packageName);
       fs.writeFileSync(serverPath, serverContent, 'utf8');
-      console.log(`   ✅ Created: .claude/mcp/${serverName}.md`);
+      console.log(`   ✅ Created: .opencode/mcp/${serverName}.md`);
 
       // Step 4: Enable if requested
       if (options.enable) {
@@ -733,17 +733,17 @@ This server can be integrated with various agents and context pools.
 
         console.log('\n5️⃣  Syncing configuration...');
         this.sync();
-        console.log('   ✅ Updated: .claude/mcp-servers.json');
+        console.log('   ✅ Updated: .opencode/mcp-servers.json');
       }
 
       console.log(`\n🎉 MCP server '${serverName}' ready to use!`);
       console.log('\n📝 Next steps:');
       if (!options.enable) {
-        console.log(`  1. Enable: autopm mcp enable ${serverName}`);
-        console.log('  2. Sync: autopm mcp sync');
+        console.log(`  1. Enable: open-autopm mcp enable ${serverName}`);
+        console.log('  2. Sync: open-autopm mcp sync');
       }
-      console.log(`  3. Configure environment: nano .claude/.env`);
-      console.log(`  4. Test connection: autopm mcp test ${serverName}`);
+      console.log(`  3. Configure environment: nano .opencode/.env`);
+      console.log(`  4. Test connection: open-autopm mcp test ${serverName}`);
 
     } catch (error) {
       console.error('❌ Installation failed:', error.message);
@@ -767,7 +767,7 @@ This server can be integrated with various agents and context pools.
 
     if (!fs.existsSync(serverPath)) {
       console.error(`❌ Server '${serverName}' not found`);
-      console.log('\n💡 List available servers: autopm mcp list');
+      console.log('\n💡 List available servers: open-autopm mcp list');
       process.exit(1);
     }
 
@@ -792,7 +792,7 @@ This server can be integrated with various agents and context pools.
       // Step 3: Remove definition
       console.log('\n3️⃣  Removing server definition...');
       fs.unlinkSync(serverPath);
-      console.log(`   ✅ Deleted: .claude/mcp/${serverName}.md`);
+      console.log(`   ✅ Deleted: .opencode/mcp/${serverName}.md`);
 
       // Step 4: Uninstall npm package (unless --keep-package)
       if (!options.keepPackage) {
@@ -815,7 +815,7 @@ This server can be integrated with various agents and context pools.
       // Step 5: Clean up config
       console.log('\n5️⃣  Cleaning up configuration...');
       this.sync();
-      console.log('   ✅ Updated: .claude/mcp-servers.json');
+      console.log('   ✅ Updated: .opencode/mcp-servers.json');
 
       console.log(`\n✨ Server '${serverName}' completely removed`);
 
@@ -864,17 +864,17 @@ ${pkg.description || 'MCP server'}
 ## Installation
 This server was automatically installed via:
 \`\`\`bash
-autopm mcp install ${packageName}
+open-autopm mcp install ${packageName}
 \`\`\`
 
 ## Configuration
-Configure environment variables in \`.claude/.env\` if needed.
+Configure environment variables in \`.opencode/.env\` if needed.
 
 ## Usage
 Enable this server:
 \`\`\`bash
-autopm mcp enable ${serverName}
-autopm mcp sync
+open-autopm mcp enable ${serverName}
+open-autopm mcp sync
 \`\`\`
 
 ## Links
@@ -921,7 +921,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
    * @returns {Object} Analysis result with agent-to-MCP mapping
    */
   analyzeAgents() {
-    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.claude', 'agents');
+    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.opencode', 'agents');
 
     if (!fs.existsSync(agentsDir)) {
       return {
@@ -981,7 +981,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
    * @returns {Object} Agent MCP configuration
    */
   getAgentMCP(agentName) {
-    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.claude', 'agents');
+    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.opencode', 'agents');
 
     const result = {
       agentName,
@@ -1274,7 +1274,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
       console.log(`❌ ${varName}`);
     });
 
-    console.log('\n💡 Configure these in .claude/.env file');
+    console.log('\n💡 Configure these in .opencode/.env file');
   }
 
   /**
@@ -1393,7 +1393,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
             description: server.metadata.description
           });
           result.warnings.push(`⚠️  MCP server '${serverName}' is used by agents but NOT enabled`);
-          result.recommendations.push(`   Run: autopm mcp enable ${serverName}`);
+          result.recommendations.push(`   Run: open-autopm mcp enable ${serverName}`);
         }
 
         // Check environment variables for this server
@@ -1415,8 +1415,8 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
     if (result.missingEnvVars.length > 0) {
       const uniqueVars = this._getUniqueEnvVars(result.missingEnvVars);
       result.warnings.push(`⚠️  Missing ${uniqueVars.length} environment variable(s): ${uniqueVars.join(', ')}`);
-      result.recommendations.push(`   Configure in .claude/.env file`);
-      result.recommendations.push(`   Run: autopm mcp setup`);
+      result.recommendations.push(`   Configure in .opencode/.env file`);
+      result.recommendations.push(`   Run: open-autopm mcp setup`);
     }
 
     return result;
@@ -1510,7 +1510,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
 
       // Show configuration instructions
       console.log('📝 How to Configure:\n');
-      console.log('   1. Edit file: .claude/.env\n');
+      console.log('   1. Edit file: .opencode/.env\n');
       console.log('   2. Add required variables:\n');
 
       Object.entries(byServer).forEach(([serverName, entries]) => {
@@ -1554,23 +1554,23 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
     if (Array.isArray(checkResult.disabledServers) && checkResult.disabledServers.length > 0) {
       console.log(`   ${step}. Enable MCP server(s):`);
       checkResult.disabledServers.forEach(server => {
-        console.log(`      autopm mcp enable ${server.name}`);
+        console.log(`      open-autopm mcp enable ${server.name}`);
       });
       step++;
     }
 
     if (checkResult.missingEnvVars.length > 0) {
-      console.log(`   ${step}. Edit .claude/.env and add required variables`);
-      console.log(`      nano .claude/.env  # or use your editor`);
+      console.log(`   ${step}. Edit .opencode/.env and add required variables`);
+      console.log(`      nano .opencode/.env  # or use your editor`);
       step++;
     }
 
     console.log(`   ${step}. Sync MCP configuration:`);
-    console.log(`      autopm mcp sync`);
+    console.log(`      open-autopm mcp sync`);
     step++;
 
     console.log(`   ${step}. Verify everything works:`);
-    console.log('      autopm mcp check');
+    console.log('      open-autopm mcp check');
     console.log();
   }
 
@@ -1598,7 +1598,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
       'github-mcp': '→ Generate token at https://github.com/settings/tokens',
       'playwright-mcp': '→ No credentials needed - uses local Playwright installation'
     };
-    return info[serverName] || '→ Check server documentation: autopm mcp info ' + serverName;
+    return info[serverName] || '→ Check server documentation: open-autopm mcp info ' + serverName;
   }
 
   /**
@@ -1614,7 +1614,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
   }
 
   /**
-   * Convert env metadata objects to simple string format for Claude Code
+   * Convert env metadata objects to simple string format for OpenCode Code
    * @private
    * @param {Object} envObj - Environment variables object (may contain metadata)
    * @returns {Object} Environment variables as simple strings
@@ -1663,15 +1663,15 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
       warnings: []
     };
 
-    // Check 1: .claude directory
+    // Check 1: .opencode directory
     const claudeDirCheck = {
-      name: '.claude directory exists',
-      passed: fs.existsSync(path.join(this.projectRoot, '.claude'))
+      name: '.opencode directory exists',
+      passed: fs.existsSync(path.join(this.projectRoot, '.opencode'))
     };
     result.checks.push(claudeDirCheck);
 
     if (!claudeDirCheck.passed) {
-      result.errors.push('.claude directory not found');
+      result.errors.push('.opencode directory not found');
       result.status = 'error';
     }
 
@@ -1733,7 +1733,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
     }
 
     // Check 6: Agents directory
-    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.claude', 'agents');
+    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.opencode', 'agents');
     const agentsDirCheck = {
       name: 'agents directory exists',
       passed: fs.existsSync(agentsDir)
@@ -1789,7 +1789,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
           serverCheck.missingEnvVars.length === 0) {
         console.log('   ✅ All required servers properly configured');
       } else {
-        console.log('\n💡 Run "autopm mcp check" for detailed recommendations');
+        console.log('\n💡 Run "open-autopm mcp check" for detailed recommendations');
       }
     }
 
@@ -1848,7 +1848,7 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
    */
   generateTree() {
     const analysis = this.analyzeAgents();
-    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.claude', 'agents');
+    const agentsDir = this.agentsDir || path.join(this.frameworkRoot, 'autopm', '.opencode', 'agents');
 
     const tree = {
       nodes: [],
@@ -2010,25 +2010,25 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
 
     if (action === 'enable' || action === 'add') {
       console.log('1. Run sync to update configuration:');
-      console.log('   autopm mcp sync\n');
+      console.log('   open-autopm mcp sync\n');
 
       // Check if server needs environment variables
       if (server && server.metadata && server.metadata.env) {
         const envVars = Object.keys(server.metadata.env);
         if (envVars.length > 0) {
-          console.log('2. Configure required environment variables in .claude/.env:');
+          console.log('2. Configure required environment variables in .opencode/.env:');
           envVars.forEach(varName => {
             const example = this._getEnvVarExample(server.name || server.metadata.name, varName);
             console.log(`   ${varName}=${example}`);
           });
           console.log();
-          console.log('3. Restart Claude Code to load the server\n');
+          console.log('3. Restart OpenCode Code to load the server\n');
           console.log('4. Verify server status:');
-          console.log('   /mcp (in Claude Code)\n');
+          console.log('   /mcp (in OpenCode Code)\n');
         } else {
-          console.log('2. Restart Claude Code to load the server\n');
+          console.log('2. Restart OpenCode Code to load the server\n');
           console.log('3. Verify server status:');
-          console.log('   /mcp (in Claude Code)\n');
+          console.log('   /mcp (in OpenCode Code)\n');
         }
       }
 
@@ -2041,9 +2041,9 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
         }
       }
     } else if (action === 'sync') {
-      console.log('1. Restart Claude Code to load the updated configuration\n');
+      console.log('1. Restart OpenCode Code to load the updated configuration\n');
       console.log('2. Verify servers are running:');
-      console.log('   /mcp (in Claude Code)\n');
+      console.log('   /mcp (in OpenCode Code)\n');
 
       // Check for missing environment variables
       const envStatus = this.checkEnvVarsStatus();
@@ -2052,12 +2052,12 @@ ${pkg.repository?.url ? `- Repository: ${pkg.repository.url}` : ''}
         envStatus.missing.forEach(varName => {
           console.log(`   ❌ ${varName}`);
         });
-        console.log('\n3. Configure missing variables in .claude/.env\n');
+        console.log('\n3. Configure missing variables in .opencode/.env\n');
         console.log('4. Check configuration:');
-        console.log('   autopm mcp check\n');
+        console.log('   open-autopm mcp check\n');
       } else {
         console.log('3. Check configuration status:');
-        console.log('   autopm mcp check\n');
+        console.log('   open-autopm mcp check\n');
       }
     }
   }

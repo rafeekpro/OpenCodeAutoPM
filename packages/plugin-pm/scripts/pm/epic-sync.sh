@@ -19,7 +19,7 @@ if [[ -z "$EPIC_NAME" ]]; then
     exit 1
 fi
 
-EPIC_DIR=".claude/epics/$EPIC_NAME"
+EPIC_DIR=".opencode/epics/$EPIC_NAME"
 
 # Validate epic exists
 if [[ ! -d "$EPIC_DIR" ]]; then

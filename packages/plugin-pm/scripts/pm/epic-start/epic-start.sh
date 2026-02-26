@@ -21,13 +21,13 @@ if [ -z "$EPIC_NAME" ]; then
 fi
 
 # Find epic file
-EPIC_FILE=".claude/epics/${EPIC_NAME}.md"
+EPIC_FILE=".opencode/epics/${EPIC_NAME}.md"
 if [ ! -f "$EPIC_FILE" ]; then
-    EPIC_FILE=".claude/prds/${EPIC_NAME}.md"
+    EPIC_FILE=".opencode/prds/${EPIC_NAME}.md"
     if [ ! -f "$EPIC_FILE" ]; then
         echo "❌ Error: Epic not found: ${EPIC_NAME}"
         echo "Available epics:"
-        ls .claude/epics/*.md .claude/prds/*.md 2>/dev/null | xargs -n1 basename | sed 's/\.md$//' | sed 's/^/  - /'
+        ls .opencode/epics/*.md .opencode/prds/*.md 2>/dev/null | xargs -n1 basename | sed 's/\.md$//' | sed 's/^/  - /'
         exit 1
     fi
 fi

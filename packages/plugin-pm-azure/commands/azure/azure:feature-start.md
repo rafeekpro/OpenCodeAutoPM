@@ -81,10 +81,10 @@ Select (1-4): _
 git checkout -b feature/authentication-system
 
 # Create feature directory
-mkdir -p .claude/azure/features/authentication-system
+mkdir -p .opencode/azure/features/authentication-system
 
 # Initialize feature tracking
-cat > .claude/azure/features/authentication-system/README.md << EOF
+cat > .opencode/azure/features/authentication-system/README.md << EOF
 # Feature: Authentication System
 
 Started: $(date)

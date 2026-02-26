@@ -16,7 +16,7 @@ Comprehensive sprint dashboard with burndown, velocity, and team performance met
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>

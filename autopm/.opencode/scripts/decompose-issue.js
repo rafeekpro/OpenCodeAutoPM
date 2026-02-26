@@ -182,13 +182,13 @@ ${template.coordination?.shared_files?.map(file =>
 
 \`\`\`bash
 # Start all streams in parallel
-autopm start-streams ${issueNumber}
+open-autopm start-streams ${issueNumber}
 
 # Or start individual streams
-${Object.keys(template.streams).map(id => `autopm start-stream ${issueNumber} ${id}`).join('\n')}
+${Object.keys(template.streams).map(id => `open-autopm start-stream ${issueNumber} ${id}`).join('\n')}
 
 # Check status
-autopm status ${issueNumber}
+open-autopm status ${issueNumber}
 \`\`\`
 `;
   }

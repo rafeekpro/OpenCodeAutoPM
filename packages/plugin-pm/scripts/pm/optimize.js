@@ -9,7 +9,7 @@ const { execSync } = require('child_process');
 
 class ProjectOptimizer {
   constructor() {
-    this.claudeDir = '.claude';
+    this.opencodeDir = '.opencode';
     this.stats = {
       contextFiles: 0,
       agentFiles: 0,
@@ -107,13 +107,13 @@ class ProjectOptimizer {
       });
     };
 
-    processDir(this.claudeDir);
+    processDir(this.opencodeDir);
     return duplicates;
   }
 
   analyzeContextOptimization() {
     const suggestions = [];
-    const contextDir = path.join(this.claudeDir, 'contexts');
+    const contextDir = path.join(this.opencodeDir, 'contexts');
 
     if (fs.existsSync(contextDir)) {
       const files = fs.readdirSync(contextDir);
@@ -148,7 +148,7 @@ class ProjectOptimizer {
 
   analyzeAgentUsage() {
     const suggestions = [];
-    const agentsDir = path.join(this.claudeDir, 'agents');
+    const agentsDir = path.join(this.opencodeDir, 'agents');
 
     if (fs.existsSync(agentsDir)) {
       // Check for unused agents (no recent modifications)
@@ -232,10 +232,10 @@ class ProjectOptimizer {
     // 1. Analyze directories
     console.log('📊 Analyzing project structure...');
 
-    const contexts = this.analyzeDirectory(path.join(this.claudeDir, 'contexts'), 'context');
-    const issues = this.analyzeDirectory(path.join(this.claudeDir, 'issues'), 'issue');
-    const epics = this.analyzeDirectory(path.join(this.claudeDir, 'epics'), 'epic');
-    const prds = this.analyzeDirectory(path.join(this.claudeDir, 'prds'), 'prd');
+    const contexts = this.analyzeDirectory(path.join(this.opencodeDir, 'contexts'), 'context');
+    const issues = this.analyzeDirectory(path.join(this.opencodeDir, 'issues'), 'issue');
+    const epics = this.analyzeDirectory(path.join(this.opencodeDir, 'epics'), 'epic');
+    const prds = this.analyzeDirectory(path.join(this.opencodeDir, 'prds'), 'prd');
 
     // 2. Find duplicates
     if (!options.skipDuplicates) {

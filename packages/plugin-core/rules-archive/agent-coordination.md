@@ -1,6 +1,6 @@
 # Agent Coordination Rules
 
-Comprehensive coordination system for multi-agent collaboration in ClaudeAutoPM.
+Comprehensive coordination system for multi-agent collaboration in OpenCodeAutoPM.
 
 ## Core Principles
 
@@ -25,7 +25,7 @@ Comprehensive coordination system for multi-agent collaboration in ClaudeAutoPM.
 | docker-containerization-expert | Containers | `Dockerfile*`, `docker-compose*.yml` | All deployment agents | strategy: multi-stage/compose |
 | postgresql-expert / mongodb-expert | Database | `migrations/`, `*.sql`, schema files | python-backend-engineer | engine: postgresql/mongodb/redis |
 | github-operations-specialist | CI/CD | `.github/`, `*.yml`, `*.yaml` | All agents | platform: actions/azure-devops |
-| mcp-context-manager | Context | `.claude/mcp-servers.json`, context pools | All agents | pool: shared/isolated |
+| mcp-context-manager | Context | `.opencode/mcp-servers.json`, context pools | All agents | pool: shared/isolated |
 
 ### Specialized Agents (When Needed)
 
@@ -179,7 +179,7 @@ Stream D: Testing
 ### Progress Tracking
 
 ```markdown
-# .claude/epics/{epic}/updates/{issue}/stream-{id}.md
+# .opencode/epics/{epic}/updates/{issue}/stream-{id}.md
 ---
 stream: Backend Development
 agent: python-backend-expert

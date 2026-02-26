@@ -47,14 +47,14 @@ Analyze context usage, track token consumption, identify optimization opportunit
 **MANDATORY:** Before analyzing context, query Context7 for best practices:
 
 **Documentation Queries:**
-- `mcp://context7/anthropic/claude-api` - Claude API context limits and token counting
+- `mcp://context7/anthropic/claude-api` - OpenCode API context limits and token counting
 - `mcp://context7/langchain/context-management` - Context optimization patterns and strategies
 - `mcp://context7/tiktoken/tokenization` - Token counting methods and encoding schemes
 
 **Why This is Required:**
 - Ensures accurate token counting using latest encoding schemes
 - Applies proven context optimization strategies
-- Validates against current Claude API context limits
+- Validates against current OpenCode API context limits
 - Prevents hallucinations about token calculation methods
 - Uses industry-standard context management patterns
 
@@ -63,7 +63,7 @@ Analyze context usage, track token consumption, identify optimization opportunit
 ### 1. Context7 Documentation Query (MANDATORY FIRST STEP)
 
 Before implementation, query Context7 for:
-1. Current Claude API token limits and context window size
+1. Current OpenCode API token limits and context window size
 2. Best practices for token counting (tiktoken library usage)
 3. Context optimization patterns from LangChain
 4. Caching and chunking strategies
@@ -122,8 +122,8 @@ Context Efficiency: Good ✅
 ========================
 
 1. CLAUDE.md                    12,456 tokens (27.5%) ⚠️
-2. .claude/agents/agent1.md      5,234 tokens (11.6%)
-3. .claude/agents/agent2.md      4,123 tokens  (9.1%)
+2. .opencode/agents/agent1.md      5,234 tokens (11.6%)
+3. .opencode/agents/agent2.md      4,123 tokens  (9.1%)
 4. src/index.js                  3,891 tokens  (8.6%)
 5. docs/README.md                3,456 tokens  (7.6%)
 
@@ -175,7 +175,7 @@ High Impact (>5,000 token reduction):
 
 1. Split CLAUDE.md (12,456 tokens → ~6,000 tokens)
    - Move agent documentation to separate files
-   - Extract examples to .claude/examples/
+   - Extract examples to .opencode/examples/
    - Impact: -6,456 tokens (14.3% reduction)
 
 2. Summarize verbose agent files (8,357 tokens → ~4,000 tokens)
@@ -469,7 +469,7 @@ If agents unavailable:
 
 1. **List Context Files**
    ```bash
-   find .claude -type f -name "*.md" | wc -l
+   find .opencode -type f -name "*.md" | wc -l
    ```
 
 2. **Estimate Token Count**
@@ -479,7 +479,7 @@ If agents unavailable:
 
 3. **Identify Large Files**
    ```bash
-   find .claude -type f -exec wc -c {} + | sort -rn | head -10
+   find .opencode -type f -exec wc -c {} + | sort -rn | head -10
    ```
 
 4. **Analyze Content Redundancy**
@@ -510,14 +510,14 @@ Processing large file: CLAUDE.md (234 KB)
 - Skip token counting (not textual)
 - Report size in bytes
 - Flag if unexpectedly in context
-- Recommend .gitignore or .claudeignore
+- Recommend .gitignore or .opencodeignore
 
 ```
 ⚠️ Binary files detected in context:
-  - .claude/assets/logo.png (145 KB)
+  - .opencode/assets/logo.png (145 KB)
   - docs/diagram.pdf (892 KB)
 
-💡 Recommendation: Add to .claudeignore
+💡 Recommendation: Add to .opencodeignore
 ```
 
 ### Empty Context
@@ -581,7 +581,7 @@ Results marked as [ESTIMATED]
 
 **File Access:**
 - Only analyze files in project directory
-- Respect .gitignore and .claudeignore
+- Respect .gitignore and .opencodeignore
 - Skip files in .env, secrets/, credentials/
 - Report if sensitive files found in context
 
@@ -630,7 +630,7 @@ Results marked as [ESTIMATED]
    @file-analyzer summarize CLAUDE.md --extract-key-points
 
 4. Implement optimization:
-   - Split into CLAUDE.md + .claude/documentation/
+   - Split into CLAUDE.md + .opencode/documentation/
    - Move examples to separate files
    - Reference instead of duplicate
 

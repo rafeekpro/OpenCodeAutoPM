@@ -43,7 +43,7 @@ autopm plugin install data
 
 ## 💡 Usage
 
-### In Claude Code
+### In OpenCode Code
 
 After installation, agents are available in your project:
 
@@ -52,8 +52,8 @@ After installation, agents are available in your project:
 ## Active Team Agents
 
 <!-- Load data engineering agents -->
-- @include .claude/agents/data/airflow-orchestration-expert.md
-- @include .claude/agents/data/kedro-pipeline-expert.md
+- @include .opencode/agents/data/airflow-orchestration-expert.md
+- @include .opencode/agents/data/kedro-pipeline-expert.md
 ```
 
 Or use `autopm team load` to automatically include agents:
@@ -274,7 +274,7 @@ export LANGSMITH_PROJECT=my-project
 
 ### Agent Customization
 
-You can customize agent behavior in `.claude/config.yaml`:
+You can customize agent behavior in `.opencode/config.yaml`:
 
 ```yaml
 plugins:
@@ -305,11 +305,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-data)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

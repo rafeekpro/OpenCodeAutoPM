@@ -21,18 +21,18 @@ exports.builder = (yargs) => yargs;
 exports.handler = async (argv) => {
   console.log();
   console.log('╔════════════════════════════════════════════════╗');
-  console.log('║    🤖 AI-Powered Command (Claude Code Only)    ║');
+  console.log('║    🤖 AI-Powered Command (OpenCode Code Only)    ║');
   console.log('╚════════════════════════════════════════════════╝');
   console.log();
-  printWarning('This command requires Claude Code');
+  printWarning('This command requires OpenCode Code');
   console.log();
 
-  printInfo('📍 To use in Claude Code:');
+  printInfo('📍 To use in OpenCode Code:');
   console.log('   /{{COMMAND}}');
   console.log();
 
   printInfo('📄 Command definition:');
-  console.log('   .claude/commands/{{COMMAND}}.md');
+  console.log('   .opencode/commands/{{COMMAND}}.md');
 };
 `;
 

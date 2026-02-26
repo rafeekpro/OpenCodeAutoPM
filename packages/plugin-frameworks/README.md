@@ -71,7 +71,7 @@ All code examples, patterns, and best practices are verified against current off
 
 ## 💡 Usage
 
-### In Claude Code
+### In OpenCode Code
 
 After installation, agents are available in your project:
 
@@ -80,8 +80,8 @@ After installation, agents are available in your project:
 ## Active Team Agents
 
 <!-- Load framework agents -->
-- @include .claude/agents/frameworks/react-frontend-engineer.md
-- @include .claude/agents/frameworks/tailwindcss-expert.md
+- @include .opencode/agents/frameworks/react-frontend-engineer.md
+- @include .opencode/agents/frameworks/tailwindcss-expert.md
 ```
 
 Or use `autopm team load` to automatically include agents:
@@ -267,7 +267,7 @@ export NATS_URL=nats://localhost:4222
 
 ### Agent Customization
 
-You can customize agent behavior in `.claude/config.yaml`:
+You can customize agent behavior in `.opencode/config.yaml`:
 
 ```yaml
 plugins:
@@ -299,11 +299,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-frameworks)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

@@ -20,7 +20,7 @@ try {
   TemplateEngine = require(path.join(process.cwd(), 'lib', 'template-engine'));
 } catch (err) {
   try {
-    // Try relative path from .claude/scripts/pm/ (during development)
+    // Try relative path from .opencode/scripts/pm/ (during development)
     TemplateEngine = require(path.join(__dirname, '..', '..', '..', '..', 'lib', 'template-engine'));
   } catch (err2) {
     // Fallback: try from AutoPM global installation
@@ -48,7 +48,7 @@ try {
       } catch (npmErr) {
         throw new Error('Failed to execute "npm root -g". Please check your npm installation.');
       }
-      TemplateEngine = require(path.join(npmRoot, 'claude-autopm', 'lib', 'template-engine'));
+      TemplateEngine = require(path.join(npmRoot, 'open-autopm', 'lib', 'template-engine'));
     } catch (err3) {
       throw new Error('Cannot find template-engine module. Please ensure lib/ directory is installed. Details: ' + err3.message);
     }
@@ -57,7 +57,7 @@ try {
 
 class PrdCreator {
   constructor() {
-    this.prdsDir = path.join('.claude', 'prds');
+    this.prdsDir = path.join('.opencode', 'prds');
     this.templatesDir = path.join(__dirname, '..', '..', 'templates');
     this.templateEngine = new TemplateEngine();
   }
@@ -78,7 +78,7 @@ class PrdCreator {
     const prdFile = path.join(this.prdsDir, `${prdName}.md`);
     if (fs.existsSync(prdFile)) {
       console.error(`❌ PRD already exists: ${prdName}`);
-      console.log(`💡 Edit file: .claude/prds/${prdName}.md`);
+      console.log(`💡 Edit file: .opencode/prds/${prdName}.md`);
       return false;
     }
 
@@ -86,7 +86,7 @@ class PrdCreator {
     const templatePath = this.templateEngine.findTemplate('prds', templateName);
     if (!templatePath) {
       console.error(`❌ Template not found: ${templateName}`);
-      console.log(`💡 List available templates: autopm template:list`);
+      console.log(`💡 List available templates: open-autopm template:list`);
       return false;
     }
 
@@ -319,7 +319,7 @@ class PrdCreator {
     const prdFile = path.join(this.prdsDir, `${prdName}.md`);
     if (fs.existsSync(prdFile)) {
       console.error(`❌ PRD already exists: ${prdName}`);
-      console.log(`💡 Edit file: .claude/prds/${prdName}.md`);
+      console.log(`💡 Edit file: .opencode/prds/${prdName}.md`);
       return false;
     }
 
@@ -423,7 +423,7 @@ class PrdCreator {
 
     console.log('📝 Option 4: Review & Edit First');
     console.log('   Review and refine the PRD before processing:');
-    console.log(`   nano .claude/prds/${prdName}.md`);
+    console.log(`   nano .opencode/prds/${prdName}.md`);
     console.log('   Then use any option above\n');
 
     console.log('📊 Option 5: Check Status');
@@ -612,7 +612,7 @@ ${data.technical || 'Technical requirements to be specified...'}
   }
 
   async run(args) {
-    // Check if running in non-interactive environment (e.g., Claude Code)
+    // Check if running in non-interactive environment (e.g., OpenCode Code)
     if (!process.stdin.isTTY) {
       console.error('❌ Error: This script requires an interactive terminal');
       console.error('\n💡 Solutions:');
@@ -620,8 +620,8 @@ ${data.technical || 'Technical requirements to be specified...'}
       console.error('      /pm:prd-new <feature-name>');
       console.error('   2. Use --content flag with existing content:');
       console.error('      /pm:prd-new <feature-name> --content @path/to/file.md');
-      console.error('   3. Run in a regular terminal (not Claude Code):');
-      console.error('      node .claude/scripts/pm/prd-new.js <feature-name>');
+      console.error('   3. Run in a regular terminal (not OpenCode Code):');
+      console.error('      node .opencode/scripts/pm/prd-new.js <feature-name>');
       console.error('\n📚 See: /pm:help prd-new');
       process.exit(1);
     }

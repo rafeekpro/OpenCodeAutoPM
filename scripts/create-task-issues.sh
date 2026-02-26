@@ -1,7 +1,7 @@
 #!/bin/bash
 # Create GitHub issues for all tasks in epic
 
-cd .claude/epics/ccpm-001-features-integration/
+cd .opencode/epics/ccpm-001-features-integration/
 
 echo "Creating GitHub issues for all tasks..."
 echo ""

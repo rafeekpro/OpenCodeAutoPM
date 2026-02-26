@@ -16,7 +16,7 @@ List and filter User Stories from Azure DevOps project.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -167,7 +167,7 @@ Export options:
 - Save as JSON: Add --export=json
 - Save as Markdown: Add --export=md
 
-Results saved to: .claude/azure/exports/us-list-[timestamp].[format]
+Results saved to: .opencode/azure/exports/us-list-[timestamp].[format]
 ```
 
 ## Advanced Filters
@@ -197,6 +197,6 @@ Support complex queries:
 ## Local Cache
 
 Cache results locally for quick access:
-- Cache file: `.claude/azure/cache/us-list.json`
+- Cache file: `.opencode/azure/cache/us-list.json`
 - Cache duration: 5 minutes
 - Force refresh: Add `--refresh` flag

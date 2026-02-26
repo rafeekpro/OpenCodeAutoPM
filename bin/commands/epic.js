@@ -1,15 +1,15 @@
 /**
- * Epic Command for autopm CLI
+ * Epic Command for open-autopm CLI
  * Read-only utility for viewing epic status and breakdown
  *
  * NOTE: This is a READ-ONLY utility command for viewing epics.
- * To CREATE or MODIFY epics, use Claude Code commands:
+ * To CREATE or MODIFY epics, use OpenCode Code commands:
  *   /pm:prd-new <name>           - Create new PRD
  *   /pm:epic-decompose <name>    - Decompose PRD into epic
  *   /pm:epic-sync <name>         - Sync epic with provider
  *   /pm:epic-edit <name>         - Edit existing epic
  *
- * This CLI command is for quick status checks outside of Claude Code.
+ * This CLI command is for quick status checks outside of OpenCode Code.
  */
 
 const path = require('path');
@@ -37,19 +37,19 @@ module.exports = {
         type: 'boolean',
         default: false
       })
-      .example('autopm epic list', 'List all available epics')
-      .example('autopm epic status fullstack', 'Show status of fullstack epic')
-      .example('autopm epic breakdown fullstack', 'Show detailed task breakdown')
+      .example('open-autopm epic list', 'List all available epics')
+      .example('open-autopm epic status fullstack', 'Show status of fullstack epic')
+      .example('open-autopm epic breakdown fullstack', 'Show detailed task breakdown')
       .epilogue(`
 📝 Note: This is a READ-ONLY command for viewing epics.
 
-To create or modify epics, use Claude Code:
+To create or modify epics, use OpenCode Code:
   /pm:prd-new <name>           - Create new PRD
   /pm:epic-decompose <name>    - Decompose PRD into epic
   /pm:epic-sync <name>         - Sync epic with provider
   /pm:epic-edit <name>         - Edit existing epic
 
-Use this CLI command for quick status checks outside Claude Code.
+Use this CLI command for quick status checks outside OpenCode Code.
       `);
   },
 
@@ -66,7 +66,7 @@ Use this CLI command for quick status checks outside Claude Code.
         case 'status':
           if (!name) {
             console.error('Error: Epic name required for status action');
-            console.log('Usage: autopm epic status <epic-name>');
+            console.log('Usage: open-autopm epic status <epic-name>');
             process.exit(1);
           }
           showEpicStatus(name);
@@ -75,7 +75,7 @@ Use this CLI command for quick status checks outside Claude Code.
         case 'breakdown':
           if (!name) {
             console.error('Error: Epic name required for breakdown action');
-            console.log('Usage: autopm epic breakdown <epic-name>');
+            console.log('Usage: open-autopm epic breakdown <epic-name>');
             process.exit(1);
           }
           showEpicBreakdown(name);
@@ -93,7 +93,7 @@ Use this CLI command for quick status checks outside Claude Code.
 };
 
 function listEpics() {
-  const epicsDir = path.join(process.cwd(), '.claude', 'epics');
+  const epicsDir = path.join(process.cwd(), '.opencode', 'epics');
 
   if (!fs.existsSync(epicsDir)) {
     console.log('No epics found. Create epics with /pm:epic-split or /pm:epic-decompose');
@@ -117,7 +117,7 @@ function listEpics() {
   });
 
   console.log('');
-  console.log('Use: autopm epic status <epic-name> to see details');
+  console.log('Use: open-autopm epic status <epic-name> to see details');
 }
 
 function showEpicStatus(epicName) {
@@ -125,7 +125,7 @@ function showEpicStatus(epicName) {
 
   if (!fs.existsSync(scriptPath)) {
     console.error('Error: epic-status.sh script not found');
-    console.error('Run: autopm install to get the latest scripts');
+    console.error('Run: open-autopm install to get the latest scripts');
     process.exit(1);
   }
 
@@ -140,7 +140,7 @@ function showEpicStatus(epicName) {
 }
 
 function showEpicBreakdown(epicName) {
-  const epicDir = path.join(process.cwd(), '.claude', 'epics', epicName);
+  const epicDir = path.join(process.cwd(), '.opencode', 'epics', epicName);
 
   if (!fs.existsSync(epicDir)) {
     console.error(`Error: Epic '${epicName}' not found`);

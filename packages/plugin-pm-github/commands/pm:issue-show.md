@@ -30,7 +30,7 @@ Display issue and sub-issues with detailed information.
 
 ## Instructions
 
-Run `node .claude/scripts/pm/issue-show.js $ARGUMENTS` using the Bash tool and show me the complete output.
+Run `node .opencode/scripts/pm/issue-show.js $ARGUMENTS` using the Bash tool and show me the complete output.
 
 This will display comprehensive information about the GitHub issue including:
 1. Issue details and status

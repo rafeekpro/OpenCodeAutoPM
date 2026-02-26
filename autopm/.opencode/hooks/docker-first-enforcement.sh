@@ -8,7 +8,7 @@ TOOL_PARAMS="$2"
 
 # Function to check if Docker-first is enabled
 is_docker_first_enabled() {
-    local config_file=".claude/config.json"
+    local config_file=".opencode/config.json"
     
     if [[ ! -f "$config_file" ]]; then
         return 1  # Disabled if no config file
@@ -27,7 +27,7 @@ is_docker_first_enabled() {
 # Function to check if command is in allowed exceptions
 is_command_allowed() {
     local command="$1"
-    local config_file=".claude/config.json"
+    local config_file=".opencode/config.json"
     
     if [[ ! -f "$config_file" ]]; then
         return 1

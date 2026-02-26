@@ -73,7 +73,7 @@ Next: {Single suggested action}
 
 ```markdown
 # Don't ask permission, just create what's needed
-mkdir -p .claude/{directory} 2>/dev/null
+mkdir -p .opencode/{directory} 2>/dev/null
 ```
 
 ### Read with Fallback

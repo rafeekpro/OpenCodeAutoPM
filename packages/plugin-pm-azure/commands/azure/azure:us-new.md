@@ -12,7 +12,7 @@ Create a new User Story in Azure DevOps with comprehensive planning and task bre
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -205,7 +205,7 @@ Execute the Azure DevOps API operations:
 
 ### 5. Local Documentation
 
-Save a local copy to: `.claude/azure/user-stories/$ARGUMENTS.md` with:
+Save a local copy to: `.opencode/azure/user-stories/$ARGUMENTS.md` with:
 
 ```markdown
 ---

@@ -103,21 +103,21 @@ function listPRDs() {
   };
 
   // Check if PRDs directory exists
-  if (!fs.existsSync('.claude/prds')) {
+  if (!fs.existsSync('.opencode/prds')) {
     return result;
   }
 
   let prdFiles;
   try {
-    const allFiles = fs.readdirSync('.claude/prds');
-    // Only process .md files (matching bash: for file in .claude/prds/*.md)
+    const allFiles = fs.readdirSync('.opencode/prds');
+    // Only process .md files (matching bash: for file in .opencode/prds/*.md)
     prdFiles = allFiles.filter(file => file.endsWith('.md'));
   } catch (error) {
     return result;
   }
 
   for (const file of prdFiles) {
-    const filePath = path.join('.claude/prds', file);
+    const filePath = path.join('.opencode/prds', file);
 
     let metadata;
     try {
@@ -165,7 +165,7 @@ function formatPRDList(data) {
 
   // Check if no PRDs directory or empty
   if (data.summary.totalPRDs === 0) {
-    if (!fs.existsSync('.claude/prds')) {
+    if (!fs.existsSync('.opencode/prds')) {
       output += '📁 No PRD directory found. Create your first PRD with: /pm:prd-new <feature-name>\n';
       return output;
     } else {

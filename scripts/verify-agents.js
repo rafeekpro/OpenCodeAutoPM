@@ -20,11 +20,11 @@ class AgentVerification {
     console.log('🔍 Checking framework agent files...');
 
     const agents = [
-      'autopm/.claude/agents/core/agent-manager.md',
-      'autopm/.claude/agents/core/code-analyzer.md',
-      'autopm/.claude/agents/core/test-runner.md',
-      'autopm/.claude/agents/core/file-analyzer.md',
-      'autopm/.claude/agents/devops/github-operations-specialist.md'
+      'autopm/.opencode/agents/core/agent-manager.md',
+      'autopm/.opencode/agents/core/code-analyzer.md',
+      'autopm/.opencode/agents/core/test-runner.md',
+      'autopm/.opencode/agents/core/file-analyzer.md',
+      'autopm/.opencode/agents/devops/github-operations-specialist.md'
     ];
 
     agents.forEach(agent => {
@@ -65,7 +65,7 @@ class AgentVerification {
     });
 
     // Check for agent paths
-    if (content.includes('autopm/.claude/agents/')) {
+    if (content.includes('autopm/.opencode/agents/')) {
       this.successes.push('✅ CLAUDE.md includes agent paths');
     } else {
       this.errors.push('❌ CLAUDE.md missing agent paths');
@@ -76,9 +76,9 @@ class AgentVerification {
   checkBaseMd() {
     console.log('📋 Checking base.md configuration...');
 
-    const basePath = path.join(this.projectRoot, '.claude/base.md');
+    const basePath = path.join(this.projectRoot, '.opencode/base.md');
     if (!fs.existsSync(basePath)) {
-      this.errors.push('❌ .claude/base.md not found');
+      this.errors.push('❌ .opencode/base.md not found');
       return;
     }
 
@@ -92,7 +92,7 @@ class AgentVerification {
     }
 
     // Check for agent paths
-    if (content.includes('autopm/.claude/agents/')) {
+    if (content.includes('autopm/.opencode/agents/')) {
       this.successes.push('✅ base.md includes agent paths');
     } else {
       this.warnings.push('⚠️ base.md missing explicit agent paths');
@@ -103,9 +103,9 @@ class AgentVerification {
   checkConfig() {
     console.log('⚙️ Checking config.json...');
 
-    const configPath = path.join(this.projectRoot, '.claude/config.json');
+    const configPath = path.join(this.projectRoot, '.opencode/config.json');
     if (!fs.existsSync(configPath)) {
-      this.errors.push('❌ .claude/config.json not found');
+      this.errors.push('❌ .opencode/config.json not found');
       return;
     }
 
@@ -121,7 +121,7 @@ class AgentVerification {
         this.errors.push('❌ Framework agents not enabled');
       }
 
-      if (config.agents.source === 'autopm/.claude/agents/') {
+      if (config.agents.source === 'autopm/.opencode/agents/') {
         this.successes.push('✅ Correct agent source path');
       } else {
         this.errors.push('❌ Incorrect agent source path');
@@ -135,12 +135,12 @@ class AgentVerification {
   checkTriggers() {
     console.log('🎯 Checking agent triggers...');
 
-    const triggersPath = path.join(this.projectRoot, '.claude/agent-triggers.md');
+    const triggersPath = path.join(this.projectRoot, '.opencode/agent-triggers.md');
     if (fs.existsSync(triggersPath)) {
       this.successes.push('✅ agent-triggers.md exists');
 
       const content = fs.readFileSync(triggersPath, 'utf8');
-      if (content.includes('autopm/.claude/agents/')) {
+      if (content.includes('autopm/.opencode/agents/')) {
         this.successes.push('✅ Triggers reference framework agents');
       } else {
         this.warnings.push('⚠️ Triggers missing framework agent paths');
@@ -154,9 +154,9 @@ class AgentVerification {
   checkPmCommands() {
     console.log('🛠️ Checking PM commands...');
 
-    const commandsDir = path.join(this.projectRoot, '.claude/commands');
+    const commandsDir = path.join(this.projectRoot, '.opencode/commands');
     if (!fs.existsSync(commandsDir)) {
-      this.warnings.push('⚠️ .claude/commands directory not found');
+      this.warnings.push('⚠️ .opencode/commands directory not found');
       return;
     }
 
@@ -215,7 +215,7 @@ class AgentVerification {
 
   // Main execution
   run() {
-    console.log('🤖 Verifying ClaudeAutoPM Agent Configuration\n');
+    console.log('🤖 Verifying OpenCodeAutoPM Agent Configuration\n');
 
     this.checkAgentFiles();
     this.checkClaudeMd();

@@ -6,9 +6,9 @@ allowed-tools: Bash, Read, Write, LS, Task
 
 Break epic into concrete, actionable tasks.
 
-**⚠️ IMPORTANT**: This is a Claude Code command file, not a standalone script.
-- Execute via Claude Code as: `/pm:epic-decompose <feature_name>`
-- Do NOT run as: `node .claude/scripts/pm/epic-decompose.js`
+**⚠️ IMPORTANT**: This is a OpenCode Code command file, not a standalone script.
+- Execute via OpenCode Code as: `/pm:epic-decompose <feature_name>`
+- Do NOT run as: `node .opencode/scripts/pm/epic-decompose.js`
 - This command has no standalone script equivalent
 
 ## Usage
@@ -39,7 +39,7 @@ Break epic into concrete, actionable tasks.
 
 `--local`, `-l`
 : Use local mode (offline workflow)
-: Creates task files in `.claude/epics/` directory structure
+: Creates task files in `.opencode/epics/` directory structure
 : No GitHub/Azure synchronization
 : Task files remain local-only until manually synced
 : Ideal for offline work or projects without remote tracking
@@ -68,7 +68,7 @@ Example:
 ## Required Rules
 
 **IMPORTANT:** Before executing this command, read and follow:
-- `.claude/rules/datetime.md` - For getting real current date/time
+- `.opencode/rules/datetime.md` - For getting real current date/time
 
 ## Agent Selection Strategy
 
@@ -76,7 +76,7 @@ Based on the PRD content and technical requirements, automatically determine whi
 
 ### Step 1: Analyze PRD for Technology Stack
 
-Read `.claude/prds/$ARGUMENTS.md` and identify:
+Read `.opencode/prds/$ARGUMENTS.md` and identify:
 - **Programming languages** mentioned (Python, JavaScript/TypeScript, Go, Bash, etc.)
 - **Frameworks** required (React, FastAPI, Next.js, Express, etc.)
 - **Databases** needed (PostgreSQL, MongoDB, Redis, etc.)
@@ -88,36 +88,36 @@ Read `.claude/prds/$ARGUMENTS.md` and identify:
 ### Step 2: Map Technologies to Specialized Agents
 
 **Programming Languages**:
-- Python → `.claude/agents/languages/python-backend-engineer.md`
-- JavaScript/TypeScript/Node.js → `.claude/agents/languages/nodejs-backend-engineer.md`
-- React → `.claude/agents/frontend/react-frontend-engineer.md`
-- Bash/Shell scripting → `.claude/agents/languages/bash-scripting-expert.md`
+- Python → `.opencode/agents/languages/python-backend-engineer.md`
+- JavaScript/TypeScript/Node.js → `.opencode/agents/languages/nodejs-backend-engineer.md`
+- React → `.opencode/agents/frontend/react-frontend-engineer.md`
+- Bash/Shell scripting → `.opencode/agents/languages/bash-scripting-expert.md`
 
 **Databases**:
-- PostgreSQL → `.claude/agents/databases/postgresql-expert.md`
-- MongoDB → `.claude/agents/databases/mongodb-expert.md`
-- Redis → `.claude/agents/databases/redis-expert.md`
-- Cosmos DB → `.claude/agents/databases/cosmosdb-expert.md`
+- PostgreSQL → `.opencode/agents/databases/postgresql-expert.md`
+- MongoDB → `.opencode/agents/databases/mongodb-expert.md`
+- Redis → `.opencode/agents/databases/redis-expert.md`
+- Cosmos DB → `.opencode/agents/databases/cosmosdb-expert.md`
 
 **Cloud Platforms**:
-- AWS → `.claude/agents/cloud/aws-cloud-architect.md`
-- Azure → `.claude/agents/cloud/azure-cloud-architect.md`
-- GCP → `.claude/agents/cloud/gcp-cloud-architect.md`
+- AWS → `.opencode/agents/cloud/aws-cloud-architect.md`
+- Azure → `.opencode/agents/cloud/azure-cloud-architect.md`
+- GCP → `.opencode/agents/cloud/gcp-cloud-architect.md`
 
 **Infrastructure & Containers**:
-- Docker → `.claude/agents/containers/docker-containerization-expert.md`
-- Kubernetes → `.claude/agents/orchestration/kubernetes-orchestrator.md`
-- Terraform → `.claude/agents/infrastructure/terraform-infrastructure-expert.md`
+- Docker → `.opencode/agents/containers/docker-containerization-expert.md`
+- Kubernetes → `.opencode/agents/orchestration/kubernetes-orchestrator.md`
+- Terraform → `.opencode/agents/infrastructure/terraform-infrastructure-expert.md`
 
 **Testing**:
-- Unit/Integration tests → `.claude/agents/core/test-runner.md`
-- Frontend E2E testing → `.claude/agents/testing/frontend-testing-engineer.md`
-- E2E automation → `.claude/agents/testing/e2e-test-engineer.md`
+- Unit/Integration tests → `.opencode/agents/core/test-runner.md`
+- Frontend E2E testing → `.opencode/agents/testing/frontend-testing-engineer.md`
+- E2E automation → `.opencode/agents/testing/e2e-test-engineer.md`
 
 **DevOps & CI/CD**:
-- GitHub operations → `.claude/agents/devops/github-operations-specialist.md`
-- Azure DevOps → `.claude/agents/devops/azure-devops-specialist.md`
-- Observability → `.claude/agents/devops/observability-engineer.md`
+- GitHub operations → `.opencode/agents/devops/github-operations-specialist.md`
+- Azure DevOps → `.opencode/agents/devops/azure-devops-specialist.md`
+- Observability → `.opencode/agents/devops/observability-engineer.md`
 
 ### Step 3: Document Agent Assignments in Epic Frontmatter
 
@@ -131,16 +131,16 @@ status: backlog
 created: 2025-12-17T10:00:00Z
 updated: 2025-12-17T10:00:00Z
 required_agents:
-  - path: .claude/agents/languages/python-backend-engineer.md
+  - path: .opencode/agents/languages/python-backend-engineer.md
     role: API implementation
     tasks: [001, 002, 003]
-  - path: .claude/agents/databases/postgresql-expert.md
+  - path: .opencode/agents/databases/postgresql-expert.md
     role: Database schema and migrations
     tasks: [004, 005]
-  - path: .claude/agents/testing/frontend-testing-engineer.md
+  - path: .opencode/agents/testing/frontend-testing-engineer.md
     role: Test suite development
     tasks: [006, 007]
-  - path: .claude/agents/devops/github-operations-specialist.md
+  - path: .opencode/agents/devops/github-operations-specialist.md
     role: CI/CD pipeline setup
     tasks: [008]
 ---
@@ -156,7 +156,7 @@ name: Implement JWT authentication endpoints
 status: open
 created: 2025-12-17T10:00:00Z
 updated: 2025-12-17T10:00:00Z
-assigned_agent: .claude/agents/languages/python-backend-engineer.md
+assigned_agent: .opencode/agents/languages/python-backend-engineer.md
 agent_context:
   framework: fastapi
   auth_method: jwt
@@ -181,27 +181,27 @@ Before proceeding, complete these validation steps.
 Do not bother the user with preflight checks progress ("I'm not going to ..."). Just do them and move on.
 
 1. **Verify epic exists:**
-   - Check if `.claude/epics/$ARGUMENTS` directory exists
+   - Check if `.opencode/epics/$ARGUMENTS` directory exists
    - Check for either:
-     a) Single epic: `.claude/epics/$ARGUMENTS/epic.md` exists
-     b) Multiple epics: Subdirectories like `.claude/epics/$ARGUMENTS/01-infrastructure/epic.md`
+     a) Single epic: `.opencode/epics/$ARGUMENTS/epic.md` exists
+     b) Multiple epics: Subdirectories like `.opencode/epics/$ARGUMENTS/01-infrastructure/epic.md`
    - If neither found, tell user: "❌ Epic not found: $ARGUMENTS. First create it with: /pm:prd-parse $ARGUMENTS or /pm:epic-split $ARGUMENTS"
    - Stop execution if no epics found
 
 2. **Detect epic structure:**
-   - If `.claude/epics/$ARGUMENTS/epic.md` exists → Single epic mode
+   - If `.opencode/epics/$ARGUMENTS/epic.md` exists → Single epic mode
    - If subdirectories with epic.md files exist → Multi-epic mode
    - Store the mode for later processing
 
 3. **Check for existing tasks:**
-   - For single epic: Check `.claude/epics/$ARGUMENTS/` for numbered task files
+   - For single epic: Check `.opencode/epics/$ARGUMENTS/` for numbered task files
    - For multi-epic: Check each subdirectory for numbered task files
    - If tasks exist, list them and ask: "⚠️ Found {count} existing tasks. Delete and recreate all tasks? (yes/no)"
    - Only proceed with explicit 'yes' confirmation
    - If user says no, suggest: "View existing tasks with: /pm:epic-show $ARGUMENTS"
 
 4. **Validate epic frontmatter:**
-   - For single epic: Verify `.claude/epics/$ARGUMENTS/epic.md` has valid frontmatter
+   - For single epic: Verify `.opencode/epics/$ARGUMENTS/epic.md` has valid frontmatter
    - For multi-epic: Verify each subdirectory's epic.md has valid frontmatter
    - If invalid, tell user which epic file has invalid frontmatter
 
@@ -216,7 +216,7 @@ Do not bother the user with preflight checks progress ("I'm not going to ..."). 
 When creating tasks, ensure each task includes:
 - TDD Requirements section (RED-GREEN-REFACTOR cycle)
 - "Tests written FIRST" as first item in Definition of Done
-- References to `.claude/rules/tdd.enforcement.md`
+- References to `.opencode/rules/tdd.enforcement.md`
 
 Every generated task file will remind developers to write tests first.
 
@@ -229,18 +229,18 @@ You are decomposing epic(s) into specific, actionable tasks for: **$ARGUMENTS**
 ### 1. Determine Processing Mode
 
 **Single Epic Mode:**
-- Process `.claude/epics/$ARGUMENTS/epic.md`
-- Create tasks in `.claude/epics/$ARGUMENTS/`
+- Process `.opencode/epics/$ARGUMENTS/epic.md`
+- Create tasks in `.opencode/epics/$ARGUMENTS/`
 
 **Multi-Epic Mode (from epic-split):**
-- Find all subdirectories in `.claude/epics/$ARGUMENTS/`
+- Find all subdirectories in `.opencode/epics/$ARGUMENTS/`
 - Process each subdirectory's epic.md file separately
 - Create tasks in each respective subdirectory
 - Show progress for each epic being processed
 
 ### 2. Read the Epic(s)
-- For single epic: Load from `.claude/epics/$ARGUMENTS/epic.md`
-- For multi-epic: Load each `.claude/epics/$ARGUMENTS/*/epic.md`
+- For single epic: Load from `.opencode/epics/$ARGUMENTS/epic.md`
+- For multi-epic: Load each `.opencode/epics/$ARGUMENTS/*/epic.md`
 - Understand the technical approach and requirements
 - Review the task breakdown preview
 
@@ -248,7 +248,7 @@ You are decomposing epic(s) into specific, actionable tasks for: **$ARGUMENTS**
 
 **IMPORTANT**: Before creating tasks, determine which specialized agents should be used:
 
-1. **Read the PRD** from `.claude/prds/$ARGUMENTS.md` (or linked PRD in epic frontmatter)
+1. **Read the PRD** from `.opencode/prds/$ARGUMENTS.md` (or linked PRD in epic frontmatter)
 
 2. **Identify Technology Stack**:
    - Scan for programming languages (Python, JavaScript, Go, etc.)
@@ -298,7 +298,7 @@ Determine if tasks can be created in parallel:
 
 If tasks can be created in parallel, spawn sub-agents.
 
-**IMPORTANT**: Do NOT use generic "general-purpose" agents. Task creation should be done directly by Claude Code, not delegated to sub-agents, as it requires careful analysis of PRD, agent selection, and proper frontmatter generation.
+**IMPORTANT**: Do NOT use generic "general-purpose" agents. Task creation should be done directly by OpenCode Code, not delegated to sub-agents, as it requires careful analysis of PRD, agent selection, and proper frontmatter generation.
 
 **Task Creation Process**:
 1. For each task, determine the appropriate `assigned_agent` based on PRD analysis
@@ -309,15 +309,15 @@ If tasks can be created in parallel, spawn sub-agents.
 **Example Task Creation**:
 ```markdown
 Creating task 001 (API endpoint):
-- assigned_agent: .claude/agents/languages/python-backend-engineer.md
+- assigned_agent: .opencode/agents/languages/python-backend-engineer.md
 - agent_context: {framework: "fastapi", auth: "jwt"}
-- File: .claude/epics/$ARGUMENTS/001.md
+- File: .opencode/epics/$ARGUMENTS/001.md
 ✓ Created
 
 Creating task 002 (Database schema):
-- assigned_agent: .claude/agents/databases/postgresql-expert.md
+- assigned_agent: .opencode/agents/databases/postgresql-expert.md
 - agent_context: {orm: "sqlalchemy", migrations: "alembic"}
-- File: .claude/epics/$ARGUMENTS/002.md
+- File: .opencode/epics/$ARGUMENTS/002.md
 ✓ Created
 ```
 
@@ -330,7 +330,7 @@ name: [Task Title]
 status: open
 created: [Current ISO date/time]
 updated: [Current ISO date/time]
-assigned_agent: .claude/agents/{category}/{agent-name}.md  # Specialized agent for this task
+assigned_agent: .opencode/agents/{category}/{agent-name}.md  # Specialized agent for this task
 agent_context:  # Optional: Agent-specific configuration
   framework: [framework_name]
   language: [language_name]
@@ -352,7 +352,7 @@ Clear, concise description of what needs to be done
 2. 🟢 GREEN: Write minimal code to make test pass
 3. 🔵 REFACTOR: Clean up code while keeping tests green
 
-See `.claude/rules/tdd.enforcement.md` for complete requirements.
+See `.opencode/rules/tdd.enforcement.md` for complete requirements.
 
 ## Acceptance Criteria
 - [ ] Specific criterion 1
@@ -386,11 +386,11 @@ See `.claude/rules/tdd.enforcement.md` for complete requirements.
 ### 3. Task Naming Convention
 
 **For Single Epic:**
-Save tasks as: `.claude/epics/$ARGUMENTS/{task_number}.md`
+Save tasks as: `.opencode/epics/$ARGUMENTS/{task_number}.md`
 
 **For Multi-Epic:**
-Save tasks as: `.claude/epics/$ARGUMENTS/{epic_folder}/{task_number}.md`
-Example: `.claude/epics/ecommerce/01-infrastructure/001.md`
+Save tasks as: `.opencode/epics/$ARGUMENTS/{epic_folder}/{task_number}.md`
+Example: `.opencode/epics/ecommerce/01-infrastructure/001.md`
 
 - Use sequential numbering: 001.md, 002.md, etc.
 - Keep task titles short but descriptive
@@ -401,7 +401,7 @@ Example: `.claude/epics/ecommerce/01-infrastructure/001.md`
 - **status**: Always start with "open" for new tasks
 - **created**: Get REAL current datetime by running: `date -u +"%Y-%m-%dT%H:%M:%SZ"`
 - **updated**: Use the same real datetime as created for new tasks
-- **assigned_agent**: Path to specialized agent file (e.g., `.claude/agents/languages/python-backend-engineer.md`)
+- **assigned_agent**: Path to specialized agent file (e.g., `.opencode/agents/languages/python-backend-engineer.md`)
   - Select based on technology stack from PRD
   - Use most specific agent for the task type
   - See Agent Selection Strategy section for mapping

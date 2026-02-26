@@ -20,7 +20,7 @@ This command will create tasks that REQUIRE Test-Driven Development:
 - Definition of Done starts with "Tests written FIRST"
 - All agents must follow RED-GREEN-REFACTOR cycle
 
-See `.claude/rules/tdd.enforcement.md` for complete requirements.
+See `.opencode/rules/tdd.enforcement.md` for complete requirements.
 
 ---
 
@@ -47,7 +47,7 @@ See `.claude/rules/tdd.enforcement.md` for complete requirements.
 
 ```bash
 # Check if PRD exists
-if [ ! -f ".claude/prds/$ARGUMENTS.md" ]; then
+if [ ! -f ".opencode/prds/$ARGUMENTS.md" ]; then
   echo "❌ PRD not found: $ARGUMENTS.md"
   echo "💡 Create it first with: /pm:prd-new $ARGUMENTS"
   exit 1
@@ -56,7 +56,7 @@ fi
 echo "✅ PRD found"
 
 # Check if epic already exists
-if [ -f ".claude/epics/$ARGUMENTS/epic.md" ]; then
+if [ -f ".opencode/epics/$ARGUMENTS/epic.md" ]; then
   echo "⚠️ Epic already exists: $ARGUMENTS"
   echo "💡 View it with: /pm:epic-show $ARGUMENTS"
   echo "💡 Or use a different name"
@@ -74,14 +74,14 @@ Run the all-in-one script that handles:
 - GitHub/Azure sync
 
 ```bash
-node .claude/scripts/pm/epic-oneshot.cjs $ARGUMENTS
+node .opencode/scripts/pm/epic-oneshot.cjs $ARGUMENTS
 ```
 
 ### 3. Verify Success
 
 ```bash
 # Check epic was created
-if [ -f ".claude/epics/$ARGUMENTS/epic.md" ]; then
+if [ -f ".opencode/epics/$ARGUMENTS/epic.md" ]; then
   echo ""
   echo "✅ Epic Oneshot Complete!"
   echo ""
@@ -101,7 +101,7 @@ fi
 This command executes a complete workflow in one operation:
 
 **Step 1: Parse PRD**
-- Reads `.claude/prds/$ARGUMENTS.md`
+- Reads `.opencode/prds/$ARGUMENTS.md`
 - Extracts features, requirements, technical details
 - Creates epic structure
 
@@ -120,7 +120,7 @@ This command executes a complete workflow in one operation:
 After successful execution:
 
 ```
-.claude/
+.opencode/
   epics/
     <feature-name>/
       epic.md              # Main epic with embedded tasks
@@ -135,8 +135,8 @@ After successful execution:
 /pm:epic-oneshot gym-trading-env
 
 # What happens:
-# 1. Parses .claude/prds/gym-trading-env.md
-# 2. Creates .claude/epics/gym-trading-env/epic.md
+# 1. Parses .opencode/prds/gym-trading-env.md
+# 2. Creates .opencode/epics/gym-trading-env/epic.md
 # 3. Generates implementation tasks
 # 4. Syncs to GitHub/Azure DevOps
 # 5. Ready to start work!

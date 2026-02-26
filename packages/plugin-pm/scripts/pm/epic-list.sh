@@ -17,8 +17,8 @@ else
   echo ""
   echo ""
 
-  [ ! -d ".claude/epics" ] && echo "📁 No epics directory found. Create your first epic with: /pm:prd-parse <feature-name>" && exit 0
-  [ -z "$(ls -d .claude/epics/*/ 2>/dev/null)" ] && echo "📁 No epics found. Create your first epic with: /pm:prd-parse <feature-name>" && exit 0
+  [ ! -d ".opencode/epics" ] && echo "📁 No epics directory found. Create your first epic with: /pm:prd-parse <feature-name>" && exit 0
+  [ -z "$(ls -d .opencode/epics/*/ 2>/dev/null)" ] && echo "📁 No epics found. Create your first epic with: /pm:prd-parse <feature-name>" && exit 0
 
   echo "📚 Project Epics"
   echo "================"
@@ -30,7 +30,7 @@ else
   completed_epics=""
 
   # Process all epics
-  for dir in .claude/epics/*/; do
+  for dir in .opencode/epics/*/; do
     [ -d "$dir" ] || continue
     [ -f "$dir/epic.md" ] || continue
 
@@ -100,8 +100,8 @@ else
   # Summary
   echo ""
   echo "📊 Summary"
-  total=$(ls -d .claude/epics/*/ 2>/dev/null | wc -l)
-  tasks=$(find .claude/epics -name "[0-9]*.md" 2>/dev/null | wc -l)
+  total=$(ls -d .opencode/epics/*/ 2>/dev/null | wc -l)
+  tasks=$(find .opencode/epics -name "[0-9]*.md" 2>/dev/null | wc -l)
   echo "   Total epics: $total"
   echo "   Total tasks: $tasks"
 

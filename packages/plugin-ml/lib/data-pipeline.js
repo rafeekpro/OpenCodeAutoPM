@@ -1,7 +1,7 @@
 /**
  * @file data-pipeline.js
  * @description ML Data Pipeline library for generating ETL pipelines with feature stores and validation
- * @author ClaudeAutoPM Team
+ * @author OpenCodeAutoPM Team
  *
  * This implementation follows TDD methodology and Context7-verified patterns
  * for Kedro, Airflow, Prefect, Feast, and Great Expectations

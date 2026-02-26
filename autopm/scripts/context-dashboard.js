@@ -2,7 +2,7 @@
 /**
  * Context Dashboard - Real-time context usage visualization
  *
- * Shows what's consuming Claude Code context memory and suggests optimizations.
+ * Shows what's consuming OpenCode Code context memory and suggests optimizations.
  *
  * Usage:
  *   node autopm/scripts/context-dashboard.js              # One-time scan
@@ -25,9 +25,9 @@ class ContextDashboard {
       ? path.join(__dirname, '../..')  // autopm/scripts -> project root
       : process.cwd();
 
-    this.claudeDir = this.isFramework
-      ? path.join(this.projectRoot, 'autopm/.claude')  // Framework source
-      : path.join(this.projectRoot, '.claude');         // Installed project
+    this.opencodeDir = this.isFramework
+      ? path.join(this.projectRoot, 'autopm/.opencode')  // Framework source
+      : path.join(this.projectRoot, '.opencode');         // Installed project
 
     this.maxTokens = 200000;
     this.data = {
@@ -55,10 +55,10 @@ class ContextDashboard {
     console.log(`${scanLabel} context analysis...\n`);
 
     // Rules
-    this.scanDirectory(path.join(this.claudeDir, 'rules'), 'rules', '*.md');
+    this.scanDirectory(path.join(this.opencodeDir, 'rules'), 'rules', '*.md');
 
     // Agents
-    this.scanDirectory(path.join(this.claudeDir, 'agents'), 'agents', '*.md');
+    this.scanDirectory(path.join(this.opencodeDir, 'agents'), 'agents', '*.md');
 
     // Documentation
     const claudeMd = this.isFramework
@@ -70,7 +70,7 @@ class ContextDashboard {
     }
 
     // Development standards (if exists)
-    const devStandards = path.join(this.claudeDir, 'DEVELOPMENT-STANDARDS.md');
+    const devStandards = path.join(this.opencodeDir, 'DEVELOPMENT-STANDARDS.md');
     if (fs.existsSync(devStandards)) {
       this.scanFile(devStandards, 'docs');
     }
@@ -162,7 +162,7 @@ class ContextDashboard {
     const percentage = (total / this.maxTokens * 100).toFixed(1);
 
     console.log('┌─────────────────────────────────────────────────────────────┐');
-    console.log('│ 📊 Claude Code Context Usage Dashboard                      │');
+    console.log('│ 📊 OpenCode Code Context Usage Dashboard                      │');
     console.log('├─────────────────────────────────────────────────────────────┤');
     console.log('│                                                              │');
 
@@ -257,8 +257,8 @@ class ContextDashboard {
     const opportunities = [];
 
     // Check if context optimization has been run
-    const optimizedMarker = path.join(this.claudeDir, 'rules/.context-optimized');
-    const archiveDir = path.join(this.claudeDir, 'rules/.archive');
+    const optimizedMarker = path.join(this.opencodeDir, 'rules/.context-optimized');
+    const archiveDir = path.join(this.opencodeDir, 'rules/.archive');
 
     if (!fs.existsSync(optimizedMarker) && !fs.existsSync(archiveDir)) {
       opportunities.push({
@@ -348,7 +348,7 @@ class ContextDashboard {
 
     const outputPath = this.isFramework
       ? path.join(this.projectRoot, 'autopm/context-analysis.json')
-      : path.join(this.projectRoot, '.claude/context-analysis.json');
+      : path.join(this.projectRoot, '.opencode/context-analysis.json');
 
     fs.writeFileSync(outputPath, JSON.stringify(exportData, null, 2));
     console.log(`\n✅ Analysis exported to: ${path.relative(process.cwd(), outputPath)}`);

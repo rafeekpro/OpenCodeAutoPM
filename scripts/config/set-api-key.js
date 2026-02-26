@@ -3,7 +3,7 @@
  * @fileoverview Config command: set-api-key
  * Set encrypted API key for a provider
  *
- * Usage: autopm config:set-api-key
+ * Usage: open-autopm config:set-api-key
  */
 
 const path = require('path');
@@ -25,7 +25,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('\nError: Configuration not initialized');
-      console.error('Run: autopm config:init\n');
+      console.error('Run: open-autopm config:init\n');
       process.exit(1);
     }
 
@@ -37,7 +37,7 @@ async function main() {
 
     if (providers.length === 0) {
       console.error('\nError: No providers configured');
-      console.error('Run: autopm config:set-provider <name>\n');
+      console.error('Run: open-autopm config:set-provider <name>\n');
       process.exit(1);
     }
 

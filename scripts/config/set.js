@@ -3,8 +3,8 @@
  * @fileoverview Config command: set
  * Set configuration value with validation
  *
- * Usage: autopm config:set <key> <value>
- * Example: autopm config:set providers.claude.temperature 0.9
+ * Usage: open-autopm config:set <key> <value>
+ * Example: open-autopm config:set providers.opencode.temperature 0.9
  */
 
 const path = require('path');
@@ -86,8 +86,8 @@ async function main() {
 
     if (!key || valueStr === undefined) {
       console.error('Error: Both key and value are required');
-      console.error('Usage: autopm config:set <key> <value>');
-      console.error('Example: autopm config:set providers.claude.temperature 0.9');
+      console.error('Usage: open-autopm config:set <key> <value>');
+      console.error('Example: open-autopm config:set providers.opencode.temperature 0.9');
       process.exit(1);
     }
 
@@ -95,7 +95,7 @@ async function main() {
     const fs = require('fs');
     if (!fs.existsSync(configPath)) {
       console.error('Error: Configuration not found');
-      console.error('Run: autopm config:init');
+      console.error('Run: open-autopm config:init');
       process.exit(1);
     }
 

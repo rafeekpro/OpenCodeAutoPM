@@ -1,6 +1,6 @@
 /**
- * Plugin Command for autopm CLI
- * Manages ClaudeAutoPM plugins
+ * Plugin Command for open-autopm CLI
+ * Manages OpenCodeAutoPM plugins
  *
  * Commands:
  * - list: List installed plugins
@@ -17,7 +17,7 @@ const chalk = require('chalk');
 
 module.exports = {
   command: 'plugin <action> [name]',
-  describe: 'Manage ClaudeAutoPM plugins',
+  describe: 'Manage OpenCodeAutoPM plugins',
 
   builder: (yargs) => {
     return yargs
@@ -36,17 +36,17 @@ module.exports = {
         type: 'boolean',
         default: false
       })
-      .example('autopm plugin list', 'List installed plugins')
-      .example('autopm plugin search cloud', 'Search for cloud-related plugins')
-      .example('autopm plugin install cloud', 'Install cloud plugin')
-      .example('autopm plugin uninstall cloud', 'Remove cloud plugin')
-      .example('autopm plugin update', 'Update all installed plugins')
-      .example('autopm plugin update cloud devops', 'Update specific plugins')
-      .example('autopm plugin info cloud', 'Show cloud plugin details')
+      .example('open-autopm plugin list', 'List installed plugins')
+      .example('open-autopm plugin search cloud', 'Search for cloud-related plugins')
+      .example('open-autopm plugin install cloud', 'Install cloud plugin')
+      .example('open-autopm plugin uninstall cloud', 'Remove cloud plugin')
+      .example('open-autopm plugin update', 'Update all installed plugins')
+      .example('open-autopm plugin update cloud devops', 'Update specific plugins')
+      .example('open-autopm plugin info cloud', 'Show cloud plugin details')
       .epilogue(`
 📦 Plugin Management
 
-Plugins extend ClaudeAutoPM with specialized agents for different technologies.
+Plugins extend OpenCodeAutoPM with specialized agents for different technologies.
 
 Available Official Plugins:
   • cloud       - AWS, Azure, GCP cloud architecture (9 agents)
@@ -59,10 +59,10 @@ Available Official Plugins:
 
 Installation:
   1. Install plugin package: npm install -g @claudeautopm/plugin-<name>
-  2. Install plugin agents: autopm plugin install <name>
+  2. Install plugin agents: open-autopm plugin install <name>
 
 Usage:
-  After installation, use 'autopm team load' to include plugin agents
+  After installation, use 'open-autopm team load' to include plugin agents
   or manually add @include directives to CLAUDE.md
       `);
   },
@@ -78,7 +78,7 @@ Usage:
         case 'search':
           if (!argv.name) {
             console.error(chalk.red('Error: Search keyword required'));
-            console.log('Usage: autopm plugin search <keyword>');
+            console.log('Usage: open-autopm plugin search <keyword>');
             process.exit(1);
           }
           await handleSearch(manager, argv.name, argv);
@@ -86,7 +86,7 @@ Usage:
         case 'install':
           if (!argv.name) {
             console.error(chalk.red('Error: Plugin name required'));
-            console.log('Usage: autopm plugin install <name>');
+            console.log('Usage: open-autopm plugin install <name>');
             process.exit(1);
           }
           await handleInstall(manager, argv.name, argv);
@@ -94,7 +94,7 @@ Usage:
         case 'uninstall':
           if (!argv.name) {
             console.error(chalk.red('Error: Plugin name required'));
-            console.log('Usage: autopm plugin uninstall <name>');
+            console.log('Usage: open-autopm plugin uninstall <name>');
             process.exit(1);
           }
           await handleUninstall(manager, argv.name, argv);
@@ -102,7 +102,7 @@ Usage:
         case 'info':
           if (!argv.name) {
             console.error(chalk.red('Error: Plugin name required'));
-            console.log('Usage: autopm plugin info <name>');
+            console.log('Usage: open-autopm plugin info <name>');
             process.exit(1);
           }
           await handleInfo(manager, argv.name, argv);
@@ -110,7 +110,7 @@ Usage:
         case 'enable':
           if (!argv.name) {
             console.error(chalk.red('Error: Plugin name required'));
-            console.log('Usage: autopm plugin enable <name>');
+            console.log('Usage: open-autopm plugin enable <name>');
             process.exit(1);
           }
           await handleEnable(manager, argv.name, argv);
@@ -118,7 +118,7 @@ Usage:
         case 'disable':
           if (!argv.name) {
             console.error(chalk.red('Error: Plugin name required'));
-            console.log('Usage: autopm plugin disable <name>');
+            console.log('Usage: open-autopm plugin disable <name>');
             process.exit(1);
           }
           await handleDisable(manager, argv.name, argv);
@@ -154,8 +154,8 @@ async function handleList(manager, argv) {
 
   if (installed.length === 0) {
     console.log('No plugins installed.\n');
-    console.log('💡 Tip: Run ' + chalk.cyan('autopm plugin search <keyword>') + ' to find plugins');
-    console.log('   Or install directly: ' + chalk.cyan('autopm plugin install <name>'));
+    console.log('💡 Tip: Run ' + chalk.cyan('open-autopm plugin search <keyword>') + ' to find plugins');
+    console.log('   Or install directly: ' + chalk.cyan('open-autopm plugin install <name>'));
     return;
   }
 
@@ -200,7 +200,7 @@ async function handleSearch(manager, keyword, argv) {
   if (results.length === 0) {
     console.log('No plugins found matching your search.\n');
     console.log('💡 Tip: Try different keywords or check available plugins:');
-    console.log('   ' + chalk.cyan('autopm plugin list --all'));
+    console.log('   ' + chalk.cyan('open-autopm plugin list --all'));
     return;
   }
 
@@ -236,7 +236,7 @@ async function handleInstall(manager, pluginName, argv) {
     console.log(chalk.yellow(`⚠ Plugin ${pluginName} is already installed`));
     console.log('');
     console.log('To reinstall, first uninstall:');
-    console.log(`  ${chalk.cyan(`autopm plugin uninstall ${pluginName}`)}`);
+    console.log(`  ${chalk.cyan(`open-autopm plugin uninstall ${pluginName}`)}`);
     return;
   }
 
@@ -286,9 +286,9 @@ async function handleInstall(manager, pluginName, argv) {
 
   console.log('');
   console.log(chalk.bold('Next steps:'));
-  console.log(`  1. Load agents: ${chalk.cyan('autopm team load <team>')}`);
+  console.log(`  1. Load agents: ${chalk.cyan('open-autopm team load <team>')}`);
   console.log(`  2. Or manually add to CLAUDE.md:`);
-  console.log(`     ${chalk.gray(`- @include .claude/agents/${result.category}/<agent>.md`)}`);
+  console.log(`     ${chalk.gray(`- @include .opencode/agents/${result.category}/<agent>.md`)}`);
   console.log('');
 }
 
@@ -369,7 +369,7 @@ async function handleInfo(manager, pluginName, argv) {
     console.error(chalk.gray(`Package @claudeautopm/${fullPluginName} not installed`));
     console.log('');
     console.log('To install:');
-    console.log(`  ${chalk.cyan(`autopm plugin install ${pluginName}`)}`);
+    console.log(`  ${chalk.cyan(`open-autopm plugin install ${pluginName}`)}`);
     console.log('');
     process.exit(1);
   }
@@ -398,7 +398,7 @@ async function handleDisable(manager, pluginName, argv) {
 
   manager.disablePlugin(fullPluginName);
   console.log(chalk.yellow(`\n⚠ Plugin disabled: ${pluginName}\n`));
-  console.log(chalk.gray('Note: Agents remain in .claude/agents/ but plugin is marked as disabled'));
+  console.log(chalk.gray('Note: Agents remain in .opencode/agents/ but plugin is marked as disabled'));
   console.log('');
 }
 

@@ -25,14 +25,14 @@ else
   echo ""
   echo ""
 
-  epic_dir=".claude/epics/$epic_name"
+  epic_dir=".opencode/epics/$epic_name"
   epic_file="$epic_dir/epic.md"
 
   if [ ! -f "$epic_file" ]; then
     echo "❌ Epic not found: $epic_name"
     echo ""
     echo "Available epics:"
-    for dir in .claude/epics/*/; do
+    for dir in .opencode/epics/*/; do
       [ -d "$dir" ] && echo "  • $(basename "$dir")"
     done
     exit 1

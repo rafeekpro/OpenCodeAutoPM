@@ -3,7 +3,7 @@
  * @fileoverview Config command: init
  * Initialize configuration with interactive prompts for master password
  *
- * Usage: autopm config:init
+ * Usage: open-autopm config:init
  */
 
 const path = require('path');
@@ -79,8 +79,8 @@ async function main() {
     console.log('\n✓ Configuration initialized at:', configPath);
     console.log('✓ Master password set (not stored, remember it!)');
     console.log('\nNext steps:');
-    console.log('  - Set API key: autopm config:set-api-key');
-    console.log('  - Configure provider: autopm config:set-provider\n');
+    console.log('  - Set API key: open-autopm config:set-api-key');
+    console.log('  - Configure provider: open-autopm config:set-provider\n');
 
   } catch (error) {
     if (error.message.includes('cancelled') || error.message.includes('User force closed')) {

@@ -158,7 +158,7 @@ REQUIRED SEQUENCE:
 
 ### Context Commands
 
-- Require `.claude/` directory
+- Require `.opencode/` directory
 - Must have project structure
 
 ## Command Execution Rules

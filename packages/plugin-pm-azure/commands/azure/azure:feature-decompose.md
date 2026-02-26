@@ -14,7 +14,7 @@ Break down a Feature/Epic into User Stories with comprehensive planning.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -270,7 +270,7 @@ Release 3 - Sprint 5-6:
 5. Set up development environment
 
 📁 Documentation saved:
-.claude/azure/features/authentication-system.md
+.opencode/azure/features/authentication-system.md
 
 Would you like to:
 1. Start parsing the first User Story
@@ -352,7 +352,7 @@ Accept suggestion? (y/n/adjust): _
 
 ## Local Tracking
 
-Save decomposition to `.claude/azure/features/{name}.md`:
+Save decomposition to `.opencode/azure/features/{name}.md`:
 
 ```markdown
 # Feature: Authentication System

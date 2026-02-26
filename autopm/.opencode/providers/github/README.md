@@ -1,10 +1,10 @@
 # GitHub Provider
 
-Provider logic for GitHub Issues integration in ClaudeAutoPM.
+Provider logic for GitHub Issues integration in OpenCodeAutoPM.
 
 ## Overview
 
-This provider enables ClaudeAutoPM to work with GitHub repositories, managing:
+This provider enables OpenCodeAutoPM to work with GitHub repositories, managing:
 - Issues and issue templates
 - Pull requests
 - GitHub Actions workflows

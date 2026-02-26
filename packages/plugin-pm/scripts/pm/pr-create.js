@@ -9,8 +9,8 @@ const path = require('path');
 
 class PrCreator {
   constructor() {
-    this.activeWorkFile = path.join('.claude', 'active-work.json');
-    this.completedWorkFile = path.join('.claude', 'completed-work.json');
+    this.activeWorkFile = path.join('.opencode', 'active-work.json');
+    this.completedWorkFile = path.join('.opencode', 'completed-work.json');
   }
 
   execCommand(command, options = {}) {

@@ -28,7 +28,7 @@ const commandsToFix = [
   'ux-design-commands.md'
 ];
 
-const commandsDir = path.join(__dirname, '..', 'autopm', '.claude', 'commands');
+const commandsDir = path.join(__dirname, '..', 'autopm', '.opencode', 'commands');
 
 function extractCommandName(filePath, content) {
   // Try to get from first heading

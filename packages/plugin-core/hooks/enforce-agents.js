@@ -2,7 +2,7 @@
 
 /**
  * Hook enforcing agent usage instead of direct operations
- * Usage: set as tool-use-hook in Claude Code configuration
+ * Usage: set as tool-use-hook in OpenCode Code configuration
  */
 
 const fs = require('fs');

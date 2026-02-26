@@ -1,6 +1,6 @@
 # @claudeautopm/plugin-core
 
-> Core framework functionality for ClaudeAutoPM
+> Core framework functionality for OpenCodeAutoPM
 
 **Version:** 2.0.0
 **Category:** Core Framework
@@ -11,9 +11,9 @@
 
 ## Overview
 
-This is the **core framework plugin** that provides essential functionality for ClaudeAutoPM. It includes universal agents, rules, hooks, and utilities that apply to ALL projects regardless of technology stack.
+This is the **core framework plugin** that provides essential functionality for OpenCodeAutoPM. It includes universal agents, rules, hooks, and utilities that apply to ALL projects regardless of technology stack.
 
-**This plugin is REQUIRED** and is automatically installed with ClaudeAutoPM.
+**This plugin is REQUIRED** and is automatically installed with OpenCodeAutoPM.
 
 ---
 
@@ -110,10 +110,10 @@ Framework utilities and libraries:
 
 ## Installation
 
-This plugin is **automatically installed** with ClaudeAutoPM. No manual installation needed.
+This plugin is **automatically installed** with OpenCodeAutoPM. No manual installation needed.
 
 ```bash
-# When you install ClaudeAutoPM:
+# When you install OpenCodeAutoPM:
 npm install -g claudeautopm
 autopm init
 
@@ -205,13 +205,13 @@ autopm init
 
 ```bash
 # Use utility libraries (sourced by other scripts)
-source .claude/scripts/lib/github-utils.sh
-source .claude/scripts/lib/logging-utils.sh
+source .opencode/scripts/lib/github-utils.sh
+source .opencode/scripts/lib/logging-utils.sh
 
 # MCP management
-bash .claude/scripts/mcp/add.sh context7
-bash .claude/scripts/mcp/list.sh
-bash .claude/scripts/mcp/sync.sh
+bash .opencode/scripts/mcp/add.sh context7
+bash .opencode/scripts/mcp/list.sh
+bash .opencode/scripts/mcp/sync.sh
 ```
 
 ---
@@ -251,7 +251,7 @@ No configuration needed - all core features are always enabled.
 
 ## Compatibility
 
-- **Minimum ClaudeAutoPM version:** 3.0.0
+- **Minimum OpenCodeAutoPM version:** 3.0.0
 - **Node.js:** >= 18.0.0
 - **Platform:** Cross-platform (macOS, Linux, Windows)
 
@@ -265,10 +265,10 @@ MIT
 
 ## Support
 
-- **Issues:** https://github.com/rafeekpro/ClaudeAutoPM/issues
-- **Documentation:** https://github.com/rafeekpro/ClaudeAutoPM#readme
+- **Issues:** https://github.com/rafeekpro/OpenCodeAutoPM/issues
+- **Documentation:** https://github.com/rafeekpro/OpenCodeAutoPM#readme
 - **Changelog:** See [CHANGELOG.md](../../CHANGELOG.md)
 
 ---
 
-**Part of ClaudeAutoPM v3.0.0 Plugin Architecture**
+**Part of OpenCodeAutoPM v3.0.0 Plugin Architecture**

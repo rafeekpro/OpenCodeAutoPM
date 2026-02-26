@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-data",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Complete data engineering plugin with Airflow, Kedro, LangGraph, Kafka, dbt, pandas experts, data quality rules, and example scripts for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

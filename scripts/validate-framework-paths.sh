@@ -13,7 +13,7 @@ echo "🔍 Validating Framework Paths"
 echo "=============================="
 echo ""
 echo "Checking directories:"
-echo "  • autopm/.claude/ (framework files)"
+echo "  • autopm/.opencode/ (framework files)"
 echo "  • lib/ (shared libraries)"
 echo "  • scripts/ (utility scripts)"
 echo "  • bin/ (executables)"
@@ -33,7 +33,7 @@ violations=0
 
 # Directories to check (production code only, exclude tests)
 SEARCH_DIRS=(
-    "$PROJECT_ROOT/autopm/.claude"
+    "$PROJECT_ROOT/autopm/.opencode"
     "$PROJECT_ROOT/lib"
     "$PROJECT_ROOT/scripts"
     "$PROJECT_ROOT/bin"
@@ -105,33 +105,33 @@ check_violations() {
 echo "Checking for hardcoded 'autopm/' paths..."
 echo ""
 
-# Check for bash autopm references
+# Check for bash open-autopm references
 if ! check_violations "bash autopm" "Hardcoded 'bash autopm' commands"; then
-    echo -e "${YELLOW}  Fix: Replace 'bash autopm/.claude/' with 'bash .claude/'${NC}"
+    echo -e "${YELLOW}  Fix: Replace 'bash autopm/.opencode/' with 'bash .opencode/'${NC}"
     echo ""
 fi
 
-# Check for node autopm references
+# Check for node open-autopm references
 if ! check_violations "node autopm" "Hardcoded 'node autopm' commands"; then
-    echo -e "${YELLOW}  Fix: Replace 'node autopm/.claude/' with 'node .claude/'${NC}"
+    echo -e "${YELLOW}  Fix: Replace 'node autopm/.opencode/' with 'node .opencode/'${NC}"
     echo ""
 fi
 
-# Check for source autopm references
+# Check for source open-autopm references
 if ! check_violations "source autopm" "Hardcoded 'source autopm' commands"; then
-    echo -e "${YELLOW}  Fix: Replace 'source autopm/.claude/' with 'source .claude/'${NC}"
+    echo -e "${YELLOW}  Fix: Replace 'source autopm/.opencode/' with 'source .opencode/'${NC}"
     echo ""
 fi
 
-# Check for ./autopm references
+# Check for ./open-autopm references
 if ! check_violations "\./autopm" "Hardcoded './autopm' paths"; then
-    echo -e "${YELLOW}  Fix: Replace './autopm/.claude/' with './.claude/'${NC}"
+    echo -e "${YELLOW}  Fix: Replace './autopm/.opencode/' with './.opencode/'${NC}"
     echo ""
 fi
 
-# Check for autopm/.claude in non-comment contexts
-if ! check_violations 'autopm/\.claude' "Hardcoded 'autopm/.claude' paths"; then
-    echo -e "${YELLOW}  Fix: Replace 'autopm/.claude/' with '.claude/'${NC}"
+# Check for autopm/.opencode in non-comment contexts
+if ! check_violations 'autopm/\.opencode' "Hardcoded 'autopm/.opencode' paths"; then
+    echo -e "${YELLOW}  Fix: Replace 'autopm/.opencode/' with '.opencode/'${NC}"
     echo ""
 fi
 
@@ -145,7 +145,7 @@ else
     echo -e "${RED}❌ Validation failed with $violations violation(s).${NC}"
     echo ""
     echo "Please fix the hardcoded paths before committing."
-    echo "See autopm/.claude/rules/framework-path-rules.md for guidelines."
+    echo "See autopm/.opencode/rules/framework-path-rules.md for guidelines."
     echo ""
     exit 1
 fi

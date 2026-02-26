@@ -326,7 +326,7 @@ Templates support:
 **Implementation**: See `docs/template-engine-implementation.md` for technical details
 **Examples**: See `docs/built-in-templates-summary.md` for comprehensive overview
 
-**Issues**: Report template issues to the ClaudeAutoPM repository
+**Issues**: Report template issues to the OpenCodeAutoPM repository
 
 ---
 

@@ -1,6 +1,6 @@
 # MCP Server Registry
 
-This document provides guidance on MCP (Model Context Protocol) server management in ClaudeAutoPM.
+This document provides guidance on MCP (Model Context Protocol) server management in OpenCodeAutoPM.
 
 ## 📡 MCP Servers
 

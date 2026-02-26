@@ -8,8 +8,8 @@ const path = require('path');
 
 class PrdParser {
   constructor() {
-    this.prdsDir = path.join('.claude', 'prds');
-    this.epicsDir = path.join('.claude', 'epics');
+    this.prdsDir = path.join('.opencode', 'prds');
+    this.epicsDir = path.join('.opencode', 'epics');
   }
 
   parseFrontmatter(content) {
@@ -331,7 +331,7 @@ name: ${featureName}
 status: backlog
 created: ${now}
 progress: 0%
-prd: .claude/prds/${featureName}.md
+prd: .opencode/prds/${featureName}.md
 github: [Will be updated when synced to GitHub]
 priority: ${frontmatter.priority || 'P2'}
 ---

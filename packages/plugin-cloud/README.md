@@ -1,13 +1,13 @@
 # @claudeautopm/plugin-cloud
 
-> **Complete Cloud Infrastructure Plugin for ClaudeAutoPM Framework**
+> **Complete Cloud Infrastructure Plugin for OpenCodeAutoPM Framework**
 
 [![npm version](https://img.shields.io/npm/v/@claudeautopm/plugin-cloud.svg)](https://www.npmjs.com/package/@claudeautopm/plugin-cloud)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📋 Overview
 
-`@claudeautopm/plugin-cloud` provides comprehensive cloud infrastructure capabilities for the ClaudeAutoPM framework. This plugin includes agents for AWS, Azure, GCP, Kubernetes orchestration, Terraform infrastructure as code, AI API integrations, cloud deployment commands, infrastructure rules, and example scripts.
+`@claudeautopm/plugin-cloud` provides comprehensive cloud infrastructure capabilities for the OpenCodeAutoPM framework. This plugin includes agents for AWS, Azure, GCP, Kubernetes orchestration, Terraform infrastructure as code, AI API integrations, cloud deployment commands, infrastructure rules, and example scripts.
 
 ### Package Information
 
@@ -79,7 +79,7 @@ autopm plugin install cloud
 
 ## 💡 Usage
 
-### In Claude Code
+### In OpenCode Code
 
 After installation, agents are available in your project:
 
@@ -88,8 +88,8 @@ After installation, agents are available in your project:
 ## Active Team Agents
 
 <!-- Load cloud agents -->
-- @include .claude/agents/cloud/aws-cloud-architect.md
-- @include .claude/agents/cloud/terraform-infrastructure-expert.md
+- @include .opencode/agents/cloud/aws-cloud-architect.md
+- @include .opencode/agents/cloud/terraform-infrastructure-expert.md
 ```
 
 Or use `autopm team load` to automatically include agents:
@@ -230,7 +230,7 @@ export GOOGLE_CLOUD_PROJECT=your-project-id
 
 ### Agent Customization
 
-You can customize agent behavior in `.claude/config.yaml`:
+You can customize agent behavior in `.opencode/config.yaml`:
 
 ```yaml
 plugins:
@@ -258,11 +258,11 @@ Contributions are welcome! Please see [CONTRIBUTING.md](../../CONTRIBUTING.md) f
 
 ## 📄 License
 
-MIT © ClaudeAutoPM Team
+MIT © OpenCodeAutoPM Team
 
 ## 🔗 Links
 
-- [ClaudeAutoPM](https://github.com/rafeekpro/ClaudeAutoPM)
-- [Plugin Documentation](https://github.com/rafeekpro/ClaudeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
+- [OpenCodeAutoPM](https://github.com/rafeekpro/OpenCodeAutoPM)
+- [Plugin Documentation](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/docs/PLUGIN-IMPLEMENTATION-PLAN.md)
 - [npm Package](https://www.npmjs.com/package/@claudeautopm/plugin-cloud)
-- [Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+- [Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)

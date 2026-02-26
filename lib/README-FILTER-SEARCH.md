@@ -1,6 +1,6 @@
 # Filter and Search System
 
-Advanced filtering and search capabilities for ClaudeAutoPM PRDs, Epics, and Tasks.
+Advanced filtering and search capabilities for OpenCodeAutoPM PRDs, Epics, and Tasks.
 
 ## Quick Start
 
@@ -100,7 +100,7 @@ const q1PRDs = await engine.filterByDateRange('prds', {
 const engine = new FilterEngine();
 
 // Search for "authentication" across all PRDs
-const files = await engine.loadFiles('.claude/prds');
+const files = await engine.loadFiles('.opencode/prds');
 const results = await engine.search(files, 'authentication');
 
 results.forEach(result => {
@@ -247,7 +247,7 @@ This feature was developed using strict Test-Driven Development (TDD):
 The filter/search system is designed for integration with:
 
 - **CLI Commands**: Parse arguments from `process.argv`
-- **Local Mode**: Filter `.claude/prds/`, `.claude/epics/`, `.claude/tasks/`
+- **Local Mode**: Filter `.opencode/prds/`, `.opencode/epics/`, `.opencode/tasks/`
 - **Batch Processing**: Process multiple files efficiently
 - **Reporting**: Generate filtered reports and statistics
 
@@ -279,7 +279,7 @@ When extending this system:
 
 ---
 
-**Maintained by:** ClaudeAutoPM Team
+**Maintained by:** OpenCodeAutoPM Team
 **TDD Methodology:** RED → GREEN → REFACTOR
 **Test Coverage:** 100%
 **Performance:** Production-ready

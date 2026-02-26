@@ -34,9 +34,9 @@ else
   echo ""
 
   # Search in PRDs
-  if [ -d ".claude/prds" ]; then
+  if [ -d ".opencode/prds" ]; then
     echo "📄 PRDs:"
-    results=$(grep -l -i "$query" .claude/prds/*.md 2>/dev/null)
+    results=$(grep -l -i "$query" .opencode/prds/*.md 2>/dev/null)
     if [ -n "$results" ]; then
       for file in $results; do
         name=$(basename "$file" .md)
@@ -50,9 +50,9 @@ else
   fi
 
   # Search in Epics
-  if [ -d ".claude/epics" ]; then
+  if [ -d ".opencode/epics" ]; then
     echo "📚 Epics:"
-    results=$(find .claude/epics -name "epic.md" -exec grep -l -i "$query" {} \; 2>/dev/null)
+    results=$(find .opencode/epics -name "epic.md" -exec grep -l -i "$query" {} \; 2>/dev/null)
     if [ -n "$results" ]; then
       for file in $results; do
         epic_name=$(basename $(dirname "$file"))
@@ -66,9 +66,9 @@ else
   fi
 
   # Search in Tasks
-  if [ -d ".claude/epics" ]; then
+  if [ -d ".opencode/epics" ]; then
     echo "📝 Tasks:"
-    results=$(find .claude/epics -name "[0-9]*.md" -exec grep -l -i "$query" {} \; 2>/dev/null | head -10)
+    results=$(find .opencode/epics -name "[0-9]*.md" -exec grep -l -i "$query" {} \; 2>/dev/null | head -10)
     if [ -n "$results" ]; then
       for file in $results; do
         epic_name=$(basename $(dirname "$file"))
@@ -81,7 +81,7 @@ else
   fi
 
   # Summary
-  total=$(find .claude -name "*.md" -exec grep -l -i "$query" {} \; 2>/dev/null | wc -l)
+  total=$(find .opencode -name "*.md" -exec grep -l -i "$query" {} \; 2>/dev/null | wc -l)
   echo ""
   echo "📊 Total files with matches: $total"
 

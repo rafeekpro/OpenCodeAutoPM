@@ -29,14 +29,14 @@ else
   echo "╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝     ╚═╝     ╚═╝"
 
   echo "┌─────────────────────────────────┐"
-  echo "│ Claude Code Project Management  │"
+  echo "│ OpenCode Code Project Management  │"
   echo "│ by https://x.com/aroussi        │"
   echo "└─────────────────────────────────┘"
   echo "https://github.com/rlagowski/autopm"
   echo ""
   echo ""
 
-  echo "🚀 Initializing Claude Code AutoPM System"
+  echo "🚀 Initializing OpenCode Code AutoPM System"
   echo "======================================"
   echo ""
 
@@ -84,19 +84,19 @@ else
   # Create directory structure
   echo ""
   echo "📁 Creating directory structure..."
-  mkdir -p .claude/prds
-  mkdir -p .claude/epics
-  mkdir -p .claude/rules
-  mkdir -p .claude/agents
-  mkdir -p .claude/scripts/pm
+  mkdir -p .opencode/prds
+  mkdir -p .opencode/epics
+  mkdir -p .opencode/rules
+  mkdir -p .opencode/agents
+  mkdir -p .opencode/scripts/pm
   echo "  ✅ Directories created"
 
   # Copy scripts if in main repo
-  if [ -d "scripts/pm" ] && [ ! "$(pwd)" = *"/.claude"* ]; then
+  if [ -d "scripts/pm" ] && [ ! "$(pwd)" = *"/.opencode"* ]; then
     echo ""
     echo "📝 Copying PM scripts..."
-    cp -r scripts/pm/* .claude/scripts/pm/
-    chmod +x .claude/scripts/pm/*.sh
+    cp -r scripts/pm/* .opencode/scripts/pm/
+    chmod +x .opencode/scripts/pm/*.sh
     echo "  ✅ Scripts copied and made executable"
   fi
 

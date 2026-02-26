@@ -8,13 +8,13 @@ const path = require('path');
 
 class ProjectCleaner {
   constructor() {
-    this.claudeDir = '.claude';
-    this.archiveDir = path.join(this.claudeDir, 'archive');
-    this.completedFile = path.join(this.claudeDir, 'completed-work.json');
-    this.activeWorkFile = path.join(this.claudeDir, 'active-work.json');
-    this.issuesDir = path.join(this.claudeDir, 'issues');
-    this.epicsDir = path.join(this.claudeDir, 'epics');
-    this.prdsDir = path.join(this.claudeDir, 'prds');
+    this.opencodeDir = '.opencode';
+    this.archiveDir = path.join(this.opencodeDir, 'archive');
+    this.completedFile = path.join(this.opencodeDir, 'completed-work.json');
+    this.activeWorkFile = path.join(this.opencodeDir, 'active-work.json');
+    this.issuesDir = path.join(this.opencodeDir, 'issues');
+    this.epicsDir = path.join(this.opencodeDir, 'epics');
+    this.prdsDir = path.join(this.opencodeDir, 'prds');
   }
 
   ensureArchiveDir() {
@@ -203,7 +203,7 @@ class ProjectCleaner {
     let cleaned = 0;
     const logPatterns = ['*.log', '*.tmp', '.DS_Store', '*.swp'];
 
-    // Clean logs in .claude directory
+    // Clean logs in .opencode directory
     const findOldFiles = (dir) => {
       if (!fs.existsSync(dir)) return;
 
@@ -237,7 +237,7 @@ class ProjectCleaner {
       }
     };
 
-    findOldFiles(this.claudeDir);
+    findOldFiles(this.opencodeDir);
     console.log(`  ✅ Cleaned ${cleaned} old log files older than ${daysOld} days`);
     return cleaned;
   }
@@ -340,7 +340,7 @@ class ProjectCleaner {
       return false;
     };
 
-    const removed = removeEmpty(this.claudeDir);
+    const removed = removeEmpty(this.opencodeDir);
     console.log(`  ✅ Cleaned directory structure`);
     return removed;
   }
@@ -377,8 +377,8 @@ class ProjectCleaner {
 
     // Show next steps
     console.log('\n💡 Tips:');
-    console.log('  • View archives: ls -la .claude/archive/');
-    console.log('  • Restore item: mv .claude/archive/TYPE/FILE .claude/TYPE/');
+    console.log('  • View archives: ls -la .opencode/archive/');
+    console.log('  • Restore item: mv .opencode/archive/TYPE/FILE .opencode/TYPE/');
     console.log('  • Schedule cleanup: Add to cron or CI/CD');
   }
 

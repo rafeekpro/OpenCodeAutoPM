@@ -200,7 +200,7 @@ Languages: bash-scripting-expert|javascript-frontend-engineer|python-backend-eng
 
 When agent is invoked:
 1. User: `@python-backend-engineer build API`
-2. Claude sees compressed listing
+2. OpenCode sees compressed listing
 3. Lazy loads: `.opencode/agents/languages/python-backend-engineer.md`
 4. Queries Context7: `mcp://context7/fastapi/routing`
 5. Implements using full knowledge

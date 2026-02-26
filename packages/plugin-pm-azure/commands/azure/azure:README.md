@@ -4,7 +4,7 @@ Complete command suite for Azure DevOps integration with AutoPM project manageme
 
 ## Prerequisites
 
-Configure environment variables in `.claude/.env`:
+Configure environment variables in `.opencode/.env`:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -138,11 +138,11 @@ Break down Features into User Stories.
 
 ### 📁 Local Tracking
 All commands maintain local copies in:
-- `.claude/azure/user-stories/` - User Story documents
-- `.claude/azure/tasks/` - Task work logs
-- `.claude/azure/features/` - Feature decompositions
-- `.claude/azure/imports/` - Import history
-- `.claude/azure/cache/` - API response cache
+- `.opencode/azure/user-stories/` - User Story documents
+- `.opencode/azure/tasks/` - Task work logs
+- `.opencode/azure/features/` - Feature decompositions
+- `.opencode/azure/imports/` - Import history
+- `.opencode/azure/cache/` - API response cache
 
 ## Advanced Features
 
@@ -236,7 +236,7 @@ export AZURE_DEVOPS_DEBUG=true
 
 For issues or feature requests, consult:
 - Azure DevOps API documentation
-- `.claude/agents/devops/azure-devops-specialist.md`
+- `.opencode/agents/devops/azure-devops-specialist.md`
 - Team DevOps channel
 
 ## Version

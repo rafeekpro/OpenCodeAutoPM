@@ -27,7 +27,7 @@ else
 
   found=0
 
-  for epic_dir in .claude/epics/*/; do
+  for epic_dir in .opencode/epics/*/; do
     [ -d "$epic_dir" ] || continue
     epic_name=$(basename "$epic_dir")
 

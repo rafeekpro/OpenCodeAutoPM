@@ -45,7 +45,7 @@ async function benchmarkProviderRouting(iterations = 20) {
 
     // Measure module loading time
     const loadStart = performance.now();
-    const ProviderRouter = require('../../.claude/providers/router');
+    const ProviderRouter = require('../../.opencode/providers/router');
     const loadEnd = performance.now();
 
     // Measure routing time
@@ -128,7 +128,7 @@ async function benchmarkConfigLoading(iterations = 50) {
     const loadStart = performance.now();
 
     // Simulate config file reading and parsing
-    const configPath = path.join(process.cwd(), '.claude', 'config.json');
+    const configPath = path.join(process.cwd(), '.opencode', 'config.json');
     let config = {};
 
     try {

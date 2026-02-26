@@ -1,10 +1,10 @@
-# Unified Git Strategy for ClaudeAutoPM
+# Unified Git Strategy for OpenCodeAutoPM
 
-This document defines the **SINGLE, AUTHORITATIVE** Git workflow for ClaudeAutoPM projects.
+This document defines the **SINGLE, AUTHORITATIVE** Git workflow for OpenCodeAutoPM projects.
 
 ## Core Principle: Branch-Based Development
 
-ClaudeAutoPM uses a **branch-based strategy** for all development work. This ensures simplicity, compatibility, and consistency across all environments and tools.
+OpenCodeAutoPM uses a **branch-based strategy** for all development work. This ensures simplicity, compatibility, and consistency across all environments and tools.
 
 ## Branch Hierarchy
 
@@ -218,7 +218,7 @@ git stash pop
 
 ## Migration Notice
 
-**⚠️ IMPORTANT**: Git worktrees are NO LONGER SUPPORTED in ClaudeAutoPM. All development must use the branch strategy described in this document.
+**⚠️ IMPORTANT**: Git worktrees are NO LONGER SUPPORTED in OpenCodeAutoPM. All development must use the branch strategy described in this document.
 
 If you have existing worktrees:
 1. Complete or stash any uncommitted work
@@ -234,4 +234,4 @@ The branch-based Git strategy provides:
 - ✅ Clear, predictable workflows
 - ✅ Minimal learning curve
 
-This is the ONLY approved Git workflow for ClaudeAutoPM projects.
+This is the ONLY approved Git workflow for OpenCodeAutoPM projects.

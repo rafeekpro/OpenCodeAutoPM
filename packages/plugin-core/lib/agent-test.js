@@ -1,7 +1,7 @@
 /**
  * Agent Testing Library
  *
- * Provides comprehensive testing and validation capabilities for ClaudeAutoPM agents.
+ * Provides comprehensive testing and validation capabilities for OpenCodeAutoPM agents.
  * Implements all core functions needed for /core:agent-test command.
  *
  * @module agent-test

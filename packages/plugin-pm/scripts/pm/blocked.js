@@ -16,17 +16,17 @@ function getBlockedTasks() {
     totalBlocked: 0
   };
 
-  if (!fs.existsSync('.claude/epics')) {
+  if (!fs.existsSync('.opencode/epics')) {
     return result;
   }
 
   try {
-    const epicDirs = fs.readdirSync('.claude/epics', { withFileTypes: true })
+    const epicDirs = fs.readdirSync('.opencode/epics', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
     for (const epicName of epicDirs) {
-      const epicPath = path.join('.claude/epics', epicName);
+      const epicPath = path.join('.opencode/epics', epicName);
 
       try {
         const files = fs.readdirSync(epicPath)

@@ -402,7 +402,7 @@ cat prompt.xml
   --forbidden "Logging card numbers" \
   --execute
 
-# Claude will invoke @python-backend-engineer with XML constraints
+# OpenCode will invoke @python-backend-engineer with XML constraints
 ```
 
 ### With Testing

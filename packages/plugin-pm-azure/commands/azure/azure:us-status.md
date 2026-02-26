@@ -16,7 +16,7 @@ Show comprehensive status of User Stories with task progress and metrics.
 
 ## Required Environment Variables
 
-Ensure `.claude/.env` contains:
+Ensure `.opencode/.env` contains:
 
 ```bash
 AZURE_DEVOPS_PAT=<your-pat-token>
@@ -306,7 +306,7 @@ Select (1-4): _
 Support custom status views:
 
 ```yaml
-# .claude/azure/status-config.yml
+# .opencode/azure/status-config.yml
 views:
   default:
     show_burndown: true

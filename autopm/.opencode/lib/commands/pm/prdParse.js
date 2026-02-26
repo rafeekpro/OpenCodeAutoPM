@@ -90,7 +90,7 @@ $OBJECTIVES
 - **Total**: 6-8 weeks
 
 ---
-*Next Steps: Review and refine tasks, then run \`autopm pm:epic-decompose $NAME\` for detailed breakdown*
+*Next Steps: Review and refine tasks, then run \`open-autopm pm:epic-decompose $NAME\` for detailed breakdown*
 `;
 
 // Command Definition
@@ -155,13 +155,13 @@ exports.handler = async (argv) => {
   const spinner = createSpinner('Processing PRD...');
 
   try {
-    // Check if we're in a project with Claude AutoPM structure
+    // Check if we're in a project with OpenCode AutoPM structure
     const claudeDir = path.join(process.cwd(), '.opencode');
     if (!await fs.pathExists(claudeDir)) {
       spinner.fail();
-      printError('❌ Not in a ClaudeAutoPM project directory');
+      printError('❌ Not in a OpenCodeAutoPM project directory');
       printInfo('Make sure you are in a project directory that has been initialized with AutoPM');
-      printInfo('Or run: autopm pm:init to initialize this directory');
+      printInfo('Or run: open-autopm pm:init to initialize this directory');
       process.exit(1);
     }
     // Check if PRD exists
@@ -181,8 +181,8 @@ exports.handler = async (argv) => {
       printInfo('PRD must exist in current project before parsing');
       console.log();
       printInfo('Create PRD first:');
-      printInfo(`  New system: autopm pm:prd-new-skeleton ${argv.feature_name}`);
-      printInfo(`  Legacy: autopm pm:prd-new ${argv.feature_name} --template`);
+      printInfo(`  New system: open-autopm pm:prd-new-skeleton ${argv.feature_name}`);
+      printInfo(`  Legacy: open-autopm pm:prd-new ${argv.feature_name} --template`);
       console.log();
       printWarning('Make sure you are in the correct project directory!');
       process.exit(1);
@@ -218,7 +218,7 @@ exports.handler = async (argv) => {
       printError(`⚠️ Epic '${argv.feature_name}' already exists`);
       printInfo('Options:');
       printInfo('  • Use --force to overwrite');
-      printInfo(`  • Run: autopm pm:epic-decompose ${argv.feature_name} to break down existing epic`);
+      printInfo(`  • Run: open-autopm pm:epic-decompose ${argv.feature_name} to break down existing epic`);
       process.exit(1);
     }
 
@@ -248,8 +248,8 @@ exports.handler = async (argv) => {
       console.log();
       printInfo('Next steps:');
       printInfo('1. Review and refine the epic tasks');
-      printInfo(`2. Run: autopm pm:epic-decompose ${argv.feature_name} for detailed breakdown`);
-      printInfo(`3. Run: autopm pm:epic-sync ${argv.feature_name} to push to GitHub/Azure`);
+      printInfo(`2. Run: open-autopm pm:epic-decompose ${argv.feature_name} for detailed breakdown`);
+      printInfo(`3. Run: open-autopm pm:epic-sync ${argv.feature_name} to push to GitHub/Azure`);
       return;
     }
 
@@ -276,7 +276,7 @@ exports.handler = async (argv) => {
     console.log();
 
     printInfo('📝 Or create a basic epic now:');
-    console.log(`   autopm pm:prd-parse ${argv.feature_name} --basic`);
+    console.log(`   open-autopm pm:prd-parse ${argv.feature_name} --basic`);
     console.log();
 
     printInfo('📄 AI command definition:');

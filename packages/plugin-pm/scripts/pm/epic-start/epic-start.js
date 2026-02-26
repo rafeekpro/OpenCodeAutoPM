@@ -15,14 +15,14 @@ class EpicStarter {
 
   findEpicFile() {
     // Check in epics directory
-    let epicPath = path.join('.claude', 'epics', `${this.epicName}.md`);
+    let epicPath = path.join('.opencode', 'epics', `${this.epicName}.md`);
     if (fs.existsSync(epicPath)) {
       this.epicFile = epicPath;
       return true;
     }
 
     // Check in PRDs directory
-    epicPath = path.join('.claude', 'prds', `${this.epicName}.md`);
+    epicPath = path.join('.opencode', 'prds', `${this.epicName}.md`);
     if (fs.existsSync(epicPath)) {
       this.epicFile = epicPath;
       return true;
@@ -35,7 +35,7 @@ class EpicStarter {
     const epics = [];
 
     // List from epics directory
-    const epicsDir = path.join('.claude', 'epics');
+    const epicsDir = path.join('.opencode', 'epics');
     if (fs.existsSync(epicsDir)) {
       fs.readdirSync(epicsDir)
         .filter(file => file.endsWith('.md'))
@@ -43,7 +43,7 @@ class EpicStarter {
     }
 
     // List from PRDs directory
-    const prdsDir = path.join('.claude', 'prds');
+    const prdsDir = path.join('.opencode', 'prds');
     if (fs.existsSync(prdsDir)) {
       fs.readdirSync(prdsDir)
         .filter(file => file.endsWith('.md'))

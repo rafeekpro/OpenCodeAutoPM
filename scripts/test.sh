@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 🔧 ClaudeAutoPM Test Runner - Bridge to Node.js implementation
+# 🔧 OpenCodeAutoPM Test Runner - Bridge to Node.js implementation
 # This script now delegates to the Node.js version for better cross-platform support
 
 # Get the directory of this script

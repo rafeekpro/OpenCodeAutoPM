@@ -158,7 +158,7 @@ Proceeding with epic decomposition using Context7 best practices...
 User executes command: /pm:epic-decompose feature-name
 
 BEFORE execution:
-1. Read .claude/commands/pm/epic-decompose.md
+1. Read .opencode/commands/pm/epic-decompose.md
 2. Extract Documentation Queries section:
    - mcp://context7/agile/epic-decomposition
    - mcp://context7/agile/task-sizing
@@ -184,7 +184,7 @@ AFTER execution:
 User invokes agent: @aws-cloud-architect design VPC
 
 BEFORE invocation:
-1. Read .claude/agents/cloud/aws-cloud-architect.md
+1. Read .opencode/agents/cloud/aws-cloud-architect.md
 2. Extract Documentation Queries section:
    - mcp://context7/aws/compute
    - mcp://context7/aws/networking
@@ -259,13 +259,13 @@ AFTER agent work:
 
 ### Pre-Command Hook
 
-File: `.claude/hooks/pre-command-context7.js`
+File: `.opencode/hooks/pre-command-context7.js`
 
 **Purpose**: Automatically extract and query Context7 before command execution
 
 **Behavior**:
 1. Intercept command execution
-2. Read command file from `.claude/commands/{category}/{command}.md`
+2. Read command file from `.opencode/commands/{category}/{command}.md`
 3. Extract `**Documentation Queries:**` section
 4. Query Context7 MCP for each link
 5. Inject results into command context
@@ -273,13 +273,13 @@ File: `.claude/hooks/pre-command-context7.js`
 
 ### Pre-Agent Hook
 
-File: `.claude/hooks/pre-agent-context7.js`
+File: `.opencode/hooks/pre-agent-context7.js`
 
 **Purpose**: Automatically extract and query Context7 before agent invocation
 
 **Behavior**:
 1. Intercept agent invocation
-2. Read agent file from `.claude/agents/{category}/{agent}.md`
+2. Read agent file from `.opencode/agents/{category}/{agent}.md`
 3. Extract `**Documentation Queries:**` section
 4. Query Context7 MCP for each link
 5. Inject results into agent context
@@ -287,12 +287,12 @@ File: `.claude/hooks/pre-agent-context7.js`
 
 ### Validation Rule
 
-File: `.claude/rules/context7-enforcement.md` (this file)
+File: `.opencode/rules/context7-enforcement.md` (this file)
 
-**Purpose**: Remind Claude to ALWAYS query Context7
+**Purpose**: Remind OpenCode to ALWAYS query Context7
 
 **Enforcement**:
-- Read by Claude on every session start
+- Read by OpenCode on every session start
 - Highest priority in rule hierarchy
 - Zero tolerance for violations
 
@@ -314,9 +314,9 @@ File: `.claude/rules/context7-enforcement.md` (this file)
 
 ## Related Rules
 
-- **TDD Enforcement** (`.claude/rules/tdd.enforcement.md`) - Tests first, always
-- **Agent Usage** (`.claude/rules/agent-usage.md`) - When to use specialized agents
-- **Code Quality** (`.claude/rules/code-quality.md`) - Standards and anti-patterns
+- **TDD Enforcement** (`.opencode/rules/tdd.enforcement.md`) - Tests first, always
+- **Agent Usage** (`.opencode/rules/agent-usage.md`) - When to use specialized agents
+- **Code Quality** (`.opencode/rules/code-quality.md`) - Standards and anti-patterns
 
 ## Final Reminder
 
