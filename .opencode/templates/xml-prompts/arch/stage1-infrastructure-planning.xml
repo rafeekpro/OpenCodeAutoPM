@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Stage 1: Infrastructure Architectural Planning
+  Used for designing infrastructure components before implementation
+-->
+<prompt_workflow>
+  <stage>1</stage>
+  <workflow_type>infrastructure_planning</workflow_type>
+
+  <!-- Task definition -->
+  <task>{{task}}</task>
+  <context>{{context}}</context>
+  <prd_reference>.opencode/prds/weekend-insight.md</prd_reference>
+
+  <!-- Architectural requirements -->
+  <requirements>
+    {{#each requirements}}
+    <requirement>{{this}}</requirement>
+    {{/each}}
+  </requirements>
+
+  <!-- Infrastructure constraints -->
+  <constraints>
+    <allowed_providers>
+      {{#each allowed_providers}}
+      <provider>{{this}}</provider>
+      {{/each}}
+    </allowed_providers>
+    <allowed_tools>{{allowed_tools}}</allowed_tools>
+    <forbidden_approaches>
+      {{#each forbidden_approaches}}
+      <approach>{{this}}</approach>
+      {{/each}}
+    </forbidden_approaches>
+  </constraints>
+
+  <!-- Architecture considerations -->
+  <architecture_considerations>
+    <scalability>{{scalability}}</scalability>
+    <security>{{security}}</security>
+    <availability>{{availability}}</availability>
+    <maintainability>{{maintainability}}</maintainability>
+  </architecture_considerations>
+
+  <!-- Required thinking -->
+  <thinking>
+    Before designing infrastructure:
+
+    1. ANALYZE REQUIREMENTS:
+       - What infrastructure components are needed?
+       - What are the scalability requirements?
+       - What are the security requirements?
+       - What are the cost constraints?
+
+    2. CHOOSE PROVIDER:
+       - Cloud provider (AWS/GCP/Azure) or self-hosted?
+       - Existing infrastructure or new?
+       - Managed services or self-managed?
+
+    3. DESIGN ARCHITECTURE:
+       - Network topology (VPC, subnets, firewall rules)
+       - High availability (multi-AZ, load balancing)
+       - Data persistence (backup strategy, replication)
+       - Monitoring and logging
+
+    4. CONSIDER INTEGRATIONS:
+       - Kubernetes integration
+       - CI/CD pipeline integration
+       - Monitoring/alerting integration
+       - Secret management
+
+    5. DOCUMENT DECISIONS:
+       - Why this architecture?
+       - Trade-offs considered
+       - Future extensibility
+  </thinking>
+
+  <!-- Deliverables -->
+  <deliverables>
+    <deliverable>
+      <name>Architecture Document</name>
+      <description>
+        Complete infrastructure architecture with:
+        - Network topology diagram
+        - Component interaction flow
+        - Security boundaries
+        - Data flow diagram
+      </description>
+      <format>Markdown with diagrams (Mermaid)</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Infrastructure Bill of Materials</name>
+      <description>
+        List of all infrastructure components:
+        - VPCs, subnets, routing tables
+        - Databases, caches, storage
+        - Load balancers, ingress controllers
+        - Monitoring endpoints
+      </description>
+      <format>YAML structured list</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Cost Estimate</name>
+      <description>Monthly cost breakdown by component</description>
+      <format>Markdown table</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Security Considerations</name>
+      <description>
+        Security requirements:
+        - Network security groups/firewall rules
+        - IAM roles and permissions
+        - Secret management approach
+        - Encryption requirements
+      </description>
+      <format>Markdown checklist</format>
+      <required>YES</required>
+    </deliverable>
+  </deliverables>
+</prompt_workflow>

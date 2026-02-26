@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Stage 3: Infrastructure Validation & Testing
+  Used for validating infrastructure implementations with REAL functionality tests
+-->
+<prompt_workflow>
+  <stage>3</stage>
+  <workflow_type>infrastructure_validation</workflow_type>
+
+  <!-- Task definition -->
+  <task>{{task}}</task>
+  <context>{{context}}</context>
+  <prd_reference>.opencode/prds/weekend-insight.md</prd_reference>
+
+  <!-- Validation requirements -->
+  <requirements>
+    {{#each requirements}}
+    <requirement>{{this}}</requirement>
+    {{/each}}
+  </requirements>
+
+  <!-- Critical Testing Requirements -->
+  <testing_requirements>
+    <test_real_functionality>
+      REQUIRED - Test MUST verify actual functionality, not file existence
+    </test_real_functionality>
+    <test_pattern>
+      ❌ FORBIDDEN: Testing file existence only
+         def test_dockerfile_exists():
+           assert Path("Dockerfile").exists()
+
+      ✅ REQUIRED: Testing actual execution
+         def test_docker_image_builds():
+           result = subprocess.run(["docker", "build", "."])
+           assert result.returncode == 0
+    </test_pattern>
+    <no_slow_marker>
+      TRUE - Do NOT use @pytest.mark.slow on integration tests
+      Integration tests MUST run in CI
+    </no_slow_marker>
+    <no_mocks>
+      TRUE - Use real tools (docker, kubectl, terraform)
+      Mocks prohibited for infrastructure validation
+    </no_mocks>
+    <coverage_minimum>
+      100% of critical paths must be tested
+      All Dockerfiles must build successfully
+      All configurations must be syntax-validated
+    </coverage_minimum>
+  </testing_requirements>
+
+  <!-- Pre-commit Commitment -->
+  <pre_commit_hooks>
+    <hook name="docker-build-validation">
+      <description>Validate Docker builds before commit</description>
+      <required>TRUE</required>
+      <triggers>Dockerfile, docker-compose.yml changes</triggers>
+      <actions>
+        <action>Test docker-compose config syntax</action>
+        <action>Build Docker images without cache</action>
+        <action>Block commit if build fails</action>
+      </actions>
+    </hook>
+  </pre_commit_hooks>
+
+  <!-- Forbidden Testing Patterns -->
+  <forbidden_test_patterns>
+    <pattern>
+      <name>File Existence Only</name>
+      <description>Tests that only check Path("file").exists()</description>
+      <example>assert Path("Dockerfile").exists()</example>
+      <consequence>Test passes but code doesn't work</consequence>
+    </pattern>
+    <pattern>
+      <name>Skipping Integration Tests</name>
+      <description>Using @pytest.mark.slow on critical tests</description>
+      <example>@pytest.mark.slow def test_build():</example>
+      <consequence>Bugs not caught until production</consequence>
+    </pattern>
+    <pattern>
+      <name>Mocking Infrastructure Tools</name>
+      <description>mocker.patch("subprocess.run")</description>
+      <example>mocker.patch("docker.build")</example>
+      <consequence>Tests pass but real builds fail</consequence>
+    </pattern>
+  </forbidden_test_patterns>
+
+  <!-- Required Testing Sequence -->
+  <testing_sequence>
+    <step order="1">
+      <phase>RED - Write Failing Test</phase>
+      <action>Test MUST verify actual functionality</action>
+      <example>subprocess.run(["docker", "build", "."])</example>
+      <expectation>Test FAILS with real error</expectation>
+    </step>
+    <step order="2">
+      <phase>GREEN - Make Test Pass</phase>
+      <action>Fix infrastructure until test passes</action>
+      <example>Fix Dockerfile until build succeeds</example>
+      <expectation>Test PASSES with real execution</expectation>
+    </step>
+    <step order="3">
+      <phase>REFACTOR - Improve While Tests Stay Green</phase>
+      <action>Optimize configuration</action>
+      <example>Multi-stage build for efficiency</example>
+      <expectation>Tests STILL pass after optimization</expectation>
+    </step>
+    <step order="4">
+      <phase>VALIDATE - Pre-commit Check</phase>
+      <action>Git hooks validate before commit</action>
+      <example>docker-build-validation.sh blocks commit</example>
+      <expectation>Broken code CANNOT be committed</expectation>
+    </step>
+  </testing_sequence>
+
+  <!-- Required Deliverables -->
+  <deliverables>
+    <deliverable>
+      <name>Real Functionality Tests</name>
+      <description>
+        Tests that verify ACTUAL execution:
+        - subprocess.run() with real tools
+        - docker build, kubectl apply, terraform plan
+        - NO file existence checks only
+        - NO mocks for infrastructure
+      </description>
+      <format>pytest, bats, or Go test</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Pre-commit Hooks</name>
+      <description>
+        Validation scripts that run before git commit:
+        - Docker build validation
+        - Configuration syntax checks
+        - Block commits if validation fails
+      </description>
+      <format>Bash scripts in .git/hooks/pre-commit.d/</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Makefile</name>
+      <description>
+        Standardized commands:
+        - make test: Run ALL tests (no skipping)
+        - make test-docker: Validate Docker builds
+        - make docker-up: Start development environment
+        - make validate: Full validation suite
+      </description>
+      <format>Makefile with help target</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Testing Documentation</name>
+      <description>
+        Complete testing strategy:
+        - Test functionality, not files
+        - Always run ALL tests
+        - Use real tools, not mocks
+        - Pre-commit validation requirements
+      </description>
+      <format>Markdown (TESTING.md)</format>
+      <required>YES</required>
+    </deliverable>
+  </deliverables>
+
+  <!-- Quality Gates -->
+  <quality_gates>
+    <gate name="Docker Build">
+      <check>All Dockerfiles build successfully</check>
+      <command>docker compose build --no-cache</command>
+      <failure>Block commit, show error log</failure>
+    </gate>
+    <gate name="Configuration Syntax">
+      <check>All configs are syntactically valid</check>
+      <command>docker compose config > /dev/null</command>
+      <failure>Block commit, show syntax error</failure>
+    </gate>
+    <gate name="Test Execution">
+      <check>ALL tests pass (including integration)</check>
+      <command>pytest -v</command>
+      <failure>Block commit, show test failures</failure>
+    </gate>
+  </quality_gates>
+
+  <!-- Agent-specific context -->
+  <agent_context>
+    <assigned_agent>{{assigned_agent}}</assigned_agent>
+    <specialization>{{specialization}}</specialization>
+    <agent_context_parameters>
+      {{#each agent_context}}
+      <parameter name="{{@key}}">{{this}}</parameter>
+      {{/each}}
+    </agent_context_parameters>
+  </agent_context>
+
+  <!-- Critical Reminders -->
+  <critical_reminders>
+    <reminder priority="1">
+      NEVER report "100% tests passing" if only file-checking tests ran
+      ALWAYS verify with actual execution tests
+    </reminder>
+    <reminder priority="2">
+      NEVER use @pytest.mark.slow on integration tests
+      Integration tests are REQUIRED, not optional
+    </reminder>
+    <reminder priority="3">
+      NEVER mock infrastructure tools (docker, kubectl, terraform)
+      Use real tools to get real validation
+    </reminder>
+    <reminder priority="4">
+      ALWAYS add pre-commit hooks for infrastructure changes
+      Prevent broken code from being committed
+    </reminder>
+  </critical_reminders>
+</prompt_workflow>

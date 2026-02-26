@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  EXAMPLE: Docker Validation with Testing Infrastructure
+
+  This is an example of how to use stage3-infrastructure-validation.xml
+  to prevent "tests pass but code doesn't work" issues.
+-->
+<prompt_workflow>
+  <stage>3</stage>
+  <workflow_type>infrastructure_validation</workflow_type>
+
+  <!-- Task definition -->
+  <task>Validate Docker containerization with real functionality tests</task>
+  <context>Infrastructure Foundation - Docker setup for Weekend Insight</context>
+  <prd_reference>.opencode/prds/weekend-insight.md</prd_reference>
+
+  <!-- Validation requirements -->
+  <requirements>
+    <requirement>Backend Dockerfile must build successfully with Python 3.11-slim</requirement>
+    <requirement>Frontend Dockerfile must build successfully with Node.js 20-alpine</requirement>
+    <requirement>docker-compose.yml must be syntactically valid</requirement>
+    <requirement>All services must start and respond to health checks</requirement>
+    <requirement>Tests must verify REAL builds, not just file existence</requirement>
+    <requirement>Pre-commit hooks must block commits with broken Docker</requirement>
+  </requirements>
+
+  <!-- Critical Testing Requirements -->
+  <testing_requirements>
+    <test_real_functionality>
+      REQUIRED - Test MUST verify actual functionality, not file existence
+    </test_real_functionality>
+    <test_pattern>
+      ❌ FORBIDDEN: Testing file existence only
+         def test_dockerfile_exists():
+           assert Path("Dockerfile").exists()
+
+      ✅ REQUIRED: Testing actual execution
+         def test_docker_image_builds():
+           result = subprocess.run([
+             "docker", "build",
+             "-t", "test-backend:latest",
+             "-f", "backend/Dockerfile",
+             "backend/"
+           ])
+           assert result.returncode == 0, f"Build failed: {result.stderr}"
+    </test_pattern>
+    <no_slow_marker>
+      TRUE - Do NOT use @pytest.mark.slow on integration tests
+      These tests MUST run in CI to catch real bugs
+    </no_slow_marker>
+    <no_mocks>
+      TRUE - Use real docker command
+      mocker.patch prohibited for infrastructure tests
+    </no_mocks>
+    <coverage_minimum>
+      100% - All Dockerfiles must build
+      100% - All configurations must validate
+    </coverage_minimum>
+  </testing_requirements>
+
+  <!-- Pre-commit Commitment -->
+  <pre_commit_hooks>
+    <hook name="docker-build-validation">
+      <description>Validate Docker builds before commit</description>
+      <required>TRUE</required>
+      <triggers>Dockerfile, docker-compose.yml changes</triggers>
+      <actions>
+        <action>Test: docker compose config > /dev/null</action>
+        <action>Build: docker compose build --no-cache</action>
+        <action>Block: Exit 1 if build fails</action>
+      </actions>
+    </hook>
+  </pre_commit_hooks>
+
+  <!-- Forbidden Testing Patterns -->
+  <forbidden_test_patterns>
+    <pattern>
+      <name>File Existence Only</name>
+      <anti_example>assert Path("Dockerfile").exists()</anti_example>
+      <why>Test passes but Dockerfile may be broken</why>
+    </pattern>
+    <pattern>
+      <name>Skipping Integration Tests</name>
+      <anti_example>@pytest.mark.slow def test_build():</anti_example>
+      <why>Bugs not caught until user runs docker compose up</why>
+    </pattern>
+    <pattern>
+      <name>Mocking Docker Command</name>
+      <anti_example>mocker.patch("subprocess.run", return_value=0)</anti_example>
+      <why>Tests pass but real docker build fails</why>
+    </pattern>
+  </forbidden_test_patterns>
+
+  <!-- Required Testing Sequence -->
+  <testing_sequence>
+    <step order="1">
+      <phase>RED - Write Failing Test</phase>
+      <action>Test that tries to build Docker image</action>
+      <code>
+        def test_frontend_image_builds():
+            result = subprocess.run([
+                "docker", "build",
+                "-t", "test-frontend:latest",
+                "-f", "frontend/Dockerfile",
+                "frontend/"
+            ], timeout=300)
+            assert result.returncode == 0
+      </code>
+      <expectation>Test FAILS because Dockerfile doesn't exist yet</expectation>
+    </step>
+    <step order="2">
+      <phase>GREEN - Make Test Pass</phase>
+      <action>Create Dockerfile that builds successfully</action>
+      <code>
+        FROM node:20-alpine AS builder
+        WORKDIR /app
+        COPY package*.json ./
+        RUN npm install --legacy-peer-deps
+        COPY . .
+        RUN npm run build
+      </code>
+      <expectation>Test PASSES with real docker build</expectation>
+    </step>
+    <step order="3">
+      <phase>REFACTOR - Optimize Build</phase>
+      <action>Add multi-stage build for smaller image</action>
+      <code>
+        FROM node:20-alpine AS builder
+        # ... build stage ...
+
+        FROM nginx:alpine AS runtime
+        COPY --from=builder /app/dist /usr/share/nginx/html
+      </code>
+      <expectation>Tests STILL pass after optimization</expectation>
+    </step>
+    <step order="4">
+      <phase>VALIDATE - Pre-commit Check</phase>
+      <action>Add git hook to validate before commit</action>
+      <code>
+        # .git/hooks/pre-commit.d/docker-build-validation.sh
+        docker compose build --no-cache || exit 1
+      </code>
+      <expectation>Broken Dockerfile CANNOT be committed</expectation>
+    </step>
+  </testing_sequence>
+
+  <!-- Required Deliverables -->
+  <deliverables>
+    <deliverable>
+      <name>Real Functionality Tests</name>
+      <tests>
+        <test>test_backend_image_builds_successfully()</test>
+        <test>test_frontend_image_builds_successfully()</test>
+        <test>test_docker_compose_config_is_valid()</test>
+        <test>test_services_start_with_health_checks()</test>
+      </tests>
+      <format>pytest in tests/test_docker_configs.py</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Pre-commit Hooks</name>
+      <files>
+        <file>.git/hooks/pre-commit.d/docker-build-validation.sh</file>
+        <file>.git/hooks/pre-commit (main hook)</file>
+      </files>
+      <behavior>
+        - Runs docker compose config check
+        - Runs docker compose build --no-cache
+        - Blocks commit if any check fails
+      </behavior>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Makefile</name>
+      <targets>
+        <target>make test - Run ALL tests</target>
+        <target>make test-docker - Validate Docker builds</target>
+        <target>make docker-up - Start services</target>
+        <target>make validate - Full validation</target>
+      </targets>
+      <format>Makefile with help target</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Testing Documentation</name>
+      <content>
+        - Testing strategy: functionality over files
+        - Test patterns: real tools, no mocks
+        - Pre-commit requirements
+        - Make command reference
+      </content>
+      <format>TESTING.md</format>
+      <required>YES</required>
+    </deliverable>
+  </deliverables>
+
+  <!-- Quality Gates -->
+  <quality_gates>
+    <gate name="Docker Build Success">
+      <command>docker compose build --no-cache</command>
+      <timeout>5 minutes</timeout>
+      <success>All images built without errors</success>
+      <failure>Block commit, show build log</failure>
+    </gate>
+    <gate name="Config Validation">
+      <command>docker compose config > /dev/null</command>
+      <timeout>10 seconds</timeout>
+      <success>Syntax is valid</success>
+      <failure>Block commit, show syntax errors</failure>
+    </gate>
+    <gate name="Test Coverage">
+      <command>pytest -v tests/test_docker_configs.py</command>
+      <timeout>10 minutes</timeout>
+      <success>All tests pass (including integration)</success>
+      <failure>Block commit, show test failures</failure>
+    </gate>
+  </quality_gates>
+
+  <!-- Agent-specific context -->
+  <agent_context>
+    <assigned_agent>general-purpose</assigned_agent>
+    <specialization>docker-containerization</specialization>
+    <agent_context_parameters>
+      <parameter name="backend_framework">FastAPI with Python 3.11</parameter>
+      <parameter name="frontend_framework">React with Node.js 20</parameter>
+      <parameter name="nginx_version">alpine</parameter>
+      <parameter name="database">PostgreSQL 16</parameter>
+      <parameter name="cache">Redis 7-alpine</parameter>
+    </agent_context_parameters>
+  </agent_context>
+
+  <!-- Critical Reminders -->
+  <critical_reminders>
+    <reminder priority="1">
+      ❌ NEVER report "100% tests passing" if only ran file-existence tests
+      ✅ ALWAYS run real build tests before claiming success
+    </reminder>
+    <reminder priority="2">
+      ❌ NEVER use @pytest.mark.slow on docker build tests
+      ✅ ALWAYS run integration tests in CI
+    </reminder>
+    <reminder priority="3">
+      ❌ NEVER mock subprocess.run for docker commands
+      ✅ ALWAYS use real docker to get real validation
+    </reminder>
+    <reminder priority="4">
+      ✅ ALWAYS add pre-commit hooks for infrastructure
+      ✅ Prevent broken code from being committed
+    </reminder>
+  </critical_reminders>
+</prompt_workflow>

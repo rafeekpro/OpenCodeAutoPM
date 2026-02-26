@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Stage 2: Infrastructure Implementation with TDD
+  Used for implementing infrastructure components following Test-Driven Development
+-->
+<prompt_workflow>
+  <stage>2</stage>
+  <workflow_type>infrastructure_implementation</workflow_type>
+
+  <!-- Task definition -->
+  <task>{{task}}</task>
+  <context>{{context}}</context>
+  <prd_reference>.opencode/prds/weekend-insight.md</prd_reference>
+  <architecture_reference>{{architecture_reference}}</architecture_reference>
+
+  <!-- Implementation requirements -->
+  <requirements>
+    {{#each requirements}}
+    <requirement>{{this}}</requirement>
+    {{/each}}
+  </requirements>
+
+  <!-- Infrastructure constraints -->
+  <constraints>
+    <allowed_tools>{{allowed_tools}}</allowed_tools>
+    <allowed_providers>{{allowed_providers}}</allowed_providers>
+    <forbidden_approaches>
+      {{#each forbidden_approaches}}
+      <approach>{{this}}</approach>
+      {{/each}}
+    </forbidden_approaches>
+  </constraints>
+
+  <!-- TDD Requirements - MANDATORY -->
+  <tdd_requirements>
+    <test_first>REQUIRED - Tests MUST be written before implementation</test_first>
+    <test_pattern>
+      1. Write failing test (RED) - Define expected infrastructure state
+      2. Write minimal code to pass (GREEN) - Provision infrastructure
+      3. Refactor while tests pass (REFACTOR) - Optimize configuration
+    </test_pattern>
+    <test_coverage_minimum>100%</test_coverage_minimum>
+    <no_mocks>TRUE - Use real infrastructure testing (terraform plan, kubectl apply --dry-run)</no_mocks>
+  </tdd_requirements>
+
+  <!-- Required thinking -->
+  <thinking>
+    Before implementing infrastructure:
+
+    1. UNDERSTAND REQUIREMENTS:
+       - What infrastructure components are needed?
+       - What are the acceptance criteria?
+       - What are the constraints (tools, providers)?
+
+    2. DESIGN TESTS FIRST:
+       - Test: Verify infrastructure provisioning
+       - Test: Verify configuration correctness
+       - Test: Verify connectivity/access
+       - Test: Verify security settings
+
+    3. IMPLEMENTATION PLAN:
+       - What tools to use (Terraform, kubectl, Helm)?
+       - What is the minimal viable implementation?
+       - How to validate without full deployment?
+
+    4. VALIDATION STRATEGY:
+       - terraform plan (validate without applying)
+       - kubectl apply --dry-run (validate manifests)
+       - kubectl get/describe (verify deployment)
+       - Network/health checks (verify functionality)
+
+    5. REFACTORING CONSIDERATIONS:
+       - Can configuration be simplified?
+       - Are resources properly tagged/organized?
+       - Is the code DRY (no duplication)?
+  </thinking>
+
+  <!-- Deliverables -->
+  <deliverables>
+    <deliverable>
+      <name>Validation Tests (RED phase)</name>
+      <description>
+        Tests that verify infrastructure state BEFORE implementation:
+        - Unit tests for Terraform/Helm charts
+        - Schema validation tests
+        - Configuration validation tests
+      </description>
+      <format>pytest for Terraform, bats for shell scripts</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Infrastructure Code (GREEN phase)</name>
+      <description>
+        Minimal infrastructure code to pass tests:
+        - Terraform configurations (.tf files)
+        - Kubernetes manifests (YAML)
+        - Helm charts (Chart.yaml, values.yaml)
+        - Shell scripts for automation
+      </description>
+      <format>Terraform HCL, Kubernetes YAML, Bash</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Optimized Configuration (REFACTOR phase)</name>
+      <description>
+        Refactored infrastructure code:
+        - DRY principles (modules, templates)
+        - Proper tagging/labeling
+        - Documentation comments
+        - Variable validation
+      </description>
+      <format>Same as implementation</format>
+      <required>YES</required>
+    </deliverable>
+    <deliverable>
+      <name>Verification Tests</name>
+      <description>
+        End-to-end tests verifying deployed infrastructure:
+        - Connectivity tests
+        - Health check tests
+        - Integration tests
+      </description>
+      <format>pytest, bats, or Go test</format>
+      <required>YES</required>
+    </deliverable>
+  </deliverables>
+
+  <!-- Agent-specific context -->
+  <agent_context>
+    <assigned_agent>{{assigned_agent}}</assigned_agent>
+    <specialization>{{specialization}}</specialization>
+    <agent_context_parameters>
+      {{#each agent_context}}
+      <parameter name="{{@key}}">{{this}}</parameter>
+      {{/each}}
+    </agent_context_parameters>
+  </agent_context>
+</prompt_workflow>
