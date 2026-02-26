@@ -39,7 +39,7 @@ describe('Quick Installation Tests', () => {
         'install/merge-claude.sh',
         'install/setup-env.sh',
         'autopm/.claude/agents/AGENT-REGISTRY.md',
-        'autopm/.claude/templates/claude-templates/CLAUDE_BASIC.md',
+        'autopm/.claude/templates/opencode-templates/CLAUDE_BASIC.md',
         'autopm/.claude/templates/config-templates/minimal.json'
       ];
 
@@ -82,7 +82,7 @@ describe('Quick Installation Tests', () => {
 
   describe('CLAUDE.md Templates', () => {
     it('should have basic CLAUDE.md template', () => {
-      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/claude-templates/CLAUDE_BASIC.md');
+      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/opencode-templates/CLAUDE_BASIC.md');
       const content = fs.readFileSync(templatePath, 'utf8');
 
       assert(content.includes('Project Instructions'), 'Should have project instructions section');
@@ -90,7 +90,7 @@ describe('Quick Installation Tests', () => {
     });
 
     it('should have docker CLAUDE.md template', () => {
-      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/claude-templates/CLAUDE_DOCKER.md');
+      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/opencode-templates/CLAUDE_DOCKER.md');
       const content = fs.readFileSync(templatePath, 'utf8');
 
       assert(content.includes('Docker'), 'Should mention Docker');
@@ -98,7 +98,7 @@ describe('Quick Installation Tests', () => {
     });
 
     it('should have devops CLAUDE.md template', () => {
-      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/claude-templates/CLAUDE_DEVOPS.md');
+      const templatePath = path.join(__dirname, '../../autopm/.claude/templates/opencode-templates/CLAUDE_DEVOPS.md');
       const content = fs.readFileSync(templatePath, 'utf8');
 
       assert(content.includes('Kubernetes'), 'Should mention Kubernetes');

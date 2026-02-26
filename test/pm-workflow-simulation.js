@@ -148,7 +148,7 @@ async function runSimulation() {
   );
 
   sim.loadAndDisplay(
-    path.join(baseDir, 'autopm/.claude/templates/claude-templates/base-optimized.md'),
+    path.join(baseDir, 'autopm/.claude/templates/opencode-templates/base-optimized.md'),
     'Optimized Base Template',
     'Initial session startup - minimal context'
   );

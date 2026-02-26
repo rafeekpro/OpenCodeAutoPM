@@ -426,7 +426,7 @@ Complete redesign of context management achieving **96.4% token reduction** whil
 - All targets exceeded: ✅ <3,000 initial, ✅ <10,000 typical, ✅ >85% savings
 
 **Files Created:**
-- `autopm/.claude/templates/claude-templates/base-optimized.md`
+- `autopm/.claude/templates/opencode-templates/base-optimized.md`
 - `autopm/.claude/quick-ref/tdd-cycle.md`
 - `autopm/.claude/quick-ref/workflow-steps.md`
 - `autopm/.claude/quick-ref/context7-queries.md`
@@ -461,7 +461,7 @@ Complete redesign of context management achieving **96.4% token reduction** whil
 - Quick reference commands
 - Based on Anthropic's prompt engineering best practices and Context7 documentation
 - Automatically included in ALL installations (no configuration needed)
-- Template: `autopm/.claude/templates/claude-templates/addons/task-workflow.md`
+- Template: `autopm/.claude/templates/opencode-templates/addons/task-workflow.md`
 - Documentation: `docs/WORKFLOW-ADDON.md`
 
 ### Changed
@@ -3484,7 +3484,7 @@ Claude: "I'll use the python-backend-engineer agent..."
 - `autopm/.claude/rules/agent-mandatory.md` - Comprehensive agent usage rules
 
 **Modified Files:**
-- `autopm/.claude/templates/claude-templates/base.md` - Added agent enforcement section
+- `autopm/.claude/templates/opencode-templates/base.md` - Added agent enforcement section
 - `install/install.js` - Added `.claude/hooks` to installItems array
 
 **Hooks Included:**

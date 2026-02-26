@@ -154,7 +154,7 @@ autopm/
     ├── scripts/             # Utility scripts
     │   └── lib/             # Script libraries
     ├── templates/           # File templates
-    │   ├── claude-templates/
+    │   ├── opencode-templates/
     │   ├── prds/
     │   └── strategies-templates/
     ├── mcp/                 # MCP server configs

@@ -148,7 +148,7 @@ function calculateSystemTotals() {
   console.log('='.repeat(70));
 
   // Old system estimate
-  const oldBaseTemplate = path.join(__dirname, '../autopm/.claude/templates/claude-templates/base.md');
+  const oldBaseTemplate = path.join(__dirname, '../autopm/.claude/templates/opencode-templates/base.md');
   const oldBase = analyzeFile(oldBaseTemplate, 'Old Base Template');
 
   // Estimate for full old system (based on documentation)
@@ -170,7 +170,7 @@ function calculateSystemTotals() {
   console.log(`  ${'TOTAL'.padEnd(20)} ${oldTotal.toLocaleString().padStart(8)} tokens`);
 
   // New system
-  const newBaseTemplate = path.join(__dirname, '../autopm/.claude/templates/claude-templates/base-optimized.md');
+  const newBaseTemplate = path.join(__dirname, '../autopm/.claude/templates/opencode-templates/base-optimized.md');
   const newBase = analyzeFile(newBaseTemplate, 'New Base Template');
 
   const quickRef = analyzeQuickRefFiles();
@@ -243,8 +243,8 @@ function main() {
 
   // Analyze main template
   const baseComparison = compareTemplates(
-    path.join(baseDir, 'autopm/.claude/templates/claude-templates/base.md'),
-    path.join(baseDir, 'autopm/.claude/templates/claude-templates/base-optimized.md'),
+    path.join(baseDir, 'autopm/.claude/templates/opencode-templates/base.md'),
+    path.join(baseDir, 'autopm/.claude/templates/opencode-templates/base-optimized.md'),
     'Base Template Optimization'
   );
 

@@ -501,7 +501,7 @@ npm run setup:githooks
 - **scripts/** - Helper scripts
 - **checklists/** - Including COMMIT_CHECKLIST.md
 - **templates/** - Templates for generation (NOT copied)
-  - **claude-templates/** - CLAUDE.md templates
+  - **opencode-templates/** - CLAUDE.md templates
   - **config-templates/** - Configuration templates
   - **strategies-templates/** - Execution strategy templates
 

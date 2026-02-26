@@ -17,7 +17,7 @@ The template system consists of:
 
 ```
 autopm/.claude/templates/
-├── claude-templates/           # CLAUDE.md components
+├── opencode-templates/           # CLAUDE.md components
 │   ├── base.md                # Base template
 │   └── addons/                # Feature-specific add-ons
 │       ├── azure-devops.md
@@ -224,7 +224,7 @@ The generated CLAUDE.md is placed in your project root.
 
 ### Adding Custom Add-ons
 
-Create a new add-on in `.claude/templates/claude-templates/addons/`:
+Create a new add-on in `.claude/templates/opencode-templates/addons/`:
 
 ```markdown
 # custom-feature.md
@@ -241,7 +241,7 @@ Edit the base template for project-wide changes:
 
 ```bash
 # Edit base template
-nano autopm/.claude/templates/claude-templates/base.md
+nano autopm/.claude/templates/opencode-templates/base.md
 
 # Regenerate CLAUDE.md
 autopm merge
@@ -395,7 +395,7 @@ Generated CLAUDE.md includes:
 
 ```bash
 # Check template exists
-ls autopm/.claude/templates/claude-templates/
+ls autopm/.claude/templates/opencode-templates/
 
 # Reinstall if missing
 autopm install --repair
