@@ -2,6 +2,9 @@
 name: ux-design-commands
 type: epic-management
 category: general
+command: ux-design-commands
+description: "## Analysis & Audit Tools"
+
 ---
 
 # UX Design Commands
