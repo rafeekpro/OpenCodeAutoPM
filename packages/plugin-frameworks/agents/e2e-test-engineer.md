@@ -1,6 +1,6 @@
 ---
 name: e2e-test-engineer
-description: ## Documentation Access via MCP Context7
+description: Use this agent to verify End-to-End tests in documentation through Context7.
 model: inherit
 ---
 
