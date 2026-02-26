@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-reopen
+description: "Reopen a closed task that needs additional work."
+
 ---
 
 # Azure DevOps Task Reopen

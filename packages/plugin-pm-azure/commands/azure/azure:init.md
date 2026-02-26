@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:init
+description: "Initialize Azure DevOps integration for the project."
+
 ---
 
 # Azure DevOps Init

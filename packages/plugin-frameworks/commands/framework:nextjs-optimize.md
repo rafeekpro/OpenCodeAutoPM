@@ -1,3 +1,8 @@
+---
+command: framework:nextjs-optimize
+description: "framework:nextjs-optimize"
+---
+
 # nextjs:optimize
 
 Optimize Next.js application for production with Context7-verified patterns for images, fonts, builds, and performance.

@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: ai:huggingface-deploy
+description: "Deploy HuggingFace models to production with Context7-verified quantization, optimization, and inference endpoint strategies."
+
 ---
 
 # huggingface:deploy

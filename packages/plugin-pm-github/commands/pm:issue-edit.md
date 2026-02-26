@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:issue-edit
+description: "Edit issue details locally and on GitHub."
+
 ---
 
 # Issue Edit

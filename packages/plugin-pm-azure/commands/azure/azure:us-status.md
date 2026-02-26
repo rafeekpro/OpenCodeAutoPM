@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:us-status
+description: "Show comprehensive status of User Stories with task progress and metrics."
+
 ---
 
 # Azure DevOps User Story Status

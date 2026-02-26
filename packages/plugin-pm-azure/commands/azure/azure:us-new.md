@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:us-new
+description: "Create a new User Story in Azure DevOps with comprehensive planning and task breakdown."
+
 ---
 
 # Azure DevOps User Story New

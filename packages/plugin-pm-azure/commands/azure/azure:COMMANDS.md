@@ -1,3 +1,8 @@
+---
+command: azure:COMMANDS
+description: "azure:COMMANDS"
+---
+
 # Azure DevOps Command Equivalents
 
 ## Complete PM → Azure Command Mapping

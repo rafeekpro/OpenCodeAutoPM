@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-close
+description: "Complete a task, update status, and prepare for next work."
+
 ---
 
 # Azure DevOps Task Close

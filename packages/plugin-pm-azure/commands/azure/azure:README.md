@@ -1,3 +1,8 @@
+---
+command: azure:README
+description: "azure:README"
+---
+
 # Azure DevOps Commands
 
 Complete command suite for Azure DevOps integration with AutoPM project management system.

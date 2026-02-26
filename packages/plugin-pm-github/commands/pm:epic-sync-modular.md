@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir, Task
+command: pm:epic-sync-modular
+description: "Push epic and tasks to GitHub as issues using modular scripts."
+
 ---
 
 # Epic Sync - Modular Version

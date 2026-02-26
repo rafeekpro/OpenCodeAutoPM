@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, MultiEdit, Glob, Grep
+command: context-setup
+description: "Configures Model Context Protocol (MCP) servers and context sharing between agents."
+
 ---
 
 # MCP Context Setup

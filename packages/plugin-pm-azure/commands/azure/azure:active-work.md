@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:active-work
+description: "Show all currently active work items across the team or for specific user."
+
 ---
 
 # Azure DevOps Active Work

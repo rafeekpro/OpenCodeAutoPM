@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:feature-decompose
+description: "Break down a Feature/Epic into User Stories with comprehensive planning."
+
 ---
 
 # Azure DevOps Feature Decompose

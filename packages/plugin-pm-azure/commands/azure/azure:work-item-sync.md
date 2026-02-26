@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:work-item-sync
+description: "Synchronizes GitHub Issues with Azure DevOps Work Items bidirectionally."
+
 ---
 
 # Azure DevOps Work Item Synchronization

@@ -1,3 +1,8 @@
+---
+command: devops:docker-optimize
+description: "devops:docker-optimize"
+---
+
 # docker:optimize
 
 Optimize Docker images for size, security, and build performance using Context7-verified best practices.

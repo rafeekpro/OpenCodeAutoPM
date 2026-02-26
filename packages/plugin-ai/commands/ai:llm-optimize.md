@@ -1,3 +1,8 @@
+---
+command: ai:llm-optimize
+description: "ai:llm-optimize"
+---
+
 # llm:optimize
 
 Optimize LLM inference performance with Context7-verified model selection, prompt engineering, and deployment strategies.

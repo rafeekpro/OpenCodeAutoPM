@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:search
+description: "Search work items across Azure DevOps with advanced filters."
+
 ---
 
 # Azure DevOps Search

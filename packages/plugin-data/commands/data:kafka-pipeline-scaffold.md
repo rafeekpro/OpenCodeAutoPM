@@ -1,3 +1,8 @@
+---
+command: data:kafka-pipeline-scaffold
+description: "data:kafka-pipeline-scaffold"
+---
+
 # Kafka Pipeline Scaffold Command
 
 Generate a production-ready Apache Kafka streaming pipeline with Context7-verified best practices for event-driven data processing.

@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir, Task
+command: pm:epic-start
+description: "Launch parallel agents to work on epic tasks using the unified branch strategy."
+
 ---
 
 # Epic Start

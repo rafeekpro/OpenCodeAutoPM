@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-sync
+description: "Synchronize tasks between local cache and Azure DevOps."
+
 ---
 
 # Azure DevOps Task Sync

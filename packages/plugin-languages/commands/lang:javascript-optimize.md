@@ -1,3 +1,8 @@
+---
+command: lang:javascript-optimize
+description: "lang:javascript-optimize"
+---
+
 # javascript:optimize
 
 Optimize JavaScript/TypeScript frontend performance with Context7-verified bundling, tree-shaking, and runtime optimization.

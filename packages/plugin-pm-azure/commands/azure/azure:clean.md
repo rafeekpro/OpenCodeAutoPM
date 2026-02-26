@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, Glob, Grep
+command: azure:clean
+description: "Clean up completed items and optimize work item structure."
+
 ---
 
 # Azure DevOps Clean

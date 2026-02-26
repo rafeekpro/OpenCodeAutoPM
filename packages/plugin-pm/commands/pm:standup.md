@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:standup
+description: "Command pm:standup"
+
 ---
 
 ---

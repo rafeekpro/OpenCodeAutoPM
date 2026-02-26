@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: docs-refresh
+description: "Refreshes documentation cache from context7 for specified agents and technologies."
+
 ---
 
 # MCP Documentation Refresh

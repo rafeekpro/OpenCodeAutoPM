@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:next-task
+description: "Get AI-powered recommendation for the next task to work on based on priorities, dependencies, and capacity."
+
 ---
 
 # Azure DevOps Next Task

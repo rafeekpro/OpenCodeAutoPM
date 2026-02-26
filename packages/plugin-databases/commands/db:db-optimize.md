@@ -1,3 +1,8 @@
+---
+command: db:db-optimize
+description: "db:db-optimize"
+---
+
 # db:optimize
 
 Optimize database performance with Context7-verified best practices for PostgreSQL, MongoDB, and Redis.

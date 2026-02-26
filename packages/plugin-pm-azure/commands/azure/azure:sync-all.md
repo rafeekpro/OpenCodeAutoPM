@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:sync-all
+description: "Full bidirectional synchronization of all work items."
+
 ---
 
 # Azure DevOps Sync All

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:us-show
+description: "Display detailed information about a specific User Story."
+
 ---
 
 # Azure DevOps User Story Show

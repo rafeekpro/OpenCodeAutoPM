@@ -1,3 +1,8 @@
+---
+command: cloud:cloud-validate
+description: "cloud:cloud-validate"
+---
+
 # cloud:validate
 
 Validate cloud infrastructure configuration and credentials across AWS, Azure, and GCP.

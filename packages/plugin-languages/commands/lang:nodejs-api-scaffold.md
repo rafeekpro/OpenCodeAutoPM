@@ -10,6 +10,9 @@ tags:
   - scaffold
 mcpTools:
   - context7
+command: lang:nodejs-api-scaffold
+description: "Generate production-ready Node.js REST API with Context7-verified best practices."
+
 ---
 
 # Node.js API Scaffolding Command

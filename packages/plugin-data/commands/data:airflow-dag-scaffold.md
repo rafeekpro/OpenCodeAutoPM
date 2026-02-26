@@ -1,3 +1,8 @@
+---
+command: data:airflow-dag-scaffold
+description: "data:airflow-dag-scaffold"
+---
+
 # Airflow DAG Scaffold Command
 
 Generate a production-ready Apache Airflow DAG with Context7-verified best practices for data pipeline orchestration.

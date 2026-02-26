@@ -1,3 +1,8 @@
+---
+command: devops:deployment-rollback
+description: "devops:deployment-rollback"
+---
+
 # deployment-rollback
 
 Safe rollback of deployments with validation, automated smoke tests, and comprehensive incident documentation.

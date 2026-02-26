@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:sprint-status
+description: "Comprehensive sprint dashboard with burndown, velocity, and team performance metrics."
+
 ---
 
 # Azure DevOps Sprint Status

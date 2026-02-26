@@ -1,3 +1,8 @@
+---
+command: test:test-setup
+description: "test:test-setup"
+---
+
 # Testing Framework Setup Command
 
 **Command**: `/test:setup`

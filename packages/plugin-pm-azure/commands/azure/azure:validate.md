@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:validate
+description: "Validate work item structure and relationships for consistency."
+
 ---
 
 # Azure DevOps Validate

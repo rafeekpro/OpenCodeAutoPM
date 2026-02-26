@@ -1,3 +1,8 @@
+---
+command: test:test-coverage
+description: "test:test-coverage"
+---
+
 # Test Coverage Analysis Command
 
 **Command**: `/test:coverage`

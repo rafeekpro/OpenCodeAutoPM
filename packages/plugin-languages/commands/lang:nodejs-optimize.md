@@ -1,3 +1,8 @@
+---
+command: lang:nodejs-optimize
+description: "lang:nodejs-optimize"
+---
+
 # nodejs:optimize
 
 Optimize Node.js application performance with Context7-verified clustering, worker threads, and profiling techniques.

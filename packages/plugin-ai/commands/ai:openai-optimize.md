@@ -1,3 +1,8 @@
+---
+command: ai:openai-optimize
+description: "ai:openai-optimize"
+---
+
 # openai:optimize
 
 Optimize OpenAI API usage with Context7-verified async operations, batching, caching, and rate limiting strategies.

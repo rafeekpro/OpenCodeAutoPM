@@ -1,3 +1,8 @@
+---
+command: ml:ml-automl
+description: "ml:ml-automl"
+---
+
 # ml:automl
 
 Automated machine learning with Context7-verified patterns for AutoGluon, FLAML, and AutoKeras. Get best models with minimal code.

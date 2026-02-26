@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:task-status
+description: "Show status overview of tasks for a story or sprint."
+
 ---
 
 # Azure DevOps Task Status

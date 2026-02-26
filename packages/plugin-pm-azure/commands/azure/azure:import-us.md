@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:import-us
+description: "Import User Stories from PRDs or Epics into Azure DevOps with automatic task breakdown."
+
 ---
 
 # Azure DevOps Import User Stories

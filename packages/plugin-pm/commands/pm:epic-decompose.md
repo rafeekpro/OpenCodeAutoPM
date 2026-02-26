@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir, Task
+command: pm:epic-decompose
+description: "Break epic into concrete, actionable tasks."
+
 ---
 
 # Epic Decompose

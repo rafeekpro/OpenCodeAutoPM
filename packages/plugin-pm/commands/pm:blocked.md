@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:blocked
+description: "Command pm:blocked"
+
 ---
 
 ---

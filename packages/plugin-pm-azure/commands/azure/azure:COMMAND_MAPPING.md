@@ -1,3 +1,8 @@
+---
+command: azure:COMMAND_MAPPING
+description: "azure:COMMAND_MAPPING"
+---
+
 # PM and Azure DevOps Command Mapping
 
 ## 🤝 Complementary Systems

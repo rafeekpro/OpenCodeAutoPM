@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:us-edit
+description: "Edit User Story fields and properties in Azure DevOps."
+
 ---
 
 # Azure DevOps User Story Edit

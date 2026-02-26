@@ -1,3 +1,8 @@
+---
+command: cloud:disaster-recovery
+description: "cloud:disaster-recovery"
+---
+
 # cloud:disaster-recovery
 
 Set up disaster recovery plans with RTO/RPO targets for multi-cloud infrastructure.

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Write, LS
+command: pm:prd-edit
+description: "Edit an existing Product Requirements Document."
+
 ---
 
 # PRD Edit

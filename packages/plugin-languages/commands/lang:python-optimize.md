@@ -1,3 +1,8 @@
+---
+command: lang:python-optimize
+description: "lang:python-optimize"
+---
+
 # python:optimize
 
 Optimize Python application performance with Context7-verified profiling, async patterns, and best practices.

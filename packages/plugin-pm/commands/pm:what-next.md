@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:what-next
+description: "Command pm:what-next"
+
 ---
 
 ---

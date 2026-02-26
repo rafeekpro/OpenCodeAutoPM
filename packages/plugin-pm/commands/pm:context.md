@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:context
+description: "Command pm:context"
+
 ---
 
 ---

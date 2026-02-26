@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:in-progress
+description: "Command pm:in-progress"
+
 ---
 
 ---

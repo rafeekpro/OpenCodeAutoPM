@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: ai:a2a-setup
+description: "Setup Google A2A (Agent-to-Agent) protocol with Context7-verified Vertex AI Agent Builder configuration and multi-agent orchestration."
+
 ---
 
 # a2a:setup

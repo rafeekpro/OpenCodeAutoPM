@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: re-init
+description: "Please update OPENCODE.md with the rules from .opencode/OPENCODE.md."
+
 ---
 
 # Enhance OPENCODE.md file

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Read, Write, Edit, MultiEdit, Bash, Glob, Grep
+command: devops:workflow-create
+description: "Creates GitHub Actions workflows for CI/CD pipelines."
+
 ---
 
 # GitHub Workflow Creation

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Write, Edit, Bash, Glob
+command: pm:context-update
+description: "Update project context after significant changes to maintain AI agent memory accuracy."
+
 ---
 
 # Context Update

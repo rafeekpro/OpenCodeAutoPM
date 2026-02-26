@@ -1,3 +1,8 @@
+---
+command: test:jest-optimize
+description: "test:jest-optimize"
+---
+
 # jest:optimize
 
 Optimize Jest test performance with Context7-verified parallel execution, sharding, and best practices.

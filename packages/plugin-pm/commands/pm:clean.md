@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:clean
+description: "Clean up completed work and archive old epics."
+
 ---
 
 # Clean

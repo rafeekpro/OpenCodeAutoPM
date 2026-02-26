@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:blocked-items
+description: "Identify and manage blocked work items with resolution tracking."
+
 ---
 
 # Azure DevOps Blocked Items

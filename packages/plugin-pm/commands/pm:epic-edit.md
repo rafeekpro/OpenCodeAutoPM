@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Write, LS
+command: pm:epic-edit
+description: "Edit epic details after creation."
+
 ---
 
 # Epic Edit

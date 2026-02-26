@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:help
+description: "Command pm:help"
+
 ---
 
 ---

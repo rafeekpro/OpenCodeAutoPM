@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:validate
+description: "Command pm:validate"
+
 ---
 
 ---

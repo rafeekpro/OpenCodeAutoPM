@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:feature-new
+description: "Create a new Feature/Epic in Azure DevOps with comprehensive planning."
+
 ---
 
 # Azure DevOps Feature New

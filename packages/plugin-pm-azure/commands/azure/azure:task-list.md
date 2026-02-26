@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:task-list
+description: "List Tasks from User Story or across the project."
+
 ---
 
 # Azure DevOps Task List

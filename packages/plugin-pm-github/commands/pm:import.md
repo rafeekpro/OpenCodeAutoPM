@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:import
+description: "Import existing GitHub issues into the PM system."
+
 ---
 
 # Import

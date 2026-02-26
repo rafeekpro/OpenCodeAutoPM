@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: create
+description: "This command creates the initial project context documentation in `.opencode/context/` by analyzing the current project state and establishing comprehensive baseline documentation."
+
 ---
 
 # Create Initial Context

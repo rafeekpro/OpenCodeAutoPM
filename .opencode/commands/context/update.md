@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: update
+description: "This command updates the project context documentation in `.opencode/context/` to reflect the current state of the project. Run this at the end of each development session to keep context accurate."
+
 ---
 
 # Update Context

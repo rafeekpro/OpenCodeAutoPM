@@ -1,3 +1,8 @@
+---
+command: ml:ml-train-optimize
+description: "ml:ml-train-optimize"
+---
+
 # ml:train-optimize
 
 Optimize machine learning training pipelines with Context7-verified patterns for scikit-learn, PyTorch, and TensorFlow.

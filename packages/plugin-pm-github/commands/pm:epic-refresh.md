@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Write, LS
+command: pm:epic-refresh
+description: "Update epic progress based on task states."
+
 ---
 
 # Epic Refresh

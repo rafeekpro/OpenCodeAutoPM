@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task
+command: azure:fix-integration-example
+description: "This demonstrates the CORRECT way to integrate Azure DevOps commands with the azure-devops-specialist agent."
+
 ---
 
 # Azure DevOps Integration Fix - Example Command

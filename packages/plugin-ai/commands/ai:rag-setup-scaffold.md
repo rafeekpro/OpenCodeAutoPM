@@ -1,3 +1,8 @@
+---
+command: ai:rag-setup-scaffold
+description: "ai:rag-setup-scaffold"
+---
+
 # RAG Setup Scaffold Command
 
 ## Required Documentation Access

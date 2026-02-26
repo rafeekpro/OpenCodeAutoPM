@@ -1,3 +1,8 @@
+---
+command: devops:ci-pipeline-create
+description: "devops:ci-pipeline-create"
+---
+
 # ci:pipeline-create
 
 Create production-ready CI/CD pipelines for GitHub Actions, Azure DevOps, or GitLab CI with Context7-verified best practices.

@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file
+command: azure:help
+description: "Display help information for Azure DevOps commands."
+
 ---
 
 # Azure DevOps Help

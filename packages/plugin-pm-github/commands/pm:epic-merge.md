@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file
+command: pm:epic-merge
+description: "Merge completed epic branch back to main branch."
+
 ---
 
 # Epic Merge

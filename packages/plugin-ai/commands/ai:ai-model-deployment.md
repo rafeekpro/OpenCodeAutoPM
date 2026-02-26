@@ -1,3 +1,8 @@
+---
+command: ai:ai-model-deployment
+description: "ai:ai-model-deployment"
+---
+
 # AI Model Deployment Command
 
 ## Required Documentation Access

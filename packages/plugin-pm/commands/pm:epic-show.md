@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:epic-show
+description: "Command pm:epic-show"
+
 ---
 
 ---

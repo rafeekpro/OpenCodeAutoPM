@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:task-show
+description: "Display detailed information about a specific Task."
+
 ---
 
 # Azure DevOps Task Show

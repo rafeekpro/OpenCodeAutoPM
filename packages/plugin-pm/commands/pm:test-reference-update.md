@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file
+command: pm:test-reference-update
+description: "Test the task reference update logic used in epic-sync."
+
 ---
 
 # Test Reference Update

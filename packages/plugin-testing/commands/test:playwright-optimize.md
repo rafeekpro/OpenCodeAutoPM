@@ -1,3 +1,8 @@
+---
+command: test:playwright-optimize
+description: "test:playwright-optimize"
+---
+
 # playwright:optimize
 
 Optimize Playwright E2E test performance with Context7-verified parallel execution, sharding, and browser configuration.

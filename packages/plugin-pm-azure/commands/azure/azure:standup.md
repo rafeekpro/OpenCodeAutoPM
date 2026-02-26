@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:standup
+description: "Generate daily standup report with yesterdays progress, todays plan, and blockers."
+
 ---
 
 # Azure DevOps Daily Standup

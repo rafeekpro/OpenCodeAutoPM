@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-start
+description: "Start working on a Task - update status, create branch, and set up work environment."
+
 ---
 
 # Azure DevOps Task Start

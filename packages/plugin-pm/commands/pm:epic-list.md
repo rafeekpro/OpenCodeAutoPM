@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:epic-list
+description: "Command pm:epic-list"
+
 ---
 
 ---

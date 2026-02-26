@@ -1,3 +1,8 @@
+---
+command: devops:incident-response
+description: "devops:incident-response"
+---
+
 # devops:incident-response
 
 Guided incident response workflow for production outages with automated diagnostics, intelligent decision support, and remediation recommendations.

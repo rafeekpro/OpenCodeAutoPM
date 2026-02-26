@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Read, WebFetch, Glob, Grep
+command: azure:docs-query
+description: "Queries latest Azure DevOps documentation via context7 before integration work."
+
 ---
 
 # Azure DevOps Documentation Query

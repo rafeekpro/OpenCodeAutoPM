@@ -1,3 +1,8 @@
+---
+command: devops:monitoring-setup
+description: "devops:monitoring-setup"
+---
+
 # devops:monitoring-setup
 
 Quickly setup production-grade monitoring stack with Prometheus, Grafana, and alerting using Context7-verified best practices.

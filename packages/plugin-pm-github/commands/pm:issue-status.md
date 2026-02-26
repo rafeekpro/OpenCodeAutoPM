@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash, Read, LS
+command: pm:issue-status
+description: "Check issue status (open/closed) and current state."
+
 ---
 
 # Issue Status

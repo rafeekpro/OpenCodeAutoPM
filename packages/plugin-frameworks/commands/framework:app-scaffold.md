@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Read, Write, Edit, MultiEdit, Bash, Glob, Grep
+command: framework:app-scaffold
+description: "Creates a complete React application with TypeScript and modern tooling."
+
 ---
 
 # React Application Scaffolding

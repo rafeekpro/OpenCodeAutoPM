@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Bash, Glob
+command: pm:prd-show
+description: "Display the full content of a Product Requirements Document (PRD)."
+
 ---
 
 # /pm:prd-show - Display PRD Content

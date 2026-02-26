@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:prd-list
+description: "Command pm:prd-list"
+
 ---
 
 ---

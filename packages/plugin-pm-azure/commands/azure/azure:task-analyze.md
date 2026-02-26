@@ -2,6 +2,9 @@
 name: /azure:task-analyze
 type: task-management
 category: azure
+command: azure:task-analyze
+description: "Analyze Task patterns and metrics in Azure DevOps to identify bottlenecks and improvements."
+
 ---
 
 # /azure:task-analyze

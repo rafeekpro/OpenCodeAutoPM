@@ -2,6 +2,9 @@
 name: ssh-security-and-operations
 type: epic-management
 category: infrastructure
+command: cloud:ssh-security
+description: "Set up secure SSH configurations, key management, and remote operations."
+
 ---
 
 # SSH Security and Operations Command

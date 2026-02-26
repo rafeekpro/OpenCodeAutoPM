@@ -9,6 +9,9 @@ tags:
   - scaffold
 mcpTools:
   - context7
+command: lang:python-api-scaffold
+description: "Generate production-ready FastAPI application with Context7-verified best practices."
+
 ---
 
 # Python API Scaffolding Command

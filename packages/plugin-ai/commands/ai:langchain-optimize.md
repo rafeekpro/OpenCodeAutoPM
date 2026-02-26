@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: ai:langchain-optimize
+description: "Optimize LangChain applications with Context7-verified LCEL patterns, async operations, caching, and RAG optimization strategies."
+
 ---
 
 # langchain:optimize

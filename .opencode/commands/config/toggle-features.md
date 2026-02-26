@@ -2,6 +2,9 @@
 name: toggle-features
 type: epic-management
 category: config
+command: toggle-features
+description: "## /config:toggle-features"
+
 ---
 
 # Toggle Features Command

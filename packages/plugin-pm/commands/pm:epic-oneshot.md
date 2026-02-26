@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, LS
+command: pm:epic-oneshot
+description: "Decompose epic into tasks and sync to GitHub in one operation."
+
 ---
 
 # Epic Oneshot

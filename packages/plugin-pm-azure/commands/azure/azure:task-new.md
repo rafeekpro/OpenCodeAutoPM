@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-new
+description: "Create a new Task under a User Story."
+
 ---
 
 # Azure DevOps Task New

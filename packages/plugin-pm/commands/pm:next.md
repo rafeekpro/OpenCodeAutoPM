@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:next
+description: "Command pm:next"
+
 ---
 
 ---

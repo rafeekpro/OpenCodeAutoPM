@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:issue-close
+description: "Mark an issue as complete and close it on GitHub."
+
 ---
 
 # Issue Close

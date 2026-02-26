@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Read, Write, Edit, MultiEdit, Bash, Glob, Grep
+command: cloud:infra-deploy
+description: "Deploys infrastructure to cloud providers using Terraform."
+
 ---
 
 # Cloud Infrastructure Deployment

@@ -1,3 +1,8 @@
+---
+command: azure:aliases
+description: "azure:aliases"
+---
+
 # Azure DevOps Command Aliases
 
 Quick shortcuts for frequently used Azure DevOps commands.

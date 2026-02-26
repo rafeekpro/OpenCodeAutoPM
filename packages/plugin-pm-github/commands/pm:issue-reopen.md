@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:issue-reopen
+description: "Reopen a closed issue."
+
 ---
 
 # Issue Reopen

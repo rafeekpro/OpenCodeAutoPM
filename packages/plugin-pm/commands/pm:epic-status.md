@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:epic-status
+description: "Command pm:epic-status"
+
 ---
 
 ---

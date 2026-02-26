@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:epic-close
+description: "Mark an epic as complete when all tasks are done."
+
 ---
 
 # Epic Close

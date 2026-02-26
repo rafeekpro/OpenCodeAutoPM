@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:task-edit
+description: "Edit Task details and properties in Azure DevOps."
+
 ---
 
 # Azure DevOps Task Edit

@@ -1,3 +1,8 @@
+---
+command: framework:react-optimize
+description: "framework:react-optimize"
+---
+
 # react:optimize
 
 Optimize React application performance with Context7-verified patterns for hooks, memoization, and rendering optimization.

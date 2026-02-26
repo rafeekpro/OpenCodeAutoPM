@@ -1,3 +1,8 @@
+---
+command: azure:INTEGRATION_FIX
+description: "azure:INTEGRATION_FIX"
+---
+
 # Azure DevOps Agent-Command Integration Fix
 
 ## Problem Identified

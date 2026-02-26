@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash, Read, LS
+command: pm:issue-show
+description: "Display issue and sub-issues with detailed information."
+
 ---
 
 # Issue Show

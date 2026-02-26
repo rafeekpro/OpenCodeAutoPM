@@ -1,3 +1,8 @@
+---
+command: db:schema-migrate
+description: "db:schema-migrate"
+---
+
 # db:schema-migrate
 
 Generate and execute database schema migrations safely with rollback support for PostgreSQL, MongoDB, MySQL, and BigQuery.

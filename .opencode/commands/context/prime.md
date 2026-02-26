@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash, Read, LS
+command: prime
+description: "This command loads essential context for a new agent session by reading the project context documentation and understanding the codebase structure."
+
 ---
 
 # Prime Context

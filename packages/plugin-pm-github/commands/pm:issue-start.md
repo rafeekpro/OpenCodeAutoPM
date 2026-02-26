@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir, Task
+command: pm:issue-start
+description: "Begin work on a GitHub issue with parallel agents based on work stream analysis."
+
 ---
 
 # Issue Start

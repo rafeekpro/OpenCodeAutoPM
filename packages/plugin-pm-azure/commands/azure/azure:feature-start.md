@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:feature-start
+description: "Start working on a Feature - update status, create branch, decompose into stories."
+
 ---
 
 # Azure DevOps Feature Start

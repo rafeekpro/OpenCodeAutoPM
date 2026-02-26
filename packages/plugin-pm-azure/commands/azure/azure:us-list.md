@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:us-list
+description: "List and filter User Stories from Azure DevOps project."
+
 ---
 
 # Azure DevOps User Story List

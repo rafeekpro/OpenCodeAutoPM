@@ -2,6 +2,9 @@
 name: epic-split
 type: epic-management
 category: pm
+command: pm:epic-split
+description: "Automatically split a PRD into multiple logical epics based on content analysis."
+
 ---
 
 # Epic Split

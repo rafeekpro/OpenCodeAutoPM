@@ -2,6 +2,9 @@
 name: tailwindcss-design-system
 type: task-management
 category: ui
+command: framework:tailwind-system
+description: "Create a custom design system using TailwindCSS with utility classes and component patterns."
+
 ---
 
 # TailwindCSS Design System Command

@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:issue-analyze
+description: "Analyze an issue to identify parallel work streams for maximum efficiency."
+
 ---
 
 # Issue Analyze

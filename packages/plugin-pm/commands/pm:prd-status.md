@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:prd-status
+description: "Command pm:prd-status"
+
 ---
 
 ---

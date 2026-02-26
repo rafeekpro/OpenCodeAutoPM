@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:prd-new
+description: "Create new product requirement document - interactively or from existing content."
+
 ---
 
 # PRD New

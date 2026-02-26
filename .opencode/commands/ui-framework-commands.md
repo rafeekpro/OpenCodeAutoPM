@@ -2,6 +2,9 @@
 name: ui-framework-commands
 type: epic-management
 category: general
+command: ui-framework-commands
+description: "## Installation Commands"
+
 ---
 
 # UI Framework Commands

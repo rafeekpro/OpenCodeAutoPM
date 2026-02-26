@@ -2,6 +2,9 @@
 name: traefik-reverse-proxy-setup
 type: epic-management
 category: infrastructure
+command: cloud:traefik-setup
+description: "Configure Traefik reverse proxy with SSL termination, load balancing, and service discovery."
+
 ---
 
 # Traefik Reverse Proxy Setup Command

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, WebFetch, Glob, Grep
+command: azure:feature-list
+description: "List all Features/Epics with filtering and sorting options."
+
 ---
 
 # Azure DevOps Feature List

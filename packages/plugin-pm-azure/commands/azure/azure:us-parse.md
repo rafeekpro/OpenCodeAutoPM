@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Bash, Read, Write, Edit, WebFetch, Glob, Grep
+command: azure:us-parse
+description: "Parse a User Story into Tasks with automatic creation in Azure DevOps."
+
 ---
 
 # Azure DevOps User Story Parse

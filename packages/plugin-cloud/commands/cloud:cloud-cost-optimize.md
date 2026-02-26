@@ -1,3 +1,8 @@
+---
+command: cloud:cloud-cost-optimize
+description: "cloud:cloud-cost-optimize"
+---
+
 # cloud:cost-optimize
 
 Analyze and optimize cloud infrastructure costs across AWS, Azure, and GCP.

@@ -1,3 +1,8 @@
+---
+command: ai:rag-optimize
+description: "ai:rag-optimize"
+---
+
 # rag:optimize
 
 Optimize Retrieval-Augmented Generation (RAG) systems with Context7-verified vector store, embeddings, and retrieval strategies.

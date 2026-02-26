@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:issue-sync
+description: "Push local updates as GitHub issue comments for transparent audit trail."
+
 ---
 
 # Issue Sync - Modular Version

@@ -1,5 +1,8 @@
 ---
 allowed-tools: Task, Read, Write, Edit, MultiEdit, Bash, Glob, Grep
+command: cloud:k8s-deploy
+description: "Deploys applications to Kubernetes clusters."
+
 ---
 
 # Kubernetes Deployment

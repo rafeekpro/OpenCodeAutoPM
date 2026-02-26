@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:search
+description: "Command pm:search"
+
 ---
 
 ---

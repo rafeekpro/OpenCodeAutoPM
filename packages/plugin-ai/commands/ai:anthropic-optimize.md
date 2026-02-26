@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: ai:anthropic-optimize
+description: "Optimize Anthropic OpenCode API usage with Context7-verified prompt caching, model selection, streaming, and cost reduction strategies."
+
 ---
 
 # anthropic:optimize

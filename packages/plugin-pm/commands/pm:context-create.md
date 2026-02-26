@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, Glob
+command: pm:context-create
+description: "Initialize project context documentation for AI agent memory."
+
 ---
 
 # Context Create

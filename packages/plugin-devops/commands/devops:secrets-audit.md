@@ -1,3 +1,8 @@
+---
+command: devops:secrets-audit
+description: "devops:secrets-audit"
+---
+
 # devops:secrets-audit
 
 Comprehensive secrets audit to find hardcoded credentials, API keys, tokens in codebase and infrastructure using Context7-verified best practices.

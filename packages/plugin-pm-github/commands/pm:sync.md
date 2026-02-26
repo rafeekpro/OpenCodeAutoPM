@@ -1,5 +1,8 @@
 ---
 allowed-tools: run_command, view_file, write_to_file, list_dir
+command: pm:sync
+description: "Full bidirectional sync between local and GitHub."
+
 ---
 
 # Sync

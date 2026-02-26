@@ -1,5 +1,8 @@
 ---
 allowed-tools: Bash
+command: pm:status
+description: "Command pm:status"
+
 ---
 
 ---

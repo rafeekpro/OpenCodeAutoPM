@@ -1,5 +1,8 @@
 ---
 allowed-tools: Read, Bash
+command: pm:context-prime
+description: "Load project context into current AI session for better understanding and continuity."
+
 ---
 
 # Context Prime

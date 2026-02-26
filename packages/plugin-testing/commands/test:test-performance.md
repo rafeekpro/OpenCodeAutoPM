@@ -1,3 +1,8 @@
+---
+command: test:test-performance
+description: "test:test-performance"
+---
+
 # test:performance
 
 Comprehensive testing performance optimization across all testing frameworks with Context7-verified best practices.
