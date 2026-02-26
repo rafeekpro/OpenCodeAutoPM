@@ -1,0 +1,66 @@
+{
+  "name": "@claudeautopm/plugin-data",
+  "version": "3.0.0",
+  "description": "Complete data engineering plugin with Airflow, Kedro, LangGraph, Kafka, dbt, pandas experts, data quality rules, and example scripts for ClaudeAutoPM",
+  "main": "plugin.json",
+  "type": "module",
+  "keywords": [
+    "claudeautopm",
+    "plugin",
+    "data-engineering",
+    "ml",
+    "machine-learning",
+    "etl",
+    "analytics",
+    "airflow",
+    "kedro",
+    "langgraph",
+    "kafka",
+    "dbt",
+    "pandas",
+    "orchestration",
+    "workflow",
+    "streaming"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "node -e \"require('./plugin.json')\" && echo 'plugin.json is valid'",
+    "lint:python": "find scripts/examples -name '*.py' -exec python3 -m py_compile {} \\;",
+    "lint:sql": "echo 'SQL linting not configured'",
+    "lint:all": "npm run lint:python && npm run lint:sql"
+  },
+  "author": {
+    "name": "ClaudeAutoPM Team",
+    "email": "autopm@example.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "directory": "packages/plugin-data"
+  },
+  "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-data#readme",
+  "bugs": {
+    "url": "https://github.com/rafeekpro/ClaudeAutoPM/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "agents/",
+    "commands/",
+    "rules/",
+    "scripts/",
+    "plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@claudeautopm/plugin-core": "^2.0.0"
+  }
+}

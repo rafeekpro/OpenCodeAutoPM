@@ -1,0 +1,66 @@
+{
+  "version": "1.12.2",
+  "installed": "2025-09-30T09:00:00Z",
+  "execution_strategy": {
+    "mode": "adaptive"
+  },
+  "features": {
+    "docker_first_development": true,
+    "enforce_docker_tests": true,
+    "block_local_execution": true,
+    "auto_create_dockerfile": true,
+    "sync_with_ci": true,
+    "kubernetes_devops_testing": true,
+    "github_actions_k8s": true,
+    "integration_tests": true
+  },
+  "docker": {
+    "default_base_images": {
+      "python": "python:3.11-slim",
+      "node": "node:20-alpine",
+      "go": "golang:1.21-alpine"
+    },
+    "volume_mounts": {
+      "source_code": true,
+      "node_modules": false,
+      "python_venv": false
+    },
+    "development": {
+      "hot_reload": true,
+      "debug_ports": true,
+      "local_db": true
+    }
+  },
+  "kubernetes": {
+    "enabled": true,
+    "testing": {
+      "integration_tests": true,
+      "helm_chart_tests": true,
+      "kubectl_smoke_tests": true
+    },
+    "environments": {
+      "minikube": true,
+      "kind": true,
+      "k3d": false
+    },
+    "manifests": {
+      "auto_generate": true,
+      "validate_yaml": true,
+      "security_policies": true
+    }
+  },
+  "github_actions": {
+    "kubernetes_tests": true,
+    "docker_integration": true,
+    "matrix_testing": true,
+    "cache_optimization": true
+  },
+  "exceptions": {
+    "allow_local_commands": [
+      "git",
+      "docker",
+      "docker compose",
+      "make"
+    ]
+  }
+}

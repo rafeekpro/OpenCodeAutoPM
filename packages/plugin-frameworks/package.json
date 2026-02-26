@@ -1,0 +1,59 @@
+{
+  "name": "@claudeautopm/plugin-frameworks",
+  "version": "2.0.0",
+  "description": "Complete frontend frameworks plugin with React, Vue, Tailwind CSS agents, UI commands, performance rules, and optimization scripts for ClaudeAutoPM",
+  "main": "plugin.json",
+  "type": "module",
+  "files": [
+    "agents/",
+    "commands/",
+    "rules/",
+    "scripts/",
+    "plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "node -e \"require('./plugin.json')\" && echo 'plugin.json is valid'"
+  },
+  "keywords": [
+    "claudeautopm",
+    "plugin",
+    "frameworks",
+    "react",
+    "vue",
+    "tailwind",
+    "tailwindcss",
+    "frontend",
+    "ui",
+    "components",
+    "hooks",
+    "performance"
+  ],
+  "author": {
+    "name": "ClaudeAutoPM Team",
+    "email": "autopm@example.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafeekpro/ClaudeAutoPM.git",
+    "directory": "packages/plugin-frameworks"
+  },
+  "homepage": "https://github.com/rafeekpro/ClaudeAutoPM/tree/main/packages/plugin-frameworks#readme",
+  "bugs": {
+    "url": "https://github.com/rafeekpro/ClaudeAutoPM/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "peerDependencies": {
+    "@claudeautopm/plugin-core": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
