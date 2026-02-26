@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-pm",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Complete project management plugin with PM workflows, epic management, issue tracking, and release automation for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",
