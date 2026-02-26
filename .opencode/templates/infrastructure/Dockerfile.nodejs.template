@@ -1,0 +1,54 @@
+# OpenCodeAutoPM Standard Node.js Dockerfile Template
+# Features:
+# - Multi-stage build for smaller image size
+# - Separate build and runtime stages
+# - Non-root user for security
+# - Health checks
+# - Production-optimized
+
+# Stage 1: Builder
+FROM node:20-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci --legacy-peer-deps
+
+# Copy source and build
+COPY . .
+RUN npm run build
+
+# Stage 2: Runtime (nginx for static files)
+FROM nginx:alpine AS runtime
+
+# Install curl for health checks
+RUN apk add --no-cache curl
+
+# Create non-root user (nginx:alpine already has nginx user)
+# DO NOT create duplicate user/group
+
+# Copy built assets from builder
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Set proper ownership
+RUN chown -R nginx:nginx /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chown -R nginx:nginx /etc/nginx/conf.d && \
+    touch /var/run/nginx.pid && \
+    chown -R nginx:nginx /var/run/nginx.pid
+
+# Switch to non-root user
+USER nginx
+
+# Expose port (use non-conflicting port in docker-compose.yml: 58080:80)
+EXPOSE 80
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/health || exit 1
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

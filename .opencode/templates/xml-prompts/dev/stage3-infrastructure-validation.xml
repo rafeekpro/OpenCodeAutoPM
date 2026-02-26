@@ -49,6 +49,80 @@
     </coverage_minimum>
   </testing_requirements>
 
+  <!-- Infrastructure Configuration Requirements -->
+  <infrastructure_requirements>
+    <port_conflict_prevention>
+      <mandatory>TRUE</mandatory>
+      <description>
+        All docker-compose.yml files MUST use non-conflicting port ranges
+        to avoid conflicts with local services.
+      </description>
+      <standard_ports>
+        Backend API: 58000 (not 8000)
+        Frontend: 58080 (not 80)
+        PostgreSQL: 54320 (not 5432)
+        Redis: 56379 (not 6379)
+        MongoDB: 57017 (not 27017)
+        MySQL: 53306 (not 3306)
+      </standard_ports>
+      <enforcement>
+        Pre-commit hook: .git/hooks/pre-commit.d/check-ports.sh
+        Blocks commits if required ports are already allocated
+      </enforcement>
+      <anti_pattern>
+        ❌ FORBIDDEN: Standard ports that conflict
+        ports:
+          - "8000:8000"  # Conflicts with common local services
+          - "5432:5432"  # Conflicts with local PostgreSQL
+          - "6379:6379"  # Conflicts with local Redis
+      </anti_pattern>
+      <required_pattern>
+        ✅ REQUIRED: Non-conflicting 5xxxx range
+        ports:
+          - "58000:8000"  # Backend API
+          - "58080:80"    # Frontend
+          - "54320:5432"  # PostgreSQL
+          - "56379:6379"  # Redis
+      </required_pattern>
+    </port_conflict_prevention>
+
+    <multi_stage_build_requirements>
+      <mandatory>TRUE</mandatory>
+      <description>
+        Multi-stage Dockerfile builds MUST use system-wide package installation
+        when runtime runs as non-root user. Never use --user flag in builder stage.
+      </description>
+      <problem>
+        Using 'pip install --user' creates files in /root/.local owned by root.
+        Runtime stage running as non-root user gets "Permission denied" when
+        trying to execute binaries from /root/.local/bin.
+      </problem>
+      <anti_pattern>
+        ❌ FORBIDDEN: User installation with non-root runtime
+        # Builder stage
+        RUN pip install --user -r requirements.txt
+        COPY --from=builder /root/.local /root/.local
+        USER appuser
+        CMD ["uvicorn", "app.main:app"]  # Permission denied!
+      </anti_pattern>
+      <required_pattern>
+        ✅ REQUIRED: System-wide installation
+        # Builder stage
+        RUN pip install -r requirements.txt
+        # Runtime stage
+        COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+        COPY --from=builder /usr/local/bin /usr/local/bin
+        USER appuser
+        CMD ["uvicorn", "app.main:app"]  # Works!
+      </required_pattern>
+      <testing_required>
+        Test MUST verify container starts successfully as non-root user:
+        subprocess.run(["docker", "run", "--rm", "image:tag", "whoami"])
+        Expected output: "appuser" (not root)
+      </testing_required>
+    </multi_stage_build_requirements>
+  </infrastructure_requirements>
+
   <!-- Pre-commit Commitment -->
   <pre_commit_hooks>
     <hook name="docker-build-validation">

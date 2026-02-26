@@ -1,0 +1,79 @@
+# OpenCodeAutoPM Standard docker-compose.yml Template
+# Features:
+# - Non-conflicting port ranges (5xxxx)
+# - Health checks for all services
+# - Proper dependency management
+# - Development-friendly configuration
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: runtime
+    ports:
+      # Use non-conflicting port range (5xxxx) to avoid conflicts
+      - "58000:8000"  # Backend API
+    environment:
+      - DATABASE_URL=postgresql://app:password@postgres:54320/appdb
+      - REDIS_URL=redis://redis:56379
+    volumes:
+      - ./backend:/app
+      - /root/.local  # Preserve dependencies
+    depends_on:
+      - postgres
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: runtime
+    ports:
+      # Use non-conflicting port range
+      - "58080:80"  # Frontend web server
+    depends_on:
+      - backend
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: password
+    ports:
+      # Use non-conflicting port to avoid conflict with local PostgreSQL
+      - "54320:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d appdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      # Use non-conflicting port to avoid conflict with local Redis
+      - "56379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
