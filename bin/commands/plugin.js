@@ -63,7 +63,7 @@ Installation:
 
 Usage:
   After installation, use 'open-autopm team load' to include plugin agents
-  or manually add @include directives to CLAUDE.md
+  or manually add @include directives to OPENCODE.md
       `);
   },
 
@@ -287,7 +287,7 @@ async function handleInstall(manager, pluginName, argv) {
   console.log('');
   console.log(chalk.bold('Next steps:'));
   console.log(`  1. Load agents: ${chalk.cyan('open-autopm team load <team>')}`);
-  console.log(`  2. Or manually add to CLAUDE.md:`);
+  console.log(`  2. Or manually add to OPENCODE.md:`);
   console.log(`     ${chalk.gray(`- @include .opencode/agents/${result.category}/<agent>.md`)}`);
   console.log('');
 }

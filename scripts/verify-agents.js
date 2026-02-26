@@ -37,13 +37,13 @@ class AgentVerification {
     });
   }
 
-  // Check CLAUDE.md references
+  // Check OPENCODE.md references
   checkClaudeMd() {
-    console.log('📄 Checking CLAUDE.md references...');
+    console.log('📄 Checking OPENCODE.md references...');
 
-    const claudePath = path.join(this.projectRoot, 'CLAUDE.md');
+    const claudePath = path.join(this.projectRoot, 'OPENCODE.md');
     if (!fs.existsSync(claudePath)) {
-      this.errors.push('❌ CLAUDE.md not found');
+      this.errors.push('❌ OPENCODE.md not found');
       return;
     }
 
@@ -58,17 +58,17 @@ class AgentVerification {
 
     requiredAgents.forEach(agent => {
       if (content.includes(agent)) {
-        this.successes.push(`✅ CLAUDE.md references: ${agent}`);
+        this.successes.push(`✅ OPENCODE.md references: ${agent}`);
       } else {
-        this.warnings.push(`⚠️ CLAUDE.md missing reference: ${agent}`);
+        this.warnings.push(`⚠️ OPENCODE.md missing reference: ${agent}`);
       }
     });
 
     // Check for agent paths
     if (content.includes('autopm/.opencode/agents/')) {
-      this.successes.push('✅ CLAUDE.md includes agent paths');
+      this.successes.push('✅ OPENCODE.md includes agent paths');
     } else {
-      this.errors.push('❌ CLAUDE.md missing agent paths');
+      this.errors.push('❌ OPENCODE.md missing agent paths');
     }
   }
 
@@ -205,7 +205,7 @@ class AgentVerification {
 
     // Recommendations
     console.log('\n💡 Recommendations:');
-    console.log('  1. Ensure all framework agents are referenced in CLAUDE.md');
+    console.log('  1. Ensure all framework agents are referenced in OPENCODE.md');
     console.log('  2. Use @agent-name syntax to invoke agents');
     console.log('  3. Run "pm validate" regularly to check configuration');
     console.log('  4. Use "pm health" to monitor system status');

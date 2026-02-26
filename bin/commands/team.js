@@ -8,8 +8,8 @@ const MCPHandler = require('../../scripts/mcp-handler.js');
 const projectRoot = process.cwd();
 const teamsConfigPath = path.join(projectRoot, '.opencode', 'teams.json');
 const activeTeamPath = path.join(projectRoot, '.opencode', 'active_team.txt');
-const claudeMdPath = path.join(projectRoot, 'CLAUDE.md');
-const claudeTemplatePath = path.join(projectRoot, '.opencode', 'templates', 'claude-templates', 'base.md');
+const claudeMdPath = path.join(projectRoot, 'OPENCODE.md');
+const claudeTemplatePath = path.join(projectRoot, '.opencode', 'templates', 'opencode-templates', 'base.md');
 
 // Helper function to resolve all agents for a team (including inherited)
 function resolveAgents(teamName, teamsConfig, resolved = new Set()) {
@@ -140,11 +140,11 @@ function generateAgentIncludes(agents) {
     .join('\n');
 }
 
-// Helper function to update CLAUDE.md with new agent list
+// Helper function to update OPENCODE.md with new agent list
 function updateClaudeMd(agents) {
   let template = '';
 
-  // Try to read existing CLAUDE.md first, then template
+  // Try to read existing OPENCODE.md first, then template
   if (fs.existsSync(claudeMdPath)) {
     template = fs.readFileSync(claudeMdPath, 'utf8');
   } else if (fs.existsSync(claudeTemplatePath)) {
@@ -452,9 +452,9 @@ const commands = {
         console.warn('💡 Tip: Run "open-autopm mcp setup" for interactive configuration\n');
       }
 
-      // Update CLAUDE.md with the new agent list
+      // Update OPENCODE.md with the new agent list
       updateClaudeMd(agents);
-      console.log('✓ Updated CLAUDE.md with team agents');
+      console.log('✓ Updated OPENCODE.md with team agents');
 
       // Save active team
       fs.writeFileSync(activeTeamPath, teamName);

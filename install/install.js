@@ -5,7 +5,7 @@
  *
  * This script installs or updates the OpenCodeAutoPM framework
  * including .opencode, .opencode-code, scripts folders
- * and handles CLAUDE.md migration/merging
+ * and handles OPENCODE.md migration/merging
  */
 
 const fs = require('fs');
@@ -156,7 +156,7 @@ ${this.colors.BOLD}Options:${this.colors.NC}
   --help, -h         Show this help message
   --version, -v      Show version information
   --force            Force overwrite existing files
-  --merge            Merge with existing CLAUDE.md
+  --merge            Merge with existing OPENCODE.md
   --check-env        Check environment dependencies
   --setup-hooks      Setup git hooks after installation
   --scenario=NAME    Use predefined installation scenario
@@ -171,7 +171,7 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
   install.sh                    Install in current directory
   install.sh /path/to/project   Install in specific directory
   install.sh --scenario=full    Install with full DevOps features
-  install.sh --force --merge    Force install and merge CLAUDE.md
+  install.sh --force --merge    Force install and merge OPENCODE.md
 `);
   }
 
@@ -686,7 +686,7 @@ ${this.colors.BOLD}Select installation scenario:${this.colors.NC}
     const configPath = path.join(configDir, 'config.json');
     const config = this.generateConfig(scenario);
 
-    // Store for use in CLAUDE.md generation
+    // Store for use in OPENCODE.md generation
     this.currentScenario = scenario;
     this.currentConfig = config;
 
@@ -699,53 +699,53 @@ ${this.colors.BOLD}Select installation scenario:${this.colors.NC}
   }
 
   installClaudeMd() {
-    this.printStep('Setting up CLAUDE.md...');
+    this.printStep('Setting up OPENCODE.md...');
 
-    const targetPath = path.join(this.targetDir, 'CLAUDE.md');
+    const targetPath = path.join(this.targetDir, 'OPENCODE.md');
 
     try {
-      // Generate CLAUDE.md from templates based on configuration
+      // Generate OPENCODE.md from templates based on configuration
       const claudeContent = this.generateClaudeFromTemplates();
 
       if (fs.existsSync(targetPath)) {
         if (this.options.merge) {
           // Use merge script for intelligent merging
-          const mergeScript = path.join(this.scriptDir, 'merge-claude.sh');
+          const mergeScript = path.join(this.scriptDir, 'merge-opencode.sh');
           if (fs.existsSync(mergeScript)) {
             // Create temporary file with new content
-            const tempFile = path.join(this.targetDir, 'CLAUDE.md.new');
+            const tempFile = path.join(this.targetDir, 'OPENCODE.md.new');
             fs.writeFileSync(tempFile, claudeContent);
 
             try {
               execSync(`bash "${mergeScript}" "${targetPath}" "${tempFile}"`, { stdio: 'inherit' });
               // Clean up temp file
               fs.unlinkSync(tempFile);
-              this.printSuccess('CLAUDE.md merged successfully');
+              this.printSuccess('OPENCODE.md merged successfully');
             } catch (error) {
               fs.unlinkSync(tempFile);
-              this.printError('Failed to merge CLAUDE.md, using backup method');
+              this.printError('Failed to merge OPENCODE.md, using backup method');
               // Fallback: backup and replace
               this.backupExisting(targetPath);
               fs.writeFileSync(targetPath, claudeContent);
-              this.printSuccess('CLAUDE.md replaced (original backed up)');
+              this.printSuccess('OPENCODE.md replaced (original backed up)');
             }
           } else {
             // No merge script, append new content
             const existing = fs.readFileSync(targetPath, 'utf-8');
-            fs.writeFileSync(targetPath, existing + '\n\n<!-- NEW CLAUDE.md CONTENT -->\n\n' + claudeContent);
-            this.printSuccess('CLAUDE.md content appended');
+            fs.writeFileSync(targetPath, existing + '\n\n<!-- NEW OPENCODE.md CONTENT -->\n\n' + claudeContent);
+            this.printSuccess('OPENCODE.md content appended');
           }
         } else {
           this.backupExisting(targetPath);
           fs.writeFileSync(targetPath, claudeContent);
-          this.printSuccess('CLAUDE.md updated from templates');
+          this.printSuccess('OPENCODE.md updated from templates');
         }
       } else {
         fs.writeFileSync(targetPath, claudeContent);
-        this.printSuccess('CLAUDE.md created from templates');
+        this.printSuccess('OPENCODE.md created from templates');
       }
     } catch (error) {
-      this.printError(`Failed to generate CLAUDE.md: ${error.message}`);
+      this.printError(`Failed to generate OPENCODE.md: ${error.message}`);
 
       // Fallback to basic template
       const basicTemplate = `# OpenCodeAutoPM Configuration
@@ -767,13 +767,13 @@ See: https://github.com/rafeekpro/OpenCodeAutoPM
 
       if (!fs.existsSync(targetPath)) {
         fs.writeFileSync(targetPath, basicTemplate);
-        this.printSuccess('CLAUDE.md created with fallback template');
+        this.printSuccess('OPENCODE.md created with fallback template');
       }
     }
   }
 
   generateClaudeFromTemplates() {
-    const templatesDir = path.join(this.autopmDir, '.opencode', 'templates', 'claude-templates');
+    const templatesDir = path.join(this.autopmDir, '.opencode', 'templates', 'opencode-templates');
     const basePath = path.join(templatesDir, 'base.md');
     const addonsDir = path.join(templatesDir, 'addons');
 
@@ -1343,7 +1343,7 @@ See: https://github.com/rafeekpro/OpenCodeAutoPM
     // Install plugins based on scenario
     await this.installPlugins();
 
-    // Install CLAUDE.md
+    // Install OPENCODE.md
     this.installClaudeMd();
 
     // Setup MCP integration for OpenCode Code

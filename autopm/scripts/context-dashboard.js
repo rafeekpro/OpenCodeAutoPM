@@ -62,8 +62,8 @@ class ContextDashboard {
 
     // Documentation
     const claudeMd = this.isFramework
-      ? path.join(this.projectRoot, 'CLAUDE.md')  // Framework CLAUDE.md
-      : path.join(this.projectRoot, 'CLAUDE.md'); // Project CLAUDE.md
+      ? path.join(this.projectRoot, 'OPENCODE.md')  // Framework OPENCODE.md
+      : path.join(this.projectRoot, 'OPENCODE.md'); // Project OPENCODE.md
 
     if (fs.existsSync(claudeMd)) {
       this.scanFile(claudeMd, 'docs');

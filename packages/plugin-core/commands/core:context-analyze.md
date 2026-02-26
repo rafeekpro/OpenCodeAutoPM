@@ -28,8 +28,8 @@ usage: |
     --recommend         Include actionable recommendations
     --history           Show historical usage trends
 examples:
-  - input: /core:context-analyze --file CLAUDE.md --tokens
-    description: Analyze token usage for CLAUDE.md with detailed breakdown
+  - input: /core:context-analyze --file OPENCODE.md --tokens
+    description: Analyze token usage for OPENCODE.md with detailed breakdown
   - input: /core:context-analyze --session current --visualize
     description: Analyze current session with visual charts
   - input: /core:context-analyze --optimize --target 50%
@@ -75,7 +75,7 @@ Before implementation, query Context7 for:
 1. **Identify Target Content**
    - If `--file` specified: Analyze single file
    - If `--session current`: Analyze all files in current context
-   - Default: Analyze CLAUDE.md and related configuration files
+   - Default: Analyze OPENCODE.md and related configuration files
 
 2. **Count Tokens Using Proper Encoding**
    ```javascript
@@ -107,7 +107,7 @@ Context Efficiency: Good ✅
 ```
 
 **Break Down by Category:**
-- Configuration files (CLAUDE.md, plugin.json, etc.)
+- Configuration files (OPENCODE.md, plugin.json, etc.)
 - Source code files
 - Documentation files
 - Test files
@@ -121,7 +121,7 @@ Context Efficiency: Good ✅
 📈 Top Token Contributors
 ========================
 
-1. CLAUDE.md                    12,456 tokens (27.5%) ⚠️
+1. OPENCODE.md                    12,456 tokens (27.5%) ⚠️
 2. .opencode/agents/agent1.md      5,234 tokens (11.6%)
 3. .opencode/agents/agent2.md      4,123 tokens  (9.1%)
 4. src/index.js                  3,891 tokens  (8.6%)
@@ -173,7 +173,7 @@ Unused MCP Tools:
 
 High Impact (>5,000 token reduction):
 
-1. Split CLAUDE.md (12,456 tokens → ~6,000 tokens)
+1. Split OPENCODE.md (12,456 tokens → ~6,000 tokens)
    - Move agent documentation to separate files
    - Extract examples to .opencode/examples/
    - Impact: -6,456 tokens (14.3% reduction)
@@ -254,7 +254,7 @@ Cache Hit Rate: 81% ✅
 Cache Miss Rate: 19%
 
 Most Cached Content:
-1. CLAUDE.md (95% hit rate, rarely changes)
+1. OPENCODE.md (95% hit rate, rarely changes)
 2. plugin.json files (89% hit rate)
 3. Agent definitions (76% hit rate)
 
@@ -308,7 +308,7 @@ Generate ASCII charts for terminal display:
 Token Distribution (Top 10 Files)
 ==================================
 
-CLAUDE.md         ████████████████████████ 12,456 (27.5%)
+OPENCODE.md         ████████████████████████ 12,456 (27.5%)
 agent1.md         ██████████ 5,234 (11.6%)
 agent2.md         ████████ 4,123 (9.1%)
 index.js          ███████ 3,891 (8.6%)
@@ -335,12 +335,12 @@ Scale: █ = 500 tokens
 ### Top Contributors
 | File | Tokens | % of Total |
 |------|--------|------------|
-| CLAUDE.md | 12,456 | 27.5% |
+| OPENCODE.md | 12,456 | 27.5% |
 | agent1.md | 5,234 | 11.6% |
 | agent2.md | 4,123 | 9.1% |
 
 ### Recommendations
-1. Split CLAUDE.md (-6,456 tokens)
+1. Split OPENCODE.md (-6,456 tokens)
 2. Summarize verbose agents (-4,357 tokens)
 3. Deduplicate MCP tools (-1,434 tokens)
 ```
@@ -364,7 +364,7 @@ Output:
 - Status: Healthy ✅
 
 📈 TOP TOKEN CONTRIBUTORS:
-1. CLAUDE.md - 12,456 tokens (27.5%) ⚠️
+1. OPENCODE.md - 12,456 tokens (27.5%) ⚠️
 2. agent1.md - 5,234 tokens (11.6%)
 3. agent2.md - 4,123 tokens (9.1%)
 ```
@@ -372,7 +372,7 @@ Output:
 ### File-Specific Analysis
 
 ```
-/core:context-analyze --file CLAUDE.md --tokens
+/core:context-analyze --file OPENCODE.md --tokens
 ```
 
 Shows detailed token breakdown for a specific file.
@@ -405,7 +405,7 @@ Complete analysis with charts, recommendations, and trends.
 - Status: Healthy ✅
 
 📈 TOP TOKEN CONTRIBUTORS:
-1. CLAUDE.md - 12,456 tokens (27.5%) ⚠️
+1. OPENCODE.md - 12,456 tokens (27.5%) ⚠️
 2. agent1.md - 5,234 tokens (11.6%)
 3. agent2.md - 4,123 tokens (9.1%)
 4. index.js - 3,891 tokens (8.6%)
@@ -418,7 +418,7 @@ Complete analysis with charts, recommendations, and trends.
 
 💡 OPTIMIZATION SUGGESTIONS:
 High Impact:
-  ✨ Split CLAUDE.md → -6,456 tokens (14.3% reduction)
+  ✨ Split OPENCODE.md → -6,456 tokens (14.3% reduction)
   ✨ Summarize verbose agents → -4,357 tokens (9.6% reduction)
 
 Medium Impact:
@@ -457,7 +457,7 @@ The `@mcp-context-manager` agent specializes in context optimization:
 For large file analysis:
 
 ```
-@file-analyzer summarize CLAUDE.md for key information
+@file-analyzer summarize OPENCODE.md for key information
 - Extract core instructions
 - Identify redundant sections
 - Suggest consolidation opportunities
@@ -497,7 +497,7 @@ If agents unavailable:
 - Stream results for real-time feedback
 
 ```
-Processing large file: CLAUDE.md (234 KB)
+Processing large file: OPENCODE.md (234 KB)
   Chunk 1/5... ████████ 45,234 tokens ✅
   Chunk 2/5... ████████ 42,891 tokens ✅
   Chunk 3/5... ████████ 39,456 tokens ✅
@@ -553,7 +553,7 @@ Results marked as [ESTIMATED]
 ## Related Commands
 
 **See Also:**
-- `/core:re-init` - Reinitialize CLAUDE.md with optimization
+- `/core:re-init` - Reinitialize OPENCODE.md with optimization
 - `@file-analyzer` - Analyze and summarize large files
 - `@code-analyzer` - Code-specific analysis and optimization
 - `@mcp-context-manager` - Specialized context management agent
@@ -624,13 +624,13 @@ Results marked as [ESTIMATED]
    /core:context-analyze --session current --recommend
 
 2. Review top contributors:
-   CLAUDE.md: 45,234 tokens (too large)
+   OPENCODE.md: 45,234 tokens (too large)
 
 3. Get file summary:
-   @file-analyzer summarize CLAUDE.md --extract-key-points
+   @file-analyzer summarize OPENCODE.md --extract-key-points
 
 4. Implement optimization:
-   - Split into CLAUDE.md + .opencode/documentation/
+   - Split into OPENCODE.md + .opencode/documentation/
    - Move examples to separate files
    - Reference instead of duplicate
 

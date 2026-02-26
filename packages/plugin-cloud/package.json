@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-cloud",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Complete cloud infrastructure plugin with agents for AWS, Azure, GCP, Kubernetes, Terraform, and infrastructure automation for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

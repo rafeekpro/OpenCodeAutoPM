@@ -132,12 +132,12 @@ else
     echo "  Initialize with: git init"
   fi
 
-  # Create CLAUDE.md if it doesn't exist
-  if [ ! -f "CLAUDE.md" ]; then
+  # Create OPENCODE.md if it doesn't exist
+  if [ ! -f "OPENCODE.md" ]; then
     echo ""
-    echo "📄 Creating CLAUDE.md..."
-    cat > CLAUDE.md << 'EOF'
-# CLAUDE.md
+    echo "📄 Creating OPENCODE.md..."
+    cat > OPENCODE.md << 'EOF'
+# OPENCODE.md
 
 > Think carefully and implement the most concise solution that changes as little code as possible.
 
@@ -154,7 +154,7 @@ Always run tests before committing:
 
 Follow existing patterns in the codebase.
 EOF
-    echo "  ✅ CLAUDE.md created"
+    echo "  ✅ OPENCODE.md created"
   fi
 
   # Summary

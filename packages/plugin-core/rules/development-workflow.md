@@ -44,7 +44,7 @@
 1. Run full test suite via test-runner
 2. Use code-analyzer for final review
 3. Update documentation ONLY if requested
-4. Document patterns in CLAUDE.md if new
+4. Document patterns in OPENCODE.md if new
 5. Verify no resource leaks
 
 ### Cleanup Tasks
@@ -146,7 +146,7 @@ NEVER:
 ### Learn From Each Task
 
 1. Document new patterns discovered
-2. Update CLAUDE.md with learnings
+2. Update OPENCODE.md with learnings
 3. Create new agent if pattern repeats
 4. Improve pipeline efficiency
 5. Share knowledge in rules

@@ -60,7 +60,7 @@ autopm plugin install databases
 After installation, agents are available in your project:
 
 ```markdown
-<!-- CLAUDE.md -->
+<!-- OPENCODE.md -->
 ## Active Team Agents
 
 <!-- Load database agents -->

@@ -15,7 +15,7 @@
    - Refactor while tests pass (REFACTOR)
 3. test-runner → Verify fix across entire codebase
 4. file-analyzer → Document fix in error log
-5. Update CLAUDE.md with new error pattern
+5. Update OPENCODE.md with new error pattern
 ```
 
 ## 2. FEATURE IMPLEMENTATION PIPELINE
@@ -32,7 +32,7 @@
 3. test-runner → Run full test suite
 4. code-analyzer → Review for bugs and edge cases
 5. Update README.md with feature documentation
-6. Update CLAUDE.md with new patterns learned
+6. Update OPENCODE.md with new patterns learned
 ```
 
 ## 3. BUG FIX PIPELINE
@@ -46,7 +46,7 @@
 3. code-analyzer → Implement fix
 4. test-runner → Verify fix doesn't break other tests
 5. test-runner → Run regression tests
-6. Document bug pattern in CLAUDE.md
+6. Document bug pattern in OPENCODE.md
 ```
 
 ## 4. CODE SEARCH/RESEARCH PIPELINE

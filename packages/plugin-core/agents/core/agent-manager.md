@@ -49,7 +49,7 @@ Access agent development and management documentation:
    - [ ] Add agent rules in `.opencode/rules/[agent-name]-rules.md` (if needed)
    - [ ] Create command patterns in `.opencode/commands/[agent-name]-commands.md`
    - [ ] Create test scaffold in `tests/agents/[agent-name]_test.sh`
-   - [ ] Update `.opencode/CLAUDE.md` with agent reference
+   - [ ] Update `.opencode/OPENCODE.md` with agent reference
    - [ ] Add to agent registry in appropriate category
    - [ ] Create Context7 integration documentation
    - [ ] Add agent to main system prompt registry

@@ -8,7 +8,7 @@ This directory contains installation and configuration scripts for the **OpenCod
 |------|-------------|
 | `install.sh` | Main installation script for OpenCodeAutoPM framework |
 | `update.sh` | Update existing installation to latest framework version |
-| `merge-claude.sh` | Helper script for merging CLAUDE.md configurations |
+| `merge-opencode.sh` | Helper script for merging OPENCODE.md configurations |
 | `README.md` | This documentation file |
 
 ## 🎯 Quick Start
@@ -58,10 +58,10 @@ autopm update --force --no-backup
 - `COMMIT_CHECKLIST.md` - Quality assurance checklist
 - `LICENSE` - License file
 
-✅ **Handles CLAUDE.md Migration:**
+✅ **Handles OPENCODE.md Migration:**
 
-- Copies `.opencode/CLAUDE_BASIC.md` → `CLAUDE.md` (new installations)
-- Detects conflicts with existing `CLAUDE.md`
+- Copies `.opencode/CLAUDE_BASIC.md` → `OPENCODE.md` (new installations)
+- Detects conflicts with existing `OPENCODE.md`
 - Offers intelligent merge prompts for combining configurations
 
 ✅ **Smart Update Logic:**
@@ -88,7 +88,7 @@ autopm update --force --no-backup
 #### 🆕 Fresh Installation
 
 - Copies all framework files
-- Creates `CLAUDE.md` from `CLAUDE_BASIC.md`
+- Creates `OPENCODE.md` from `CLAUDE_BASIC.md`
 - Sets up complete project structure
 
 #### 🔄 Update/Sync Mode
@@ -96,7 +96,7 @@ autopm update --force --no-backup
 - Detects existing installation
 - Creates automatic backup
 - Updates only changed files
-- Offers merge assistance for `CLAUDE.md`
+- Offers merge assistance for `OPENCODE.md`
 
 ## 🔄 Update Script (`update.sh`)
 
@@ -160,26 +160,26 @@ autopm update --no-preserve-config
 - `teams.json` - Your team configurations
 - `.env.local` - Your environment variables
 
-## 🤖 Merge Helper (`merge-claude.sh`)
+## 🤖 Merge Helper (`merge-opencode.sh`)
 
 ### What It Does
 
 Generates comprehensive AI prompts for intelligently merging:
 
-- Your existing `CLAUDE.md` (with customizations)
+- Your existing `OPENCODE.md` (with customizations)
 - New `CLAUDE_BASIC.md` (framework updates)
 
 ### Usage
 
 ```bash
 # Interactive mode (auto-discovers files)
-./install/merge-claude.sh
+./install/merge-opencode.sh
 
 # Explicit file paths
-./install/merge-claude.sh CLAUDE.md .opencode/CLAUDE_BASIC.md
+./install/merge-opencode.sh OPENCODE.md .opencode/CLAUDE_BASIC.md
 
 # Save prompt to file
-./install/merge-claude.sh CLAUDE.md .opencode/CLAUDE_BASIC.md merge_prompt.md
+./install/merge-opencode.sh OPENCODE.md .opencode/CLAUDE_BASIC.md merge_prompt.md
 ```
 
 ### Output Options
@@ -221,7 +221,7 @@ flowchart TD
     
     B -->|No| C[Fresh Installation]
     C --> D[Copy all framework files]
-    D --> E[Create CLAUDE.md from CLAUDE_BASIC.md]
+    D --> E[Create OPENCODE.md from CLAUDE_BASIC.md]
     E --> F[Setup complete]
     
     B -->|Yes| G[Update Mode]
@@ -260,7 +260,7 @@ The installer uses intelligent file comparison to:
 ├── .opencode/
 ├── .github/
 ├── scripts/
-├── CLAUDE.md
+├── OPENCODE.md
 └── ... (other existing files)
 ```
 
@@ -310,7 +310,7 @@ INSTALL_ITEMS+=(
 
 ```bash
 chmod +x install/install.sh
-chmod +x install/merge-claude.sh
+chmod +x install/merge-opencode.sh
 ```
 
 **Missing dependencies:**
@@ -332,21 +332,21 @@ ls -la .autopm_backup_*
 
 1. **Check logs**: Installation provides detailed output
 2. **Review backups**: All changes are backed up
-3. **Manual merge**: Use `merge-claude.sh` separately
+3. **Manual merge**: Use `merge-opencode.sh` separately
 4. **Reset**: Delete `.autopm_backup_*` and re-run
 
 ## 📖 Related Documentation
 
 - [`PLAYBOOK.md`](../PLAYBOOK.md) - OpenCodeAutoPM usage guide
 - [`COMMIT_CHECKLIST.md`](../COMMIT_CHECKLIST.md) - Quality standards
-- [`.opencode/CLAUDE.md`](../.opencode/CLAUDE.md) - Complete configuration
+- [`.opencode/OPENCODE.md`](../.opencode/OPENCODE.md) - Complete configuration
 - [`.opencode/rules/`](../.opencode/rules/) - Development rules
 
 ## 🎉 Post-Installation
 
 After successful installation:
 
-1. **Review `CLAUDE.md`** - Customize for your project
+1. **Review `OPENCODE.md`** - Customize for your project
 2. **Setup `.env`** - Copy `.opencode/.env.example` → `.opencode/.env`
 3. **Add API keys** - Fill in your service credentials
 4. **Read `PLAYBOOK.md`** - Learn OpenCodeAutoPM workflows

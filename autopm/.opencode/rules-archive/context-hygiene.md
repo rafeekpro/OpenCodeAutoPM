@@ -245,7 +245,7 @@ fi
 
 **Check on session start:**
 ```bash
-# In CLAUDE.md:
+# In OPENCODE.md:
 ## Session Start Protocol
 1. Check for .clear-reminder file
 2. If exists, warn user

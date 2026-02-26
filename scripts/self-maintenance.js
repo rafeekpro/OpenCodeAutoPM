@@ -131,7 +131,7 @@ class SelfMaintenance {
     // 2. Check configuration
     process.stdout.write('  ├── Configuration... ');
     const configExists = fs.existsSync(path.join(this.projectRoot, '.opencode/config.json')) &&
-                        fs.existsSync(path.join(this.projectRoot, 'CLAUDE.md'));
+                        fs.existsSync(path.join(this.projectRoot, 'OPENCODE.md'));
     console.log(configExists ? '✅' : '❌');
     allValid = allValid && configExists;
 
@@ -278,7 +278,7 @@ class SelfMaintenance {
       fs.mkdirSync(testDir, { recursive: true });
       // Use safe installation method
       this.runInstallScript(this.DEFAULT_INSTALL_OPTION, testDir);
-      const success = fs.existsSync(path.join(testDir, 'CLAUDE.md'));
+      const success = fs.existsSync(path.join(testDir, 'OPENCODE.md'));
       console.log(success ? '✅' : '❌');
       // Clean up using fs methods instead of shell commands
       fs.rmSync(testDir, { recursive: true, force: true });
@@ -390,7 +390,7 @@ class SelfMaintenance {
         this.runInstallScript(input, testDir);
 
         // Validate installation
-        const success = fs.existsSync(path.join(testDir, 'CLAUDE.md')) &&
+        const success = fs.existsSync(path.join(testDir, 'OPENCODE.md')) &&
                        fs.existsSync(path.join(testDir, '.opencode'));
 
         if (success) {

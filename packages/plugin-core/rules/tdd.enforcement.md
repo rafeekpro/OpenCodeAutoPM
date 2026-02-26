@@ -91,7 +91,7 @@ If TDD is violated:
 1. STOP immediately
 2. Delete non-TDD code
 3. Start over with test first
-4. Document violation in CLAUDE.md
+4. Document violation in OPENCODE.md
 5. No exceptions, no excuses
 
 ## Success Metrics

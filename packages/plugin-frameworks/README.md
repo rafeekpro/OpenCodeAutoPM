@@ -76,7 +76,7 @@ All code examples, patterns, and best practices are verified against current off
 After installation, agents are available in your project:
 
 ```markdown
-<!-- CLAUDE.md -->
+<!-- OPENCODE.md -->
 ## Active Team Agents
 
 <!-- Load framework agents -->

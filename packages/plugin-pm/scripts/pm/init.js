@@ -133,11 +133,11 @@ async function initializeSystem(options = {}) {
     }
   }
 
-  // Handle CLAUDE.md
-  result.opencode.exists = fs.existsSync('CLAUDE.md');
+  // Handle OPENCODE.md
+  result.opencode.exists = fs.existsSync('OPENCODE.md');
 
   if (!result.opencode.exists && !dryRun) {
-    const claudeContent = `# CLAUDE.md
+    const claudeContent = `# OPENCODE.md
 
 > Think carefully and implement the most concise solution that changes as little code as possible.
 
@@ -155,7 +155,7 @@ Always run tests before committing:
 Follow existing patterns in the codebase.
 `;
 
-    fs.writeFileSync('CLAUDE.md', claudeContent);
+    fs.writeFileSync('OPENCODE.md', claudeContent);
     result.opencode.created = true;
   } else if (!result.opencode.exists && dryRun) {
     result.opencode.created = true; // Would be created
@@ -259,12 +259,12 @@ function formatInitOutput(data) {
     output += '  Initialize with: git init\n';
   }
 
-  // CLAUDE.md
+  // OPENCODE.md
   if (data.opencode.created) {
-    output += '\n📄 Creating CLAUDE.md...\n';
-    output += '  ✅ CLAUDE.md created\n';
+    output += '\n📄 Creating OPENCODE.md...\n';
+    output += '  ✅ OPENCODE.md created\n';
   } else if (data.opencode.exists) {
-    output += '\n📄 CLAUDE.md exists\n';
+    output += '\n📄 OPENCODE.md exists\n';
   }
 
   // Summary

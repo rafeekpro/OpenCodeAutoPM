@@ -133,7 +133,7 @@ Then invoke multiple Task tools IN SINGLE MESSAGE.
 
 ## Active Team Agents
 
-**Check the "Active Team Agents" section at the top of CLAUDE.md** for the current list of available agents in this project.
+**Check the "Active Team Agents" section at the top of OPENCODE.md** for the current list of available agents in this project.
 
 If you need an agent that's not listed, you can still use any agent from the registry. The active team list is just a convenience reference.
 

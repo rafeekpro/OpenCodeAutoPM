@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-languages",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Complete programming languages plugin with Python, JavaScript, Node.js, Bash experts, language rules, and example scripts for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

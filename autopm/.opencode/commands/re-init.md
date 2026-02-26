@@ -2,8 +2,8 @@
 allowed-tools: Bash, Read, Write, LS
 ---
 
-# Enhance CLAUDE.md file
+# Enhance OPENCODE.md file
 
-Please update CLAUDE.md with the rules from .opencode/CLAUDE.md.
+Please update OPENCODE.md with the rules from .opencode/OPENCODE.md.
 
-If CLAUDE.md does not exist, create it using the /init and include rules from .opencode/CLAUDE.md.
+If OPENCODE.md does not exist, create it using the /init and include rules from .opencode/OPENCODE.md.

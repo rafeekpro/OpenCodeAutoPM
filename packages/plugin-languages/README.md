@@ -60,7 +60,7 @@ autopm plugin install languages
 After installation, agents are available in your project:
 
 ```markdown
-<!-- CLAUDE.md -->
+<!-- OPENCODE.md -->
 ## Active Team Agents
 
 <!-- Load language agents -->

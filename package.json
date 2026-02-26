@@ -1,6 +1,6 @@
 {
   "name": "open-autopm",
-  "version": "3.6.6",
+  "version": "3.6.9",
   "description": "Autonomous Project Management Framework for OpenCode - Advanced AI-powered development automation",
   "main": "bin/open-autopm.js",
   "workspaces": [

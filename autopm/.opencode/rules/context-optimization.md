@@ -173,4 +173,4 @@ If context wastage detected:
 - Monitor context usage
 - Identify patterns for new agents
 - Update agent capabilities
-- Document new patterns in CLAUDE.md
+- Document new patterns in OPENCODE.md

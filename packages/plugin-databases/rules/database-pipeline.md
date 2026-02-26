@@ -34,7 +34,7 @@
 4. Write performance test (must show improvement)
 5. Implement optimization
 6. test-runner → Verify no functionality regression
-7. Document optimization in CLAUDE.md
+7. Document optimization in OPENCODE.md
 ```
 
 **PostgreSQL Optimization** (Context7: /websites/postgresql):

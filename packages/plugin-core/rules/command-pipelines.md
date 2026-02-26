@@ -59,7 +59,7 @@
 ### Utilities
 
 - `/prompt` - Handle complex prompts with @ references
-- `/re-init` - Update CLAUDE.md with PM rules
+- `/re-init` - Update OPENCODE.md with PM rules
 - `/code-rabbit` - Process CodeRabbit review comments
 
 ## Mandatory Command Pipelines

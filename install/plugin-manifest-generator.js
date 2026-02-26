@@ -3,7 +3,7 @@
 /**
  * Plugin Manifest Generator
  *
- * Generates compressed plugin manifests for token-optimized CLAUDE.md
+ * Generates compressed plugin manifests for token-optimized OPENCODE.md
  * Reduces plugin metadata from thousands of tokens to ~50 tokens per plugin
  */
 
@@ -44,7 +44,7 @@ function generatePluginManifest(pluginData, pluginId) {
 }
 
 /**
- * Generate complete plugins section for CLAUDE.md
+ * Generate complete plugins section for OPENCODE.md
  */
 function generatePluginsSection(installedPlugins, packagesDir) {
   const manifests = [];

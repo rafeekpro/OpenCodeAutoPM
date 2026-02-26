@@ -34,7 +34,7 @@ Framework utility commands:
 
 1. **code-rabbit** - Process CodeRabbit review comments with context-aware discretion
 2. **prompt** - Handle complex prompts with many @ references
-3. **re-init** - Reinitialize CLAUDE.md with framework rules
+3. **re-init** - Reinitialize OPENCODE.md with framework rules
 
 ### 📜 Rules (23)
 

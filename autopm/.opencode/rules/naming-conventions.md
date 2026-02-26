@@ -101,7 +101,7 @@ Before ANY commit:
 2. Fix naming to match conventions
 3. Remove any duplicate code
 4. Clean up resources properly
-5. Document pattern in CLAUDE.md
+5. Document pattern in OPENCODE.md
 
 ### Prevention Strategy
 

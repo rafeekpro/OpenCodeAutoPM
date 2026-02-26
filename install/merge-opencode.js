@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * CLAUDE.md Merge Helper Script - Node.js Implementation
+ * OPENCODE.md Merge Helper Script - Node.js Implementation
  *
- * Intelligently merges existing CLAUDE.md with framework updates
+ * Intelligently merges existing OPENCODE.md with framework updates
  * while preserving user customizations
  */
 
@@ -76,7 +76,7 @@ class ClaudeMerger {
   printBanner() {
     console.log(`${this.colors.CYAN}${this.colors.BOLD}`);
     console.log('╔══════════════════════════════════════════════╗');
-    console.log('║           CLAUDE.md Merge Helper             ║');
+    console.log('║           OPENCODE.md Merge Helper             ║');
     console.log('║         Generate AI Merge Prompts            ║');
     console.log('╚══════════════════════════════════════════════╝');
     console.log(this.colors.NC);
@@ -90,7 +90,7 @@ class ClaudeMerger {
     this.printBanner();
     console.log(`
 ${this.colors.BOLD}Usage:${this.colors.NC}
-  merge-claude.js <existing-file> <template-file> [OPTIONS]
+  merge-opencode.js <existing-file> <template-file> [OPTIONS]
 
 ${this.colors.BOLD}Options:${this.colors.NC}
   --help, -h           Show this help message
@@ -104,16 +104,16 @@ ${this.colors.BOLD}Options:${this.colors.NC}
 
 ${this.colors.BOLD}Examples:${this.colors.NC}
   # Generate merge prompt for AI assistance
-  merge-claude.js CLAUDE.md CLAUDE_BASIC.md --prompt merge-prompt.md
+  merge-opencode.js OPENCODE.md CLAUDE_BASIC.md --prompt merge-prompt.md
 
   # Perform automatic merge
-  merge-claude.js CLAUDE.md CLAUDE_BASIC.md --output CLAUDE_MERGED.md
+  merge-opencode.js OPENCODE.md CLAUDE_BASIC.md --output CLAUDE_MERGED.md
 
   # Update in place with backup
-  merge-claude.js CLAUDE.md CLAUDE_BASIC.md --in-place
+  merge-opencode.js OPENCODE.md CLAUDE_BASIC.md --in-place
 
   # Show diff preview
-  merge-claude.js CLAUDE.md CLAUDE_BASIC.md --diff
+  merge-opencode.js OPENCODE.md CLAUDE_BASIC.md --diff
 `);
   }
 
@@ -140,15 +140,15 @@ ${this.colors.BOLD}Examples:${this.colors.NC}
     const existingContent = fs.readFileSync(this.existingFile, 'utf-8');
     const templateContent = fs.readFileSync(this.templateFile, 'utf-8');
 
-    const prompt = `# 🤖 AI-Assisted CLAUDE.md Merge Instructions
+    const prompt = `# 🤖 AI-Assisted OPENCODE.md Merge Instructions
 
-You are an expert in OpenCode Code configuration and project automation. Your task is to intelligently merge two CLAUDE.md configuration files while preserving user customizations and integrating framework updates.
+You are an expert in OpenCode Code configuration and project automation. Your task is to intelligently merge two OPENCODE.md configuration files while preserving user customizations and integrating framework updates.
 
 ## 📋 Merge Context
 
-**Scenario**: User has an existing CLAUDE.md with custom configurations and needs to integrate updates from the OpenCodeAutoPM framework.
+**Scenario**: User has an existing OPENCODE.md with custom configurations and needs to integrate updates from the OpenCodeAutoPM framework.
 
-**Goal**: Create a unified CLAUDE.md that:
+**Goal**: Create a unified OPENCODE.md that:
 - ✅ Preserves ALL user customizations and preferences
 - ✅ Integrates new framework features and capabilities
 - ✅ Maintains consistency and organization
@@ -157,7 +157,7 @@ You are an expert in OpenCode Code configuration and project automation. Your ta
 
 ## 📄 Source Files
 
-### File A: Current CLAUDE.md (User's Configuration)
+### File A: Current OPENCODE.md (User's Configuration)
 \`\`\`markdown
 ${existingContent}
 \`\`\`
@@ -176,7 +176,7 @@ ${templateContent}
 - Keep project-specific sections intact
 
 ### 2. **Framework Integration (High Priority)**
-- Add new agents that don't exist in current CLAUDE.md
+- Add new agents that don't exist in current OPENCODE.md
 - Update agent descriptions with latest capabilities
 - Integrate new rule files and documentation paths
 - Add new command categories and patterns
@@ -195,7 +195,7 @@ ${templateContent}
 
 ## 📝 Output Requirements
 
-Please provide the merged CLAUDE.md with:
+Please provide the merged OPENCODE.md with:
 1. Clear section headers
 2. Preserved user customizations marked with comments if helpful
 3. New additions clearly integrated
@@ -204,7 +204,7 @@ Please provide the merged CLAUDE.md with:
 
 ## 🚀 Begin Merge
 
-Create the optimal merged CLAUDE.md that combines the best of both files:
+Create the optimal merged OPENCODE.md that combines the best of both files:
 `;
 
     return prompt;

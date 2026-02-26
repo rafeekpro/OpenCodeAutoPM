@@ -448,7 +448,7 @@ To add a new agent, follow the agent-manager's comprehensive checklist:
 2. Add rules if needed
 3. Create command patterns
 4. Update this registry
-5. Update CLAUDE.md
+5. Update OPENCODE.md
 6. Add to system prompt
 7. Test agent invocation
 

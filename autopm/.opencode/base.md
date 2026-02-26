@@ -1,4 +1,4 @@
-# CLAUDE.md
+# OPENCODE.md
 
 > Think carefully and implement the most concise solution that changes as little code as possible.
 

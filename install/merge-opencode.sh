@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ============================================
-# CLAUDE.md Merge Helper - Bridge to Node.js
+# OPENCODE.md Merge Helper - Bridge to Node.js
 # ============================================
 # This script now delegates to the Node.js version for better cross-platform support
-# Original bash implementation backed up to merge-claude.sh.backup
+# Original bash implementation backed up to merge-opencode.sh.backup
 # ============================================
 
 set -e  # Exit on error
@@ -20,14 +20,14 @@ if ! command -v node &> /dev/null; then
 fi
 
 # Check if the Node.js version exists
-NODE_SCRIPT="$SCRIPT_DIR/merge-claude.js"
+NODE_SCRIPT="$SCRIPT_DIR/merge-opencode.js"
 if [ ! -f "$NODE_SCRIPT" ]; then
     echo "Error: Node.js implementation not found at $NODE_SCRIPT"
     echo "Falling back to original bash implementation..."
 
     # Try to use the backup if available
-    if [ -f "$SCRIPT_DIR/merge-claude.sh.backup" ]; then
-        exec bash "$SCRIPT_DIR/merge-claude.sh.backup" "$@"
+    if [ -f "$SCRIPT_DIR/merge-opencode.sh.backup" ]; then
+        exec bash "$SCRIPT_DIR/merge-opencode.sh.backup" "$@"
     else
         echo "Error: No backup implementation found"
         exit 1

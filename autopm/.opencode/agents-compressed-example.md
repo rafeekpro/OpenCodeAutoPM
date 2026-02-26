@@ -94,7 +94,7 @@ FastAPI auth with JWT|User management microservice|SQLAlchemy query optimization
 
 ## Full Compressed Agent Registry Format
 
-For the CLAUDE.md Active Agents section:
+For the OPENCODE.md Active Agents section:
 
 ```markdown
 <!-- AGENTS_START -->
@@ -183,7 +183,7 @@ agent-manager|mcp-context-manager|mcp-manager
 
 ## Usage Pattern
 
-In CLAUDE.md optimized template:
+In OPENCODE.md optimized template:
 
 ```markdown
 ## 🤖 ACTIVE AGENTS (Compressed)
@@ -208,7 +208,7 @@ When agent is invoked:
 ## Implementation Strategy
 
 1. **Keep full agent files** in `.opencode/agents/` directories
-2. **Use compressed format** in CLAUDE.md for listing
+2. **Use compressed format** in OPENCODE.md for listing
 3. **Lazy load** full agent description when invoked
 4. **Query Context7** as required by agent's Documentation Queries section
 

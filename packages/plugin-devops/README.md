@@ -131,7 +131,7 @@ autopm plugin install devops
 After installation, agents are available in your project:
 
 ```markdown
-<!-- CLAUDE.md -->
+<!-- OPENCODE.md -->
 ## Active Team Agents
 
 <!-- Load DevOps agents -->

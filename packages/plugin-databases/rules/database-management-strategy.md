@@ -143,4 +143,4 @@ CLUSTER BY category;
 
 ## Compliance
 
-All database operations must follow these strategies. Deviations require architectural review and documentation in CLAUDE.md.
+All database operations must follow these strategies. Deviations require architectural review and documentation in OPENCODE.md.

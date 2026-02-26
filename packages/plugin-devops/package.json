@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-devops",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Complete DevOps plugin with agents, commands, rules, and scripts for CI/CD, Docker, GitHub, observability, and infrastructure automation for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

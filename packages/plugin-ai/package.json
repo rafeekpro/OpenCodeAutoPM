@@ -1,6 +1,6 @@
 {
   "name": "@open-autopm/plugin-ai",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Complete AI/ML plugin with OpenAI, Gemini, LangChain agents, RAG systems, model deployment, prompt engineering, and MLOps patterns for OpenCodeAutoPM",
   "main": "plugin.json",
   "type": "module",

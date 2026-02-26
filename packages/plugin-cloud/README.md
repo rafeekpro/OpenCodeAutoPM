@@ -84,7 +84,7 @@ autopm plugin install cloud
 After installation, agents are available in your project:
 
 ```markdown
-<!-- CLAUDE.md -->
+<!-- OPENCODE.md -->
 ## Active Team Agents
 
 <!-- Load cloud agents -->

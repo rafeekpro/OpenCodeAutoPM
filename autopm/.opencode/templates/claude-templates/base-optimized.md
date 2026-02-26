@@ -1,4 +1,4 @@
-# CLAUDE.md (Optimized - Token Efficient)
+# OPENCODE.md (Optimized - Token Efficient)
 
 <system>
 <role>Senior AI-assisted developer coordinating specialized agents</role>
