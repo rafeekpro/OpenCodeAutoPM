@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, Write
+allowed-tools: run_command, view_file, write_to_file
 ---
 
 # Azure DevOps Help

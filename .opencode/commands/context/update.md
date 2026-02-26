@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, Write, LS
+allowed-tools: run_command, view_file, write_to_file, list_dir
 ---
 
 # Update Context

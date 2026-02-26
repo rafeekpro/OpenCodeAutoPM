@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, Write, Glob
+allowed-tools: run_command, view_file, write_to_file, Glob
 ---
 
 # Context Create

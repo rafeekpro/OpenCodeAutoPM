@@ -168,7 +168,7 @@ Commands are user-invokable actions that Claude executes. They follow a standard
 
 ```markdown
 ---
-allowed-tools: Bash, Read, Write
+allowed-tools: run_command, view_file, write_to_file
 ---
 
 # Command Name

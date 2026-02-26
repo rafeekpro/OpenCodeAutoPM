@@ -1,7 +1,7 @@
 ---
 name: db:query-analyze
 description: Analyze SQL queries for performance bottlenecks, suggest optimizations, and recommend indexes using Context7-verified best practices.
-allowed-tools: Bash, Read, Write, Task, Agent
+allowed-tools: run_command, view_file, write_to_file, Task, Agent
 version: 2.0.0
 ---
 

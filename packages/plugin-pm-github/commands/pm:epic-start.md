@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash, Read, Write, LS, Task
+allowed-tools: run_command, view_file, write_to_file, list_dir, Task
 ---
 
 # Epic Start
