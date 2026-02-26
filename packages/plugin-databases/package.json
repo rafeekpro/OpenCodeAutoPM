@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-databases",
+  "name": "@open-autopm/plugin-databases",
   "version": "3.0.0",
   "description": "Complete database plugin with PostgreSQL, MongoDB, Redis, BigQuery, and Cosmos DB experts, database rules, and optimization scripts for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -50,7 +50,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

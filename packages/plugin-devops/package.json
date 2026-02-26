@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-devops",
+  "name": "@open-autopm/plugin-devops",
   "version": "3.0.0",
   "description": "Complete DevOps plugin with agents, commands, rules, and scripts for CI/CD, Docker, GitHub, observability, and infrastructure automation for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -66,7 +66,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

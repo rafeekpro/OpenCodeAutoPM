@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-ai",
+  "name": "@open-autopm/plugin-ai",
   "version": "2.1.0",
   "description": "Complete AI/ML plugin with OpenAI, Gemini, LangChain agents, RAG systems, model deployment, prompt engineering, and MLOps patterns for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -58,6 +58,6 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   }
 }

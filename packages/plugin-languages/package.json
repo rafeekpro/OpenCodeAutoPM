@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-languages",
+  "name": "@open-autopm/plugin-languages",
   "version": "2.0.0",
   "description": "Complete programming languages plugin with Python, JavaScript, Node.js, Bash experts, language rules, and example scripts for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -53,7 +53,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

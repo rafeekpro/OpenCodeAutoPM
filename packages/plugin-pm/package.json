@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-pm",
+  "name": "@open-autopm/plugin-pm",
   "version": "2.1.1",
   "description": "Complete project management plugin with PM workflows, epic management, issue tracking, and release automation for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -48,7 +48,7 @@
     "node": ">=16.0.0"
   },
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",

@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-core",
+  "name": "@open-autopm/plugin-core",
   "version": "3.0.0",
   "description": "Core framework functionality for OpenCodeAutoPM - universal agents, rules, hooks, and utilities",
   "main": "index.js",

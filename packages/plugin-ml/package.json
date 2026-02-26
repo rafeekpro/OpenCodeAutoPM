@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-ml",
+  "name": "@open-autopm/plugin-ml",
   "version": "3.0.0",
   "description": "Comprehensive Machine Learning plugin with 10 specialist agents: TensorFlow/Keras, PyTorch, RL, Scikit-learn, Neural Architecture, Gradient Boosting, Computer Vision, NLP Transformers, Time Series, and AutoML. Context7-verified patterns.",
   "main": "plugin.json",
@@ -41,7 +41,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "engines": {
     "node": ">=14.0.0"

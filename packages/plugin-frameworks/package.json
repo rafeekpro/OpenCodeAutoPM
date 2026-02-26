@@ -1,5 +1,5 @@
 {
-  "name": "@opencodeautopm/plugin-frameworks",
+  "name": "@open-autopm/plugin-frameworks",
   "version": "2.0.0",
   "description": "Complete frontend frameworks plugin with React, Vue, Tailwind CSS agents, UI commands, performance rules, and optimization scripts for OpenCodeAutoPM",
   "main": "plugin.json",
@@ -47,7 +47,7 @@
     "npm": ">=8.0.0"
   },
   "peerDependencies": {
-    "@opencodeautopm/plugin-core": "*"
+    "@open-autopm/plugin-core": "*"
   },
   "publishConfig": {
     "access": "public",
