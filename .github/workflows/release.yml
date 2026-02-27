@@ -1,0 +1,192 @@
+name: Release to npm
+
+# Trigger on pushing tags
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v3.7.0)'
+        required: true
+        type: string
+
+# Set permissions for publishing
+permissions:
+  contents: read
+  id-token: write # Required for provenance
+
+jobs:
+  validate:
+    name: Validate Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test:all
+
+      - name: Validate package
+        run: |
+          echo "Validating package.json..."
+          node -e "const pkg = require('./package.json'); console.log('Package:', pkg.name); console.log('Version:', pkg.version)"
+
+      - name: Check package name is opencode-autopm
+        run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          if [ "$PACKAGE_NAME" != "opencode-autopm" ]; then
+            echo "❌ Error: Package name must be 'opencode-autopm', got '$PACKAGE_NAME'"
+            exit 1
+          fi
+          echo "✅ Package name validated: $PACKAGE_NAME"
+
+  publish:
+    name: Publish to npm
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+          # Always use latest npm version
+          always-auth: true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate package before publish
+        run: |
+          echo "Validating package before publish..."
+          npm pack --dry-run
+
+      - name: Create npm tarball
+        run: npm pack
+
+      - name: Extract version from tag
+        id: get_version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+            echo "Manual release version: $VERSION"
+          else
+            # Extract version from git tag (remove 'v' prefix)
+            VERSION="${GITHUB_REF#refs/tags/}"
+            echo "Tagged release version: $VERSION"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Display release info
+        run: |
+          echo "════════════════════════════════════════"
+          echo "🚀 Publishing OpenCodeAutoPM to npm"
+          echo "════════════════════════════════════════"
+          echo "Version: ${{ steps.get_version.outputs.version }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Tag: ${{ github.ref_name }}"
+          echo "════════════════════════════════════════"
+
+      - name: Publish to npm registry
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify publication
+        run: |
+          echo "Waiting for npm registry to update..."
+          sleep 10
+          
+          PACKAGE_NAME="opencode-autopm"
+          VERSION="${{ steps.get_version.outputs.version }}"
+          
+          echo "Checking if package is available on npm..."
+          if npm view $PACKAGE_NAME@$VERSION > /dev/null 2>&1; then
+            echo "✅ Package $PACKAGE_NAME@$VERSION successfully published!"
+            npm view $PACKAGE_NAME@$VERSION | head -20
+          else
+            echo "⚠️  Warning: Package not yet visible on npm (may take a few minutes)"
+            echo "Please verify at: https://www.npmjs.com/package/$PACKAGE_NAME"
+          fi
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: OpenCodeAutoPM ${{ steps.get_version.outputs.version }}
+          body: |
+            ## OpenCodeAutoPM ${{ steps.get_version.outputs.version }}
+            
+            🚀 **Automated Release from GitHub Actions**
+            
+            ### Installation
+            ```bash
+            npm install -g opencode-autopm
+            ```
+            
+            ### What's New
+            See [CHANGELOG.md](https://github.com/rafeekpro/OpenCodeAutoPM/blob/main/CHANGELOG.md) for details.
+            
+            ### Verification
+            ```bash
+            # Verify installation
+            opencode-autopm --version
+            
+            # Validate migration
+            bash scripts/validate-opencode-migration.sh
+            ```
+            
+            Full commit: ${{ github.sha }}
+          draft: false
+          prerelease: false
+
+      - name: Update documentation site (optional)
+        if: hashFiles('docs-site/package.json') != ''
+        run: |
+          echo "Documentation deployment would go here"
+          # Add your documentation deployment commands
+          # For example: npm run docs:deploy
+
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "════════════════════════════════════════"
+          echo "✅ Release successfully published!"
+          echo "════════════════════════════════════════"
+          echo "Package: opencode-autopm"
+          echo "Version: ${{ steps.get_version.outputs.version }}"
+          echo "npm URL: https://www.npmjs.com/package/opencode-autopm"
+          echo "GitHub: https://github.com/rafeekpro/OpenCodeAutoPM/releases/tag/${{ steps.get_version.outputs.version }}"
+          echo "════════════════════════════════════════"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Release failed! Check the logs above for details."
+          echo "Please verify:"
+          echo "  1. NPM_TOKEN secret is set correctly"
+          echo "  2. Package name is 'opencode-autopm'"
+          echo "  3. Version doesn't already exist on npm"
+          echo "  4. All tests are passing"
