@@ -1,6 +1,6 @@
 # PM Commands
 
-PM (Project Management) commands provide a unified interface for managing projects, issues, epics, and PRDs within Claude Code. These commands work across different providers (GitHub, Azure DevOps) through the provider abstraction layer.
+PM (Project Management) commands provide a unified interface for managing projects, issues, epics, and PRDs within OpenCode. These commands work across different providers (GitHub, Azure DevOps) through the provider abstraction layer.
 
 ## Command Structure
 

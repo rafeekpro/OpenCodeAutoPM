@@ -1,11 +1,11 @@
 ---
 title: Contributing
-description: How to contribute to ClaudeAutoPM, PR process, and coding standards
+description: How to contribute to OpenCodeAutoPM, PR process, and coding standards
 ---
 
 # Contributing
 
-Thank you for your interest in contributing to ClaudeAutoPM! This guide covers the contribution process, coding standards, and best practices for submitting changes.
+Thank you for your interest in contributing to OpenCodeAutoPM! This guide covers the contribution process, coding standards, and best practices for submitting changes.
 
 ## Quick Start
 
@@ -59,14 +59,14 @@ Want to contribute?
 - Node.js >= 16.0.0
 - npm >= 8.0.0
 - Git
-- Claude Code CLI (for testing)
+- OpenCode CLI (for testing)
 
 ### Setup Steps
 
 ```bash
 # Clone the repository
-git clone https://github.com/rafeekpro/ClaudeAutoPM.git
-cd ClaudeAutoPM
+git clone https://github.com/rafeekpro/OpenCodeAutoPM.git
+cd OpenCodeAutoPM
 
 # Install dependencies
 npm install
@@ -147,7 +147,7 @@ Do NOT include Claude collaboration signatures in commits:
 # DO NOT DO THIS
 git commit -m "feat: add feature
 
-Generated with Claude Code
+Generated with OpenCode
 Co-Authored-By: Claude <noreply@anthropic.com>"
 ```
 
@@ -396,9 +396,9 @@ PRs are evaluated on:
 
 ### Where to Discuss
 
-- **Questions**: [GitHub Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
-- **Bugs**: [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-- **Ideas**: [Discussion - Ideas Category](https://github.com/rafeekpro/ClaudeAutoPM/discussions/categories/ideas)
+- **Questions**: [GitHub Discussions](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
+- **Bugs**: [GitHub Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+- **Ideas**: [Discussion - Ideas Category](https://github.com/rafeekpro/OpenCodeAutoPM/discussions/categories/ideas)
 
 ### Getting Help
 
@@ -456,4 +456,4 @@ Before submitting any contribution:
 - [Testing](./testing.md) - Write proper tests
 - [Plugin Development](./plugin-development.md) - Extend the framework
 
-Thank you for contributing to ClaudeAutoPM!
+Thank you for contributing to OpenCodeAutoPM!

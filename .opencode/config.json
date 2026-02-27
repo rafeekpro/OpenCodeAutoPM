@@ -1,6 +1,11 @@
 {
   "execution_strategy": {
-    "mode": "adaptive"
+    "mode": "hybrid-parallel",
+    "max_agents": 5,
+    "context_isolation": true,
+    "token_limit": 100000,
+    "parallel_threshold": "medium",
+    "resource_monitoring": true
   },
   "features": {
     "docker_first_development": true,

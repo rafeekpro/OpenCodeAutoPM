@@ -1,6 +1,6 @@
 ---
 title: Command Development
-description: Guide to creating commands for ClaudeAutoPM with proper structure, tools, and output formats
+description: Guide to creating commands for OpenCodeAutoPM with proper structure, tools, and output formats
 ---
 
 # Command Development
@@ -662,7 +662,7 @@ Add commands to your plugin's `plugin.json`:
 ### Manual Testing
 
 ```bash
-# Test with Claude Code
+# Test with OpenCode
 claude
 
 # Then type your command

@@ -1,25 +1,58 @@
-# ClaudeAutoPM Development Project
+# ⚠️  DEPRECATED - This file has been moved
+
+**This file has been renamed to OPENCODE.md to reflect the platform migration from Claude Code to OpenCode.**
+
+## Migration Required
+
+Please update your references:
+
+### File References
+- Update all `@include CLAUDE.md` → `@include OPENCODE.md`
+- Update all `.opencode/` paths → `.opencode/` paths
+
+### Environment Variables
+- Update all `CLAUDE_*` env vars → `OPENCODE_*` env vars
+- See migration guide below for complete mapping
+
+### Package Name
+- Update `open-autopm` → `opencode-autopm`
+- Update installation commands accordingly
+
+## Deprecation Timeline
+
+- **v3.7.0** (Current): Both CLAUDE.md and OPENCODE.md available
+- **v3.8.0-v3.9.0**: CLAUDE.md shows deprecation notice (this file)
+- **v4.0.0** (~6 months): CLAUDE.md will be removed
+
+For continued development, see: **[OPENCODE.md](OPENCODE.md)**
+
+---
+
+# OpenCodeAutoPM Development Project (Archived)
+
+> **This is the archived version of the development documentation.**
+> **Please use [OPENCODE.md](OPENCODE.md) for current development.**
 
 
 ## Active Team Agents
 
 <!-- AGENTS_START -->
-- @include .claude/agents/core/agent-manager.md
-- @include .claude/agents/core/code-analyzer.md
-- @include .claude/agents/core/file-analyzer.md
-- @include .claude/agents/core/test-runner.md
-- @include .claude/agents/languages/bash-scripting-expert.md
-- @include .claude/agents/languages/javascript-frontend-engineer.md
-- @include .claude/agents/languages/nodejs-backend-engineer.md
-- @include .claude/agents/testing/e2e-test-engineer.md
+- @include .opencode/agents/core/agent-manager.md
+- @include .opencode/agents/core/code-analyzer.md
+- @include .opencode/agents/core/file-analyzer.md
+- @include .opencode/agents/core/test-runner.md
+- @include .opencode/agents/languages/bash-scripting-expert.md
+- @include .opencode/agents/languages/javascript-frontend-engineer.md
+- @include .opencode/agents/languages/nodejs-backend-engineer.md
+- @include .opencode/agents/testing/e2e-test-engineer.md
 <!-- AGENTS_END -->
 
-> This is the development repository for ClaudeAutoPM framework.
+> This is the development repository for OpenCodeAutoPM framework.
 > **IMPORTANT**: This project uses its own framework capabilities for self-maintenance.
 
 ## 📋 Development Standards
 
-**ALL development MUST follow standards defined in:** `.claude/DEVELOPMENT-STANDARDS.md`
+**ALL development MUST follow standards defined in:** `.opencode/DEVELOPMENT-STANDARDS.md`
 
 This document defines MANDATORY standards for:
 - Agent development (templates, checklists, principles)
@@ -140,18 +173,18 @@ As of the latest update:
 Context7 queries are enforced automatically through:
 
 **Rules-Based Enforcement:**
-- `.claude/rules/context7-enforcement.md` - Mandatory rule read by Claude on every session
+- `.opencode/rules/context7-enforcement.md` - Mandatory rule read by Claude on every session
 - Zero tolerance policy for implementations without Context7 verification
 - Highest priority in rule hierarchy (equal to TDD enforcement)
 
 **Automated Hooks:**
-- `.claude/hooks/pre-command-context7.js` - Intercepts ALL command executions
+- `.opencode/hooks/pre-command-context7.js` - Intercepts ALL command executions
   - Extracts Documentation Queries from command files
   - Validates Context7 section presence
   - Blocks execution if queries missing
   - Reminds Claude to query Context7 before implementation
 
-- `.claude/hooks/pre-agent-context7.js` - Intercepts ALL agent invocations
+- `.opencode/hooks/pre-agent-context7.js` - Intercepts ALL agent invocations
   - Extracts Documentation Queries from agent files
   - Validates Context7 section presence
   - Blocks invocation if queries missing
@@ -160,10 +193,10 @@ Context7 queries are enforced automatically through:
 **Testing Hooks:**
 ```bash
 # Test command hook
-node .claude/hooks/pre-command-context7.js "/pm:epic-decompose feature-name"
+node .opencode/hooks/pre-command-context7.js "/pm:epic-decompose feature-name"
 
 # Test agent hook
-node .claude/hooks/pre-agent-context7.js "@aws-cloud-architect design VPC"
+node .opencode/hooks/pre-agent-context7.js "@aws-cloud-architect design VPC"
 ```
 
 **What Hooks Do:**
@@ -248,13 +281,13 @@ npm run test:coverage
 
 ```
 AUTOPM/                    # Development project root
-├── .claude/              # Project's own self-maintenance configuration
+├── .opencode/              # Project's own self-maintenance configuration
 │   ├── agents/           # Project-specific maintenance agents
 │   ├── commands/         # PM commands for maintenance
 │   ├── rules/            # Self-maintenance rules
 │   └── strategies/       # Optimization strategies
 ├── autopm/               # Framework resources (copied during install)
-│   ├── .claude/          # Claude configuration and resources
+│   ├── .opencode/          # Claude configuration and resources
 │   │   └── agents/       # Framework agents (USE THESE!)
 │   ├── .claude-code/     # Claude Code settings
 │   └── scripts/          # Utility scripts
@@ -272,37 +305,37 @@ AUTOPM/                    # Development project root
 ### Critical Framework Agents for Project Maintenance
 
 #### agent-manager
-- **Location**: `autopm/.claude/agents/core/agent-manager.md`
+- **Location**: `autopm/.opencode/agents/core/agent-manager.md`
 - **Purpose**: Create, analyze, and manage agents in the registry
 - **Use for**: Adding new agents, updating documentation, deprecating old agents
 - **Example**: `@agent-manager create a new specialized agent for GraphQL development`
 
 #### code-analyzer
-- **Location**: `autopm/.claude/agents/core/code-analyzer.md`
+- **Location**: `autopm/.opencode/agents/core/code-analyzer.md`
 - **Purpose**: Analyze code changes for bugs, trace logic flow, investigate issues
 - **Use for**: Pre-release validation, security scanning, optimization impact analysis
 - **Example**: `@code-analyzer review recent optimization changes for breaking changes`
 
 #### test-runner
-- **Location**: `autopm/.claude/agents/core/test-runner.md`
+- **Location**: `autopm/.opencode/agents/core/test-runner.md`
 - **Purpose**: Run tests and provide comprehensive analysis of results
 - **Use for**: Validation after changes, regression testing, performance benchmarks
 - **Example**: `@test-runner execute all installation tests with detailed failure analysis`
 
 #### file-analyzer
-- **Location**: `autopm/.claude/agents/core/file-analyzer.md`
+- **Location**: `autopm/.opencode/agents/core/file-analyzer.md`
 - **Purpose**: Analyze and summarize large files to reduce context usage
 - **Use for**: Log analysis, documentation review, test output summarization
 - **Example**: `@file-analyzer summarize the installation logs for key issues`
 
 #### github-operations-specialist
-- **Location**: `autopm/.claude/agents/devops/github-operations-specialist.md`
+- **Location**: `autopm/.opencode/agents/devops/github-operations-specialist.md`
 - **Purpose**: Manage GitHub workflows, releases, and CI/CD
 - **Use for**: Creating releases, managing Actions, automating workflows
 - **Example**: `@github-operations-specialist create a new release with changelog`
 
 #### docker-containerization-expert
-- **Location**: `autopm/.claude/agents/devops/docker-containerization-expert.md`
+- **Location**: `autopm/.opencode/agents/devops/docker-containerization-expert.md`
 - **Purpose**: Docker containerization and testing
 - **Use for**: Testing in containers, multi-platform validation, CI/CD containers
 - **Example**: `@docker-containerization-expert test installation in isolated containers`
@@ -310,17 +343,17 @@ AUTOPM/                    # Development project root
 ### Project-Specific Maintenance Agents
 
 #### registry-manager
-- **Location**: `.claude/agents/project-maintenance/registry-manager.md`
+- **Location**: `.opencode/agents/project-maintenance/registry-manager.md`
 - **Purpose**: Validate and maintain agent registry consistency
 - **Use for**: Registry validation, deprecation tracking
 
 #### installer-tester
-- **Location**: `.claude/agents/project-maintenance/installer-tester.md`
+- **Location**: `.opencode/agents/project-maintenance/installer-tester.md`
 - **Purpose**: Test all installation scenarios
 - **Use for**: Installation validation, upgrade testing
 
 #### optimization-analyzer
-- **Location**: `.claude/agents/project-maintenance/optimization-analyzer.md`
+- **Location**: `.opencode/agents/project-maintenance/optimization-analyzer.md`
 - **Purpose**: Find optimization opportunities
 - **Use for**: Agent consolidation, context efficiency analysis
 
@@ -358,7 +391,7 @@ AUTOPM/                    # Development project root
 ### Adding a New Agent to Framework
 ```markdown
 @agent-manager create a new agent for GraphQL API development
-- Add to autopm/.claude/agents/frameworks/graphql-api-expert.md
+- Add to autopm/.opencode/agents/frameworks/graphql-api-expert.md
 - Update AGENT-REGISTRY.md
 - Create documentation and examples
 - Add tests for the new agent
@@ -458,10 +491,10 @@ npm run validate:paths  # Check for hardcoded autopm/ paths
 ### Working on Framework Files
 
 When modifying framework files, work in the `autopm/` directory:
-- `autopm/.claude/` - Resources that will be copied to user projects
-- `autopm/.claude/templates/` - Templates for generating files (NOT copied)
+- `autopm/.opencode/` - Resources that will be copied to user projects
+- `autopm/.opencode/templates/` - Templates for generating files (NOT copied)
 
-**⚠️ CRITICAL PATH RULE:** Never use hardcoded `autopm/` paths in framework files. The `autopm/` directory does not exist after installation. Always use `.claude/` paths instead.
+**⚠️ CRITICAL PATH RULE:** Never use hardcoded `autopm/` paths in framework files. The `autopm/` directory does not exist after installation. Always use `.opencode/` paths instead.
 
 ### Testing Changes
 
@@ -488,13 +521,13 @@ npm run setup:githooks
 ### Installation Flow
 
 1. User runs `autopm install`
-2. Script copies from `autopm/.claude/` (excluding templates)
+2. Script copies from `autopm/.opencode/` (excluding templates)
 3. Templates are used to generate CLAUDE.md and config
 4. Strategy is installed based on chosen configuration
 
 ### Key Directories
 
-#### `autopm/.claude/` (Framework Resources)
+#### `autopm/.opencode/` (Framework Resources)
 - **agents/** - Agent definitions
 - **commands/** - PM commands
 - **rules/** - Development rules
@@ -580,7 +613,7 @@ If installation shows warnings or errors:
 
 3. **Check installation completeness**:
    ```bash
-   ls -la .claude/  # Should contain: agents, commands, rules, scripts, checklists
+   ls -la .opencode/  # Should contain: agents, commands, rules, scripts, checklists
    ls -la scripts/  # Should contain: safe-commit.sh, setup-hooks.sh
    ```
 
@@ -622,7 +655,7 @@ npm publish
 # Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-This repository is for **human development** of the ClaudeAutoPM framework. While Claude may assist during development, all commits should be attributed only to human contributors.
+This repository is for **human development** of the OpenCodeAutoPM framework. While Claude may assist during development, all commits should be attributed only to human contributors.
 
 ### ✅ Commit Message Format
 
@@ -661,7 +694,7 @@ echo "3" | bash install/install.sh
 
 ### Verify Templates
 ```bash
-ls -la autopm/.claude/templates/
+ls -la autopm/.opencode/templates/
 ```
 
 ## Contributing
@@ -674,6 +707,6 @@ ls -la autopm/.claude/templates/
 
 ## Support
 
-- Issues: https://github.com/rafeekpro/ClaudeAutoPM/issues
+- Issues: https://github.com/rafeekpro/OpenCodeAutoPM/issues
 - Documentation: See README.md and wiki
-- Examples: See autopm/.claude/examples/
+- Examples: See autopm/.opencode/examples/

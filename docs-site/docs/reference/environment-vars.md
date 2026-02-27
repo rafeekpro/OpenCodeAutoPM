@@ -1,6 +1,6 @@
 # Environment Variables
 
-ClaudeAutoPM uses environment variables to configure integrations, enable features, and customize behavior. This page documents all available variables from the `.claude/.env` configuration file.
+OpenCodeAutoPM uses environment variables to configure integrations, enable features, and customize behavior. This page documents all available variables from the `.claude/.env` configuration file.
 
 ## Configuration File
 
@@ -14,7 +14,7 @@ Environment variables are stored in `.claude/.env` after installation. A templat
 |----------|-------------|----------|---------|
 | `AUTOPM_VERSION` | Framework version identifier | No | Current version |
 | `AUTOPM_MODE` | Execution mode (development/production) | No | `development` |
-| `CLAUDE_CODE_PATH` | Path to Claude Code installation | No | Auto-detected |
+| `CLAUDE_CODE_PATH` | Path to OpenCode installation | No | Auto-detected |
 
 ## MCP (Model Context Protocol) Configuration
 

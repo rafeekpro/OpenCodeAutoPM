@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Common issues and solutions for ClaudeAutoPM installation, configuration, and daily usage. This guide covers the most frequently encountered problems and their step-by-step solutions.
+Common issues and solutions for OpenCodeAutoPM installation, configuration, and daily usage. This guide covers the most frequently encountered problems and their step-by-step solutions.
 
 ## 🚨 Quick Diagnostics
 
@@ -66,7 +66,7 @@ source ~/.bashrc
 
 ### Version Conflicts
 
-**Problem**: Multiple versions of ClaudeAutoPM installed
+**Problem**: Multiple versions of OpenCodeAutoPM installed
 
 **Solution**:
 ```bash
@@ -337,7 +337,7 @@ git rebase --abort
 autopm merge --assist
 ```
 
-## Claude Code Integration Issues
+## OpenCode Integration Issues
 
 ### Agent Not Responding
 
@@ -352,8 +352,8 @@ ls -la .claude/agents/
 ls .claude/agents/core/
 ls .claude/agents/frameworks/
 
-# Check Claude Code connection
-# In Claude Code, try: /help
+# Check OpenCode connection
+# In OpenCode, try: /help
 
 # Reinstall if needed
 autopm install --repair
@@ -361,7 +361,7 @@ autopm install --repair
 
 ### Commands Not Recognized
 
-**Problem**: `/pm:` commands not working in Claude Code
+**Problem**: `/pm:` commands not working in OpenCode
 
 **Solution**:
 ```bash
@@ -372,15 +372,15 @@ ls .claude/commands/pm/
 cat .claude/config.json | jq '.projectManagement'
 
 # Test simple command first
-# In Claude Code: /pm:help
+# In OpenCode: /pm:help
 
-# Reload Claude Code workspace
+# Reload OpenCode workspace
 # CMD+Shift+P > Reload Window
 ```
 
 ### Context Issues
 
-**Problem**: Claude Code can't access project files
+**Problem**: OpenCode can't access project files
 
 **Solution**:
 ```bash
@@ -393,7 +393,7 @@ ls -la .claude/
 # Check file permissions
 find .claude -type f -exec ls -l {} \;
 
-# Restart Claude Code
+# Restart OpenCode
 # Close and reopen the application
 ```
 
@@ -612,7 +612,7 @@ npm config set loglevel verbose
 export BUILDKIT_PROGRESS=plain
 docker compose build
 
-# Enable Claude Code debug mode
+# Enable OpenCode debug mode
 # Help > Toggle Developer Tools
 ```
 
@@ -644,7 +644,7 @@ When all else fails, perform a clean reinstall:
 cp .claude/.env ~/.autopm-env-backup
 cp .claude/config.json ~/.autopm-config-backup
 
-# 2. Remove all ClaudeAutoPM files
+# 2. Remove all OpenCodeAutoPM files
 npm uninstall -g claude-autopm
 rm -rf .claude/
 rm -rf node_modules/
@@ -666,9 +666,9 @@ cp ~/.autopm-env-backup .claude/.env
 
 ### Community Support
 
-1. **GitHub Issues**: [Report bugs and get help](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-2. **Discussions**: [Community Q&A](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
-3. **Wiki**: [Complete documentation](https://github.com/rafeekpro/ClaudeAutoPM/wiki)
+1. **GitHub Issues**: [Report bugs and get help](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+2. **Discussions**: [Community Q&A](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
+3. **Wiki**: [Complete documentation](https://github.com/rafeekpro/OpenCodeAutoPM/wiki)
 
 ### Creating Bug Reports
 
@@ -694,7 +694,7 @@ tail -50 ~/.autopm/logs/autopm.log
 
 ### Feature Requests
 
-1. Check [existing issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
+1. Check [existing issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
 2. Use the feature request template
 3. Provide use case and business justification
 4. Include mockups or examples if applicable
@@ -735,7 +735,7 @@ npm install -g claude-autopm@1.1.0
 
 ### Recovery Mode
 
-If ClaudeAutoPM becomes completely unresponsive:
+If OpenCodeAutoPM becomes completely unresponsive:
 
 ```bash
 # Enter recovery mode

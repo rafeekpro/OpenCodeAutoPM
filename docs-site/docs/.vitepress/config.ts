@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'ClaudeAutoPM',
-  description: 'AI-Powered Project Management Framework for Claude Code',
+  title: 'OpenCodeAutoPM',
+  description: 'AI-Powered Project Management Framework for OpenCode with parallel execution, MCP integration, and DevOps capabilities',
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
@@ -91,7 +91,7 @@ export default defineConfig({
             { text: 'Configuration', link: '/reference/configuration' },
             { text: 'Environment Variables', link: '/reference/environment-vars' },
             { text: 'Feature Toggles', link: '/reference/feature-toggles' },
-            { text: 'Claude Templates', link: '/reference/claude-templates' },
+            { text: 'OpenCode Templates', link: '/reference/opencode-templates' },
             { text: 'Troubleshooting', link: '/reference/troubleshooting' }
           ]
         }

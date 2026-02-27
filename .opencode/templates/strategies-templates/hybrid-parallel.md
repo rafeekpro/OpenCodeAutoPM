@@ -71,10 +71,10 @@ The Hybrid Strategy combines parallel execution with intelligent context managem
 ## Configuration
 
 ### Environment Variables
-- `CLAUDE_PARALLEL_ENABLED`: Enable/disable parallel execution
-- `CLAUDE_MAX_AGENTS`: Maximum concurrent agents (default: 5)
-- `CLAUDE_CONTEXT_ISOLATION`: Enforce strict isolation (default: true)
-- `CLAUDE_TOKEN_LIMIT`: Max tokens per context (default: 100000)
+- `OPENCODE_PARALLEL_ENABLED`: Enable/disable parallel execution
+- `OPENCODE_MAX_AGENTS`: Maximum concurrent agents (default: 5)
+- `OPENCODE_CONTEXT_ISOLATION`: Enforce strict isolation (default: true)
+- `OPENCODE_TOKEN_LIMIT`: Max tokens per context (default: 100000)
 
 ### Default Limits
 ```javascript

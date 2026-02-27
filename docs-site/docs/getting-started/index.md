@@ -1,15 +1,15 @@
 ---
 title: Getting Started
-description: Quick start guide for ClaudeAutoPM - AI-powered project management for Claude Code
+description: Quick start guide for OpenCodeAutoPM - AI-powered project management for OpenCode
 ---
 
-# Getting Started with ClaudeAutoPM
+# Getting Started with OpenCodeAutoPM
 
-Welcome to ClaudeAutoPM, the autonomous project management framework for Claude Code. This guide will help you get up and running quickly with AI-powered spec-driven development.
+Welcome to OpenCodeAutoPM, the autonomous project management framework for OpenCode. This guide will help you get up and running quickly with AI-powered spec-driven development.
 
-## What is ClaudeAutoPM?
+## What is OpenCodeAutoPM?
 
-ClaudeAutoPM transforms your development workflow by automating project management from requirements to production. It provides:
+OpenCodeAutoPM transforms your development workflow by automating project management from requirements to production. It provides:
 
 - **Spec-Driven Development**: Convert PRDs to epics, epics to issues, and issues to production code
 - **AI-Powered Agents**: 96+ specialized CLI commands with parallel agent execution
@@ -21,7 +21,7 @@ ClaudeAutoPM transforms your development workflow by automating project manageme
 Get started in under 5 minutes:
 
 ```bash
-# 1. Install ClaudeAutoPM globally
+# 1. Install OpenCodeAutoPM globally
 npm install -g claude-autopm
 
 # 2. Navigate to your project
@@ -30,7 +30,7 @@ cd your-project
 # 3. Install the framework
 autopm install
 
-# 4. Start using PM commands in Claude Code
+# 4. Start using PM commands in OpenCode
 /pm:init
 ```
 
@@ -56,7 +56,7 @@ A hands-on 5-minute tutorial walking through:
 
 ### [Configuration](./configuration.md)
 
-Learn how to customize ClaudeAutoPM:
+Learn how to customize OpenCodeAutoPM:
 - Understanding the `.claude/` directory structure
 - Plugin selection and management
 - Configuration file (`config.json`) options
@@ -65,7 +65,7 @@ Learn how to customize ClaudeAutoPM:
 
 ## Core Workflow
 
-ClaudeAutoPM follows a spec-driven development workflow:
+OpenCodeAutoPM follows a spec-driven development workflow:
 
 ```
 PRD (Requirements) → Epic (Technical Plan) → Tasks → GitHub Issues → Code
@@ -87,15 +87,15 @@ Before you begin, ensure you have:
 - **Node.js** >= 16.0.0
 - **npm** >= 8.0.0
 - **Git** installed and configured
-- **Claude Code** or compatible AI coding assistant
+- **OpenCode** or compatible AI coding assistant
 - **GitHub CLI** (optional, installed automatically during setup)
 
 ## Need Help?
 
-- **Issues**: [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
+- **Issues**: [GitHub Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
 - **Documentation**: Explore the sidebar for detailed guides
 
 ## Next Steps
 
-Ready to dive in? Start with the [Installation Guide](./installation.md) to set up ClaudeAutoPM in your development environment.
+Ready to dive in? Start with the [Installation Guide](./installation.md) to set up OpenCodeAutoPM in your development environment.

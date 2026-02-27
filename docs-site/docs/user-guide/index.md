@@ -1,15 +1,15 @@
 ---
 title: User Guide
-description: Complete guide to using ClaudeAutoPM for automated project management and AI-powered development workflows.
+description: Complete guide to using OpenCodeAutoPM for automated project management and AI-powered development workflows.
 ---
 
 # User Guide
 
-Welcome to the ClaudeAutoPM User Guide. This comprehensive documentation will help you master the automated project management system and leverage AI agents to accelerate your development workflow.
+Welcome to the OpenCodeAutoPM User Guide. This comprehensive documentation will help you master the automated project management system and leverage AI agents to accelerate your development workflow.
 
 ## What You Will Learn
 
-This guide covers everything you need to become productive with ClaudeAutoPM:
+This guide covers everything you need to become productive with OpenCodeAutoPM:
 
 | Section | What You'll Learn |
 |---------|-------------------|
@@ -53,9 +53,9 @@ This guide covers everything you need to become productive with ClaudeAutoPM:
 @docker-containerization-expert create optimized Dockerfile
 ```
 
-## Understanding the ClaudeAutoPM Philosophy
+## Understanding the OpenCodeAutoPM Philosophy
 
-ClaudeAutoPM is built on three core principles:
+OpenCodeAutoPM is built on three core principles:
 
 ### 1. Spec-Driven Development
 
@@ -67,11 +67,11 @@ Specialized AI agents handle specific domains of expertise. Rather than one gene
 
 ### 3. Provider Flexibility
 
-Whether you use GitHub Issues or Azure DevOps, ClaudeAutoPM abstracts the underlying provider. Your workflow remains consistent while the system handles provider-specific details.
+Whether you use GitHub Issues or Azure DevOps, OpenCodeAutoPM abstracts the underlying provider. Your workflow remains consistent while the system handles provider-specific details.
 
 ## How to Use This Guide
 
-### If You're New to ClaudeAutoPM
+### If You're New to OpenCodeAutoPM
 
 1. Start with [PM Workflow](./pm-workflow) to understand the development lifecycle
 2. Review [Commands Overview](./commands-overview) to see available operations
@@ -94,8 +94,8 @@ Whether you use GitHub Issues or Azure DevOps, ClaudeAutoPM abstracts the underl
 
 Before diving into this guide, ensure you have:
 
-- ClaudeAutoPM installed (`npm install -g claude-autopm`)
-- Claude Code CLI configured and authenticated
+- OpenCodeAutoPM installed (`npm install -g claude-autopm`)
+- OpenCode CLI configured and authenticated
 - A project initialized with `/pm:init`
 - Provider credentials set up (GitHub or Azure DevOps)
 
@@ -107,9 +107,9 @@ If you get stuck:
 
 1. Run `/pm:help` to see available commands
 2. Check the [Troubleshooting Guide](/reference/troubleshooting)
-3. Search [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-4. Join [Community Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
+3. Search [GitHub Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+4. Join [Community Discussions](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
 
 ## Next Steps
 
-Ready to begin? Start with the [PM Workflow](./pm-workflow) to understand how ClaudeAutoPM transforms your development process.
+Ready to begin? Start with the [PM Workflow](./pm-workflow) to understand how OpenCodeAutoPM transforms your development process.

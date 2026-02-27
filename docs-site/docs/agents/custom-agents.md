@@ -1,10 +1,10 @@
 # Custom Agents
 
-Learn how to create your own specialized AI agents for ClaudeAutoPM. This guide covers agent structure, best practices, registration process, and advanced techniques for building powerful custom agents.
+Learn how to create your own specialized AI agents for OpenCodeAutoPM. This guide covers agent structure, best practices, registration process, and advanced techniques for building powerful custom agents.
 
 ## Overview
 
-Custom agents extend ClaudeAutoPM's capabilities by providing specialized expertise for specific technologies, workflows, or organizational needs. They follow the same patterns as built-in agents while offering full customization.
+Custom agents extend OpenCodeAutoPM's capabilities by providing specialized expertise for specific technologies, workflows, or organizational needs. They follow the same patterns as built-in agents while offering full customization.
 
 ### When to Create Custom Agents
 
@@ -481,7 +481,7 @@ Add your agent to the registry by updating `.claude/agents/AGENT-REGISTRY.md`:
 
 ### Step 5: Test Your Agent
 
-Test the agent in Claude Code:
+Test the agent in OpenCode:
 
 ```markdown
 @graphql-apollo-expert help me create a basic GraphQL schema for a blog API
@@ -545,7 +545,7 @@ Agents that work with specific third-party services:
 
 ### Using agent-manager
 
-ClaudeAutoPM includes an `agent-manager` agent for managing other agents:
+OpenCodeAutoPM includes an `agent-manager` agent for managing other agents:
 
 ```markdown
 # Create new agent

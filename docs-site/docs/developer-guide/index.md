@@ -1,19 +1,19 @@
 ---
 title: Developer Guide
-description: Comprehensive guide for developers and contributors to ClaudeAutoPM framework
+description: Comprehensive guide for developers and contributors to OpenCodeAutoPM framework
 ---
 
 # Developer Guide
 
-Welcome to the ClaudeAutoPM Developer Guide. This documentation is designed for developers who want to contribute to the framework, create plugins, develop agents, or extend the system's capabilities.
+Welcome to the OpenCodeAutoPM Developer Guide. This documentation is designed for developers who want to contribute to the framework, create plugins, develop agents, or extend the system's capabilities.
 
 ## Who Should Read This
 
-- **Contributors** looking to improve ClaudeAutoPM
+- **Contributors** looking to improve OpenCodeAutoPM
 - **Plugin Developers** creating new functionality
 - **Agent Developers** building specialized AI agents
 - **Command Developers** adding new commands to the framework
-- **Integration Engineers** connecting ClaudeAutoPM with external systems
+- **Integration Engineers** connecting OpenCodeAutoPM with external systems
 
 ## Quick Navigation
 
@@ -28,7 +28,7 @@ Welcome to the ClaudeAutoPM Developer Guide. This documentation is designed for 
 
 ## Core Principles
 
-ClaudeAutoPM development follows strict principles that ensure quality and consistency:
+OpenCodeAutoPM development follows strict principles that ensure quality and consistency:
 
 ### 1. Test-Driven Development (TDD)
 
@@ -87,14 +87,14 @@ Use specialized agents for complex tasks rather than direct tool calls:
 - Node.js >= 16.0.0
 - npm >= 8.0.0
 - Git
-- Claude Code CLI (for testing agents)
+- OpenCode CLI (for testing agents)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/rafeekpro/ClaudeAutoPM.git
-cd ClaudeAutoPM
+git clone https://github.com/rafeekpro/OpenCodeAutoPM.git
+cd OpenCodeAutoPM
 
 # Install dependencies
 npm install
@@ -109,7 +109,7 @@ npm test
 ### Project Structure Overview
 
 ```
-ClaudeAutoPM/
+OpenCodeAutoPM/
 ├── lib/                    # Core library code
 │   ├── cli/commands/       # CLI command implementations
 │   ├── plugins/            # Plugin management system
@@ -134,7 +134,7 @@ ClaudeAutoPM/
 
 ### Plugins
 
-Plugins are modular packages that extend ClaudeAutoPM with new agents, commands, rules, hooks, and scripts. Each plugin has a `plugin.json` manifest file that defines its contents.
+Plugins are modular packages that extend OpenCodeAutoPM with new agents, commands, rules, hooks, and scripts. Each plugin has a `plugin.json` manifest file that defines its contents.
 
 ```json
 {
@@ -220,8 +220,8 @@ npm run test:security
 
 ## Getting Help
 
-- **Issues**: [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
+- **Issues**: [GitHub Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
 - **Documentation**: Review `.claude/DEVELOPMENT-STANDARDS.md`
 - **Agent Registry**: See `.claude/agents/AGENT-REGISTRY.md`
 

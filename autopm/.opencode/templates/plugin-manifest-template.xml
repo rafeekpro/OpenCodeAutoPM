@@ -1,4 +1,4 @@
-<!-- Plugin Manifest Template for Token-Optimized CLAUDE.md -->
+<!-- Plugin Manifest Template for Token-Optimized OPENCODE.md -->
 <!-- This template generates compressed plugin listings for base-optimized.md -->
 
 <plugins>
@@ -21,7 +21,7 @@
 Commands: Type /[plugin-id]:[command] to invoke
 Agents: Type @[agent-name] to invoke
 Rules: Automatically loaded when needed
-Files: All available in .claude/plugins/[plugin-id]/
+Files: All available in .opencode/plugins/[plugin-id]/
 </usage>
 </plugins>
 
@@ -31,6 +31,6 @@ Files: All available in .claude/plugins/[plugin-id]/
   agents: agent-manager|code-analyzer|test-runner|file-analyzer
   commands: code-rabbit|prompt|re-init
   rules: 23 files (on-demand)
-  📖 .claude/plugins/core/
+  📖 .opencode/plugins/core/
 </plugin>
 -->

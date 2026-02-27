@@ -1,15 +1,15 @@
 ---
 title: Configuration
-description: Configure ClaudeAutoPM with plugins, settings, and environment variables
+description: Configure OpenCodeAutoPM with plugins, settings, and environment variables
 ---
 
 # Configuration
 
-This guide covers how to configure ClaudeAutoPM to match your development workflow, including plugin selection, directory structure, and environment variables.
+This guide covers how to configure OpenCodeAutoPM to match your development workflow, including plugin selection, directory structure, and environment variables.
 
 ## Directory Structure
 
-After installation, ClaudeAutoPM creates the following structure in your project:
+After installation, OpenCodeAutoPM creates the following structure in your project:
 
 ```
 your-project/
@@ -35,7 +35,7 @@ your-project/
 │   ├── context/               # Project context files
 │   ├── config.json           # Main configuration file
 │   └── .env                   # Environment variables
-├── .claude-code/              # Claude Code settings
+├── .opencode/              # OpenCode settings
 │   └── config.json           # Editor configuration
 ├── scripts/                   # Project scripts
 │   ├── safe-commit.sh        # Safe commit utility
@@ -109,7 +109,7 @@ The main configuration file is `.claude/config.json`. Here's a typical configura
 
 ## Plugin System
 
-ClaudeAutoPM uses a modular plugin system. Plugins add commands, agents, and functionality.
+OpenCodeAutoPM uses a modular plugin system. Plugins add commands, agents, and functionality.
 
 ### Core Plugins
 
@@ -217,7 +217,7 @@ AUTOPM_LOG_LEVEL=1
 Feature toggles allow dynamic configuration without code changes. Use the toggle command:
 
 ```bash
-# In Claude Code
+# In OpenCode
 /config:toggle-features
 ```
 
@@ -350,13 +350,13 @@ After configuration changes:
 # Regenerate based on current config
 autopm merge
 
-# Or in Claude Code
+# Or in OpenCode
 /re-init
 ```
 
 ## Configuration Presets
 
-ClaudeAutoPM provides configuration presets for common scenarios:
+OpenCodeAutoPM provides configuration presets for common scenarios:
 
 ### Minimal Development
 
@@ -416,7 +416,7 @@ Validate your configuration:
 # CLI validation
 autopm validate
 
-# In Claude Code
+# In OpenCode
 /pm:validate
 ```
 

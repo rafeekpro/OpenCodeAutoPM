@@ -1,6 +1,6 @@
 # Feature Toggles
 
-ClaudeAutoPM provides an interactive configuration system for managing features like Docker-first development and Kubernetes testing. This guide explains how to enable, disable, and configure these features through the toggle system.
+OpenCodeAutoPM provides an interactive configuration system for managing features like Docker-first development and Kubernetes testing. This guide explains how to enable, disable, and configure these features through the toggle system.
 
 ## Interactive Configuration Tool
 
@@ -107,7 +107,7 @@ This launches an interactive menu that guides you through configuration options.
 $ bash .claude/scripts/config/toggle-features.sh
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-       ClaudeAutoPM Feature Configuration Manager
+       OpenCodeAutoPM Feature Configuration Manager
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Current Configuration:
@@ -330,7 +330,7 @@ cat .claude/config.json | jq '.features'
 env | grep FEATURE_
 ```
 
-3. Restart Claude Code:
+3. Restart OpenCode:
 ```bash
 # Configuration is loaded on startup
 ```

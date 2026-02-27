@@ -1,35 +1,35 @@
-# ClaudeAutoPM
+# OpenCodeAutoPM
 
-[![NPM Version](https://img.shields.io/npm/v/claude-open-autopm)](https://www.npmjs.com/package/claude-open-autopm)
-[![NPM Downloads](https://img.shields.io/npm/dm/claude-open-autopm)](https://www.npmjs.com/package/claude-open-autopm)
+[![NPM Version](https://img.shields.io/npm/v/opencode-autopm)](https://www.npmjs.com/package/opencode-autopm)
+[![NPM Downloads](https://img.shields.io/npm/dm/opencode-autopm)](https://www.npmjs.com/package/opencode-autopm)
 [![MIT License](https://img.shields.io/badge/License-MIT-28a745)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/rafeekpro/ClaudeAutoPM?style=social)](https://github.com/rafeekpro/ClaudeAutoPM)
+[![GitHub Stars](https://img.shields.io/github/stars/rafeekpro/OpenCodeAutoPM?style=social)](https://github.com/rafeekpro/OpenCodeAutoPM)
 
-**AI-Powered Project Management Framework for Claude Code**
+**AI-Powered Project Management Framework for OpenCode**
 
-ClaudeAutoPM transforms your development workflow with intelligent automation, 40 specialized AI agents, and complete GitHub/Azure DevOps integration.
+OpenCodeAutoPM transforms your development workflow with intelligent automation, 40 specialized AI agents, hybrid parallel execution, and complete GitHub/Azure DevOps integration.
 
 ---
 
 ## Quick Install
 
 ```bash
-npm install -g claude-open-autopm
+npm install -g opencode-autopm
 cd your-project
-open-autopm install
+opencode-autopm install
 ```
 
 Choose your scenario during installation:
 - **Minimal** - Core features, sequential execution
 - **Docker** - Container development with Docker
 - **Full** - All features, adaptive execution (recommended)
-- **Performance** - Maximum parallelization for power users
+- **Performance** - Maximum parallelization with hybrid execution (5 concurrent agents)
 
 ---
 
 ## Quick Start
 
-All commands run inside Claude Code (not terminal):
+All commands run inside OpenCode (not terminal):
 
 ```bash
 # Initialize context and testing
@@ -200,40 +200,40 @@ All commands run inside Claude Code (not terminal):
 ## Documentation
 
 ### Getting Started
-- [Installation](https://rafeekpro.github.io/ClaudeAutoPM/getting-started/installation)
-- [First Project](https://rafeekpro.github.io/ClaudeAutoPM/getting-started/first-project)
-- [Configuration](https://rafeekpro.github.io/ClaudeAutoPM/getting-started/configuration)
+- [Installation](https://rafeekpro.github.io/OpenCodeAutoPM/getting-started/installation)
+- [First Project](https://rafeekpro.github.io/OpenCodeAutoPM/getting-started/first-project)
+- [Configuration](https://rafeekpro.github.io/OpenCodeAutoPM/getting-started/configuration)
 
 ### User Guide
-- [Command Overview](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/commands-overview)
-- [Agent Registry](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/agents-overview)
-- [PM System](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/pm-system)
-- [Azure DevOps Integration](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/azure-devops)
-- [GitHub Integration](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/github-integration)
-- [MCP Servers](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/mcp-servers)
-- [Best Practices](https://rafeekpro.github.io/ClaudeAutoPM/user-guide/best-practices)
+- [Command Overview](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/commands-overview)
+- [Agent Registry](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/agents-overview)
+- [PM System](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/pm-system)
+- [Azure DevOps Integration](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/azure-devops)
+- [GitHub Integration](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/github-integration)
+- [MCP Servers](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/mcp-servers)
+- [Best Practices](https://rafeekpro.github.io/OpenCodeAutoPM/user-guide/best-practices)
 
 ### Developer Guide
-- [Architecture](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/architecture)
-- [Plugin Development](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/plugin-development)
-- [Agent Development](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/agent-development)
-- [Command Development](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/command-development)
-- [Testing](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/testing)
-- [Contributing](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/contributing)
+- [Architecture](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/architecture)
+- [Plugin Development](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/plugin-development)
+- [Agent Development](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/agent-development)
+- [Command Development](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/command-development)
+- [Testing](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/testing)
+- [Contributing](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/contributing)
 
 ### Reference
-- [CLI Reference](https://rafeekpro.github.io/ClaudeAutoPM/commands/)
-- [Agent Registry](https://rafeekpro.github.io/ClaudeAutoPM/agents/)
-- [Configuration Options](https://rafeekpro.github.io/ClaudeAutoPM/reference/configuration)
-- [Troubleshooting](https://rafeekpro.github.io/ClaudeAutoPM/reference/troubleshooting)
+- [CLI Reference](https://rafeekpro.github.io/OpenCodeAutoPM/commands/)
+- [Agent Registry](https://rafeekpro.github.io/OpenCodeAutoPM/agents/)
+- [Configuration Options](https://rafeekpro.github.io/OpenCodeAutoPM/reference/configuration)
+- [Troubleshooting](https://rafeekpro.github.io/OpenCodeAutoPM/reference/troubleshooting)
 
 ---
 
-## Why ClaudeAutoPM?
+## Why OpenCodeAutoPM?
 
-| Feature | ClaudeAutoPM | Traditional Tools |
+| Feature | OpenCodeAutoPM | Traditional Tools |
 |---------|--------------|-------------------|
-| AI-native | Built for Claude Code | Adapted/retrofitted |
+| AI-native | Built for OpenCode | Adapted/retrofitted |
 | Modular | 12 plugins, install what you need | Monolithic |
 | Agents | 40 specialized experts | Generic or none |
 | Workflow | Context to Production | Fragmented |
@@ -244,7 +244,7 @@ All commands run inside Claude Code (not terminal):
 
 ## Contributing
 
-We welcome contributions! See [Contributing Guide](https://rafeekpro.github.io/ClaudeAutoPM/developer-guide/contributing) for:
+We welcome contributions! See [Contributing Guide](https://rafeekpro.github.io/OpenCodeAutoPM/developer-guide/contributing) for:
 - Development setup
 - Coding standards (TDD mandatory)
 - Testing requirements
@@ -260,16 +260,16 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Links
 
-- **Documentation**: [rafeekpro.github.io/ClaudeAutoPM](https://rafeekpro.github.io/ClaudeAutoPM/)
+- **Documentation**: [rafeekpro.github.io/OpenCodeAutoPM](https://rafeekpro.github.io/OpenCodeAutoPM/)
 - **npm**: [npmjs.com/package/claude-open-autopm](https://www.npmjs.com/package/claude-open-autopm)
-- **Issues**: [GitHub Issues](https://github.com/rafeekpro/ClaudeAutoPM/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/ClaudeAutoPM/discussions)
+- **Issues**: [GitHub Issues](https://github.com/rafeekpro/OpenCodeAutoPM/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/rafeekpro/OpenCodeAutoPM/discussions)
 - **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
 <p align="center">
-  <b>Built for Claude Code community</b>
+  <b>Built for OpenCode community</b>
   <br>
-  <sub>Star this repo if ClaudeAutoPM helps your workflow!</sub>
+  <sub>Star this repo if OpenCodeAutoPM helps your workflow!</sub>
 </p>

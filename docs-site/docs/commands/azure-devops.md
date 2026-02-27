@@ -1,6 +1,6 @@
 # Azure DevOps Integration
 
-ClaudeAutoPM provides comprehensive integration with Azure DevOps, enabling seamless work item management, pull request workflows, and pipeline automation directly from Claude Code.
+OpenCodeAutoPM provides comprehensive integration with Azure DevOps, enabling seamless work item management, pull request workflows, and pipeline automation directly from OpenCode.
 
 ## Overview
 

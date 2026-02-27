@@ -1,22 +1,22 @@
 ---
 title: Your First Project
-description: A 5-minute hands-on tutorial to create your first project with ClaudeAutoPM
+description: A 5-minute hands-on tutorial to create your first project with OpenCodeAutoPM
 ---
 
 # Your First Project
 
-This hands-on tutorial walks you through creating your first project using ClaudeAutoPM's spec-driven development workflow. You'll go from a product idea to GitHub issues ready for development in about 5 minutes.
+This hands-on tutorial walks you through creating your first project using OpenCodeAutoPM's spec-driven development workflow. You'll go from a product idea to GitHub issues ready for development in about 5 minutes.
 
 ## Prerequisites
 
 Before starting, ensure you have:
-- ClaudeAutoPM installed (`npm install -g claude-autopm`)
+- OpenCodeAutoPM installed (`npm install -g claude-autopm`)
 - Framework installed in your project (`autopm install`)
-- Claude Code or compatible AI assistant open
+- OpenCode or compatible AI assistant open
 
 ## The Workflow Overview
 
-ClaudeAutoPM follows a spec-driven workflow:
+OpenCodeAutoPM follows a spec-driven workflow:
 
 ```
 /pm:init → /pm:prd-new → /pm:prd-parse → /pm:epic-decompose → /pm:epic-sync
@@ -32,7 +32,7 @@ ClaudeAutoPM follows a spec-driven workflow:
 
 ## Step 1: Initialize Project Management
 
-Start by initializing ClaudeAutoPM in your project:
+Start by initializing OpenCodeAutoPM in your project:
 
 ```
 /pm:init
@@ -60,7 +60,7 @@ Create a Product Requirements Document for your feature. Let's say you want to b
 /pm:prd-new user-authentication
 ```
 
-ClaudeAutoPM will:
+OpenCodeAutoPM will:
 1. Analyze your codebase for existing patterns
 2. Generate a comprehensive PRD based on the feature name
 3. Save it to `.claude/prds/user-authentication.md`
@@ -372,6 +372,6 @@ All tasks include TDD requirements. Follow the Red-Green-Refactor cycle for qual
 
 Now that you've completed your first project workflow:
 
-- Learn about [Configuration](./configuration.md) to customize ClaudeAutoPM
+- Learn about [Configuration](./configuration.md) to customize OpenCodeAutoPM
 - Explore [PM Commands](/commands/pm-commands) for the full command reference
 - Check the [Agent Registry](/agents/registry) to understand specialized agents

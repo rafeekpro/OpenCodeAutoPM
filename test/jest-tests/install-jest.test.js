@@ -97,7 +97,7 @@ describe('ClaudeAutoPM Installer', () => {
       expect(installer.targetDir).toBe('/test/project');
       expect(installer.installItems).toContain('.claude/agents');
       expect(installer.installItems).toContain('.claude/commands');
-      expect(installer.installItems).toContain('.claude-code');
+      expect(installer.installItems).toContain('.opencode');
     });
 
     it('should have color codes defined', () => {
@@ -511,7 +511,7 @@ describe('ClaudeAutoPM Installer', () => {
       expect(installer.installItems).toContain('.claude/rules');
       expect(installer.installItems).toContain('.claude/scripts');
       expect(installer.installItems).toContain('.claude/checklists');
-      expect(installer.installItems).toContain('.claude-code');
+      expect(installer.installItems).toContain('.opencode');
     });
 
     it('should maintain backward compatibility', () => {

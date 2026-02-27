@@ -2169,3 +2169,69 @@ if (require.main === module) {
 }
 
 module.exports = MCPHandler;
+/**
+ * OpenCode-Enhanced MCP Commands
+ * Integration point for OpenCode-specific MCP features
+ * 
+ * These methods integrate OpenCode MCP enhancements
+ */
+
+/**
+ * Show OpenCode-specific MCP server recommendations
+ */
+MCPHandler.prototype.showOpenCodeServers = async function() {
+  const enhancements = require('./mcp-opencode-enhancements');
+  await enhancements.showOpenCodeRecommendations();
+};
+
+/**
+ * Discover OpenCode-compatible MCP servers
+ */
+MCPHandler.prototype.discoverOpenCode = async function() {
+  const enhancements = require('./mcp-opencode-enhancements');
+  const servers = await enhancements.discoverOpenCodeServers();
+  
+  console.log('🔍 OpenCode-Compatible MCP Servers:\n');
+  servers.forEach(server => {
+    const icon = server.recommended ? '⭐' : '📦';
+    console.log(`${icon} ${server.name}`);
+    console.log(`   Version: ${server.version}`);
+    console.log(`   Compatible: ${server.openCodeCompatible ? 'Yes' : 'No'}`);
+    console.log(`   Category: ${server.metadata.category}`);
+    console.log(`   Description: ${server.metadata.description}`);
+    console.log();
+  });
+};
+
+/**
+ * Validate server compatibility with OpenCode
+ */
+MCPHandler.prototype.validateCompatibility = async function(serverName) {
+  const enhancements = require('./mcp-opencode-enhancements');
+  
+  if (!serverName) {
+    await enhancements.validateActiveServersCompatibility.call(this);
+  } else {
+    const validation = await enhancements.validateServerCompatibility(serverName);
+    
+    const icon = validation.compatible ? '✅' : '❌';
+    console.log(`${icon} ${validation.server}`);
+    
+    if (!validation.compatible) {
+      console.error(`Error: ${validation.error}`);
+      process.exit(1);
+    }
+    
+    console.log(`Version: ${validation.version}`);
+    console.log('\nChecks:');
+    validation.checks.forEach(check => {
+      const checkIcon = check.status === 'pass' ? '✅' : check.status === 'warn' ? '⚠️' : '❌';
+      console.log(`  ${checkIcon} ${check.check}: ${check.message}`);
+    });
+    
+    if (validation.recommendations.length > 0) {
+      console.log('\n💡 Recommendations:');
+      validation.recommendations.forEach(rec => console.log(`  • ${rec}`));
+    }
+  }
+};

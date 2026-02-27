@@ -1,10 +1,10 @@
 # 🔧 CLI Reference
 
-Complete reference for all ClaudeAutoPM command-line tools with unified provider-agnostic commands.
+Complete reference for all OpenCodeAutoPM command-line tools with unified provider-agnostic commands.
 
 ## 🎯 Unified Project Management Commands
 
-ClaudeAutoPM provides a unified command interface that works across different providers (GitHub, Azure DevOps, etc.). All commands use the `/pm:` prefix and are automatically routed to the configured provider.
+OpenCodeAutoPM provides a unified command interface that works across different providers (GitHub, Azure DevOps, etc.). All commands use the `/pm:` prefix and are automatically routed to the configured provider.
 
 ### Command Structure
 ```
@@ -71,7 +71,7 @@ ClaudeAutoPM provides a unified command interface that works across different pr
 ## 🔧 Framework Installation Commands
 
 ### `autopm install [path]`
-Install ClaudeAutoPM framework to a project directory.
+Install OpenCodeAutoPM framework to a project directory.
 
 ```bash
 # Install to current directory
@@ -92,7 +92,7 @@ autopm install /path/to/project
 - Copies framework files (.claude/, .github/, scripts/)
 - Interactive configuration selection (Minimal/Docker/Full DevOps)
 - Generates appropriate CLAUDE.md template
-- Preserves user customizations (.github/, .claude-code/)
+- Preserves user customizations (.github/, .opencode/)
 
 **Interactive prompts:**
 ```
@@ -104,7 +104,7 @@ autopm install /path/to/project
 ```
 
 ### `autopm update [path]`
-Update existing ClaudeAutoPM installation.
+Update existing OpenCodeAutoPM installation.
 
 ```bash
 # Update current project
@@ -120,7 +120,7 @@ autopm update ~/my-project
 **What it does:**
 - Preserves your configuration settings
 - Updates framework files with new features
-- Protects .github/ and .claude-code/ from overwriting
+- Protects .github/ and .opencode/ from overwriting
 - Creates timestamped backups before changes
 - Shows detailed file change reports
 
@@ -198,20 +198,20 @@ How would you like to receive the merge prompt?
 ```
 
 ### `autopm init <project-name>`
-Initialize new project with ClaudeAutoPM.
+Initialize new project with OpenCodeAutoPM.
 
 ```bash
 # Create new project
 autopm init my-awesome-project
 cd my-awesome-project
 
-# Project is ready with ClaudeAutoPM installed
+# Project is ready with OpenCodeAutoPM installed
 ```
 
 **What it does:**
 - Creates new directory
 - Initializes git repository
-- Installs ClaudeAutoPM framework
+- Installs OpenCodeAutoPM framework
 - Interactive configuration selection
 - Sets up .env variables
 
@@ -222,7 +222,7 @@ Display version information.
 
 ```bash
 autopm --version
-# ClaudeAutoPM v1.0.3
+# OpenCodeAutoPM v1.0.3
 # Node.js v20.10.0
 # Platform: darwin arm64
 ```
@@ -264,7 +264,7 @@ autopm update
 
 ### New Project Workflow  
 ```bash
-# Create new project with ClaudeAutoPM
+# Create new project with OpenCodeAutoPM
 autopm init my-new-project
 cd my-new-project
 
@@ -294,7 +294,7 @@ autopm config
 
 ### Project Updates
 ```bash
-# Get latest ClaudeAutoPM version
+# Get latest OpenCodeAutoPM version
 npm install -g claude-autopm@latest
 
 # Update project with new features
@@ -317,7 +317,7 @@ done
 ### CI/CD Integration
 ```bash
 # In GitHub Actions
-- name: Install ClaudeAutoPM
+- name: Install OpenCodeAutoPM
   run: |
     npm install -g claude-autopm
     autopm install --no-backup
@@ -345,10 +345,10 @@ autopm config  # Validate and apply
 
 ## 🛠️ Self-Maintenance Commands
 
-ClaudeAutoPM includes powerful self-maintenance capabilities implemented in Node.js:
+OpenCodeAutoPM includes powerful self-maintenance capabilities implemented in Node.js:
 
 ### `pm health`
-Generate comprehensive health report for the ClaudeAutoPM system.
+Generate comprehensive health report for the OpenCodeAutoPM system.
 
 ```bash
 npm run pm:health
@@ -558,7 +558,7 @@ autopm install --verbose
 autopm install
 
 # Concise output:
-📦 Installing ClaudeAutoPM...
+📦 Installing OpenCodeAutoPM...
 ✓ Configuration applied
 ✓ Files installed
 ✓ CLAUDE.md generated

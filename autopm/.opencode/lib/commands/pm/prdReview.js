@@ -29,27 +29,38 @@ exports.builder = (yargs) => {
       choices: ['Problem Statement', 'Success Criteria', 'User Stories', 'Acceptance Criteria', 'Executive Summary', 'Out of Scope'],
       alias: 's'
     })
-    .option('claude-code', {
+    .option('opencode', {
       describe: 'Force OpenCode mode for AI review',
       type: 'boolean',
       default: false
+    })
+    .option('claude-code', {
+      describe: 'Deprecated: Use --opencode instead',
+      type: 'boolean',
+      deprecated: true,
+      hidden: true
     });
 };
 
 exports.handler = async (argv) => {
-  const { feature_name, section, 'claude-code': forceClaudeCode } = argv;
+  const { feature_name, section, 'opencode': forceOpenCode, 'claude-code': forceClaudeCodeDeprecated } = argv;
+
+  // Support deprecated --claude-code option
+  const forceOpenCodeFinal = forceOpenCode || forceClaudeCodeDeprecated;
 
   try {
     console.log();
     console.log('🔍 PRD Review');
     console.log('═══════════════════════════════════════');
 
-    // Check if we're in OpenCode environment
-    const isClaudeCode = process.env.CLAUDE_CODE === 'true' ||
-                        process.env.ANTHROPIC_WORKSPACE === 'true' ||
-                        forceClaudeCode;
+    // Check if we're in OpenCode environment (with backward compatibility)
+    const isOpenCode = process.env.OPENCODE_ENV === 'true' ||
+                      process.env.CLAUDE_CODE === 'true' ||  // Deprecated
+                      process.env.OPENCODE_WORKSPACE ||
+                      process.env.ANTHROPIC_WORKSPACE ||  // Deprecated
+                      forceOpenCodeFinal;
 
-    if (!isClaudeCode) {
+    if (!isOpenCode) {
       printError('PRD review requires OpenCode environment for AI analysis');
       console.log();
       printInfo('This command uses AI to analyze PRD quality and provide improvement suggestions.');

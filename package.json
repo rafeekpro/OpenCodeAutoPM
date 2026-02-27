@@ -1,17 +1,19 @@
 {
-  "name": "open-autopm",
-  "version": "3.6.11",
-  "description": "Autonomous Project Management Framework for OpenCode - Advanced AI-powered development automation",
-  "main": "bin/open-autopm.js",
+  "name": "opencode-autopm",
+  "version": "3.7.0",
+  "description": "OpenCode Autonomous Project Management Framework - Advanced AI-powered development automation with parallel execution, MCP integration, and DevOps capabilities",
+  "main": "bin/opencode-autopm.js",
   "workspaces": [
     "packages/*"
   ],
   "bin": {
+    "opencode-autopm": "./bin/opencode-autopm.js",
     "open-autopm": "./bin/open-autopm.js",
+    "opencode-autopm-poc": "./bin/opencode-autopm-poc.js",
     "open-autopm-poc": "./bin/open-autopm-poc.js"
   },
   "scripts": {
-    "postinstall": "echo '🎉 OpenCodeAutoPM installed! Run: open-autopm --help'",
+    "postinstall": "echo '🎉 OpenCodeAutoPM installed! Run: opencode-autopm --help'",
     "test:old": "node scripts/test.js",
     "test": "jest --config jest.config.quick.js --forceExit",
     "test:full": "jest --config jest.config.clean.js --forceExit",

@@ -1,30 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * ⚠️  DEPRECATED: This command has been renamed
- *
- * The 'open-autopm' command is now 'opencode-autopm'
- *
- * Please update your scripts and muscle memory:
- *   OLD: open-autopm install
- *   NEW: opencode-autopm install
- *
- * This alias will be removed in v4.0.0 (approximately 6 months)
- *
- * For more information, see: https://github.com/rafeekpro/OpenCodeAutoPM
- *
  * OpenCodeAutoPM CLI - Refactored with yargs
  * This is the main CLI entry point using yargs for command management
  */
-
-// Show deprecation notice once
-if (!process.env.AUTOPM_DEPRECATION_SHOWN) {
-  console.warn('\n⚠️  DEPRECATION NOTICE:');
-  console.warn('   The "open-autopm" command is deprecated.');
-  console.warn('   Please use "opencode-autopm" instead.');
-  console.warn('   This alias will be removed in v4.0.0\n');
-  process.env.AUTOPM_DEPRECATION_SHOWN = '1';
-}
 
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');

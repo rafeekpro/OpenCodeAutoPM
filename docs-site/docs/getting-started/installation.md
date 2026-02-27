@@ -1,11 +1,11 @@
 ---
 title: Installation
-description: Complete installation guide for ClaudeAutoPM with all scenarios and configuration options
+description: Complete installation guide for OpenCodeAutoPM with all scenarios and configuration options
 ---
 
 # Installation Guide
 
-This guide covers all installation methods and configuration options for ClaudeAutoPM.
+This guide covers all installation methods and configuration options for OpenCodeAutoPM.
 
 ## System Requirements
 
@@ -36,7 +36,7 @@ This guide covers all installation methods and configuration options for ClaudeA
 The npm-based global installation is the fastest and most reliable method:
 
 ```bash
-# Install ClaudeAutoPM globally
+# Install OpenCodeAutoPM globally
 npm install -g claude-autopm
 
 # Verify installation
@@ -68,12 +68,12 @@ For environments where npm is not available:
 
 **Unix/Linux/macOS:**
 ```bash
-curl -sSL https://raw.githubusercontent.com/rafeekpro/ClaudeAutoPM/main/install/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/rafeekpro/OpenCodeAutoPM/main/install/install.sh | bash
 ```
 
 **Windows PowerShell:**
 ```powershell
-iwr -useb https://raw.githubusercontent.com/rafeekpro/ClaudeAutoPM/main/install/install.sh | iex
+iwr -useb https://raw.githubusercontent.com/rafeekpro/OpenCodeAutoPM/main/install/install.sh | iex
 ```
 
 ::: warning Note
@@ -220,7 +220,7 @@ After installation, complete these setup steps:
 ### 1. Initialize Project Management
 
 ```bash
-# In Claude Code, run:
+# In OpenCode, run:
 /pm:init
 ```
 
@@ -259,7 +259,7 @@ autopm mcp sync
 ### Check Installed Files
 
 ```bash
-# Verify ClaudeAutoPM CLI
+# Verify OpenCodeAutoPM CLI
 autopm --version
 
 # Check directory structure
@@ -279,7 +279,7 @@ Expected structure:
 
 ### Test Core Commands
 
-In Claude Code:
+In OpenCode:
 ```
 /pm:help          # Show available commands
 /pm:validate      # Validate configuration
@@ -350,7 +350,7 @@ Download from https://git-scm.com/download/win
 
 ## Updates and Maintenance
 
-### Updating ClaudeAutoPM
+### Updating OpenCodeAutoPM
 
 ```bash
 # Update global package
@@ -365,7 +365,7 @@ autopm install --no-backup
 
 ### Backup and Recovery
 
-ClaudeAutoPM automatically creates backups during updates:
+OpenCodeAutoPM automatically creates backups during updates:
 
 ```bash
 # Backups stored in:
@@ -380,7 +380,7 @@ cp -r .claude.backup.20240314 .claude
 
 ## Next Steps
 
-With ClaudeAutoPM installed, proceed to:
+With OpenCodeAutoPM installed, proceed to:
 
 - [Your First Project](./first-project.md) - Create your first PRD and start development
 - [Configuration](./configuration.md) - Customize your setup

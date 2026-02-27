@@ -137,7 +137,7 @@ class InstallValidator {
     this.checkDirectory('.claude/scripts', 2);
     this.checkDirectory('.claude/checklists', 1);
     this.checkDirectory('.claude/strategies', 1);
-    this.checkDirectory('.claude-code', 1);
+    this.checkDirectory('.opencode', 1);
     this.checkDirectory('scripts', 3);
 
     // Specific files

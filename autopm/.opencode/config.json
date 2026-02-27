@@ -2,7 +2,12 @@
   "version": "1.12.2",
   "installed": "2025-09-30T09:00:00Z",
   "execution_strategy": {
-    "mode": "adaptive"
+    "mode": "hybrid-parallel",
+    "max_agents": 5,
+    "context_isolation": true,
+    "token_limit": 100000,
+    "parallel_threshold": "medium",
+    "resource_monitoring": true
   },
   "features": {
     "docker_first_development": true,
