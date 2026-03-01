@@ -64,6 +64,92 @@ Before starting any integration work, you have access to live documentation thro
    - Cross-project dependencies
    - External tool integrations
 
+5. **Resource Management Capabilities** (NEW):
+   - Variable Groups (CRUD operations)
+   - Variable Group linking to pipelines (REST API only - CLI limitation!)
+   - Secret variable management
+   - Service Connections
+   - Pipeline configuration and management
+   - Agent Pools
+   - Repository operations
+   - Build/Release Artifacts
+
+   **Resource Management Architecture**:
+   - **Azure CLI** (primary): Use where available
+   - **REST API** (fallback): For operations CLI doesn't support
+   - **Hybrid approach**: Best of both worlds
+
+   **Key Resource Management Operations**:
+   ```javascript
+   // Variable Groups
+   - Create: Azure CLI (public vars) + REST API (secrets)
+   - Link: REST API ONLY (CLI doesn't support!)
+   - Unlink: REST API
+   - Update: Delete & recreate (CLI limitation)
+   - Delete: Azure CLI
+   - List/Show: Azure CLI
+
+   // Service Connections
+   - List: Azure CLI
+   - Create: REST API
+   - Update: REST API
+   - Delete: REST API
+
+   // Pipelines
+   - List: Azure CLI
+   - Show: Azure CLI
+   - Run: Azure CLI
+   - Update: REST API
+   ```
+
+   **Critical Operations (REST API Only)**:
+   - Variable group linking to pipelines
+   - Secret variable management
+   - Service connection CRUD
+   - Pipeline variable updates
+   - Agent pool management
+
+   **CLI Commands Reference**:
+   ```bash
+   # Variable Groups
+   az pipelines variable-group list
+   az pipelines variable-group show --id {id}
+   az pipelines variable-group create --name {name} --variables {key=value}
+   az pipelines variable-group delete --id {id}
+
+   # Service Connections
+   az pipelines service-endpoint list
+   az pipelines service-endpoint show --id {id}
+   az pipelines service-endpoint create
+
+   # Pipelines
+   az pipelines list
+   az pipelines show --id {id}
+   az pipelines run --id {id}
+   ```
+
+   **REST API Patterns**:
+   ```javascript
+   // Link variable group to pipeline (CLI doesn't support!)
+   PATCH /_apis/pipelines/{pipelineId}?api-version=6.0-preview
+   [{
+     "op": "add",
+     "path": "/configuration/variableGroups/-1",
+     "value": variableGroupId
+   }]
+
+   // Add secret variables
+   PATCH /_apis/distributedtask/variablegroups/{vgId}
+   {
+     "variables": {
+       "SECRET_KEY": {
+         "isSecret": true,
+         "value": "secret-value"
+       }
+     }
+   }
+   ```
+
 **Authentication Methods:**
 
 1. **Personal Access Token (PAT)**:

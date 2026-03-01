@@ -52,6 +52,46 @@ All commands run inside OpenCode (not terminal):
 
 ---
 
+## 🎯 Variable Groups Management
+
+**NEW: Automate Azure DevOps variable groups - No more manual UI clicking!**
+
+The variable groups commands solve the critical problem of manually linking variable groups to pipelines in Azure DevOps UI.
+
+**Quick Example**:
+```bash
+# Create variable group with secrets
+/azure:vg-create production-vars --variables="APP_ENV=prod" --secrets="API_KEY=secret"
+
+# Link to 3 pipelines (this was MANUAL before!)
+/azure:vg-link <vg-id> --pipeline=51 --pipeline=52 --pipeline=53
+
+# All done in 2 seconds! (used to take 5+ minutes of clicking)
+```
+
+**Key Features**:
+- ✅ Create variable groups with secret support
+- ✅ Link to multiple pipelines at once
+- ✅ Export/import for backup and migration
+- ✅ Validation and health checks
+- ✅ Full CRUD operations
+
+**All 10 Commands**:
+- `/azure:vg-create` - Create variable groups
+- `/azure:vg-link` - Link to pipelines ⭐
+- `/azure:vg-list` - List all
+- `/azure:vg-show` - Show details
+- `/azure:vg-update` - Update
+- `/azure:vg-delete` - Delete
+- `/azure:vg-unlink` - Unlink
+- `/azure:vg-export` - Export
+- `/azure:vg-import` - Import
+- `/azure:vg-validate` - Validate
+
+**Learn More**: [Documentation](https://rafeekpro.github.io/OpenCodeAutoPM/)
+
+---
+
 ## Features
 
 ### Plugin System
@@ -70,7 +110,18 @@ All commands run inside OpenCode (not terminal):
 - Git workflow integration
 - Progress tracking
 
-**Azure DevOps** (41 commands)
+**Azure DevOps** (51 commands)
+- **NEW: Variable Groups** (10 commands) - Manage variable groups with secrets
+  - `/azure:vg-create` - Create variable groups with secrets
+  - `/azure:vg-link` - **Link variable groups to pipelines (solves manual UI work!)**
+  - `/azure:vg-list` - List all variable groups
+  - `/azure:vg-show` - Show variable group details
+  - `/azure:vg-update` - Update variable groups
+  - `/azure:vg-delete` - Delete variable groups
+  - `/azure:vg-unlink` - Unlink from pipelines
+  - `/azure:vg-export` - Export for backup/migration
+  - `/azure:vg-import` - Import from files
+  - `/azure:vg-validate` - Validate configuration
 - User Story management (`/azure:us-*`)
 - Task management (`/azure:task-*`)
 - Feature/Epic management (`/azure:feature-*`)
