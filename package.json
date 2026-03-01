@@ -168,7 +168,7 @@
   },
   "optionalDependencies": {
     "@playwright/mcp": "^0.0.43",
-    "@upstash/context7-mcp": "^1.0.0"
+    "@upstash/context7-mcp": "^2.1.2"
   },
   "publishConfig": {
     "access": "public",
