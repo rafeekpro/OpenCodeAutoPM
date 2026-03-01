@@ -1,6 +1,6 @@
 {
   "name": "opencode-autopm",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "description": "OpenCode Autonomous Project Management Framework - Advanced AI-powered development automation with parallel execution, MCP integration, and DevOps capabilities",
   "main": "bin/opencode-autopm.js",
   "workspaces": [

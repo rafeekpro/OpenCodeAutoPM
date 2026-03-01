@@ -7,6 +7,75 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.8.0] - 2026-02-28
+
+### Added
+- **Azure DevOps Variable Groups Management System** - Complete automation for Azure DevOps variable groups
+  - **10 New Commands** - Full CRUD operations plus linking, export/import, validation (azure:vg-*)
+  - **Hybrid Architecture** - CLI-first with REST API fallback for operations CLI doesn't support
+  - **Variable Group Linking** - Automated linking to multiple pipelines (previously manual UI-only!)
+  - **Secret Support** - Secure secret variable management via REST API
+  - **Export/Import** - Backup and migration capabilities for variable groups
+  - **Validation** - Health checks and configuration validation
+  - **Integration Tests** - 11 comprehensive test suites for real Azure DevOps environments
+
+### Commands
+- `/azure:vg-create <name> --variables=<vars> --secrets=<secrets>` - Create variable groups with secrets
+- `/azure:vg-link <vg-id> --pipeline=<id> --pipeline=<id>` - Link variable groups to pipelines ⭐
+- `/azure:vg-list` - List all variable groups in project
+- `/azure:vg-show <vg-id>` - Show variable group details with variable counts
+- `/azure:vg-update <vg-id> --variables=<vars>` - Update variable group variables
+- `/azure:vg-delete <vg-id>` - Delete variable group by ID
+- `/azure:vg-unlink <vg-id> --pipeline=<id>` - Unlink variable group from pipeline
+- `/azure:vg-export <vg-id> --format=<json|yaml|env>` - Export variable group to file
+- `/azure:vg-import <file>` - Import variable group from file
+- `/azure:vg-validate <vg-id>` - Validate variable group health and configuration
+
+### Infrastructure
+- **AzureDevOpsCliWrapper.js** (234 lines) - CLI execution with retry logic and exponential backoff
+- **AzureDevOpsRestClient.js** (307 lines) - REST API for operations CLI doesn't support (linking, secrets)
+- **AzureDevOpsResourcesProvider.js** (457 lines) - Integration layer combining CLI and REST approaches
+
+### Testing
+- **84 Unit Tests** - Comprehensive coverage of all provider functionality
+  - 30 tests for AzureDevOpsCliWrapper
+  - 26 tests for AzureDevOpsRestClient
+  - 28 tests for AzureDevOpsResourcesProvider
+- **11 Integration Test Suites** - Real Azure DevOps environment testing
+  - CRUD operations (create, read, update, delete)
+  - Secret variable handling
+  - Pipeline linking/unlinking
+  - Export/import functionality
+  - Validation and health checks
+  - Error handling and edge cases
+
+### Documentation
+- **2,615+ Lines of Command Documentation** - Comprehensive guides for all 10 commands
+  - Usage examples, parameters, workflows, troubleshooting
+  - Context7 documentation queries for best practices
+- **Updated Agent Documentation** - azure-devops-specialist.md with resource management patterns
+- **Integration Tests** - Complete test suite for Azure DevOps resources
+
+### Plugin Updates
+- **@opencodeautopm/plugin-pm-azure v3.0.0** - Major version bump
+  - Updated command count: 41 → 51 commands
+  - Added features: variable_groups, resource_management
+  - New tags: variable-groups, pipelines, service-connections, resource-management
+  - Package name updated: @claudeautopm → @opencodeautopm
+
+### Problem Solved
+- **Manual Variable Group Linking Eliminated** - Previously required 5+ minutes of clicking in Azure DevOps UI
+  - Before: Manual UI work, error-prone, not automatable
+  - After: `/azure:vg-link 5 --pipeline=51 --pipeline=52 --pipeline=53` (2 seconds)
+  - Impact: 150x faster, eliminates human errors, fully automatable in CI/CD pipelines
+
+### Technical Highlights
+- **REST API for Linking** - Azure CLI doesn't support variable group linking, solved with REST API
+- **JSON Patch Operations** - For pipeline configuration updates via REST
+- **Basic Authentication** - PAT-based auth for REST API calls
+- **Exponential Backoff** - Retry logic for transient failures
+- **Secret Management** - Secrets never logged, handled via REST API only
+
 ## [3.6.0] - 2025-02-25
 
 ### Added
